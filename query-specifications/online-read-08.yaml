@@ -1,0 +1,33 @@
+workload: Online
+operation: read
+number: 8
+title: Withdrawal after Many-to-One transfer
+description: |
+  Find all the accounts that match the requirements below:
+
+  * More than 5 transfer-ins from other Accounts the Account whose amount exceeds threshold in a specific time range between start_time and end_time.
+  * The amount of withdrawal to another account exceeds threshold after transfer-ins in a specific time range between start_time and end_time.
+  * Transfer path of edge1, edge2 are in ascending order in terms of timestamp. 
+  
+  Return all the accounts' id.
+parameters:
+  - name: threshold
+    type: 64-bit Integer
+    description: threshold of transfer amount
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
+result:
+  - name: b_id
+    type: ID
+    description: id of many-to-one Account
+sort:
+  - name: todo
+    direction: asc
+limit: todo
+choke_points: [0.0]
+relevance: |
+  This query is a typical fund withdrawal after pooling funds case in risk control.

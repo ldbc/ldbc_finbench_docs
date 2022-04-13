@@ -1,0 +1,14 @@
+workload: Online
+operation: write
+number: 5
+title:  Add Loan applied by Person
+description: |
+  Add a Loan Node and add an apply edge from a person node to it.
+parameters:
+  - name: Loan.loanId
+    type: ID
+  - name: Loan.loanAmount
+    type: 64-bit Integer
+  - naem: Person.personId
+    type: ID
+choke_points: [0.0]

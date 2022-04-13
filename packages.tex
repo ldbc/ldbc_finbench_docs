@@ -1,0 +1,55 @@
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{rotating}
+\usepackage{pifont}
+\usepackage{rotating}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{varwidth}
+\usepackage{hyperref}
+\usepackage{xspace}
+\usepackage[table]{xcolor}
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{makecell}
+
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+
+\usepackage[normalem]{ulem}
+\usepackage{cellspace}
+\usepackage{rotate}
+\usepackage{MnSymbol}
+\usepackage{xifthen}
+\usepackage{numprint}
+% for a proper tt font 
+\usepackage[scale=0.78,ttdefault=true]{AnonymousPro}
+
+\usepackage{bm}
+\newcommand{\+}{\discretionary{\mbox{${\bm\cdot}\mkern-1mu$}}{}{}}
+
+\usepackage{caption}
+\captionsetup[figure]{width=\linewidth,aboveskip=8pt}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+
+\usepackage[eprint=false]{biblatex}
+\renewbibmacro*{doi+eprint+url}{%
+	\printfield{doi}%
+	\newunit\newblock%
+	\iftoggle{bbx:eprint}{%
+		\usebibmacro{eprint}%
+	}{}%
+	\newunit\newblock%
+	\iffieldundef{doi}{%
+		\usebibmacro{url+urldate}}%
+	{}%
+}

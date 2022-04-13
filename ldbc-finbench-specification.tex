@@ -1,0 +1,49 @@
+% !TeX spellcheck = en_GB
+% !TeX encoding = UTF-8
+\documentclass{ldbc}
+
+\input{packages}
+\input{commands}
+\input{query-card-definitions}
+\input{listings}
+\input{main-doc-settings}
+
+
+\setboolean{standalone}{false}
+
+\input{abstract}
+
+\input{executive-summary}
+
+\begin{document}
+
+\maketitle
+
+\input{acknowledgements}
+
+\input{defs}
+
+\input{introduction}
+
+\input{benchmark-specification}
+
+\input{workloads}
+
+\input{online-workload}
+
+\input{nearline-workload}
+
+\input{offline-workload}
+
+\input{auditing-rules}
+
+\input{related-work}
+
+% \bibliographystyle{abbrvnat}
+% \bibliography{bib/references,bib/graphalytics}
+\appendix
+
+\chapter{Choke Points}
+\input{choke-points}
+
+\end{document}

@@ -1,0 +1,164 @@
+\renewcommand*{\arraystretch}{1.1}
+
+\subsection*{ {{- workload }} / {{ operation }} / {{ number -}} }
+\label{sec: {{- query_id -}} }
+
+% change \emph{} to use sans-serif font
+\let\oldemph\emph
+\renewcommand{\emph}[1]{{ '{{' }}\footnotesize \sf #1}}
+\let\oldtextbf\textbf
+\renewcommand{\textbf}[1]{{ '{{' }}\it #1}}
+
+{%- if workload == "Online" and operation == "read" -%}
+\renewcommand{\currentQueryCard}{ {{- number -}} }
+\marginpar{
+	\raggedleft
+	\scriptsize
+	% \vspace{0.15ex}
+
+	\queryRefCard{online-read-01}{OR}{1}\\
+	\queryRefCard{online-read-02}{OR}{2}\\
+	\queryRefCard{online-read-03}{OR}{3}\\
+	\queryRefCard{online-read-04}{OR}{4}\\
+	\queryRefCard{online-read-05}{OR}{5}\\
+	\queryRefCard{online-read-06}{OR}{6}\\
+	\queryRefCard{online-read-07}{OR}{7}\\
+	\queryRefCard{online-read-08}{OR}{8}\\
+	\queryRefCard{online-read-09}{OR}{9}\\
+	\queryRefCard{online-read-10}{OR}{10}\\
+	\queryRefCard{online-read-11}{OR}{11}\\
+	\queryRefCard{online-read-12}{OR}{12}\\
+	\queryRefCard{online-read-13}{OR}{13}\\
+	\queryRefCard{online-read-14}{OR}{14}\\
+	\queryRefCard{online-read-15}{OR}{15}\\
+	\queryRefCard{online-read-16}{OR}{16}\\
+	\queryRefCard{online-read-17}{OR}{17}\\
+	\queryRefCard{online-read-18}{OR}{18}\\
+	\queryRefCard{online-read-19}{OR}{19}\\
+	\queryRefCard{online-read-20}{OR}{20}\\
+	\queryRefCard{online-read-21}{OR}{21}\\
+	\queryRefCard{online-read-22}{OR}{22}\\
+	\queryRefCard{online-read-23}{OR}{23}\\
+	\queryRefCard{online-read-24}{OR}{24}\\
+}
+{%- endif %}
+
+{%- if workload == "Online" and operation == "write" -%}
+\renewcommand{\currentQueryCard}{ {{- number -}} }
+\marginpar{
+	\raggedleft
+	\scriptsize
+	% \vspace{0.15ex}
+	
+	\queryRefCard{online-write-01}{OW}{1}\\
+	\queryRefCard{online-write-02}{OW}{2}\\
+	\queryRefCard{online-write-03}{OW}{3}\\
+	\queryRefCard{online-write-04}{OW}{4}\\
+	\queryRefCard{online-write-05}{OW}{5}\\
+	\queryRefCard{online-write-06}{OW}{6}\\
+	\queryRefCard{online-write-07}{OW}{7}\\
+	\queryRefCard{online-write-08}{OW}{8}\\
+	\queryRefCard{online-write-09}{OW}{9}\\
+	\queryRefCard{online-write-10}{OW}{10}\\
+	\queryRefCard{online-write-11}{OW}{11}\\
+	\queryRefCard{online-write-12}{OW}{12}\\
+	\queryRefCard{online-write-13}{OW}{13}\\
+	\queryRefCard{online-write-14}{OW}{14}\\
+}
+{%- endif %}
+
+{%- if workload == "Online" and operation == "read-write" -%}
+\renewcommand{\currentQueryCard}{ {{- number -}} }
+\marginpar{
+	\raggedleft
+	\scriptsize
+	% \vspace{0.15ex}
+	
+	\queryRefCard{online-read-write-01}{ORW}{1}\\
+	\queryRefCard{online-read-write-02}{ORW}{2}\\
+	\queryRefCard{online-read-write-03}{ORW}{3}\\
+	\queryRefCard{online-read-write-04}{ORW}{4}\\
+	\queryRefCard{online-read-write-05}{ORW}{5}\\
+}
+{%- endif %}
+
+\noindent\begin{tabularx}{\queryCardWidth}{|>{\queryPropertyCell}p{\queryPropertyCellWidth}|X|}
+	\hline
+	query & {{ workload }} / {{ operation }} / {{ number }} \\ \hline
+%
+	title & {{ title }} \\ \hline
+%
+	{% if operation == "read" or operation == "write" %}
+		pattern & \centering \includegraphics[scale=\yedscale,margin=0cm .2cm]{patterns/{{ query_id -}} } \tabularnewline \hline
+	{% endif %}
+%
+	{% if composition %}
+		compose. & 
+		This read-write query contains the reads and writes below,
+		\begin{itemize}
+			{% for entry in composition -%}
+				\item \hyperref[sec:{{ entry.ref }}] { {{ entry.name }} }
+			{% endfor -%} 
+		\end{itemize}
+		\\ \hline
+	{% endif %}
+%
+	desc. & {{ description }} \\ \hline
+%
+	{% if parameters %}
+		params &
+		\innerCardVSpace{\begin{tabularx}{\attributeCardWidth}{|>{\paramNumberCell}C{\attributeNumberWidth}|>{\varNameCell}M|>{\typeCell}m{\typeWidth}|Y|} \hline
+		{% for entry in parameters -%}
+			$\mathsf{ {{- loop.index -}} }$ & {{ entry.name }} & {{ entry.type }} & {{ entry.description }} \\ \hline
+		{% endfor -%}
+		\end{tabularx}}\innerCardVSpace \\ \hline
+	{% endif %}
+%
+	{% if result %}
+		result &
+		\innerCardVSpace{\begin{tabularx}{\attributeCardWidth}{|>{\resultNumberCell}C{\attributeNumberWidth}|>{\varNameCell}M|>{\typeCell}m{\typeWidth}|>{\resultOriginCell}c|Y|} \hline
+		{% for entry in result -%}
+			$\mathsf{ {{- loop.index -}} }$ & {{ entry.name|trim() }} & {{ entry.type|trim() }} & {% set cat = entry.category|trim() -%}
+					{%- if   cat == "aggregated" -%} A
+					{%- elif cat == "calculated" -%} C
+					{%- elif cat == "meta" -%} M
+					{%- else -%} R
+					{%- endif %} &
+				{{ entry.description }} \\ \hline
+		{% endfor -%}
+		\end{tabularx}}\innerCardVSpace \\ \hline
+	{% endif %}
+%
+	{% if sort %}
+		sort		&
+		\innerCardVSpace{\begin{tabularx}{\attributeCardWidth}{|>{\sortNumberCell}C{\attributeNumberWidth}|>{\varNameCell}M|>{\directionCell}c|Y|} \hline
+		{% for entry in sort -%}
+			$\mathsf{ {{- loop.index -}} }$ & {{ entry.name }} & $\{{ entry.direction }}$ & {{ entry.description }} \\ \hline
+		{% endfor -%}
+		\end{tabularx}}\innerCardVSpace \\ \hline
+	{% endif -%}
+%
+	{% if limit -%}
+		limit & {{ limit }} \\ \hline
+	{% endif -%}
+%
+	{% if choke_points -%}
+	CPs &
+	\multicolumn{1}{>{\raggedright}l|}{
+		{% for choke_point in choke_points -%}
+			\chokePoint{ {{- choke_point -}} } {%- if not loop.last %}, {% endif %}
+		{% endfor -%}
+	} \\ \hline
+	{% endif -%}
+%
+	{% if relevance -%}
+	relevance &
+		\footnotesize {{ relevance }} \\ \hline
+	{%- endif -%}
+%
+\end{tabularx}
+\queryCardVSpace
+
+% change \emph and \textbf back to the old ones
+\let\emph\oldemph
+\let\textbf\oldtextbf

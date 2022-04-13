@@ -1,0 +1,28 @@
+workload: Online
+operation: read
+number: 23
+title: Accounts with the same transfer sources of exact account
+description: |
+  Given an Account, find all the blocked accounts that connect to a third-party
+  account which the given account has transfer-in from. Return all the accounts'
+  id.
+parameters:
+  - name: id
+    type: ID
+    description: id of the Account
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
+result:
+  - name: COLLECT(DISTINCT dstAccount.id)
+    type: "[ID]"
+sort:
+  - name: todo
+    direction: asc
+limit: todo
+choke_points: [0.0]
+relevance: |
+  This query is a typical analysis for gang related accounts in risk control.

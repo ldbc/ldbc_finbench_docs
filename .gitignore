@@ -1,0 +1,23 @@
+*.aux
+*.log
+*.out
+*.lof
+*.lot
+*.toc
+*.fdb_latexmk
+*.fls
+*.synctex*
+*.bbl
+*.blg
+# ldbc-finbench-specification.pdf
+# /*.pdf
+out/
+.DS_Store
+Thumbs.db
+.idea/
+*.~*
+*.*~
+*.bcf
+*.run.xml
+
+.vscode

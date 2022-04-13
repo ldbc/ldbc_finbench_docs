@@ -1,0 +1,24 @@
+workload: Online
+operation: read-write
+number: 3
+title: High risk account mid-account blocked after fast-in and fast-out detected
+compositions:
+  - name: Online / Read / 22
+    ref: online-read-22
+  - name: Online / Write / 3
+    ref: online-write-03
+  - name: Online / Read / 10
+    ref: online-read-10
+  - name: Online / Write / 10
+    ref: online-write-10
+description: |
+  With the reads and writes, this query works as:
+  * With Online / Read / 22, blocked status of related account is read.
+  * With Online / write / 3, many transfer edges are inserted. Then enough transfer-out edges from the blocked and unblocked accounts are inserted to the target account.
+  * With Online / read / 10, the pattern of Fast-in and Fast-out is detected and the count of the account transfer-ins and transfer-outs is calculated.
+  * When the count exceeds a threshold, Online / write / 10 is triggered to mark the account as blocked. 
+parameters:
+  - name: threshold of transfer-ins and transfer-outs count.
+    type: Float
+relevance: |
+  It is a typical fraud detection and AWL case in risk control.

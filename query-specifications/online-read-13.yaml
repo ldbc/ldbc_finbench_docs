@@ -1,0 +1,35 @@
+workload: Online
+operation: read
+number: 13
+title: Money laundering via loans
+description: |
+  Find all the accounts that match the requirements below:
+  * Deposited from a Loan where the amount exceeds threshold
+  * Repay to the Loan in a short period after loan deposit and the amount repaid exceeds a ratio of the deposit amount.
+  
+  Note that the timestamps of transfer edges are in order: 
+  edge2 < edge4 < edge3 < edge1. Return the paths of 
+  transfer-ins and transfer-outs via the accounts.
+parameters:
+  - name: threshold
+    type: 64-bit Integer
+    description: threshold of deposit amount
+  - name: ratio_threshold
+    type: float
+    description: threshold of the ratio of repay over deposit
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
+result:
+  - name: path
+    type: ???
+sort:
+  - name: todo
+    direction: asc
+limit: todo
+choke_points: [0.0]
+relevance: |
+  This query is money laundering with loans involved recognition in AWL.

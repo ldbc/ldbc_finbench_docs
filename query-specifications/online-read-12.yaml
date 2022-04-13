@@ -1,0 +1,25 @@
+workload: Online
+operation: read
+number: 12
+title: Abnormal transfer from an account
+description: |
+  Given an Account, find all the transfer-outs from the Account whose amount
+  exceeds threshold in a specific time range between start_time and end_time.
+  Return the count of transfer-outs.
+parameters:
+  - name: id
+    type: ID
+    description: id of the dstAccount
+  - name: threshold
+    type: 64-bit Integer
+    description: threshold of transfer amount
+result:
+  - name: COUNT(edge)
+    type: 32-bit Integer
+sort:
+  - name: todo
+    direction: asc
+limit: todo
+choke_points: [0.0]
+relevance: |
+  This query is a typical frequent transfer-out recognition case in risk control.

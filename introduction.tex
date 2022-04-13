@@ -1,0 +1,99 @@
+\chapter{Introduction}
+\label{sec:introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Practice basis for FinBench}
+
+Based on a comprehensive survey on financial scenarios inside and outside
+AntGroup, we summarize some common user cases in risk control, AML (Anti-Money
+Laundering), KYC(Know Your Customer), and so on. With the best practices in the
+industry, we propose this design for LDBC Financial Benchmark.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Design concepts of FinBench}
+
+\subsection{Data Schema}
+
+The data design is based on a review of actual data in systems. The data schema
+for FinBench is inspired by the real data in financial systems. Stored data in
+systems contain entities in the real world including accounts, medium(device,
+IP, etc.), persons, companies, orders, loans, and so on. These entities are
+Nodes in the data schema. And the edges in the data schema reflect financial
+actions in the real world like transferring funds from one account to another,
+guaranteeing by one person for another. The designed data schema is specified in
+Section 2.3.
+
+\subsection{Load definition}
+
+In this draft, we do not finish the load design with the workloads. But we
+conclude some patterns of load after reviewing audit logs of systems. They are:
+\begin{itemize}
+    \item Data read and write intermittently with random intervals.
+    \item There are some light and extremely heavy loads periodically.
+    \item Large scale data ETLs are triggered when at midnight or some time the
+    system load is light.
+    \item Tight latency constraints.
+\end{itemize}
+
+\subsection{Workloads}
+
+Compared with LDBC SNB, we divide the queries into three workloads based on
+their complexity and application latency. They are:
+\begin{itemize}
+    \item Online Workload (See Section 4). This workload is supposed to
+    include cases in online applications which are expected to be finished in
+    low latency. The latency may range from tens to hundreds in millisecond
+    precision. The cases are usually accessing at most 3 step neighborhood from
+    a start node. In this draft, we fill cases in the online workload for
+    discussion.
+    \item Nearline Workload (See Section 5). This workload is supposed to
+    include cases in nearline applications which are expected to be finished in
+    higher latency than online applications but lower latency than offline
+    applications. The latency may range from several seconds to several minutes.
+    The cases usually include subgraph traversal, pattern matching, and deeper
+    neighborhood accessing. Nearline workload will be designed in the future.
+    \item Offline Workload (See Section 6). This workload is supposed to
+    include cases in offline applications which are expected to be finished in
+    high latency. The latency may range from tens of minutes and even many
+    hours. The cases are usually performing iterative graph analytics. Offline
+    workload will be designed in the future.
+\end{itemize}
+In Online workload, the queries include read queries, write queries, and
+read-write queries. Read-write query is a significant design that reflects the
+complexity of financial systems. In real-time risk control, risk analysis for
+involved accounts is supposed to be triggered intermediately when some deals
+related are recorded. Abstracting from such scenarios, we propose a concept
+Read-write Query. A read-write query is composed of read queries and write
+queries consecutively. For example, a read-write query is composed of inserting
+transfer edges(a write query), risk analysis for a specific account(a read
+query), in the example mentioned above. For detail, see Section 4.3.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Differences between FinBench and SNB}
+
+We highlight several differences between FinBench and SNB as the following:
+\begin{itemize}
+    \item Multiple edges can exist between two vertices, e.g., many
+    money-transfers can occur between two accounts each day.
+    \item Read-write queries, which is a query sequence with a mix of read and
+    write queries.
+    \item Filtering with backward dependency in variable-length paths, e.g.,
+    finding all money-transfer paths A ->[e1]->B-[e2]->...->X  in which the
+    timestamp of each transfer ei  is larger than that of ei-1
+    \item Property update queries, e.g., marking an account as blocked or
+    high-risk for risk control.
+    \item Latency sensitive, e.g., some queries need to return in less than
+    10ms.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

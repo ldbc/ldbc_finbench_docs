@@ -1,0 +1,10 @@
+workload: Online
+operation: write
+number: 10
+title:  Block an account of high risk
+description: |
+  Set an account's isBlocked to True.
+parameters:
+  - name: Account.accountId
+    type: ID
+choke_points: [0.0]

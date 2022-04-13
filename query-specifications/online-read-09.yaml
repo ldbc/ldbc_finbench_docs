@@ -1,0 +1,28 @@
+workload: Online
+operation: read
+number: 9
+title: Exact account main transfer trace
+description: |
+  Given an Account, find the ratio of each transfer-out at 1 step and at 2
+  steps. Note that the transfer path of x, y are in ascending order in terms of
+  timestamp and in descending order in terms of amount. Return the ratios in
+  descending order.
+parameters:
+  - name: id
+    type: ID
+    description: id of the start Account
+  - name: threshold
+    type: 64-bit Integer
+    description: threshold of transfer amount
+result:
+  - name: ratio1
+    type: float
+  - name: ratio2
+    type: float
+sort:
+  - name: todo
+    direction: asc
+limit: todo
+choke_points: [0.0]
+relevance: |
+  This query is a typical main stream of fund transfer-out trace case in risk control.
