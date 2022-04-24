@@ -2,9 +2,9 @@
 
 # LDBC FinBench Documentation
 
-[[Current Draft]](http://raw.githubusercontent.com/ldbc/ldbc_finbench_docs/main/ldbc-finbench-specification.pdf)
+[[Current Draft]](https://github.com/ldbc/ldbc_finbench_docs/raw/gh-pages/ldbc-finbench-specification.pdf)
 
-It is a specification **DRAFT** for LDBC Financial Benchmark in LaTex.
+It is a specification **DRAFT** for LDBC Financial Benchmark in LaTeX.
 
 ## Related benchmarks
 
