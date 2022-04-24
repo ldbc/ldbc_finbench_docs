@@ -1,0 +1,28 @@
+on: [push]
+
+jobs:
+  compile_exercises_job:
+    runs-on: ubuntu-latest
+    name: Compile specification
+    steps:
+    - uses: actions/checkout@v2
+    - name: Prepare template
+      run: |
+        sed -i "s/-SNAPSHOT/-SNAPSHOT (`git rev-parse --short HEAD`)/" ldbc.cls
+    - name: Build PDFs with the LaTeX engine in Docker
+      uses: ldbc/document-builder@main
+      with:
+        makefile-arguments: all
+    - name: Create package
+      run: |
+        mkdir out/
+        cp README.md out/
+        cp -r figures/ out/
+        cp ldbc-finbench-specification.pdf out/
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.3.0
+      with:
+        branch: gh-pages
+        folder: out
+        single-commit: true
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
