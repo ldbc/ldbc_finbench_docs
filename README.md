@@ -15,7 +15,7 @@ It is a specification **DRAFT** for LDBC Financial Benchmark in LaTeX.
 
 ## How to build the this document
 
-**This repository contains the LaTeX source for the specification** of the LDBC FinBench. This README discusses how to build the [specification PDF](http://raw.githubusercontent.com/ldbc/ldbc_finbench_docs/main/ldbc-finbench-specification.pdf) from source.
+**This repository contains the LaTeX source for the specification** of the LDBC FinBench. This README discusses how to build the [specification PDF](https://ldbcouncil.org/ldbc_finbench_docs/ldbc-finbench-specification.pdf) from source.
 
 ### Generating query cards
 
