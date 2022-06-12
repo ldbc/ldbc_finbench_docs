@@ -2,7 +2,7 @@
 
 # LDBC FinBench Documentation
 
-[[Current Draft]](https://github.com/ldbc/ldbc_finbench_docs/raw/gh-pages/ldbc-finbench-specification.pdf)
+[[Current Draft]](https://ldbcouncil.org/ldbc_finbench_docs/ldbc-finbench-specification.pdf)
 
 It is a specification **DRAFT** for LDBC Financial Benchmark in LaTeX.
 
