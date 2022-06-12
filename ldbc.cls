@@ -137,7 +137,7 @@
 
 % Header setup
 
-\newcommand{\ldbcfinbenchdocversion}{0.0.1-SNAPSHOT}
+\newcommand{\ldbcfinbenchdocversion}{0.1.0-RC}
 \newcommand{\ldbcfinbenchdoctitle}{The LDBC Financial Benchmark -- version \ldbcfinbenchdocversion}
 \delName{The LDBC Financial Benchmark \\ (version \ldbcfinbenchdocversion)}
 
