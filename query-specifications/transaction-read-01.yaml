@@ -1,0 +1,32 @@
+workload: Transaction
+operation: read
+number: 1
+title: Blocked medium related accounts
+description: |
+  Given a start *Account*, find *Accounts* which is connected to a blocked
+  *Medium* via the *signIn* relationship by at most 3 steps via the *transfer*
+  relationship. Note that the timestamps of all the relationships are in a
+  specific time range between start_time and end_time. Note that the transfer
+  path of edge1(at most 3 steps transfer relationship) are in ascending order in
+  terms of timestamp. Return the count of distinct *medium*.
+parameters:
+  - name: id
+    type: ID
+    description: id of the start Account
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
+result:
+  - name: COUNT(DISTINCT meidum)
+    type: 64-bit Integer
+    description: number of different mediums
+sort:
+  - name: todo
+    direction: asc
+limit: todo
+choke_points: [0.0]
+relevance: |
+  This query is a typical fund transfer cycle analysis case in AWL.

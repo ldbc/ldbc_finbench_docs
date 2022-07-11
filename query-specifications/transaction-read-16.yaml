@@ -1,0 +1,28 @@
+workload: Transaction
+operation: read
+number: 16
+title: Company-related information
+description: |
+  Given a Company, find all the related nodes.
+parameters:
+  - name: id
+    type: ID
+    description: id of the Company
+result:
+  - name: accounts.id
+    type: "[ID]"
+  - name: invest_persons.id
+    type: "[ID]"
+  - name: workers.id
+    type: "[ID]"
+  - name: invest_company.id
+    type: "[ID]"
+  - name: loans.id
+    type: "[ID]"
+sort:
+  - name: todo
+    direction: asc
+limit: todo
+choke_points: [0.0]
+relevance: |
+  This is a company information query case.

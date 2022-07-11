@@ -9,76 +9,76 @@
 \let\oldtextbf\textbf
 \renewcommand{\textbf}[1]{{ '{{' }}\it #1}}
 
-{%- if workload == "Online" and operation == "read" -%}
+{%- if workload == "Transaction" and operation == "read" -%}
 \renewcommand{\currentQueryCard}{ {{- number -}} }
 \marginpar{
 	\raggedleft
 	\scriptsize
 	% \vspace{0.15ex}
 
-	\queryRefCard{online-read-01}{OR}{1}\\
-	\queryRefCard{online-read-02}{OR}{2}\\
-	\queryRefCard{online-read-03}{OR}{3}\\
-	\queryRefCard{online-read-04}{OR}{4}\\
-	\queryRefCard{online-read-05}{OR}{5}\\
-	\queryRefCard{online-read-06}{OR}{6}\\
-	\queryRefCard{online-read-07}{OR}{7}\\
-	\queryRefCard{online-read-08}{OR}{8}\\
-	\queryRefCard{online-read-09}{OR}{9}\\
-	\queryRefCard{online-read-10}{OR}{10}\\
-	\queryRefCard{online-read-11}{OR}{11}\\
-	\queryRefCard{online-read-12}{OR}{12}\\
-	\queryRefCard{online-read-13}{OR}{13}\\
-	\queryRefCard{online-read-14}{OR}{14}\\
-	\queryRefCard{online-read-15}{OR}{15}\\
-	\queryRefCard{online-read-16}{OR}{16}\\
-	\queryRefCard{online-read-17}{OR}{17}\\
-	\queryRefCard{online-read-18}{OR}{18}\\
-	\queryRefCard{online-read-19}{OR}{19}\\
-	\queryRefCard{online-read-20}{OR}{20}\\
-	\queryRefCard{online-read-21}{OR}{21}\\
-	\queryRefCard{online-read-22}{OR}{22}\\
-	\queryRefCard{online-read-23}{OR}{23}\\
-	\queryRefCard{online-read-24}{OR}{24}\\
+	\queryRefCard{transaction-read-01}{TR}{1}\\
+	\queryRefCard{transaction-read-02}{TR}{2}\\
+	\queryRefCard{transaction-read-03}{TR}{3}\\
+	\queryRefCard{transaction-read-04}{TR}{4}\\
+	\queryRefCard{transaction-read-05}{TR}{5}\\
+	\queryRefCard{transaction-read-06}{TR}{6}\\
+	\queryRefCard{transaction-read-07}{TR}{7}\\
+	\queryRefCard{transaction-read-08}{TR}{8}\\
+	\queryRefCard{transaction-read-09}{TR}{9}\\
+	\queryRefCard{transaction-read-10}{TR}{10}\\
+	\queryRefCard{transaction-read-11}{TR}{11}\\
+	\queryRefCard{transaction-read-12}{TR}{12}\\
+	\queryRefCard{transaction-read-13}{TR}{13}\\
+	\queryRefCard{transaction-read-14}{TR}{14}\\
+	\queryRefCard{transaction-read-15}{TR}{15}\\
+	\queryRefCard{transaction-read-16}{TR}{16}\\
+	\queryRefCard{transaction-read-17}{TR}{17}\\
+	\queryRefCard{transaction-read-18}{TR}{18}\\
+	\queryRefCard{transaction-read-19}{TR}{19}\\
+	\queryRefCard{transaction-read-20}{TR}{20}\\
+	\queryRefCard{transaction-read-21}{TR}{21}\\
+	\queryRefCard{transaction-read-22}{TR}{22}\\
+	\queryRefCard{transaction-read-23}{TR}{23}\\
+	\queryRefCard{transaction-read-24}{TR}{24}\\
 }
 {%- endif %}
 
-{%- if workload == "Online" and operation == "write" -%}
+{%- if workload == "Transaction" and operation == "write" -%}
 \renewcommand{\currentQueryCard}{ {{- number -}} }
 \marginpar{
 	\raggedleft
 	\scriptsize
 	% \vspace{0.15ex}
 	
-	\queryRefCard{online-write-01}{OW}{1}\\
-	\queryRefCard{online-write-02}{OW}{2}\\
-	\queryRefCard{online-write-03}{OW}{3}\\
-	\queryRefCard{online-write-04}{OW}{4}\\
-	\queryRefCard{online-write-05}{OW}{5}\\
-	\queryRefCard{online-write-06}{OW}{6}\\
-	\queryRefCard{online-write-07}{OW}{7}\\
-	\queryRefCard{online-write-08}{OW}{8}\\
-	\queryRefCard{online-write-09}{OW}{9}\\
-	\queryRefCard{online-write-10}{OW}{10}\\
-	\queryRefCard{online-write-11}{OW}{11}\\
-	\queryRefCard{online-write-12}{OW}{12}\\
-	\queryRefCard{online-write-13}{OW}{13}\\
-	\queryRefCard{online-write-14}{OW}{14}\\
+	\queryRefCard{transaction-write-01}{TW}{1}\\
+	\queryRefCard{transaction-write-02}{TW}{2}\\
+	\queryRefCard{transaction-write-03}{TW}{3}\\
+	\queryRefCard{transaction-write-04}{TW}{4}\\
+	\queryRefCard{transaction-write-05}{TW}{5}\\
+	\queryRefCard{transaction-write-06}{TW}{6}\\
+	\queryRefCard{transaction-write-07}{TW}{7}\\
+	\queryRefCard{transaction-write-08}{TW}{8}\\
+	\queryRefCard{transaction-write-09}{TW}{9}\\
+	\queryRefCard{transaction-write-10}{TW}{10}\\
+	\queryRefCard{transaction-write-11}{TW}{11}\\
+	\queryRefCard{transaction-write-12}{TW}{12}\\
+	\queryRefCard{transaction-write-13}{TW}{13}\\
+	\queryRefCard{transaction-write-14}{TW}{14}\\
 }
 {%- endif %}
 
-{%- if workload == "Online" and operation == "read-write" -%}
+{%- if workload == "Transaction" and operation == "read-write" -%}
 \renewcommand{\currentQueryCard}{ {{- number -}} }
 \marginpar{
 	\raggedleft
 	\scriptsize
 	% \vspace{0.15ex}
 	
-	\queryRefCard{online-read-write-01}{ORW}{1}\\
-	\queryRefCard{online-read-write-02}{ORW}{2}\\
-	\queryRefCard{online-read-write-03}{ORW}{3}\\
-	\queryRefCard{online-read-write-04}{ORW}{4}\\
-	\queryRefCard{online-read-write-05}{ORW}{5}\\
+	\queryRefCard{transaction-read-write-01}{TRW}{1}\\
+	\queryRefCard{transaction-read-write-02}{TRW}{2}\\
+	\queryRefCard{transaction-read-write-03}{TRW}{3}\\
+	\queryRefCard{transaction-read-write-04}{TRW}{4}\\
+	\queryRefCard{transaction-read-write-05}{TRW}{5}\\
 }
 {%- endif %}
 

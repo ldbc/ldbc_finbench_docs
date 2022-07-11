@@ -1,0 +1,10 @@
+workload: Transaction
+operation: write
+number: 12
+title:  Block a person of high risk
+description: |
+  Set a person's isBlocked to True.
+parameters:
+  - name: Person.personId
+    type: ID
+choke_points: [0.0]

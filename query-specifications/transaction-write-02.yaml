@@ -1,0 +1,23 @@
+workload: Transaction
+operation: write
+number: 2
+title:  Add an Account Node owned by Company
+description: |
+  Add an account node. Add a Company node and an own edge from it to the account
+  Node.
+parameters:
+  - name: Company.companyId 
+    type: ID
+  - name: Company.companyName
+    type: String
+  - name: Company.companyBlocked
+    type: Boolean
+  - name: Account.accountId
+    type: ID
+  - name: Account.currentTime
+    type: DateTime
+  - name: Account.accountBlocked
+    type: Boolean
+  - name: Account.accountType
+    type: String
+choke_points: [0.0]

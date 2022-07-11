@@ -46,25 +46,19 @@ conclude some patterns of load after reviewing audit logs of systems. They are:
 Compared with LDBC SNB, we divide the queries into three workloads based on
 their complexity and application latency. They are:
 \begin{itemize}
-    \item Online Workload (See Section 4). This workload is supposed to
+    \item Transaction Workload. This workload is supposed to
     include cases in online applications which are expected to be finished in
     low latency. The latency may range from tens to hundreds in millisecond
     precision. The cases are usually accessing at most 3 step neighborhood from
-    a start node. In this draft, we fill cases in the online workload for
+    a start node. In this draft, we fill cases in the transaction workload for
     discussion.
-    \item Nearline Workload (See Section 5). This workload is supposed to
-    include cases in nearline applications which are expected to be finished in
-    higher latency than online applications but lower latency than offline
-    applications. The latency may range from several seconds to several minutes.
-    The cases usually include subgraph traversal, pattern matching, and deeper
-    neighborhood accessing. Nearline workload will be designed in the future.
-    \item Offline Workload (See Section 6). This workload is supposed to
+    \item Analysis Workload. This workload is supposed to
     include cases in offline applications which are expected to be finished in
     high latency. The latency may range from tens of minutes and even many
-    hours. The cases are usually performing iterative graph analytics. Offline
+    hours. The cases are usually performing iterative graph analytics. Analysis
     workload will be designed in the future.
 \end{itemize}
-In Online workload, the queries include read queries, write queries, and
+In transaction workload, the queries include read queries, write queries, and
 read-write queries. Read-write query is a significant design that reflects the
 complexity of financial systems. In real-time risk control, risk analysis for
 involved accounts is supposed to be triggered intermediately when some deals

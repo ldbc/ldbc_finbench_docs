@@ -1,0 +1,17 @@
+workload: Transaction
+operation: write
+number: 4
+title:  Add withdraw between accounts
+description: |
+  Add a withdraw edge from an account node to another account node whose type is
+  card
+parameters:
+  - name: Account.accountSrcId
+    type: ID
+  - name: Accout.accountDstId
+    type: ID
+  - name: withdraw.timestamp
+    type: DateTime
+  - name: withdraw.amount
+    type: 64-bit Integer
+choke_points: [0.0]

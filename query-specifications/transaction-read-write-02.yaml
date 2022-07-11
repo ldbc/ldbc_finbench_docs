@@ -1,0 +1,24 @@
+workload: Transaction
+operation: read-write
+number: 2
+title: High risk account blocked after many transfer-outs from blocked account
+compositions:
+  - name: Transaction / Read / 22
+    ref: transaction-read-22
+  - name: Transaction / Write / 3
+    ref: transaction-write-03
+  - name: Transaction / Read / 6
+    ref: transaction-read-06
+  - name: Transaction / Write / 10
+    ref: transaction-write-10
+description: |
+  With the reads and writes, this query works as:
+  * With Transaction / Read / 22, blocked status of related account is read.
+  * With Transaction / write / 3, many transfer edges are inserted. Then enough transfer-out edges from the blocked and unblocked accounts are inserted to the target account.
+  * With Transaction / read / 6, many transfer-outs is detected and the ratio of the account transfer-ins from blocked account in all transfer-ins is calculated.
+  * When the ratio exceeds a threshold, Transaction / write / 10 is triggered to mark the account as blocked.
+parameters:
+  - name: threshold of ratio
+    type: Float
+relevance: |
+  It is a typical fraud detection case in risk control.

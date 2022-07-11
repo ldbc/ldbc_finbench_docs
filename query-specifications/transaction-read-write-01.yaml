@@ -1,0 +1,24 @@
+workload: Transaction
+operation: read-write
+number: 1
+title: High risk account blocked after frequent Money-Laundering transfer cycle detected
+compositions:
+  - name: Transaction / Read / 22
+    ref: transaction-read-22
+  - name: Transaction / Write / 3
+    ref: transaction-write-03
+  - name: Transaction / Read / 4
+    ref: transaction-read-04
+  - name: Transaction / Write / 10
+    ref: transaction-write-10
+description: |
+  With the reads and writes, this query works as:
+  * With Transaction / Read / 22, blocked status of related account is read.
+  * With Transaction / write / 3, many transfer edges are inserted. And with enough transfer edges inserted, a transfer cycle via a third-party is formed.
+  * With Transaction / read / 4, a three accounts cycle is detected and the sum of transferred fund amount is calculated.
+  * When the amount sum exceeds a threshold, Transaction / write / 10 is triggered to mark all the account in the cycle as blocked.
+parameters:
+  - name: threshold of amount sum
+    type: Float
+relevance: |
+  It is a typical AWL case in risk control.

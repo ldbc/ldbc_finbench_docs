@@ -1,0 +1,24 @@
+workload: Transaction
+operation: read-write
+number: 3
+title: High risk account mid-account blocked after fast-in and fast-out detected
+compositions:
+  - name: Transaction / Read / 22
+    ref: transaction-read-22
+  - name: Transaction / Write / 3
+    ref: transaction-write-03
+  - name: Transaction / Read / 10
+    ref: transaction-read-10
+  - name: Transaction / Write / 10
+    ref: transaction-write-10
+description: |
+  With the reads and writes, this query works as:
+  * With Transaction / Read / 22, blocked status of related account is read.
+  * With Transaction / write / 3, many transfer edges are inserted. Then enough transfer-out edges from the blocked and unblocked accounts are inserted to the target account.
+  * With Transaction / read / 10, the pattern of Fast-in and Fast-out is detected and the count of the account transfer-ins and transfer-outs is calculated.
+  * When the count exceeds a threshold, Transaction / write / 10 is triggered to mark the account as blocked. 
+parameters:
+  - name: threshold of transfer-ins and transfer-outs count.
+    type: Float
+relevance: |
+  It is a typical fraud detection and AWL case in risk control.

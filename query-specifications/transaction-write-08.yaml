@@ -1,0 +1,16 @@
+workload: Transaction
+operation: write
+number: 8
+title:  Loan Deposit
+description: |
+  Add a deposit edge from a Loan node to an Account node
+parameters:
+  - name: Account.accountId
+    type: ID
+  - name: Loan.loanId
+    type: ID
+  - name: deposit.currentTime
+    type: DateTime
+  - name: deposit.amt
+    type: 64-bit Integer
+choke_points: [0.0]

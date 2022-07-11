@@ -1,0 +1,16 @@
+workload: Transaction
+operation: write
+number: 7
+title:  Account signed in with Medium
+description: |
+  Add an Medium node and add a signIn edge from it to an Account node
+parameters:
+  - name: Account.accountId
+    type: ID
+  - name: Medium.mediumId
+    type: ID
+  - name: Medium.mediumBlocked
+    type: Boolean
+  - name: signIn.currentTime
+    type: DateTime 
+choke_points: [0.0]

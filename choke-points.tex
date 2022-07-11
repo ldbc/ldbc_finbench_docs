@@ -39,7 +39,7 @@ Amount. Timestamp and amount property is used in filtering.
 \cpSection[1.2]{1.2}{RFBD}{Recursive Filtering with backward dependency in variable-length paths}
 
 In some cases, there are some special pattern that is typical in financial
-scenarios. Take Online/read/11 for example. In this query, it is supposed there
+scenarios. Take Transaction/read/11 for example. In this query, it is supposed there
 are paths from the start Account Node to other Account Node at most 3 steps via
 Transfer relationship. These paths should meet these requirements or patterns:
 \begin{itemize}
@@ -49,7 +49,7 @@ Transfer relationship. These paths should meet these requirements or patterns:
 	of each transfer ei  is smaller than that of ei-1
 \end{itemize}
 
-These cases contain this pattern: Online / read / [1,2,3,4,7,8,9,10,11,13]
+These cases contain this pattern: Transaction / read / [1,2,3,4,7,8,9,10,11,13]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -58,7 +58,7 @@ These cases contain this pattern: Online / read / [1,2,3,4,7,8,9,10,11,13]
 In some cases, the edges may be of different type in variant-length paths, e.g.,
 paths like A ->[e1]->B-[e2]->...->X in  which the type of ei  is transfer and
 the type of ei-1  is withdraw. When the types varies, it is supposed to support
-query using regular expressions. Examples cases: Online / read / 11
+query using regular expressions. Examples cases: Transaction / read / 11
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
