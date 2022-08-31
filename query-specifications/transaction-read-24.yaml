@@ -3,17 +3,13 @@ operation: read
 number: 24
 title: Companies with the same investor of exact company
 description: |
-  Given a Company, find all the companies that the investors invest at the same time.
+  Given a *Company*, find all the *Companies* that the *Persons* invest.
 parameters:
   - name: id
     type: ID
 result:
   - name: companies
     type: "[ID]"
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This is a typical query for investor relationship analysis.

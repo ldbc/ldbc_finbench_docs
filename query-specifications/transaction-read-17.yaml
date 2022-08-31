@@ -3,7 +3,7 @@ operation: read
 number: 17
 title: Invest relationship trace
 description: |
-  Given a company, find all the companies and persons the company invested by at most k steps.
+  Given a *Company*, find all the *Companies* and *Persons* the *Company* invests by at most k steps.
 parameters:
   - name: id
     type: ID
@@ -13,10 +13,6 @@ parameters:
 result:
   - name: COLLECT(dst)
     type: "[ID]"
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This is a typical company invest relationship analysis.

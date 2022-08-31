@@ -1,10 +1,10 @@
 workload: Transaction
 operation: read
 number: 15
-title: Similarity of persons who invests companies
+title: Similarity of investor relationship
 description: |
-  Given two Persons, find all the companies the two persons invest. Return the
-  jaccard similarity between the two companies set.
+  Given two *Persons*, find all the *Companies* the two *Persons* invest.
+  Return the jaccard similarity between the two companies set.
 parameters:
   - name: id1
     type: ID
@@ -15,10 +15,6 @@ parameters:
 result:
   - name: sim
     type: float
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This query is a typical share holding analysis case.

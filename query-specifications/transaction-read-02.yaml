@@ -1,14 +1,14 @@
 workload: Transaction
 operation: read
 number: 2
-title: example
+title: Fund gathered from the accounts applying loans
 description: |
-  Given a *Person*, find an *Account* owned by the *Person* which has funds
-  transferred from other *Accounts* by at most 3 steps which connected to *loan*
-  via *deposit* relationship in a specific time range between start_time and
-  end_time. Note that the transfer path of edge2(at most 3 steps transfer
-  relationship) are in ascending order in terms of timestamp. Return the sum and
-  count of loans fund amount.
+  Given a *Person*, find an *Account* *owned* by the *Person* which has fund
+  transferred from other *Accounts* by at most 3 steps(*edge2*) which
+  connected to *loan* via *deposit* relationship. Note that the timestamps
+  in transfer trace(*edge2*) are in ascending order within a specific time
+  range between *start_time* and *end_time*. Return the sum of *loan* amount
+  and the count of distinct *loans*.
 parameters:
   - name: id
     type: ID
@@ -26,10 +26,6 @@ result:
   - name: COUNT(DISTINCT loans)
     type: 64-bit Integer
     description: number of different loans
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This query is typical gang analysis case in risk control.

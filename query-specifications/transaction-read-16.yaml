@@ -3,7 +3,7 @@ operation: read
 number: 16
 title: Company-related information
 description: |
-  Given a Company, find all the related nodes.
+  Given a *Company*, find all the related nodes.
 parameters:
   - name: id
     type: ID
@@ -19,10 +19,6 @@ result:
     type: "[ID]"
   - name: loans.id
     type: "[ID]"
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This is a company information query case.

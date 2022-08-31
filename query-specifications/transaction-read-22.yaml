@@ -3,18 +3,14 @@ operation: read
 number: 22
 title: Exact Account properties query
 description: |
-  Given an Account id, find the properties of the specific account.
+  Given an *Account* id, find the properties of the specific *Account*.
 parameters:
   - name: id
     type: ID
     description: id of the Account
 result:
   - name: properties
-    type: "??"
-sort:
-  - name: todo
-    direction: asc
-limit: todo
+    type: TODO
 choke_points: [0.0]
 relevance: |
   Property retrieve of a specific account.

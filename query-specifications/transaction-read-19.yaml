@@ -3,17 +3,11 @@ operation: read
 number: 19
 title: Guarantee Chain Detection
 description: |
-  Given an *Account*, find the ratio of *transfer*-ins from blocked *Accounts* in all
-  its *transfer*-ins in a specific time range between start_time and end_time.
-  Return the ratio.
+  Find all the *guarantee* chains.
 parameters:
 result:
   - name: person
     type: "[ID]"
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This is a typical chain detection in guarantee.

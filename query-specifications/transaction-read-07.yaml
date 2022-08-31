@@ -3,10 +3,10 @@ operation: read
 number: 7
 title: Exact Account Transfer Trace
 description: |
-  Given a Person, find the paths from the Account the Person owned to other
-  Accounts by at most 5 steps via transfer relationship in a specific time range
-  between start_time and end_time. Note that the transfer path of edge2 are in
-  ascending order in terms of timestamp. Return the paths.
+  Given a *Person*, find the *transfer* trace from the *Account* owned by the *Person* to
+  other *Accounts* by at most 5 steps in a specific time range between *start_time* and 
+  *end_time*. Note that the *transfer* trace(*edge2*) are in ascending order in terms of
+  timestamp. Return the trace.
 parameters:
   - name: id
     type: ID
@@ -19,11 +19,7 @@ parameters:
     description: end of the time window
 result:
   - name: path
-    type: ???
-sort:
-  - name: todo
-    direction: asc
-limit: todo
+    type: TODO
 choke_points: [0.0]
 relevance: |
   This query is a typical fund transfer trace case in risk control.

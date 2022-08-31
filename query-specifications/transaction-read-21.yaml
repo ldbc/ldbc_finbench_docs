@@ -3,9 +3,9 @@ operation: read
 number: 21
 title: Exact Account transfer-in statistic
 description: |
-  Given an Account, find all the accounts the account transfers in to. Return
-  the sum of the transfer-in amount, the count of transfer-ins, the count of
-  distinct accounts.
+  Given an *Account*, find all the *Accounts* the *Account* transfers in. Return
+  the sum of the *transfer-ins'* amount, the count of *transfer-ins*, the count of
+  distinct *Accounts*.
 parameters:
   - name: id
     type: ID
@@ -23,10 +23,6 @@ result:
     type: 32-bit Integer
   - name: COUNT(DISTINCT otherAccount)
     type: 32-bit Integer
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This is a typical query of transfer-in statistic.

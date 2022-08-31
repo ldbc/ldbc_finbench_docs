@@ -1,12 +1,11 @@
 workload: Transaction
 operation: read
 number: 3
-title: "Anti-Money Laundering: Two Accounts in a cycle"
+title: Two accounts' transfer against each other
 description: |
-  Given two *Accounts*, find the sum and max of fund *transfer* between them in a
-  specific time range between start_time and end_time. Note that the timestamp
-  of *edge2* is bigger than the one of *edge1*. Return the sum and max of amount of
-  *edge1* and *edge2*.
+  Given two *Accounts*, find the sum and max of fund amount in *transfer* between
+  them in a specific time range between *start_time* and *end_time*. Return the sum
+  and max of amount of *edge1* and *edge2* in seperate.
 parameters:
   - name: id1
     type: ID
@@ -33,10 +32,6 @@ result:
   - name: MAX(edge2.loanAmount)
     type: 64-bit Integer
     description: max of transfers from dstAccount to srcAccount
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This query is a typical fund transfer cycle analysis case in AWL.

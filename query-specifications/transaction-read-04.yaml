@@ -1,13 +1,11 @@
 workload: Transaction
 operation: read
 number: 4
-title: "Anti-Money Laundering: Three Accounts in a cycle"
+title: Three accounts in a transfer cycle
 description: |
-  Given two *Accounts*, find the sum and max of *transfer* of them via a
-  third-party *Account* in a specific time range between start_time and end_time.
-  Note that the *transfer* of edge1, edge2, edge3 are in ascending order in
-  terms of timestamp. Return the sum and max of amount of *edge1*, *edge2*, *edge3*
-  and the count of distinct of third-party account.
+  Given two *Accounts*, find the sum and max of *transfers* of them via another *Account*
+  in a specific time range between *start_time* and *end_time*. Return the sum and max of
+  amount of *edge1*, *edge2*, *edge3* and the count of distinct another *account*.
 parameters:
   - name: id1
     type: ID
@@ -40,10 +38,6 @@ result:
   - name: MAX(edge3.loanAmount)
     type: 64-bit Integer
     description: max of transfers from otherAccount to srcAccount
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This query is a typical fund transfer cycle analysis case in AWL.

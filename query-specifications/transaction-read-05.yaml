@@ -3,9 +3,9 @@ operation: read
 number: 5
 title: One-to-many blocked account monitoring
 description: |
-  Given an *Account*, find the ratio of *transfer*-outs to blocked *Accounts* in
-  all its *transfer*-outs in a specific time range between start_time and
-  end_time. Return the ratio.
+  Given an *Account*, find the ratio of *transfer-outs* to blocked *Accounts* in
+  all its *transfer-outs* in a specific time range between *start_time* and
+  *end_time*. Return the ratio.
 parameters:
   - name: id
     type: ID
@@ -22,10 +22,6 @@ parameters:
 result:
   - name: blockRatio
     type: float
-sort:
-  - name: todo
-    direction: asc
-limit: todo
 choke_points: [0.0]
 relevance: |
   This query is a typical risky account recognition case in risk control.
