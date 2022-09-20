@@ -1,6 +1,6 @@
 workload: Transaction
-operation: complex-read
-number: 16
+operation: simple-read
+number: 3
 title: Company-related information
 description: |
   Given a *Company*, find all the related nodes.

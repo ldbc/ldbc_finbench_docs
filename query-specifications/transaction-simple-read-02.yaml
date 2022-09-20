@@ -1,18 +1,37 @@
 workload: Transaction
 operation: simple-read
 number: 2
-title: simple2
+title: Transfers between two accounts
 description: |
-  desc.
+  Given two *Accounts*, find the sum and max of fund amount in *transfer* between
+  them in a specific time range between *start_time* and *end_time*. Return the sum
+  and max of amount of *edge1* and *edge2* in seperate.
 parameters:
-  - name: id
+  - name: id1
     type: ID
-    description: id of the start *Account*
+    description: id of the src Account
+  - name: id2
+    type: ID
+    description: id of the dst Account
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
 result:
-  - name: COUNT(DISTINCT meidum)
+  - name: SUM(edge1.loanAmount)
     type: 64-bit Integer
-    description: number of different mediums
+    description: sum of transfers from srcAccount to dstAccount
+  - name: MAX(edge1.loanAmount)
+    type: 64-bit Integer
+    description: max of transfers from srcAccount to dstAccount
+  - name: SUM(edge2.loanAmount)
+    type: 64-bit Integer
+    description: sum of transfers from dstAccount to srcAccount
+  - name: MAX(edge2.loanAmount)
+    type: 64-bit Integer
+    description: max of transfers from dstAccount to srcAccount
 choke_points: [0.0]
 relevance: |
-  In AWL, this case is used to find how many accounts signed
-  in by blocked medium a specific account connects with.
+  This query is a typical fund transfer cycle analysis case in AWL.

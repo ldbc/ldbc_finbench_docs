@@ -1,6 +1,6 @@
 workload: Transaction
-operation: complex-read
-number: 20
+operation: simple-read
+number: 4
 title: Exact Account transfer-out statistic
 description: |
   Given an *Account*, find all the *Accounts* the *Account* *transfers out* to. Return
