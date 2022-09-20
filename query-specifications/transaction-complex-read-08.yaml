@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 8
 title: Withdrawal after Many-to-One transfer
 description: |

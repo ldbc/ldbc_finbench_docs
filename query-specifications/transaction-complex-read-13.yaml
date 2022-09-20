@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 13
 title: Money laundering via loans
 description: |

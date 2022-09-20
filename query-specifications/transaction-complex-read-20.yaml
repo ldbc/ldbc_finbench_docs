@@ -1,0 +1,28 @@
+workload: Transaction
+operation: complex-read
+number: 20
+title: Exact Account transfer-out statistic
+description: |
+  Given an *Account*, find all the *Accounts* the *Account* *transfers out* to. Return
+  the sum of the *transfer-outs* amount, the count of *transfer-outs*, the count of
+  distinct *Accounts*.
+parameters:
+  - name: id
+    type: ID
+    description: id of the srcAccount
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
+result:
+  - name: SUM(edge.amount)
+    type: 64-bit Integer
+  - name: COUNT(dstAccount)
+    type: 32-bit Integer
+  - name: COUNT(DISTINCT dstAccount)
+    type: 32-bit Integer
+choke_points: [0.0]
+relevance: |
+  This is a typical query of transfer-out statistic.

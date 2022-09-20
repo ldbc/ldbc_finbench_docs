@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 14
 title: Accounts with many transfers
 description: |

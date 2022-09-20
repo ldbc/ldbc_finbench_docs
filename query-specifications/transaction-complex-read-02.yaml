@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 2
 title: Fund gathered from the accounts applying loans
 description: |

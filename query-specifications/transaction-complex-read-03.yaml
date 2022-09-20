@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 3
 title: Two accounts' transfer against each other
 description: |

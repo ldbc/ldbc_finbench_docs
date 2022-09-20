@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 1
 title: Blocked medium related accounts
 description: |

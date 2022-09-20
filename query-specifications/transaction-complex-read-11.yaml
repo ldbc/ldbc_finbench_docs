@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 11
 title: Transfer trace after loan applied
 description: |

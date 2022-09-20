@@ -9,37 +9,49 @@
 \let\oldtextbf\textbf
 \renewcommand{\textbf}[1]{{ '{{' }}\it #1}}
 
-{%- if workload == "Transaction" and operation == "read" -%}
+{%- if workload == "Transaction" and operation == "complex-read" -%}
 \renewcommand{\currentQueryCard}{ {{- number -}} }
 \marginpar{
 	\raggedleft
 	\scriptsize
 	% \vspace{0.15ex}
 
-	\queryRefCard{transaction-read-01}{TR}{1}\\
-	\queryRefCard{transaction-read-02}{TR}{2}\\
-	\queryRefCard{transaction-read-03}{TR}{3}\\
-	\queryRefCard{transaction-read-04}{TR}{4}\\
-	\queryRefCard{transaction-read-05}{TR}{5}\\
-	\queryRefCard{transaction-read-06}{TR}{6}\\
-	\queryRefCard{transaction-read-07}{TR}{7}\\
-	\queryRefCard{transaction-read-08}{TR}{8}\\
-	\queryRefCard{transaction-read-09}{TR}{9}\\
-	\queryRefCard{transaction-read-10}{TR}{10}\\
-	\queryRefCard{transaction-read-11}{TR}{11}\\
-	\queryRefCard{transaction-read-12}{TR}{12}\\
-	\queryRefCard{transaction-read-13}{TR}{13}\\
-	\queryRefCard{transaction-read-14}{TR}{14}\\
-	\queryRefCard{transaction-read-15}{TR}{15}\\
-	\queryRefCard{transaction-read-16}{TR}{16}\\
-	\queryRefCard{transaction-read-17}{TR}{17}\\
-	\queryRefCard{transaction-read-18}{TR}{18}\\
-	\queryRefCard{transaction-read-19}{TR}{19}\\
-	\queryRefCard{transaction-read-20}{TR}{20}\\
-	\queryRefCard{transaction-read-21}{TR}{21}\\
-	\queryRefCard{transaction-read-22}{TR}{22}\\
-	\queryRefCard{transaction-read-23}{TR}{23}\\
-	\queryRefCard{transaction-read-24}{TR}{24}\\
+	\queryRefCard{transaction-complex-read-01}{TCR}{1}\\
+	\queryRefCard{transaction-complex-read-02}{TCR}{2}\\
+	\queryRefCard{transaction-complex-read-03}{TCR}{3}\\
+	\queryRefCard{transaction-complex-read-04}{TCR}{4}\\
+	\queryRefCard{transaction-complex-read-05}{TCR}{5}\\
+	\queryRefCard{transaction-complex-read-06}{TCR}{6}\\
+	\queryRefCard{transaction-complex-read-07}{TCR}{7}\\
+	\queryRefCard{transaction-complex-read-08}{TCR}{8}\\
+	\queryRefCard{transaction-complex-read-09}{TCR}{9}\\
+	\queryRefCard{transaction-complex-read-10}{TCR}{10}\\
+	\queryRefCard{transaction-complex-read-11}{TCR}{11}\\
+	\queryRefCard{transaction-complex-read-12}{TCR}{12}\\
+	\queryRefCard{transaction-complex-read-13}{TCR}{13}\\
+	\queryRefCard{transaction-complex-read-14}{TCR}{14}\\
+	\queryRefCard{transaction-complex-read-15}{TCR}{15}\\
+	\queryRefCard{transaction-complex-read-16}{TCR}{16}\\
+	\queryRefCard{transaction-complex-read-17}{TCR}{17}\\
+	\queryRefCard{transaction-complex-read-18}{TCR}{18}\\
+	\queryRefCard{transaction-complex-read-19}{TCR}{19}\\
+	\queryRefCard{transaction-complex-read-20}{TCR}{20}\\
+	\queryRefCard{transaction-complex-read-21}{TCR}{21}\\
+	\queryRefCard{transaction-complex-read-22}{TCR}{22}\\
+	\queryRefCard{transaction-complex-read-23}{TCR}{23}\\
+	\queryRefCard{transaction-complex-read-24}{TCR}{24}\\
+}
+{%- endif %}
+
+{%- if workload == "Transaction" and operation == "simple-read" -%}
+\renewcommand{\currentQueryCard}{ {{- number -}} }
+\marginpar{
+	\raggedleft
+	\scriptsize
+	% \vspace{0.15ex}
+
+	\queryRefCard{transaction-simple-read-01}{TSR}{1}\\
+	\queryRefCard{transaction-simple-read-02}{TSR}{2}\\
 }
 {%- endif %}
 
@@ -88,7 +100,7 @@
 %
 	title & {{ title }} \\ \hline
 %
-	{% if operation == "read" or operation == "write" %}
+	{% if operation == "complex-read" or operation == "simple-read" or operation == "write" %}
 		pattern & \centering \includegraphics[scale=\yedscale,margin=0cm .2cm]{patterns/{{ query_id -}} } \tabularnewline \hline
 	{% endif %}
 %

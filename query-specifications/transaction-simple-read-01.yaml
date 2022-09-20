@@ -1,0 +1,19 @@
+workload: Transaction
+operation: simple-read
+number: 1
+title: simple1
+description: |
+  desc.
+parameters:
+  - name: id
+    type: ID
+    description: id of the start *Account*
+result:
+  - name: COUNT(DISTINCT meidum)
+    type: 64-bit Integer
+    description: number of different mediums
+choke_points: [0.0]
+relevance: |
+  In AWL, this case is used to find how many accounts signed
+  in by blocked medium a specific account connects with.
+

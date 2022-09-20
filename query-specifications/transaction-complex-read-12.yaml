@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 12
 title: Abnormal transfer from an account
 description: |

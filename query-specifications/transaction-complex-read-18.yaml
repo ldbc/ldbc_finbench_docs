@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 18
 title: Guarantee Cycle Detection
 description: |

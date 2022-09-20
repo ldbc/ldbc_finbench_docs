@@ -1,5 +1,5 @@
 workload: Transaction
-operation: read
+operation: complex-read
 number: 7
 title: Exact Account Transfer Trace
 description: |
