@@ -1,16 +1,28 @@
 workload: Transaction
 operation: simple-read
 number: 5
-title: Exact Account properties query
+title: Exact Account transfer-in statistic
 description: |
-  Given an *Account* id, find the properties of the specific *Account*.
+  Given an *Account*, find all the *Accounts* the *Account* transfers in. Return
+  the sum of the *transfer-ins'* amount, the count of *transfer-ins*, the count of
+  distinct *Accounts*.
 parameters:
   - name: id
     type: ID
     description: id of the Account
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
 result:
-  - name: properties
-    type: TODO
+  - name: SUM(edge.amount)
+    type: 64-bit Integer
+  - name: COUNT(edge)
+    type: 32-bit Integer
+  - name: COUNT(DISTINCT otherAccount)
+    type: 32-bit Integer
 choke_points: [0.0]
 relevance: |
-  Property retrieve of a specific account.
+  This is a typical query of transfer-in statistic.

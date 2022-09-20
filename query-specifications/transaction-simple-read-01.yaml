@@ -1,19 +1,16 @@
 workload: Transaction
 operation: simple-read
 number: 1
-title: simple1
+title: Exact Account properties query
 description: |
-  desc.
+  Given an *Account* id, find the properties of the specific *Account*.
 parameters:
   - name: id
     type: ID
-    description: id of the start *Account*
+    description: id of the Account
 result:
-  - name: COUNT(DISTINCT meidum)
-    type: 64-bit Integer
-    description: number of different mediums
+  - name: properties
+    type: TODO
 choke_points: [0.0]
 relevance: |
-  In AWL, this case is used to find how many accounts signed
-  in by blocked medium a specific account connects with.
-
+  Property retrieve of a specific account.
