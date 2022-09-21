@@ -3,12 +3,18 @@
 
 This chapter describes the dataset used by \ldbcfinbench, including the data schema design
 and the data generation process. Generally, we design \ldbcfinbench balancing the reality
-and abstraction. In abstraction, there are some annotations about the tradeoffs in data design,
+and abstraction. In abstraction, there are some annotations about the compromises in data
+design,
 \begin{itemize}
     \item Although multiple persons/companies may own the same account in reality, an account
     is owned by a person or a company only in the schema to make it simple.
     \item Although rejected transactions may be recorded to support future loan decisions,
     only approved transactions/transfers are recorded in the benchmark dataset.
+    \item Considering the DAU of financial systems in reality, There will be many signIn edges
+    between medium and account vertices. However, we do not generate such many signIn edges aligning
+    to reality with a limit in the simulation of data generation process since systems usually 
+    circumvent the problem by adding a medium attribute to edges like transfer and withdraw to
+    record the medium users used.
 \end{itemize}
 
 \section{Data Types}
