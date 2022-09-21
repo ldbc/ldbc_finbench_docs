@@ -27,7 +27,7 @@ parameters:
     description: end of the time window
 result:
   - name: path
-    type: TODO
+    type: Path
 choke_points: [0.0]
 relevance: |
   This query is money laundering with loans involved recognition in AWL.

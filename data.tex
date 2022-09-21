@@ -19,8 +19,10 @@ design,
 
 \section{Data Types}
 
-\autoref{table:types} describes the different data types used in the benchmark.
-Note that the 32-bit floats used in FinBench all round to 3 decimal places(thousandths).
+\autoref{table:types} describes the different data types used in the benchmark. Compared
+with \ldbcsnb, there is a new compound type, \textbf{Path}, which is widely applied in
+financial scenarios reflecting traces, e.g. fund transfer traces. Note that the 32-bit
+floats used in \ldbcfinbench all round to 3 decimal places(thousandths).
 
 \begin{table}[h]
 \centering
@@ -28,29 +30,29 @@ Note that the 32-bit floats used in FinBench all round to 3 decimal places(thous
     \hline
     \tableHeaderFirst{Type} & \tableHeader{Description} \\
     \hline
-    ID & integer type with 64-bit precision. All IDs within a single entity type
+    ID & Integer type with 64-bit precision. All IDs within a single entity type
     (e.g. Person) are unique, but different entity types (e.g. a Person and an
-    Account) might have the same ID.\\
+    Account) might have the same ID. \\
     \hline
-    32-bit Integer & integer type with 32-bit precision\\
+    32-bit Integer & Integer type with 32-bit precision \\
     \hline
-    64-bit Integer & integer type with 64-bit precision\\
+    64-bit Integer & Integer type with 64-bit precision \\
     \hline
-    32-bit Float & floating type with 32-bit precision \textbf{rounded to 3 decimal places(thousandths)}\\
+    32-bit Float & Floating type with 32-bit precision \textbf{rounded to 3 decimal places(thousandths)} \\
     \hline
-    String & variable length text of size 40 Unicode characters\\
+    String & Variable length text of size 40 Unicode characters\\
     \hline
-    Long String & variable length text of size 256 Unicode characters\\
+    Long String & Variable length text of size 256 Unicode characters \\
     \hline
-    Text & variable length text of size 2000 Unicode characters\\
+    Text & Variable length text of size 2000 Unicode characters \\
     \hline
-    Date & date with a precision of a day, encoded as a string with the
+    Date & Date with a precision of a day, encoded as a string with the
     following format: \textit{yyyy-mm-dd}, where \textit{yyyy} is a four-digit
     integer representing the year, the year, \textit{mm} is a two-digit integer
     representing the month and \textit{dd} is a two-digit integer representing
     the day. \\
     \hline
-    DateTime & date with a precision of milliseconds, encoded as a string with
+    DateTime & Date with a precision of milliseconds, encoded as a string with
     the following format: \textit{yyyy-mm-ddTHH:MM:ss.sss+0000}, where
     \textit{yyyy} is a four-digit integer representing the year, the year,
     \textit{mm} is a two-digit integer representing the month and \textit{dd} is
@@ -59,9 +61,13 @@ Note that the 32-bit floats used in FinBench all round to 3 decimal places(thous
     minute and \textit{ss.sss} is a five digit fixed point real number
     representing the seconds up to millisecond precision. Finally, the
     \textit{+0000} of the end represents the timezone, which in this case is
-    always GMT.\\
+    always GMT. \\
     \hline
-    Boolean &  logical type, taking the value of either True of False\\
+    Boolean & A logical type taking the value of either True of False. \\
+    \hline
+    Path & A compound type representing a trace which is expressed in an ordered
+    sequence of vertices' IDs in the trace. For example, [1,3,4,8] expresses a
+    trace 1->3->4->8.\\
     \hline
 \end{tabular}
 \caption{Description of the data types.}
