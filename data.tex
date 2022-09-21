@@ -1,6 +1,16 @@
 \chapter{Data Definition}
 \label{section:data-definition}
 
+This chapter describes the dataset used by \ldbcfinbench, including the data schema design
+and the data generation process. Generally, we design \ldbcfinbench balancing the reality
+and abstraction. In abstraction, there are some annotations about the tradeoffs in data design,
+\begin{itemize}
+    \item Although multiple persons/companies may own the same account in reality, an account
+    is owned by a person or a company only in the schema to make it simple.
+    \item Although rejected transactions may be recorded to support future loan decisions,
+    only approved transactions/transfers are recorded in the benchmark dataset.
+\end{itemize}
+
 \section{Data Types}
 
 \autoref{table:types} describes the different data types used in the benchmark.
