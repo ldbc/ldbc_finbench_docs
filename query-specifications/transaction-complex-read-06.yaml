@@ -21,7 +21,7 @@ parameters:
     description: end of the time window
 result:
   - name: blockRatio
-    type: float
+    type: 32-bit float
 choke_points: [0.0]
 relevance: |
   This query is a typical risky account recognition case in risk control.

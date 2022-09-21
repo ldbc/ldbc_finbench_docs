@@ -17,7 +17,7 @@ parameters:
     type: 64-bit Integer
     description: threshold of deposit amount
   - name: ratio_threshold
-    type: float
+    type: 32-bit float
     description: threshold of the ratio of repay over deposit
   - name: start_time
     type: DateTime

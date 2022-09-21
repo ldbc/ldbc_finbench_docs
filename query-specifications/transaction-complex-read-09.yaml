@@ -16,9 +16,9 @@ parameters:
     description: threshold of transfer amount
 result:
   - name: ratio1
-    type: float
+    type: 32-bit float
   - name: ratio2
-    type: float
+    type: 32-bit float
 sort:
   - name: ratio1
     direction: desc

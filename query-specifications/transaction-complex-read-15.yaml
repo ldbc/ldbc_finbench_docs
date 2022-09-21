@@ -14,7 +14,7 @@ parameters:
     description: id of Person2
 result:
   - name: sim
-    type: float
+    type: 32-bit float
 choke_points: [0.0]
 relevance: |
   This query is a typical share holding analysis case.
