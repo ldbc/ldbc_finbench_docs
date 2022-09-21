@@ -167,8 +167,7 @@ sign in account in real world, such as IP, mac, phone numbers.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} &
-        \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
         \hline
         id & ID & The identifier of the medium. \\
         \hline
@@ -184,31 +183,34 @@ sign in account in real world, such as IP, mac, phone numbers.
 \subsection{Relations}
 Relations connect entities of different types showed in \autoref{table:relations}.
 Except that own and workIn has no attributes, the attributes of other relations 
-are showed in the following tables.
+are showed in the following tables. Note that the Cardinality means the cardinal
+relationship from the tail to head of the edge type and the Multiplicity means
+how many edges exist from the same tail to the same head. For example, the one-to-many
+cardinality of own means an account can only be owned by a person or a company.
 
-\begin{longtable}{|>{\varNameCell}p{1.5cm}|>{\typeCell}p{2.5cm}|>{\typeCell}p{2.5cm}|>{\edgeDirectionCell}p{0.5cm}|p{6cm}|}
+\begin{longtable}{|>{\varNameCell}p{1.5cm}|>{\typeCell}p{1.5cm}|>{\typeCell}p{1.5cm}|>{\cardinalCell}p{2cm}|>{\centering\edgeDirectionCell}p{2cm}|p{5.5cm}|}
         \hline
-        \tableHeaderFirst{Name} & \tableHeader{Tail} & \tableHeader{Head} & \tableHeader{Multiplicity} & \tableHeader{Description} \\
+        \tableHeaderFirst{Name} & \tableHeader{Tail} & \tableHeader{Head} & \tableHeader{Cardinality} & \tableHeader{Multiplicity} & \tableHeader{Description} \\
         \hline
-        signIn & Medium & Account & N & An account is signed in with a Media. \\
+        signIn & Medium & Account & Many-to-Many & N & An account signed in with a media. \\
         \hline
-        own & Person/Company & Account & 1 & A person or a company owns an account. \\
+        own & Person/ \newline Company & Account & One-to-Many & 1 & An account owned by a person or a company. \\
         \hline
-        transfer & Account & Account & N & Fund transfers between two accounts.\\
+        transfer & Account & Account & Many-to-Many & N & Fund transferred between two accounts. \\
         \hline
-        deposit & Loan & Account & N & Loan fund is deposited to an account. \\
+        withdraw & Account & Account & Many-to-Many & N & Fund transferred from an account to another account of type card. \\
         \hline
-        repay & Account & Loan & N & Loan is repaid from an account. \\
+        apply & Person/ \newline Company & Loan & One-to-Many & 1 & A person or a company applies a Loan. \\
         \hline
-        withdraw & Account & Account & N & Fund is transferred from an account to another account whose type is card. \\
+        deposit & Loan & Account & Many-to-One & N & Loan fund deposited to an account. \\
         \hline
-        invest & Person/Company & Company & 1 & A person or a company invests a company. \\
+        repay & Account & Loan & One-to-Many & N & Loan repaid from an account. \\
         \hline
-        workIn & Person & Company & 1 & A person works in a company. \\
+        invest & Person/ \newline Company & Company & Many-to-Many & 1 & A person or a company invests a company. \\
         \hline
-        apply & Person/Company & Loan & 1 & A person or a company applies a Loan. \\
+        workIn & Person & Company & Many-to-Many & 1 & A person works in a company. \\
         \hline
-        guarantee & Person/Company & Person/Company & 1 & A person or a company guarantees another for some reason like loans. \\
+        guarantee & Person/ \newline Company & Person/ \newline Company & Many-to-Many & 1 & A person or a company guarantees another for some reason like loans. \\
         \hline
         \caption{Description of the data relations.}
         \label{table:relations}
