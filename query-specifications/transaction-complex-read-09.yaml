@@ -1,12 +1,15 @@
 workload: Transaction
 operation: complex-read
 number: 9
-title: Exact account main transfer trace
+title: Transfer-outs distribution in transfer trace
 description: |
-  Given an *Account*, find the ratio of each *transfers-out* at 1 step and at 2
-  steps. Note that the transfer trace of x, y are in ascending order in terms of
-  timestamp and in descending order in terms of amount. Return the ratios in
-  descending order.
+  Given an account(*a*), find the ratio(*ratio1* and *ratio2*) of amount of each transfer
+  over the sum at 1 step and at 2 steps. Specifically, *ratio1* means the ratio of the
+  amount over the sum of *edge1* amount for each transfer *edge1*, and *ratio2* means
+  the amount of each *edge2* over the amount of upstream transfer(*edge1*). Note that
+  the transfer trace of *edge1*, *edge2* are in ascending order in terms of timestamp and
+  in descending order in terms of amount. And the transfers(*edge1* and *edge2*) are
+  filtered by *threshold*. Return the ratios(*ratio1* and *ratio2*) in descending order.
 parameters:
   - name: id
     type: ID
