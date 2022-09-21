@@ -1,2 +1,4 @@
-transaction-read-*.tex
+transaction-complex-read-*.tex
+transaction-simple-read-*.tex
 transaction-write-*.tex
+transaction-read-write-*.tex

@@ -1,6 +1,6 @@
 workload: Transaction
-operation: read
-number: 22
+operation: simple-read
+number: 1
 title: Exact Account properties query
 description: |
   Given an *Account* id, find the properties of the specific *Account*.

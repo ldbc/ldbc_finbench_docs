@@ -1,15 +1,15 @@
 workload: Transaction
-operation: read
-number: 20
-title: Exact Account transfer-out statistic
+operation: simple-read
+number: 5
+title: Exact Account transfer-in statistic
 description: |
-  Given an *Account*, find all the *Accounts* the *Account* *transfers out* to. Return
-  the sum of the *transfer-outs* amount, the count of *transfer-outs*, the count of
+  Given an *Account*, find all the *Accounts* the *Account* transfers in. Return
+  the sum of the *transfer-ins'* amount, the count of *transfer-ins*, the count of
   distinct *Accounts*.
 parameters:
   - name: id
     type: ID
-    description: id of the srcAccount
+    description: id of the Account
   - name: start_time
     type: DateTime
     description: begin of the time window
@@ -19,10 +19,10 @@ parameters:
 result:
   - name: SUM(edge.amount)
     type: 64-bit Integer
-  - name: COUNT(dstAccount)
+  - name: COUNT(edge)
     type: 32-bit Integer
-  - name: COUNT(DISTINCT dstAccount)
+  - name: COUNT(DISTINCT otherAccount)
     type: 32-bit Integer
 choke_points: [0.0]
 relevance: |
-  This is a typical query of transfer-out statistic.
+  This is a typical query of transfer-in statistic.
