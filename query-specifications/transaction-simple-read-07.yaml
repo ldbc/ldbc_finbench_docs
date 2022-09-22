@@ -1,6 +1,6 @@
 workload: Transaction
-operation: complex-read
-number: 23
+operation: simple-read
+number: 7
 title: Accounts with the same transfer sources of exact account
 description: |
   Given an *Account*(*account*), find all the blocked *Accounts*(*dstAccounts*) that

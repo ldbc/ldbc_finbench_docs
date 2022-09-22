@@ -1,6 +1,6 @@
 workload: Transaction
-operation: complex-read
-number: 6
+operation: simple-read
+number: 8
 title: Many-to-one blocked account monitoring
 description: |
   Given an *Account*, find the ratio of *transfer-ins* from blocked *Accounts* in all

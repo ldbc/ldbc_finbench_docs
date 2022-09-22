@@ -6,8 +6,7 @@ description: |
   Given an *Account*(v), find all the *transfer-in* and *transfer-out* accounts
   where the ratio of the sum of *transfer-ins* over the sum of *transfer-outs*
   is located in [0.8, 1.2] in a specific time range between *start_time* and
-  *end_time*. Note that the transfer trace of *e1*, *e2* are in ascending order
-  in terms of timestamp. Return the *transfer-in* and *transfer-out* accounts' ids.
+  *end_time*. Return the *transfer-in* and *transfer-out* accounts' ids.
 parameters:
   - name: threshold
     type: 64-bit Integer
