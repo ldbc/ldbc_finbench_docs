@@ -3,9 +3,10 @@ operation: complex-read
 number: 4
 title: Three accounts in a transfer cycle
 description: |
-  Given two *Accounts*, find the sum and max of *transfers* of them via another *Account*
-  in a specific time range between *start_time* and *end_time*. Return the sum and max of
-  amount of *edge1*, *edge2*, *edge3* and the count of distinct another *account*.
+  Given two accounts(*srcAccount* and *dstAccount*), find the sum and max of transfers
+  (*edge2* and *edge3*) of them via another account(*otherAccount*) in a specific time
+  range between *start_time* and *end_time*. Return the sum and max of the transfer amount
+  (*edge2* and *edge3*) groupby the *otherAccount*'s id.
 parameters:
   - name: id1
     type: ID
@@ -20,12 +21,6 @@ parameters:
     type: DateTime
     description: end of the time window
 result:
-  - name: SUM(edge1.loanAmount)
-    type: 64-bit Integer
-    description: sum of transfers from srcAccount to dstAccount
-  - name: MAX(edge1.loanAmount)
-    type: 64-bit Integer
-    description: max of transfers from srcAccount to dstAccount
   - name: SUM(edge2.loanAmount)
     type: 64-bit Integer
     description: sum of transfers from dstAccount to otherAccount
@@ -38,6 +33,9 @@ result:
   - name: MAX(edge3.loanAmount)
     type: 64-bit Integer
     description: max of transfers from otherAccount to srcAccount
+  - name: otherAccount.id
+    type: ID
+    description: id of the other account
 choke_points: [0.0]
 relevance: |
   This query is a typical fund transfer cycle analysis case in AWL.
