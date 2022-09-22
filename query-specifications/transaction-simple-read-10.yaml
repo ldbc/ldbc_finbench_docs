@@ -1,6 +1,6 @@
 workload: Transaction
-operation: complex-read
-number: 24
+operation: simple-read
+number: 10
 title: Transfer to company amount statistics
 description: |
   Given a start Person, find all the company accounts

@@ -1,6 +1,6 @@
 workload: Transaction
-operation: complex-read
-number: 22
+operation: simple-read
+number: 9
 title: Recent Transfer Amount
 description: |
   Given a start person, find transfer amount per day of his/her

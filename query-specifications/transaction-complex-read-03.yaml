@@ -1,6 +1,6 @@
 workload: Transaction
 operation: complex-read
-number: 20
+number: 03
 title: Shortest transfer path
 description: |
   Given two accounts, find the length of shortest path between these
