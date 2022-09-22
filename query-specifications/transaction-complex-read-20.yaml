@@ -1,0 +1,21 @@
+workload: Transaction
+operation: complex-read
+number: 20
+title: Shortest transfer path
+description: |
+  Given two accounts, find the length of shortest path between these
+  two accounts by the transfer relationships.(If there is no path
+  found, return -1) 
+parameters:
+  - name: id1
+    type: ID
+    description: id of src Account
+  - name: id2
+    type: ID
+    description: id of dst Account
+result:
+  - name: length
+    type: 64-bit Integer
+    description: the length of shortest path
+choke_points: [0.0]
+relevance: 
