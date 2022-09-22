@@ -1,0 +1,37 @@
+workload: Transaction
+operation: complex-read
+number: 6
+title: Withdrawal after Many-to-One transfer
+description: |
+  Given an account of type card(*c*), find all the connected account(*b*) via withdrawal(*edge2*) satisfying 
+
+  * More than 3 transfer-ins(*edge1*) from other accounts(*a*) whose amount exceeds *threshold1* in a specific time range between *start_time* and *end_time*.
+  * The amount of withdrawal(*edge2*) exceeds *threshold2* in a specific time range between *start_time* and *end_time*.
+  
+  Return all the accounts' id(*b*).
+parameters:
+  - name: id
+    type: ID
+    description: id of the card account
+  - name: threshold1
+    type: 64-bit Integer
+    description: threshold of transfer amount
+  - name: threshold2
+    type: 64-bit Integer
+    description: threshold of transfer amount
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
+result:
+  - name: edge2.amount
+    type: 64-bit Integer
+    description: the amount of withdrawal
+  - name: b.id
+    type: ID
+    description: id of the middle Account
+choke_points: [0.0]
+relevance: |
+  This query is a typical fund withdrawal after pooling funds case in risk control.

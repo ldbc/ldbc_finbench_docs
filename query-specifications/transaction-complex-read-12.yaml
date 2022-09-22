@@ -1,6 +1,6 @@
 workload: Transaction
 operation: complex-read
-number: 17
+number: 12
 title: Invest relationship trace
 description: |
   Given a *Company*, find all the *Companies* and *Persons* the *Company* invests by at most k steps.

@@ -1,29 +1,25 @@
 workload: Transaction
 operation: complex-read
 number: 14
-title: Accounts with many transfers
+title: Investor Pairs
 description: |
-  Find all the *accounts* that has more than n1 *transfer-ins* and more than n2
-  *transfer-outs* whose amount exceeds *threshold* in a specific time range between
-  *start_time* and *end_time*. Return all these *accounts*.
+  Given a start company, find all its investor pairs that have
+  guaranteed each other.(id1 < id2) 
 parameters:
-  - name: threshold
-    type: 64-bit Integer
-    description: threshold of transfer amount
-  - name: start_time
-    type: DateTime
-    description: begin of the time window
-  - name: end_time
-    type: DateTime
-    description: end of the time window
-  - name: n1
-    type: 32-bit Integer
-  - name: n2
-    type: 32-bit Integer
+  - name: id
+    type: ID
+    description: id of company
 result:
-  - name: COLLECT(n)
-    type: "[ID]"
+  - name: id1
+    type: ID
+    description: id of Person
+  - name: id2
+    type: ID
+    description: id of Person
+sort:
+  - name: id1
+    direction: asc
+  - name: id2
+    direction: asc
 choke_points: [0.0]
-relevance: |
-  This query is a typical routine review for accounts which has many
-  transfer-ins and transfer-outs.
+relevance: 

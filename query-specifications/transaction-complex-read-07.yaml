@@ -1,16 +1,16 @@
 workload: Transaction
 operation: complex-read
 number: 7
-title: Exact Account Transfer Trace
+title: Fast-in and Fast-out
 description: |
-  Given a *Person*, find the transfer trace from the account(*srcAccount*) owned by the
-  *Person* to another account(*dstAccount*) by at most 3 steps in a specific time range
-  between *start_time* and *end_time*. Note that the transfer trace(*edge2*) are in
-  ascending order in terms of timestamp. Return the transfer trace.
+  Given an *Account*(v), find all the *transfer-in* and *transfer-out* accounts
+  where the ratio of the sum of *transfer-ins* over the sum of *transfer-outs*
+  is located in [0.8, 1.2] in a specific time range between *start_time* and
+  *end_time*. Return the *transfer-in* and *transfer-out* accounts' ids.
 parameters:
-  - name: id
-    type: ID
-    description: id of the start Person
+  - name: threshold
+    type: 64-bit Integer
+    description: threshold of transfer amount
   - name: start_time
     type: DateTime
     description: begin of the time window
@@ -18,8 +18,10 @@ parameters:
     type: DateTime
     description: end of the time window
 result:
-  - name: path
-    type: Path
+  - name: v1.id
+    type: ID
+  - name: v2.id
+    type: ID
 choke_points: [0.0]
 relevance: |
-  This query is a typical fund transfer trace case in risk control.
+  This query is a typical fast-in and fast-out recognition case in risk control.

@@ -1,24 +1,22 @@
 workload: Transaction
 operation: complex-read
 number: 8
-title: Withdrawal after Many-to-One transfer
+title: Transfer trace after loan applied
 description: |
-  Given an account of type card(*c*), find all the connected account(*b*) via withdrawal(*edge2*) satisfying 
-
-  * More than 3 transfer-ins(*edge1*) from other accounts(*a*) whose amount exceeds *threshold1* in a specific time range between *start_time* and *end_time*.
-  * The amount of withdrawal(*edge2*) exceeds *threshold2* in a specific time range between *start_time* and *end_time*.
-  
-  Return all the accounts' id(*b*).
+  Given a *Loan*, trace the fund *transfer* or *withdraw* by at most 3 steps
+  from the *account* the *Loan* *deposits*. Note that the transfer paths of
+  *edge1*, *edge2*, *edge3* and *edge4* are in a specific time range between
+  *start_time* and *end_time*. Amount of each transfers or withdrawals between
+  the account and the upstream account should exceed a specified *ratio* of the
+  upstream transfer. Return all the amount ratio (*ratio1*, *ratio2*, and *ratio3*)
+  groupby the *accounts*'s id at each step in descending order.
 parameters:
   - name: id
     type: ID
-    description: id of the card account
-  - name: threshold1
-    type: 64-bit Integer
-    description: threshold of transfer amount
-  - name: threshold2
-    type: 64-bit Integer
-    description: threshold of transfer amount
+    description: id of the Loan
+  - name: ratio
+    type: 32-bit Float
+    description: ratio of the amount over the upstream's
   - name: start_time
     type: DateTime
     description: begin of the time window
@@ -26,12 +24,20 @@ parameters:
     type: DateTime
     description: end of the time window
 result:
-  - name: edge2.amount
-    type: 64-bit Integer
-    description: the amount of withdrawal
-  - name: b.id
-    type: ID
-    description: id of the middle Account
+  - name: ratio1
+    type: 32-bit float
+  - name: ratio2
+    type: 32-bit float
+  - name: ratio3
+    type: 32-bit float
+sort:
+  - name: ratio1
+    direction: desc
+  - name: ratio2
+    direction: desc
+  - name: ratio3
+    direction: desc
 choke_points: [0.0]
 relevance: |
-  This query is a typical fund withdrawal after pooling funds case in risk control.
+  This query is a typical main fund trace case after loan granted in risk
+  control.
