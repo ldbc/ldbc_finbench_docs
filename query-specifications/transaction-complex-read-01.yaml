@@ -5,7 +5,7 @@ title: Blocked medium related accounts
 description: |
   Given a start *Account*, find *Accounts* *signIn* by a blocked *Medium*
   by at most 3 steps via the *transfer* relationship(*edge1*). Note that
-  all the timestamps in transfer trace(*edge1* ) are in ascending order
+  all the timestamps in transfer trace(*edge1*) are in ascending order
   within a specific time range between *start_time* and *end_time*.
   Return the count of distinct *Medium*.
 parameters:

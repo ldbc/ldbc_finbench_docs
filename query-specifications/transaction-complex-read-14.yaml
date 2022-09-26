@@ -1,25 +1,31 @@
 workload: Transaction
 operation: complex-read
 number: 14
-title: Investor Pairs
+title: Transfer to company amount statistics
 description: |
-  Given a start company, find all its investor pairs that have
-  guaranteed each other.(id1 < id2) 
+  Given a start Person, find all the company accounts
+  that s/he has transferred to, within a specific time
+  period, and return companies and the sum of their
+  transfer amount.
 parameters:
   - name: id
     type: ID
     description: id of company
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
 result:
-  - name: id1
+  - name: id
     type: ID
-    description: id of Person
-  - name: id2
-    type: ID
-    description: id of Person
+    description: id of company
+  - name: totalAmount
+    type: 64-bit Integer
 sort:
-  - name: id1
-    direction: asc
-  - name: id2
-    direction: asc
+  - name: totalAmount 
+    direction: desc
+limit: 20
 choke_points: [0.0]
 relevance: 

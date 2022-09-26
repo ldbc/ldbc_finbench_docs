@@ -4,8 +4,8 @@ number: 03
 title: Shortest transfer path
 description: |
   Given two accounts, find the length of shortest path between these
-  two accounts by the transfer relationships.(If there is no path
-  found, return -1) 
+  two accounts by the transfer relationships. If there is no path
+  found, return -1.
 parameters:
   - name: id1
     type: ID

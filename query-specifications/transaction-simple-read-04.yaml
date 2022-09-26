@@ -1,7 +1,7 @@
 workload: Transaction
 operation: simple-read
 number: 4
-title: Abnormal account's transfer-outs statistic
+title: Account transfer-outs statistic over threshold
 description: |
   Given an account(*srcAccount*), find all the transfer-outs(*edge*) from the *srcAccount* 
   to a *dstAccount* where the amount exceeds *threshold* in a specific time range between

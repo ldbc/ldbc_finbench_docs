@@ -1,11 +1,11 @@
 workload: Transaction
 operation: simple-read
 number: 5
-title: Normal account's transfer-ins statistic
+title: Recent transfer-ins statistic
 description: |
   Given an *Account*, find all the *Accounts* the *Account* transfers in. Return
   the sum of the *transfer-ins'* amount, the count of *transfer-ins*, the count of
-  distinct *Accounts*.
+  distinct *Accounts* and the transfer amount per day.
 parameters:
   - name: id
     type: ID
