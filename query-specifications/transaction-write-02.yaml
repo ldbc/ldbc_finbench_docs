@@ -10,8 +10,6 @@ parameters:
     type: ID
   - name: Company.companyName
     type: String
-  - name: Company.companyBlocked
-    type: Boolean
   - name: Account.accountId
     type: ID
   - name: Account.currentTime

@@ -10,8 +10,6 @@ parameters:
     type: ID
   - name: Person.personName
     type: String
-  - name: Person.personBlocked
-    type: Boolean
   - name: Account.accountId
     type: ID
   - name: Account.currentTime
