@@ -11,4 +11,4 @@ parameters:
     type: 64-bit Integer
   - name: Company.companyId
     type: ID
-choke_points: [0.0]
+choke_points: []

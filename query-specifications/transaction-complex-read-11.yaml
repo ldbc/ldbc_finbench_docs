@@ -15,6 +15,6 @@ parameters:
 result:
   - name: sim
     type: 32-bit float
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This query is a typical share holding analysis case.

@@ -37,7 +37,7 @@ sort:
     direction: desc
   - name: ratio3
     direction: desc
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This query is a typical main fund trace case after loan granted in risk
   control.

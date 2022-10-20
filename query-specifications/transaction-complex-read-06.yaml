@@ -32,6 +32,6 @@ result:
   - name: b.id
     type: ID
     description: id of the middle Account
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This query is a typical fund withdrawal after pooling funds case in risk control.

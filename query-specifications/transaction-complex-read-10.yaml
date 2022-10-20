@@ -23,7 +23,7 @@ parameters:
 result:
   - name: COLLECT(n)
     type: "[ID]"
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This query is a typical routine review for accounts which has many
   transfer-ins and transfer-outs.

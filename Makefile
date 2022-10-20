@@ -19,4 +19,4 @@ clean_temp:
 	rm -f *.aux *.dvi *.thm *.lof *.log *.lot *.fls *.out *.toc *.bbl *.blg *.fdb_latexmk *.bcf *.pdf *.run.xml *.synctex.gz
 
 gen_pdf:
-	latexmk -pdf --interaction=batchmode ${DOCUMENT}
+	latexmk -pdf -f --interaction=batchmode ${DOCUMENT}

@@ -9,4 +9,4 @@ parameters:
     type: DateTime
   - name: transfer.amount64-bit
     type: Integer
-choke_points: [0.0]
+choke_points: []

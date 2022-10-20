@@ -22,7 +22,7 @@ result:
   - name: COUNT(DISTINCT meidum)
     type: 64-bit Integer
     description: number of different mediums
-choke_points: [0.0]
+choke_points: []
 relevance: |
   In AWL, this case is used to find how many accounts signed
   in by blocked medium a specific account connects with.

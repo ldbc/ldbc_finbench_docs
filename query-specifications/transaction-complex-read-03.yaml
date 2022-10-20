@@ -17,5 +17,5 @@ result:
   - name: length
     type: 64-bit Integer
     description: the length of shortest path
-choke_points: [0.0]
+choke_points: []
 relevance: 

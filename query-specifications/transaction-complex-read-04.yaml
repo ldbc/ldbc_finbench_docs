@@ -36,6 +36,6 @@ result:
   - name: otherAccount.id
     type: ID
     description: id of the other account
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This query is a typical fund transfer cycle analysis case in AWL.

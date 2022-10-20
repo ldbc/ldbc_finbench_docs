@@ -13,4 +13,4 @@ parameters:
     type: Boolean
   - name: signIn.currentTime
     type: DateTime 
-choke_points: [0.0]
+choke_points: []

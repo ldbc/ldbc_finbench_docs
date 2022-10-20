@@ -27,6 +27,6 @@ result:
   - name: COUNT(DISTINCT loans)
     type: 64-bit Integer
     description: number of different loans
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This query is typical gang analysis case in risk control.
