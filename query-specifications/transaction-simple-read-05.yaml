@@ -23,6 +23,6 @@ result:
     type: 32-bit Integer
   - name: COUNT(DISTINCT otherAccount)
     type: 32-bit Integer
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This is a typical query of transfer-in statistic.

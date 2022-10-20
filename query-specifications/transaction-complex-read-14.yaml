@@ -27,5 +27,5 @@ sort:
   - name: totalAmount 
     direction: desc
 limit: 20
-choke_points: [0.0]
+choke_points: []
 relevance: 

@@ -20,6 +20,6 @@ parameters:
 result:
   - name: path
     type: Path
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This query is a typical fund transfer trace case in risk control.

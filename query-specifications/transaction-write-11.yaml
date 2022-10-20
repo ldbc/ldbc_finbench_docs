@@ -7,4 +7,4 @@ description: |
 parameters:
   - name: Medium.accountId
     type: ID
-choke_points: [0.0]
+choke_points: []

@@ -18,4 +18,4 @@ parameters:
     type: Boolean
   - name: Account.accountType
     type: String
-choke_points: [0.0]
+choke_points: []

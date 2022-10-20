@@ -9,4 +9,4 @@ description: |
 parameters:
   - name: account.id
     type: ID
-choke_points: [0.0]
+choke_points: []

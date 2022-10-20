@@ -11,4 +11,4 @@ parameters:
     type: ID
   - name: Person.id2
     type: ID
-choke_points: [0.0]
+choke_points: []

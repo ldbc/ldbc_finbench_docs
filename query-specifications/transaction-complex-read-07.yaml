@@ -22,6 +22,6 @@ result:
     type: ID
   - name: v2.id
     type: ID
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This query is a typical fast-in and fast-out recognition case in risk control.

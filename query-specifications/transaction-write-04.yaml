@@ -14,4 +14,4 @@ parameters:
     type: DateTime
   - name: withdraw.amount
     type: 64-bit Integer
-choke_points: [0.0]
+choke_points: []

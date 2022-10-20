@@ -13,6 +13,6 @@ parameters:
 result:
   - name: COLLECT(dst)
     type: "[ID]"
-choke_points: [0.0]
+choke_points: []
 relevance: |
   This is a typical company invest relationship analysis.
