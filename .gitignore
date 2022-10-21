@@ -19,6 +19,6 @@ Thumbs.db
 *.*~
 *.bcf
 *.run.xml
-
+patterns/~*.pptx
 .vscode
 ldbc-finbench-specification.pdf
