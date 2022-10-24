@@ -8,12 +8,12 @@
 \section{Motivation}
 
 Inspired by \ldbcsnb(LDBC's Social Network Benchmark)~\cite{DBLP:journals/corr/abs-2001-02299,
-ldbc_snb_docs}, a task force proposed by AntGroup~\cite{antgroup} is formed by the principal
+    ldbc_snb_docs}, a task force proposed by AntGroup~\cite{antgroup} is formed by the principal
 actors in the field of financial graph-like data management with help from LDBC to design a
 new benchmark, \ldbcfinbench(LDBC's Financial Benchmark). The task force intends to define a
 framework which is more applicable to financial scenarios can fairly test and compare different
 graph based technologies where the dataset and workload are carefully designed with their rich
-practical experience of members in financial industry. \ldbcfinbench is distinguished and 
+practical experience of members in financial industry. \ldbcfinbench is distinguished and
 characterized by the special features and patterns in financial industry compared with \ldbcsnb.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -26,25 +26,25 @@ characterized by the special features and patterns in financial industry compare
 stakeholders:
 
 \begin{itemize}
- \item For \textbf{users} facing graph processing tasks in financial industry,
-     \ldbcfinbench provides a recognizable scenario against which it is possible
-     to compare merits of different products and technologies. By covering a wide
-     variety of scales and price points, \ldbcfinbench can serve as an aid to
-     technology selection.
- \item For \textbf{vendors} of graph database technology, \ldbcfinbench provides a
-     checklist of features and performance characteristics that helps in product
-     positioning and can serve to guide new development.
- \item For \textbf{researchers}, both industrial and academic, the \ldbcfinbench
-     dataset and workload provide interesting challenges in multiple choke point
-     areas, and help to compare the efficiency of existing technology in these
-     areas.
+    \item For \textbf{users} facing graph processing tasks in financial industry,
+          \ldbcfinbench provides a recognizable scenario against which it is possible
+          to compare merits of different products and technologies. By covering a wide
+          variety of scales and price points, \ldbcfinbench can serve as an aid to
+          technology selection.
+    \item For \textbf{vendors} of graph database technology, \ldbcfinbench provides a
+          checklist of features and performance characteristics that helps in product
+          positioning and can serve to guide new development.
+    \item For \textbf{researchers}, both industrial and academic, the \ldbcfinbench
+          dataset and workload provide interesting challenges in multiple choke point
+          areas, and help to compare the efficiency of existing technology in these
+          areas.
 \end{itemize}
 
 Like \ldbcsnb, the technological scope of \ldbcfinbench comprises all systems that
 one might conceivably use to perform financial data management tasks including
 \textbf{Graph database management systems} (\eg Neo4j, TuGraph, etc.), \textbf{
-Graph processing frameworks} (\eg Giraph, Ligra, etc.), \textbf{RDF database
-systems} (\eg Virtuoso, AWS Neptune, etc.), \textbf{Relational database systems}
+    Graph processing frameworks} (\eg Giraph, Ligra, etc.), \textbf{RDF database
+    systems} (\eg Virtuoso, AWS Neptune, etc.), \textbf{Relational database systems}
 (\eg MySQL, Oracle, etc.), \textbf{NoSQL database systems} (\eg key-value stores
 such as HBase, Redis, MongoDB, CouchDB, or even MapReduce systems like Hadoop
 and Pig).
@@ -71,7 +71,7 @@ and so on.
 The data schema for \ldbcfinbench is designed to reflect the real data in financial systems. Frequent
 financial entities in real systems include accounts, medium, persons, companies, loans, and etc. The
 entities are vertices in the data schema while the edges reflect financial activities, \eg{fund transferred
-from one account to another}. In data schema, financial scenarios has these distinguished characteristics
+    from one account to another}. In data schema, financial scenarios has these distinguished characteristics
 compared with normal social network.
 \begin{itemize}
     \item Multiple edges can exist between two vertices, \eg{Many transfer records exist between two accounts}
@@ -88,26 +88,26 @@ In workloads and queries, financial scenarios has these distinguished characteri
     \item More tight latency, \eg{some queries need to return in less than 100ms}.
     \item Write operations updateing attributes, \eg{marking an account as blocked}.
     \item Recursive Path Filtering. Some queries filter data with backward dependency
-    in variable-length paths, \eg{finding all transfer paths A-[${e_1}$]->..-[${e_k}$]->B
-    where the timestamp of each transfer edge ${e_i}$ in the path is larger than that of
-    the previous ${e_{i-1}}$}. In this pattern, the variable length path is qualified by
-    the edge quantity attributes or the aggregation in the path, either along one path
-    or a set of paths.
+          in variable-length paths, \eg{finding all transfer paths A-[${e_1}$]->..-[${e_k}$]->B
+          where the timestamp of each transfer edge ${e_i}$ in the path is larger than that of
+          the previous ${e_{i-1}}$}. In this pattern, the variable length path is qualified by
+          the edge quantity attributes or the aggregation in the path, either along one path
+          or a set of paths.
     \item Read-write Query, which is a query sequence with a mix of reads and writes reflecting the
-    complexity of financial systems. Read-write query describes a desired pattern that risk control
-    policies are checked and corresponding actions are taken before financial activities like
-    transfers are actually written down to storage.
+          complexity of financial systems. Read-write query describes a desired pattern that risk control
+          policies are checked and corresponding actions are taken before financial activities like
+          transfers are actually written down to storage.
 \end{itemize}
 
 In \ldbcfinbench, there are two kinds of workloads:
 \begin{itemize}
     \item Transaction Workload. It includes queries with tight latency bound, which are usually
-    queries hopping a few steps from a start node. There are complex reads, simple reads, write
-    operations, and read-write queries in transaction workload. Transaction workload is specified
-    in \autoref{sec:transaction-workload}.
+          queries hopping a few steps from a start node. There are complex reads, simple reads, write
+          operations, and read-write queries in transaction workload. Transaction workload is specified
+          in \autoref{sec:transaction-workload}.
     \item Analysis Workload. It supposed to include more complicated queries,\eg{triggers and pre-computed
-    values in online systems}. This part is future work which will be designed and discussed in the
-    following versions. Analysis workload is specified in \autoref{sec:analysis-workload}.
+              values in online systems}. This part is future work which will be designed and discussed in the
+          following versions. Analysis workload is specified in \autoref{sec:analysis-workload}.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,11 +133,11 @@ open-source:
 \begin{itemize}
     \item \ldbcfinbench Specification: \url{https://github.com/ldbc/ldbc_finbench_docs}
     \item Transaction Workload:
-    \begin{itemize}
-        \item \ldbcfinbench DataGen: \url{https://github.com/ldbc/ldbc_finbench_datagen}
-        \item \ldbcfinbench Driver: \url{https://github.com/ldbc/ldbc_finbench_driver}
-        \item \ldbcfinbench Reference Implementation: \url{https://github.com/ldbc/ldbc_finbench_transaction_impls}
-    \end{itemize}
+          \begin{itemize}
+              \item \ldbcfinbench DataGen: \url{https://github.com/ldbc/ldbc_finbench_datagen}
+              \item \ldbcfinbench Driver: \url{https://github.com/ldbc/ldbc_finbench_driver}
+              \item \ldbcfinbench Reference Implementation: \url{https://github.com/ldbc/ldbc_finbench_transaction_impls}
+          \end{itemize}
     \item Analysis Workload: future work
 \end{itemize}
 
@@ -156,9 +156,9 @@ benchmarks as well:
 
 \begin{itemize}
     \item The Social Network Benchmark (SNB)~\cite{DBLP:journals/corr/abs-2001-02299} measures
-    the performance of \emph{all systems relevant to linked data} opearting a social network.
-	\item The Semantic Publishing Benchmark (SPB)~\cite{DBLP:conf/semweb/SpasicJP16} measures
-    the performance of \emph{semantic databases} operating on RDF datasets.
-	\item The Graphalytics benchmark~\cite{DBLP:journals/pvldb/IosupHNHPMCCSAT16} measures the
-    performance of \emph{graph analysis} operations (\eg PageRank, local clustering coefficient).
+          the performance of \emph{all systems relevant to linked data} opearting a social network.
+    \item The Semantic Publishing Benchmark (SPB)~\cite{DBLP:conf/semweb/SpasicJP16} measures
+          the performance of \emph{semantic databases} operating on RDF datasets.
+    \item The Graphalytics benchmark~\cite{DBLP:journals/pvldb/IosupHNHPMCCSAT16} measures the
+          performance of \emph{graph analysis} operations (\eg PageRank, local clustering coefficient).
 \end{itemize}
