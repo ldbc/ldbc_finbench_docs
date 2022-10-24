@@ -1,10 +1,10 @@
 \newcommand{\tpcCard}[1]{\colorbox{lightgray}{\tt TPC-H #1}}
 \newcommand{\cpSection}[4][]{%
-	\subsection*{%
-		CP-#2: [#3] #4%
-		\ifthenelse{\equal{#1}{}}{}{\hfill \tpcCard{#1}}%
-	}%
-	\label{choke_point_#2}}
+\subsection*{%
+CP-#2: [#3] #4%
+\ifthenelse{\equal{#1}{}}{}{\hfill \tpcCard{#1}}%
+}%
+\label{choke_point_#2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,9 +43,9 @@ are paths from the start Account Node to other Account Node at most 3 steps via
 Transfer relationship. These paths should meet these requirements or patterns:
 \begin{itemize}
 	\item All money-transfer paths A ->[e1]->B-[e2]->...->X  in which the
-	timestamp of each transfer ei  is larger than that of ei-1
+	      timestamp of each transfer ei  is larger than that of ei-1
 	\item All money-transfer paths A ->[e1]->B-[e2]->...->X  in which the amount
-	of each transfer ei  is smaller than that of ei-1
+	      of each transfer ei  is smaller than that of ei-1
 \end{itemize}
 
 These cases contain this pattern: Transaction / read / [1,2,3,4,7,8,9,10,11,13]

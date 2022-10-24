@@ -27,7 +27,7 @@
 		% 	\href{https://ldbcouncil.org/ldbc_snb_docs/#1.pdf}{\colorbox{#2}{\tt #2 #3}}%
 		% 	%\colorbox{#2}{\tt #2 #3}%
 		% }{%
-			\hyperref[sec:#1]{\colorbox{#2}{\tt #2 #3}}%
+		\hyperref[sec:#1]{\colorbox{#2}{\tt #2 #3}}%
 		% }
 	}%
 }
@@ -90,11 +90,11 @@
 \newcommand{\attributeTable}[3]{
 	\vspace{1ex}
 	\begin{tabularx}{\linewidth}{|l|Y|}
-	\hline
-	\bf Attribute   & \varNameCell  #1 \\ \hline
-	\bf Type        & \typeCellBase #2 \\ \hline % using typeCellBase as we cannot use \raggedright here
-	\bf Description &               #3 \\
-	\hline
+		\hline
+		\bf Attribute   & \varNameCell  #1 \\ \hline
+		\bf Type        & \typeCellBase #2 \\ \hline % using typeCellBase as we cannot use \raggedright here
+		\bf Description & #3               \\
+		\hline
 	\end{tabularx}}
 
 \newcommand{\tpch}[1]{{\color{gray}(Related TPC-H choke point: #1)}}

@@ -7,14 +7,14 @@ and abstraction. In abstraction, there are some annotations about the compromise
 design,
 \begin{itemize}
     \item Although multiple persons/companies may own the same account in reality, an account
-    is owned by a person or a company only in the schema to make it simple.
+          is owned by a person or a company only in the schema to make it simple.
     \item Although rejected transactions may be recorded to support future loan decisions,
-    only approved transactions/transfers are recorded in the benchmark dataset.
+          only approved transactions/transfers are recorded in the benchmark dataset.
     \item Considering the DAU of financial systems in reality, There will be many signIn edges
-    between medium and account vertices. However, we do not generate such many signIn edges aligning
-    to reality with a limit in the simulation of data generation process since systems usually 
-    circumvent the problem by adding a medium attribute to edges like transfer and withdraw to
-    record the medium users used.
+          between medium and account vertices. However, we do not generate such many signIn edges aligning
+          to reality with a limit in the simulation of data generation process since systems usually
+          circumvent the problem by adding a medium attribute to edges like transfer and withdraw to
+          record the medium users used.
 \end{itemize}
 
 \section{Data Types}
@@ -25,53 +25,53 @@ financial scenarios reflecting traces, e.g. fund transfer traces. Note that the 
 floats used in \ldbcfinbench all round to 3 decimal places(thousandths).
 
 \begin{table}[h]
-\centering
-\begin{tabular}{|>{\typeCell}p{\attributeColumnWidth}|p{\largeDescriptionColumnWidth}|}
-    \hline
-    \tableHeaderFirst{Type} & \tableHeader{Description} \\
-    \hline
-    ID & Integer type with 64-bit precision. All IDs within a single entity type
-    (e.g. Person) are unique, but different entity types (e.g. a Person and an
-    Account) might have the same ID. \\
-    \hline
-    32-bit Integer & Integer type with 32-bit precision \\
-    \hline
-    64-bit Integer & Integer type with 64-bit precision \\
-    \hline
-    32-bit Float & Floating type with 32-bit precision \textbf{rounded to 3 decimal places(thousandths)} \\
-    \hline
-    String & Variable length text of size 40 Unicode characters\\
-    \hline
-    Long String & Variable length text of size 256 Unicode characters \\
-    \hline
-    Text & Variable length text of size 2000 Unicode characters \\
-    \hline
-    Date & Date with a precision of a day, encoded as a string with the
-    following format: \textit{yyyy-mm-dd}, where \textit{yyyy} is a four-digit
-    integer representing the year, the year, \textit{mm} is a two-digit integer
-    representing the month and \textit{dd} is a two-digit integer representing
-    the day. \\
-    \hline
-    DateTime & Date with a precision of milliseconds, encoded as a string with
-    the following format: \textit{yyyy-mm-ddTHH:MM:ss.sss+0000}, where
-    \textit{yyyy} is a four-digit integer representing the year, the year,
-    \textit{mm} is a two-digit integer representing the month and \textit{dd} is
-    a two-digit integer representing the day, \textit{HH} is a two-digit integer
-    representing the hour, \textit{MM} is a two digit integer representing the
-    minute and \textit{ss.sss} is a five digit fixed point real number
-    representing the seconds up to millisecond precision. Finally, the
-    \textit{+0000} of the end represents the timezone, which in this case is
-    always GMT. \\
-    \hline
-    Boolean & A logical type taking the value of either True of False. \\
-    \hline
-    Path & A compound type representing a trace which is expressed in an ordered
-    sequence of vertices' IDs in the trace. For example, [1,3,4,8] expresses a
-    trace 1->3->4->8.\\
-    \hline
-\end{tabular}
-\caption{Description of the data types.}
-\label{table:types}
+    \centering
+    \begin{tabular}{|>{\typeCell}p{\attributeColumnWidth}|p{\largeDescriptionColumnWidth}|}
+        \hline
+        \tableHeaderFirst{Type} & \tableHeader{Description}                                                             \\
+        \hline
+        ID                      & Integer type with 64-bit precision. All IDs within a single entity type
+        (e.g. Person) are unique, but different entity types (e.g. a Person and an
+        Account) might have the same ID.                                                                                \\
+        \hline
+        32-bit Integer          & Integer type with 32-bit precision                                                    \\
+        \hline
+        64-bit Integer          & Integer type with 64-bit precision                                                    \\
+        \hline
+        32-bit Float            & Floating type with 32-bit precision \textbf{rounded to 3 decimal places(thousandths)} \\
+        \hline
+        String                  & Variable length text of size 40 Unicode characters                                    \\
+        \hline
+        Long String             & Variable length text of size 256 Unicode characters                                   \\
+        \hline
+        Text                    & Variable length text of size 2000 Unicode characters                                  \\
+        \hline
+        Date                    & Date with a precision of a day, encoded as a string with the
+        following format: \textit{yyyy-mm-dd}, where \textit{yyyy} is a four-digit
+        integer representing the year, the year, \textit{mm} is a two-digit integer
+        representing the month and \textit{dd} is a two-digit integer representing
+        the day.                                                                                                        \\
+        \hline
+        DateTime                & Date with a precision of milliseconds, encoded as a string with
+        the following format: \textit{yyyy-mm-ddTHH:MM:ss.sss+0000}, where
+        \textit{yyyy} is a four-digit integer representing the year, the year,
+        \textit{mm} is a two-digit integer representing the month and \textit{dd} is
+        a two-digit integer representing the day, \textit{HH} is a two-digit integer
+        representing the hour, \textit{MM} is a two digit integer representing the
+        minute and \textit{ss.sss} is a five digit fixed point real number
+        representing the seconds up to millisecond precision. Finally, the
+        \textit{+0000} of the end represents the timezone, which in this case is
+        always GMT.                                                                                                     \\
+        \hline
+        Boolean                 & A logical type taking the value of either True of False.                              \\
+        \hline
+        Path                    & A compound type representing a trace which is expressed in an ordered
+        sequence of vertices' IDs in the trace. For example, [1,3,4,8] expresses a
+        trace 1->3->4->8.                                                                                               \\
+        \hline
+    \end{tabular}
+    \caption{Description of the data types.}
+    \label{table:types}
 \end{table}
 
 \section{Data Schema}
@@ -84,10 +84,10 @@ their attributes, and their relations. All of them are described in the
 following sections.
 
 \begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\linewidth]{figures/data-schema}
-	\caption{The \ldbcfinbench data schema}
-	\label{figure:schema}
+    \centering
+    \includegraphics[width=\linewidth]{figures/data-schema}
+    \caption{The \ldbcfinbench data schema}
+    \label{figure:schema}
 \end{figure}
 
 \subsection{Entities}
@@ -98,11 +98,11 @@ shows the attributes.
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
         \tableHeaderFirst{Attribute} & \tableHeader{Type} &
-        \tableHeader{Description} \\
+        \tableHeader{Description}                                                         \\
         \hline
-        id & ID & The identifier of the person. \\
+        id                           & ID                 & The identifier of the person. \\
         \hline
-        name & String & The name of the person. \\
+        name                         & String             & The name of the person.       \\
         \hline
     \end{tabular}
     \caption{Attributes of Person entity.}
@@ -115,11 +115,11 @@ in and persons invest. \autoref{table:company} shows the attributes.
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
         \tableHeaderFirst{Attribute} & \tableHeader{Type} &
-        \tableHeader{Description} \\
+        \tableHeader{Description}                                                          \\
         \hline
-        id & ID & The identifier of the company. \\
+        id                           & ID                 & The identifier of the company. \\
         \hline
-        name & String & The name of the company. \\
+        name                         & String             & The name of the company.       \\
         \hline
     \end{tabular}
     \caption{Attributes of Company entity.}
@@ -134,16 +134,16 @@ personalDeposit, personalCredit, etc. It can deal with other accounts.
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
         \tableHeaderFirst{Attribute} & \tableHeader{Type} &
-        \tableHeader{Description} \\
+        \tableHeader{Description}                                                                              \\
         \hline
-        id & ID & The identifier of the account. \\
+        id                           & ID                 & The identifier of the account.                     \\
         \hline
-        createTime & DateTime & The time when the account created. \\
+        createTime                   & DateTime           & The time when the account created.                 \\
         \hline
-        isBlocked & Boolean & If the account is blocked or concerned in systems. \\
+        isBlocked                    & Boolean            & If the account is blocked or concerned in systems. \\
         \hline
-        type & String & The type of Account including personalDeposit,
-        personalCredit, companyDeposit, card. \\
+        type                         & String             & The type of Account including personalDeposit,
+        personalCredit, companyDeposit, card.                                                                  \\
         \hline
     \end{tabular}
     \caption{Attributes of Account entity.}
@@ -156,13 +156,13 @@ world. \autoref{table:loan} shows the attributes.
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
         \tableHeaderFirst{Attribute} & \tableHeader{Type} &
-        \tableHeader{Description} \\
+        \tableHeader{Description}                                                       \\
         \hline
-        id & ID & The identifier of the loan. \\
+        id                           & ID                 & The identifier of the loan. \\
         \hline
-        loanAmount & 64-bit Integer & The amount of a loan. \\
+        loanAmount                   & 64-bit Integer     & The amount of a loan.       \\
         \hline
-        balance & 64-bit Integer & The balance of a loan. \\
+        balance                      & 64-bit Integer     & The balance of a loan.      \\
         \hline
     \end{tabular}
     \caption{Attributes of Loan entity.}
@@ -175,13 +175,13 @@ sign in account in real world, such as IP, mac, phone numbers.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}                         \\
         \hline
-        id & ID & The identifier of the medium. \\
+        id                           & ID                 & The identifier of the medium.                     \\
         \hline
-        name & String & The name of the medium. \\
+        name                         & String             & The name of the medium.                           \\
         \hline
-        isBlocked & Boolean & If the medium is blocked or concerned in systems. \\
+        isBlocked                    & Boolean            & If the medium is blocked or concerned in systems. \\
         \hline
     \end{tabular}
     \caption{Attributes of Medium entity.}
@@ -190,51 +190,51 @@ sign in account in real world, such as IP, mac, phone numbers.
 
 \subsection{Relations}
 Relations connect entities of different types showed in \autoref{table:relations}.
-Except that own and workIn has no attributes, the attributes of other relations 
+Except that own and workIn has no attributes, the attributes of other relations
 are showed in the following tables. Note that the Cardinality means the cardinal
 relationship from the tail to head of the edge type and the Multiplicity means
 how many edges exist from the same tail to the same head. For example, the one-to-many
 cardinality of own means an account can only be owned by a person or a company.
 
 \begin{longtable}{|>{\varNameCell}p{1.5cm}|>{\typeCell}p{1.5cm}|>{\typeCell}p{1.5cm}|>{\cardinalCell}p{2cm}|>{\centering\edgeDirectionCell}p{2cm}|p{5.5cm}|}
-        \hline
-        \tableHeaderFirst{Name} & \tableHeader{Tail} & \tableHeader{Head} & \tableHeader{Cardinality} & \tableHeader{Multiplicity} & \tableHeader{Description} \\
-        \hline
-        signIn & Medium & Account & Many-to-Many & N & An account signed in with a media. \\
-        \hline
-        own & Person/ \newline Company & Account & One-to-Many & 1 & An account owned by a person or a company. \\
-        \hline
-        transfer & Account & Account & Many-to-Many & N & Fund transferred between two accounts. \\
-        \hline
-        withdraw & Account & Account & Many-to-Many & N & Fund transferred from an account to another account of type card. \\
-        \hline
-        apply & Person/ \newline Company & Loan & One-to-Many & 1 & A person or a company applies a Loan. \\
-        \hline
-        deposit & Loan & Account & Many-to-One & N & Loan fund deposited to an account. \\
-        \hline
-        repay & Account & Loan & One-to-Many & N & Loan repaid from an account. \\
-        \hline
-        invest & Person/ \newline Company & Company & Many-to-Many & 1 & A person or a company invests a company. \\
-        \hline
-        workIn & Person & Company & Many-to-Many & 1 & A person works in a company. \\
-        \hline
-        guarantee & Person/ \newline Company & Person/ \newline Company & Many-to-Many & 1 & A person or a company guarantees another for some reason like loans. \\
-        \hline
-        \caption{Description of the data relations.}
-        \label{table:relations}
+    \hline
+    \tableHeaderFirst{Name} & \tableHeader{Tail}       & \tableHeader{Head}       & \tableHeader{Cardinality} & \tableHeader{Multiplicity} & \tableHeader{Description}                                            \\
+    \hline
+    signIn                  & Medium                   & Account                  & Many-to-Many              & N                          & An account signed in with a media.                                   \\
+    \hline
+    own                     & Person/ \newline Company & Account                  & One-to-Many               & 1                          & An account owned by a person or a company.                           \\
+    \hline
+    transfer                & Account                  & Account                  & Many-to-Many              & N                          & Fund transferred between two accounts.                               \\
+    \hline
+    withdraw                & Account                  & Account                  & Many-to-Many              & N                          & Fund transferred from an account to another account of type card.    \\
+    \hline
+    apply                   & Person/ \newline Company & Loan                     & One-to-Many               & 1                          & A person or a company applies a Loan.                                \\
+    \hline
+    deposit                 & Loan                     & Account                  & Many-to-One               & N                          & Loan fund deposited to an account.                                   \\
+    \hline
+    repay                   & Account                  & Loan                     & One-to-Many               & N                          & Loan repaid from an account.                                         \\
+    \hline
+    invest                  & Person/ \newline Company & Company                  & Many-to-Many              & 1                          & A person or a company invests a company.                             \\
+    \hline
+    workIn                  & Person                   & Company                  & Many-to-Many              & 1                          & A person works in a company.                                         \\
+    \hline
+    guarantee               & Person/ \newline Company & Person/ \newline Company & Many-to-Many              & 1                          & A person or a company guarantees another for some reason like loans. \\
+    \hline
+    \caption{Description of the data relations.}
+    \label{table:relations}
 \end{longtable}
 
 {\flushleft \textbf{transfer:}} Fund transfers between accounts. \autoref{table:transfer} shows the attributes.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}      \\
         \hline
-        timestamp & DateTime & The time when transfer issues.\\
+        timestamp                    & DateTime           & The time when transfer issues. \\
         \hline
-        amount & Long & The amount of the transfer.\\
+        amount                       & Long               & The amount of the transfer.    \\
         \hline
-        type & String & The type of the transfer. \\
+        type                         & String             & The type of the transfer.      \\
         \hline
     \end{tabular}
     \caption{Attributes of transfer relation.}
@@ -245,11 +245,11 @@ cardinality of own means an account can only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}      \\
         \hline
-        timestamp & DateTime & The time when withdraw issues. \\
+        timestamp                    & DateTime           & The time when withdraw issues. \\
         \hline
-        amount & Long & The amount of the withdraw. \\
+        amount                       & Long               & The amount of the withdraw.    \\
         \hline
     \end{tabular}
     \caption{Attributes of withdraw relation.}
@@ -260,11 +260,11 @@ cardinality of own means an account can only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}   \\
         \hline
-        timestamp & DateTime & The time when repay issues. \\
+        timestamp                    & DateTime           & The time when repay issues. \\
         \hline
-        amount & Long & The amount of the repay. \\
+        amount                       & Long               & The amount of the repay.    \\
         \hline
     \end{tabular}
     \caption{Attributes of repay relation.}
@@ -275,11 +275,11 @@ cardinality of own means an account can only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}     \\
         \hline
-        timestamp & DateTime & The time when deposit issues. \\
+        timestamp                    & DateTime           & The time when deposit issues. \\
         \hline
-        amount & Long & The amount of the deposit. \\
+        amount                       & Long               & The amount of the deposit.    \\
         \hline
     \end{tabular}
     \caption{Attributes of deposit relation.}
@@ -290,9 +290,9 @@ cardinality of own means an account can only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}     \\
         \hline
-        timestamp & DateTime & The time when signIn happens. \\
+        timestamp                    & DateTime           & The time when signIn happens. \\
         \hline
     \end{tabular}
     \caption{Attributes of signIn relation.}
@@ -303,9 +303,9 @@ cardinality of own means an account can only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}     \\
         \hline
-        timestamp & DateTime & The time when invest happens. \\
+        timestamp                    & DateTime           & The time when invest happens. \\
         \hline
     \end{tabular}
     \caption{Attributes of invest relation.}
@@ -316,9 +316,9 @@ cardinality of own means an account can only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}    \\
         \hline
-        timestamp & DateTime & The time when apply happens. \\
+        timestamp                    & DateTime           & The time when apply happens. \\
         \hline
     \end{tabular}
     \caption{Attributes of apply relation.}
@@ -329,9 +329,9 @@ cardinality of own means an account can only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description} \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}        \\
         \hline
-        timestamp & DateTime & The time when guarantee happens. \\
+        timestamp                    & DateTime           & The time when guarantee happens. \\
         \hline
     \end{tabular}
     \caption{Attributes of guarantee relation.}
@@ -339,7 +339,7 @@ cardinality of own means an account can only be owned by a person or a company.
 \end{table}
 
 \section{Data Generation}
-[TODO. This section will be filled after benchmark software designed and developed.]
+ [TODO. This section will be filled after benchmark software designed and developed.]
 
 \section{Output Data}
-[TODO. This section will be filled after benchmark software designed and developed.]\
+ [TODO. This section will be filled after benchmark software designed and developed.]\
