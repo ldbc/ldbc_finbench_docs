@@ -1,3 +1,6 @@
+\chapter{Choke Points}
+\label{sec:choke-points}
+
 \newcommand{\tpcCard}[1]{\colorbox{lightgray}{\tt TPC-H #1}}
 \newcommand{\cpSection}[4][]{%
 \subsection*{%
@@ -12,90 +15,13 @@ CP-#2: [#3] #4%
 
 \section*{Introduction}
 
-Choke points are a superset of LdbcDeliverable with the exception of CP
-\chokePoint{7.1}, which was removed and replaced with a new choke point. The
-correlations between choke points and queries are displayed in ??.
+Choke points capture particularly challenging aspects of queries.
+The correlations between choke points and read queries are displayed in \autoref{tab:query_choke_point}.
 
 {
-\setlength{\tabcolsep}{.1em}
+\setlength{\tabcolsep}{.05em}
+\input{choke-points/choke-points-queries}
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Path Filtering}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cpSection[1.1]{1.1}{TBFE}{Timestamp-based and amount-based filter on edges}
-
-Almost all the edges has property Timestamp and the transfer edges has property
-Amount. Timestamp and amount property is used in filtering.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cpSection[1.2]{1.2}{RFBD}{Recursive Filtering with backward dependency in variable-length paths}
-
-In some cases, there are some special pattern that is typical in financial
-scenarios. Take Transaction/read/11 for example. In this query, it is supposed there
-are paths from the start Account Node to other Account Node at most 3 steps via
-Transfer relationship. These paths should meet these requirements or patterns:
-\begin{itemize}
-	\item All money-transfer paths A ->[e1]->B-[e2]->...->X  in which the
-	      timestamp of each transfer ei  is larger than that of ei-1
-	\item All money-transfer paths A ->[e1]->B-[e2]->...->X  in which the amount
-	      of each transfer ei  is smaller than that of ei-1
-\end{itemize}
-
-These cases contain this pattern: Transaction / read / [1,2,3,4,7,8,9,10,11,13]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cpSection[1.3]{1.3}{RPQ}{Regular Path Query}
-
-In some cases, the edges may be of different type in variant-length paths, e.g.,
-paths like A ->[e1]->B-[e2]->...->X in  which the type of ei  is transfer and
-the type of ei-1  is withdraw. When the types varies, it is supposed to support
-query using regular expressions. Examples cases: Transaction / read / 11
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Complex Pattern}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cpSection[2.1]{2.1}{}{Cycle Detection}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cpSection[2.2]{2.2}{}{Chain Detection}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Read-write query}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cpSection[3.1]{3.1}{}{Real-time queries composed of reads and writes}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Complex Writes}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cpSection[4.1]{4.1}{}{Multiplicate edges insert}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cpSection[4.2]{4.2}{}{Property level update}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,6 +29,99 @@ query using regular expressions. Examples cases: Transaction / read / 11
 
 \section{Aggregation Performance}
 
+\input{choke-points/cp-1-1}
+\input{choke-points/cp-1-2}
+\input{choke-points/cp-1-3}
+\input{choke-points/cp-1-4}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\cpSection[5.1]{5.1}{}{Complex aggregations}
+\section{Join Performance}
+
+\input{choke-points/cp-2-1}
+\input{choke-points/cp-2-2}
+\input{choke-points/cp-2-3}
+\input{choke-points/cp-2-4}
+\input{choke-points/cp-2-5}
+\input{choke-points/cp-2-6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Data Access Locality}
+
+\input{choke-points/cp-3-1}
+\input{choke-points/cp-3-2}
+\input{choke-points/cp-3-3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Expression Calculation}
+
+\input{choke-points/cp-4-1}
+\input{choke-points/cp-4-2}
+\input{choke-points/cp-4-3}
+% \input{choke-points/cp-4-4} % currently not used
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Correlated Sub-Queries}
+
+\input{choke-points/cp-5-1}
+\input{choke-points/cp-5-2}
+\input{choke-points/cp-5-3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Parallelism and Concurrency}
+
+\input{choke-points/cp-6-1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Graph Specifics}
+
+\input{choke-points/cp-7-1}
+\input{choke-points/cp-7-2}
+\input{choke-points/cp-7-3}
+\input{choke-points/cp-7-4}
+\input{choke-points/cp-7-5}
+\input{choke-points/cp-7-6}
+\input{choke-points/cp-7-7}
+\input{choke-points/cp-7-8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Language Features}
+
+\input{choke-points/cp-8-1}
+\input{choke-points/cp-8-2}
+\input{choke-points/cp-8-3}
+\input{choke-points/cp-8-4}
+\input{choke-points/cp-8-5}
+\input{choke-points/cp-8-6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Update Operations}
+
+\input{choke-points/cp-9-1}
+\input{choke-points/cp-9-2}
+\input{choke-points/cp-9-3}
+\input{choke-points/cp-9-4}
+\input{choke-points/cp-9-5}

@@ -1,0 +1,22 @@
+\cpSection{7.3}{QEXE}{Execution of a transitive step}
+
+This choke point tests the ability of the query execution engine to efficiently execute transitive steps. Graph workloads may have transitive operations, for example finding a shortest path between nodes.
+This involves repeated execution of a short lookup, often on many values at the
+same time, while usually having an end condition, \eg the target node being reached or having reached the border of a search going in the opposite direction.
+For the best efficiency, these operations can be merged or tightly coupled to
+the index operations themselves. Also parallelization may be possible but may
+need to deal with a global state, \eg set of visited nodes.
+There are many possible tradeoffs between generality and performance.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Queries}
+{\raggedright
+    % \queryRefCard{bi-read-09}{BI}{9}
+    % \queryRefCard{bi-read-10}{BI}{10}
+    % \queryRefCard{bi-read-15}{BI}{15}
+    % \queryRefCard{interactive-complex-read-12}{IC}{12}
+    % \queryRefCard{interactive-complex-read-13}{IC}{13}
+    % \queryRefCard{interactive-complex-read-14}{IC}{14}
+
+}
