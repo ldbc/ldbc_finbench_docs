@@ -1,11 +1,28 @@
 \chapter{Choke Points}
 \label{sec:choke-points}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\tpcCard}[1]{\colorbox{lightgray}{\tt TPC-H #1}}
-\newcommand{\cpSection}[4][]{%
+\newcommand{\tpcCPSection}[4][]{%
 \subsection*{%
 CP-#2: [#3] #4%
 \ifthenelse{\equal{#1}{}}{}{\hfill \tpcCard{#1}}%
+}%
+\label{choke_point_#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\snbCPSection}[4][]{%
+\subsection*{%
+CP-#2: [#3] #4%
+{\hfill {\colorbox{lightgray}{\tt From SNB}}}%
+}%
+\label{choke_point_#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\newCPSection}[4][]{%
+\subsection*{%
+CP-#2: [#3] #4%
+{\hfill {\colorbox{lightgray}{\tt New in FinBench}}}%
 }%
 \label{choke_point_#2}}
 
@@ -56,6 +73,7 @@ The correlations between choke points and read queries are displayed in \autoref
 \input{choke-points/cp-3-1}
 \input{choke-points/cp-3-2}
 \input{choke-points/cp-3-3}
+\input{choke-points/cp-3-4}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -85,6 +103,8 @@ The correlations between choke points and read queries are displayed in \autoref
 \section{Parallelism and Concurrency}
 
 \input{choke-points/cp-6-1}
+\input{choke-points/cp-6-2}
+\input{choke-points/cp-6-3}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,6 +120,8 @@ The correlations between choke points and read queries are displayed in \autoref
 \input{choke-points/cp-7-6}
 \input{choke-points/cp-7-7}
 \input{choke-points/cp-7-8}
+\input{choke-points/cp-7-9}
+\input{choke-points/cp-7-10}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -113,6 +135,9 @@ The correlations between choke points and read queries are displayed in \autoref
 \input{choke-points/cp-8-4}
 \input{choke-points/cp-8-5}
 \input{choke-points/cp-8-6}
+\input{choke-points/cp-8-7}
+\input{choke-points/cp-8-8}
+\input{choke-points/cp-8-9}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

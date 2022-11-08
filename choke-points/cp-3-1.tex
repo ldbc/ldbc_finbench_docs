@@ -1,4 +1,4 @@
-\cpSection[3.3]{3.1}{QOPT}{Detecting correlation}
+\tpcCPSection[3.3]{3.1}{QOPT}{Detecting correlation}
 
 This choke point tests the ability of the query optimizer to detect data correlations and exploiting them. If a schema rewards creating clustered indices, the question then is which of the date or data columns to use as key.
 In fact it should not matter which column is used, as range-propagation between correlated attributes of the same table is relatively easy. One way is through the creation of multi-attribute histograms after detection of attribute correlation.
@@ -8,8 +8,6 @@ With MinMax indices, range-predicates on any column can be translated into quali
 
 \paragraph{Queries}
 {\raggedright
-    % \queryRefCard{bi-read-02}{BI}{2}
-    % \queryRefCard{bi-read-14}{BI}{14}
     % \queryRefCard{interactive-complex-read-03}{IC}{3}
 
 }

@@ -1,4 +1,4 @@
-\cpSection[4.2a]{4.1}{QOPT}{Common subexpression elimination}
+\tpcCPSection[4.2a]{4.1}{QOPT}{Common subexpression elimination}
 
 This choke point tests the ability of the query optimizer to detect common sub-expressions and reuse their results. A basic technique helpful in multiple queries is common subexpression elimination (CSE).
 CSE should recognize also that \lstinline{avg} aggregates can be derived afterwards by dividing a \lstinline{sum} by the \lstinline{count} when those have been computed.
@@ -7,8 +7,6 @@ CSE should recognize also that \lstinline{avg} aggregates can be derived afterwa
 
 \paragraph{Queries}
 {\raggedright
-    % \queryRefCard{bi-read-01}{BI}{1}
-    % \queryRefCard{bi-read-02}{BI}{2}
     % \queryRefCard{interactive-complex-read-10}{IC}{10}
 
 }
