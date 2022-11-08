@@ -1,0 +1,21 @@
+\snbCPSection{8.3}{LANG}{Ranking-style queries}
+
+\paragraph{Description.}
+
+Along with aggregations, BI workloads often use \emph{window functions},
+which perform aggregations without grouping input tuples to a single output
+tuple.  A common use case for windowing is \emph{ranking}, \ie selecting the top
+element with additional values in the tuple (nodes, edges or
+attributes).\footnote{PostgreSQL defines the \lstinline[language=sql]{OVER}
+    keyword to use aggregation functions as window functions, and the
+    \lstinline[language=sql]{rank()} function to produce numerical ranks, see
+    \url{https://www.postgresql.org/docs/9.1/static/tutorial-window.html} for
+    details.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Queries}
+{\raggedright
+    % \queryRefCard{interactive-complex-read-14}{IC}{14}
+
+}

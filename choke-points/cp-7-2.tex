@@ -1,0 +1,17 @@
+\snbCPSection{7.2}{QOPT}{Cardinality estimation of transitive paths}
+
+This choke point tests the ability of the query optimizer to properly estimate the cardinality of intermediate results when executing transitive paths. A transitive path may occur in a ``fact table'' or a ``dimension table'' position.
+A transitive path may cover a tree or a graph, \eg descendants in a geographical hierarchy \vs graph neighbourhood or transitive closure in a many-to-many connected social network.
+In order to decide proper join order and type, the cardinality of the expansion of the transitive path needs to be correctly estimated.
+This could for example take the form of executing on a sample of the data in the
+cost model or of gathering special statistics, \eg the depth and fan-out of a tree. In the case of hierarchical dimensions,
+\eg geographic locations or other hierarchical classifications, detecting the cardinality of the transitive path will allow one to go to a star schema plan with scan of a fact table with a selective hash join.
+Such a plan will be on the other hand very bad for example if the hash table is much larger than the ``fact table'' being scanned.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Queries}
+{\raggedright
+    % \queryRefCard{interactive-complex-read-14}{IC}{14}
+
+}
