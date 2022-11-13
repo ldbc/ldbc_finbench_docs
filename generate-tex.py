@@ -51,6 +51,8 @@ query_choke_point = defaultdict(list)      # queries -> cps
 choke_point_references = defaultdict(list) # cps -> queries
 
 for filename in glob.glob("query-specifications/*.yaml"):
+    if "deprecated" in basename(filename):
+        continue
     print("Processing query specification: %s" % filename)
     query_id = splitext(basename(filename))[0]
 

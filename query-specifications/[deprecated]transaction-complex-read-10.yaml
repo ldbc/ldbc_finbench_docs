@@ -1,0 +1,29 @@
+workload: Transaction
+operation: complex-read
+number: 10
+title: Accounts with many transfers
+description: |
+  Find all the *accounts* that has more than n1 *transfer-ins* and more than n2
+  *transfer-outs* whose amount exceeds *threshold* in a specific time range between
+  *start_time* and *end_time*. Return all these *accounts*.
+parameters:
+  - name: threshold
+    type: 64-bit Integer
+    description: threshold of transfer amount
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
+  - name: n1
+    type: 32-bit Integer
+  - name: n2
+    type: 32-bit Integer
+result:
+  - name: COLLECT(n)
+    type: "[ID]"
+choke_points: []
+relevance: |
+  This query is a typical routine review for accounts which has many
+  transfer-ins and transfer-outs.

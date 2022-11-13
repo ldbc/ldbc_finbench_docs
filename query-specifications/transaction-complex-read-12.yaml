@@ -1,18 +1,13 @@
 workload: Transaction
 operation: complex-read
 number: 12
-title: Invest relationship trace
+title: Guarantee Cycle Detection
 description: |
-  Given a *Company*, find all the *Companies* and *Persons* the *Company* invests by at most k steps.
+  Find all the *guarantee* cycle.
 parameters:
-  - name: id
-    type: ID
-    description: id of the Company
-  - name: k
-    type: 32-bit Integer
 result:
-  - name: COLLECT(dst)
+  - name: person
     type: "[ID]"
 choke_points: []
 relevance: |
-  This is a typical company invest relationship analysis.
+  This is a typical cycle detection in guarantee.
