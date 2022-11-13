@@ -4,21 +4,27 @@
 This workload consists of a set of relatively simple read queries, write queries
 and read-write operations, that touch a significant amount of data. These
 queries and operations are usually considered as online data processing and
-analysis in online financial systems. The LDBC FinBench Transaction workload consists of three query classes: 
+analysis in online financial systems. The LDBC FinBench transaction workload
+consists of four query types:
 \begin{itemize}
-    \item Complex read queries. See \autoref{sec:complex-read-queries}. This section contains many basic read
-    queries that are typical in financial scenarios.
-    \item Simple read queries. See \autoref{sec:simple-read-queries}. This section contains many basic read
-    queries that are typical in financial scenarios.
-    \item Write queries. See \autoref{sec:write-queries}. This section contains many basic
-    write queries that are typical in financial scenarios.
-    \item Read-write queries. See \autoref{sec:rw-queries}. This section contains many
-    read-write operations composed of basic reads and writes in section 4.1 and
-    4.2. In each operation, the basic reads and writes are supposed to launch
-    step by step consecutively. The result may be wrong if the previous reads
-    and writes are not be processed accurately in time. This feature of FinBench
-    is a big difference from LDBC SNB.
+    \item Complex read queries. See \autoref{sec:complex-read-queries}. This
+          section contains many basic read queries that are typical in financial
+          scenarios.
+    \item Simple read queries. See \autoref{sec:simple-read-queries}. This
+          section contains many basic read queries that are typical in financial
+          scenarios.
+    \item Write queries. See \autoref{sec:write-queries}. This section contains
+          many basic write queries that are typical in financial scenarios.
+    \item Read-write queries. See \autoref{sec:rw-queries}. This section
+          contains many read-write operations composed of basic reads and writes
+          in section 4.1 and 4.2. In each operation, the basic reads and writes
+          are supposed to launch step by step consecutively. The result may be
+          wrong if the previous reads and writes are not be processed accurately
+          in time. This feature of FinBench is a big difference from LDBC SNB.
 \end{itemize}
+
+To express the pattern better, the pattern diagrams are drawn from the
+perspective of data rather than the matching pattern.
 
 \section{Complex Read Queries}
 \label{sec:complex-read-queries}

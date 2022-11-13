@@ -1,28 +1,32 @@
 \chapter{Data Definition}
 \label{sec:data-definition}
 
-This chapter describes the dataset used by \ldbcfinbench, including the data schema design
-and the data generation process. Generally, we design \ldbcfinbench balancing the reality
-and abstraction. In abstraction, there are some annotations about the compromises in data
-design,
+This chapter describes the dataset used by \ldbcfinbench, including the data
+schema design and the data generation process. Generally, we design
+\ldbcfinbench balancing the reality and abstraction. In abstraction, there are
+some annotations about the compromises in data design,
 \begin{itemize}
-    \item Although multiple persons/companies may own the same account in reality, an account
-          is owned by a person or a company only in the schema to make it simple.
-    \item Although rejected transactions may be recorded to support future loan decisions,
-          only approved transactions/transfers are recorded in the benchmark dataset.
-    \item Considering the DAU of financial systems in reality, There will be many signIn edges
-          between medium and account vertices. However, we do not generate such many signIn edges aligning
-          to reality with a limit in the simulation of data generation process since systems usually
-          circumvent the problem by adding a medium attribute to edges like transfer and withdraw to
-          record the medium users used.
+    \item Although multiple persons/companies may own the same account in
+          reality, an account is owned by a person or a company only in the
+          schema to make it simple.
+    \item Although rejected transactions may be recorded to support future loan
+          decisions, only approved transactions/transfers are recorded in the
+          benchmark dataset.
+    \item Considering the DAU of financial systems in reality, There will be
+          many signIn edges between medium and account vertices. However, we do
+          not generate such many signIn edges aligning to reality with a limit
+          in the simulation of data generation process since systems usually
+          circumvent the problem by adding a medium attribute to edges like
+          transfer and withdraw to record the medium users used.
 \end{itemize}
 
 \section{Data Types}
 
-\autoref{table:types} describes the different data types used in the benchmark. Compared
-with \ldbcsnb, there is a new compound type, \textbf{Path}, which is widely applied in
-financial scenarios reflecting traces, e.g. fund transfer traces. Note that the 32-bit
-floats used in \ldbcfinbench all round to 3 decimal places(thousandths).
+\autoref{table:types} describes the different data types used in the benchmark.
+Compared with \ldbcsnb, there is a new compound type, \textbf{Path}, which is
+widely applied in financial scenarios reflecting traces, e.g. fund transfer
+traces. Note that the 32-bit floats used in \ldbcfinbench all round to 3 decimal
+places(thousandths).
 
 \begin{table}[h]
     \centering
@@ -187,12 +191,13 @@ sign in account in real world, such as IP, mac, phone numbers.
 \end{table}
 
 \subsection{Relations}
-Relations connect entities of different types showed in \autoref{table:relations}.
-Except that own and workIn has no attributes, the attributes of other relations
-are showed in the following tables. Note that the Cardinality means the cardinal
-relationship from the tail to head of the edge type and the Multiplicity means
-how many edges exist from the same tail to the same head. For example, the one-to-many
-cardinality of own means an account can only be owned by a person or a company.
+Relations connect entities of different types showed in
+\autoref{table:relations}. Except that own and workIn has no attributes, the
+attributes of other relations are showed in the following tables. Note that the
+Cardinality means the cardinal relationship from the tail to head of the edge
+type and the Multiplicity means how many edges exist from the same tail to the
+same head. For example, the one-to-many cardinality of own means an account can
+only be owned by a person or a company.
 
 \begin{longtable}{|>{\varNameCell}p{1.5cm}|>{\typeCell}p{1.5cm}|>{\typeCell}p{1.5cm}|>{\cardinalCell}p{2cm}|>{\centering\edgeDirectionCell}p{2cm}|p{5.5cm}|}
     \hline

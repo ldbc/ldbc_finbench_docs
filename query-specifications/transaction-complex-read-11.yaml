@@ -1,20 +1,18 @@
 workload: Transaction
 operation: complex-read
 number: 11
-title: Similarity of investor relationship
+title: Invest relationship trace
 description: |
-  Given two *Persons*, find all the *Companies* the two *Persons* invest.
-  Return the jaccard similarity between the two companies set.
+  Given a *Company*, find all the *Companies* and *Persons* the *Company* invests by at most k steps.
 parameters:
-  - name: id1
+  - name: id
     type: ID
-    description: id of Person1
-  - name: id2
-    type: ID
-    description: id of Person2
+    description: id of the Company
+  - name: k
+    type: 32-bit Integer
 result:
-  - name: sim
-    type: 32-bit float
+  - name: COLLECT(dst)
+    type: "[ID]"
 choke_points: []
 relevance: |
-  This query is a typical share holding analysis case.
+  This is a typical company invest relationship analysis.
