@@ -1,13 +1,14 @@
 \tpcCPSection[1.2]{1.1}{QOPT}{Interesting orders}
 
-This choke point tests the ability of the query optimizer to exploit the interesting orders induced by some operators. Apart from clustered indices providing key order, other operators also preserve or even induce tuple orderings.
-Sort-based operators create new orderings, typically the probe-side of a hash join conserves its order, etc.
+This choke point tests the ability of the query optimizer to exploit the
+interesting orders induced by some operators. Apart from clustered indices
+providing key order, other operators also preserve or even induce tuple
+orderings. Sort-based operators create new orderings, typically the probe-side
+of a hash join conserves its order, etc.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Queries}
 {\raggedright
     % \queryRefCard{interactive-complex-read-02}{IC}{2}
-    % \queryRefCard{interactive-complex-read-09}{IC}{9}
-
 }

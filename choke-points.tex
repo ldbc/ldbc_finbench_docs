@@ -32,23 +32,35 @@ CP-#2: [#3] #4%
 
 \section*{Introduction}
 
-An interesting benchmark should be designed with representative read-world scenarios
-and also chokepoints embedded in the deeper technical level. Chokepoints capture
-particularly challenging aspects of queries. The correlations between chokepoints
-and read queries are displayed in \autoref{tab:query_choke_point}. To help understand
-the following chokepoints, there are some annotations.
+An interesting benchmark should be designed with representative read-world
+scenarios and also chokepoints embedded in the deeper technical level.
+Chokepoints capture particularly challenging aspects of queries. The
+correlations between chokepoints and read queries are displayed in
+\autoref{tab:query_choke_point}. To help understand the following chokepoints,
+there are some annotations.
 \begin{itemize}
-    \item The capital abbreviations are short for the aspects the chokepoints affect. \begin{itemize}
-              \item \emph{QOPT}: Those aimed at testing aspects of the query optimizer.
-              \item \emph{QEXE}: Those aimed at testing aspects of the execution engine.
-              \item \emph{STORAGE}: Those aimed at testing aspects of the storage system.
-              \item \emph{LANG}: Those aimed at testing aspects of the expression capability of DSL.
-              \item \emph{UPD}: Those aimed at testing aspects of the update operation performance.
+    \item The capital abbreviations are short for the aspects the chokepoints
+          affect. \begin{itemize}
+              \item \emph{QOPT}: Those aimed at testing aspects of the query
+                    optimizer.
+              \item \emph{QEXE}: Those aimed at testing aspects of the execution
+                    engine.
+              \item \emph{STORAGE}: Those aimed at testing aspects of the
+                    storage system.
+              \item \emph{LANG}: Those aimed at testing aspects of the
+                    expression capability of DSL.
+              \item \emph{UPD}: Those aimed at testing aspects of the update
+                    operation performance.
           \end{itemize}
-    \item The gray boxes in the top right corner annotate the source of the chokepoints. \begin{itemize}
-              \item \emph{TPC-H} means the chokepoint is from the paper \emph{TPC-H Analyzed}~\cite{DBLP:conf/tpctc/BonczNE13}. You can refer to the paper for the chokepoint details.
-              \item \emph{From SNB} means the chokepoint refers to the ones in LDBC SNB~\cite{ldbc_snb_docs}.
-              \item \emph{New in FinBench} means the chokepoint is summarized newly from FinBench.
+    \item The gray boxes in the top right corner annotate the source of the
+          chokepoints. \begin{itemize}
+              \item \emph{TPC-H} means the chokepoint is from the paper
+                    \emph{TPC-H Analyzed}~\cite{DBLP:conf/tpctc/BonczNE13}. You can
+                    refer to the paper for the chokepoint details.
+              \item \emph{From SNB} means the chokepoint refers to the ones in
+                    LDBC SNB~\cite{ldbc_snb_docs}.
+              \item \emph{New in FinBench} means the chokepoint is summarized
+                    newly from FinBench.
           \end{itemize}
 \end{itemize}
 
