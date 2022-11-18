@@ -3,12 +3,12 @@ operation: write
 number: 12
 title:  Add guarantee between persons
 description: |
-  Add a guarantee edge from a person node to another person node
+  Add a guarantee edge from an existed person node to another existed person node.
 parameters:
   - name: guarantee.timestamp
     type: DateTime
-  - name: Person.id1
+  - name: pid1
     type: ID
-  - name: Person.id2
+  - name: pid2
     type: ID
 choke_points: []

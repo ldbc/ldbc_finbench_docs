@@ -3,8 +3,8 @@ operation: write
 number: 14
 title:  Remove a loan
 description: |
-  Remove a loan, and remove the *repay*, *deposit* edges.
+  Given an id, remove a loan, and remove the *repay*, *deposit* edges.
 parameters:
-  - name: Loan.id
+  - name: id
     type: ID
 choke_points: []

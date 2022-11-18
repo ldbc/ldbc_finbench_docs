@@ -3,10 +3,13 @@ operation: complex-read
 number: 6
 title: Withdrawal after Many-to-One transfer
 description: |
-  Given an account of type card(*c*), find all the connected account(*b*) via withdrawal(*edge2*) satisfying 
+  Given an account of type card(*c*), find all the connected account(*b*) via
+  withdrawal(*edge2*) satisfying 
 
-  * More than 3 transfer-ins(*edge1*) from other accounts(*a*) whose amount exceeds *threshold1* in a specific time range between *start_time* and *end_time*.
-  * The amount of withdrawal(*edge2*) exceeds *threshold2* in a specific time range between *start_time* and *end_time*.
+  * More than 3 transfer-ins(*edge1*) from other accounts(*a*) whose amount
+  exceeds *threshold1* in a specific time range between *start_time* and
+  *end_time*. * The amount of withdrawal(*edge2*) exceeds *threshold2* in a
+  specific time range between *start_time* and *end_time*.
   
   Return all the accounts' id(*b*).
 parameters:

@@ -3,10 +3,10 @@ operation: write
 number: 13
 title:  Remove an account
 description: |
-  Remove an *account*, and remove the related edges including *own*,
-  *transfer*, *withdraw*, *repay*, *deposit*, *signIn*. Remove the
+  Given an id, remove the *account*, and remove the related edges including
+  *own*, *transfer*, *withdraw*, *repay*, *deposit*, *signIn*. Remove the
   connected *Loan* vertex in cascade.
 parameters:
-  - name: account.id
+  - name: id
     type: ID
 choke_points: []

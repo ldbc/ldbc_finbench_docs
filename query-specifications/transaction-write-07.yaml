@@ -3,9 +3,9 @@ operation: write
 number: 7
 title:  Account signed in with Medium
 description: |
-  Add an Medium node and add a signIn edge from it to an Account node
+  Add an Medium node and add a signIn edge from it to an existed Account node.
 parameters:
-  - name: Account.accountId
+  - name: accountId
     type: ID
   - name: Medium.mediumId
     type: ID

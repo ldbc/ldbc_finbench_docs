@@ -20,5 +20,6 @@ description: |
 parameters:
   - name: threshold of amount sum
     type: Float
+choke_points: [6.3]
 relevance: |
   It is a typical AWL case in risk control.

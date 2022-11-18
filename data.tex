@@ -32,49 +32,65 @@ places(thousandths).
     \centering
     \begin{tabular}{|>{\typeCell}p{\attributeColumnWidth}|p{\largeDescriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Type} & \tableHeader{Description}                                                             \\
+        \tableHeaderFirst{Type} & \tableHeader{Description}                      \\
         \hline
-        ID                      & Integer type with 64-bit precision. All IDs within a single entity type
-        (e.g. Person) are unique, but different entity types (e.g. a Person and an
-        Account) might have the same ID.                                                                                \\
+        ID                      & Integer type with 64-bit precision. All IDs
+        within a single entity type (e.g. Person) are unique, but different
+        entity types (e.g. a Person and an Account) might have the same ID.      \\
         \hline
-        32-bit Integer          & Integer type with 32-bit precision                                                    \\
+        32-bit Integer          & Integer type with 32-bit precision             \\
         \hline
-        64-bit Integer          & Integer type with 64-bit precision                                                    \\
+        64-bit Integer          & Integer type with 64-bit precision             \\
         \hline
-        32-bit Float            & Floating type with 32-bit precision \textbf{rounded to 3 decimal places(thousandths)} \\
+        32-bit Float            & Floating type with 32-bit precision
+        \textbf{rounded to 3 decimal places(thousandths)}                        \\
         \hline
-        String                  & Variable length text of size 40 Unicode characters                                    \\
+        String                  & Variable length text of size 40 Unicode
+        characters                                                               \\
         \hline
-        Long String             & Variable length text of size 256 Unicode characters                                   \\
+        Long String             & Variable length text of size 256 Unicode
+        characters                                                               \\
         \hline
-        Text                    & Variable length text of size 2000 Unicode characters                                  \\
+        Text                    & Variable length text of size 2000 Unicode
+        characters                                                               \\
         \hline
-        Date                    & Date with a precision of a day, encoded as a string with the
-        following format: \textit{yyyy-mm-dd}, where \textit{yyyy} is a four-digit
-        integer representing the year, the year, \textit{mm} is a two-digit integer
-        representing the month and \textit{dd} is a two-digit integer representing
-        the day.                                                                                                        \\
-        \hline
-        DateTime                & Date with a precision of milliseconds, encoded as a string with
-        the following format: \textit{yyyy-mm-ddTHH:MM:ss.sss+0000}, where
+        Date                    & Date with a precision of a day, encoded as a
+        string with the following format: \textit{yyyy-mm-dd}, where
         \textit{yyyy} is a four-digit integer representing the year, the year,
-        \textit{mm} is a two-digit integer representing the month and \textit{dd} is
-        a two-digit integer representing the day, \textit{HH} is a two-digit integer
-        representing the hour, \textit{MM} is a two digit integer representing the
-        minute and \textit{ss.sss} is a five digit fixed point real number
+        \textit{mm} is a two-digit integer representing the month and
+        \textit{dd} is a two-digit integer representing the day.                 \\
+        \hline
+        DateTime                & Date with a precision of milliseconds, encoded
+        as a string with the following format:
+        \textit{yyyy-mm-ddTHH:MM:ss.sss+0000}, where \textit{yyyy} is a
+        four-digit integer representing the year, the year, \textit{mm} is a
+        two-digit integer representing the month and \textit{dd} is a two-digit
+        integer representing the day, \textit{HH} is a two-digit integer
+        representing the hour, \textit{MM} is a two digit integer representing
+        the minute and \textit{ss.sss} is a five digit fixed point real number
         representing the seconds up to millisecond precision. Finally, the
         \textit{+0000} of the end represents the timezone, which in this case is
-        always GMT.                                                                                                     \\
+        always GMT.                                                              \\
         \hline
-        Boolean                 & A logical type taking the value of either True of False.                              \\
+        Boolean                 & A logical type taking the value of either True
+        of False.                                                                \\
         \hline
-        Path                    & A compound type representing a trace which is expressed in an ordered sequence of vertices' IDs in the trace. For example, [1,3,4,8] expresses a trace 1->3->4->8.                                                                                         \\
+        Enum                    & Enumeration type                               \\
+        \hline
+        Path                    & A compound type representing a trace which is
+        expressed in an ordered sequence of vertices' IDs in the trace. For
+        example, [1,3,4,8] expresses a trace 1->3->4->8.                         \\
         \hline
     \end{tabular}
     \caption{Description of the data types.}
     \label{table:types}
 \end{table}
+
+\subsection{Enumerations}
+{\flushleft \textbf{TRUNCATION\_ORDER:}} The enumeration describes the sort
+order before truncation. \textbf{TIMESTAMP\_ASCENDING} means truncation on
+ascending order of timestamp.
+
 
 \section{Data Schema}
 
@@ -181,7 +197,7 @@ sign in account in real world, such as IP, mac, phone numbers.
         \hline
         id                           & ID                 & The identifier of the medium.                     \\
         \hline
-        name                         & String             & The name of the medium.                           \\
+        type                         & String             & The medium type, e.g. POS, IP.                    \\
         \hline
         isBlocked                    & Boolean            & If the medium is blocked or concerned in systems. \\
         \hline

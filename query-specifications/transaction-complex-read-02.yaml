@@ -4,12 +4,11 @@ number: 2
 title: Fund gathered from the accounts applying loans
 description: |
   Given a *Person*, find an *Account* *owned* by the *Person* which has fund
-  transferred from other *Accounts* by at most 3 steps(*edge2*) which
-  connected to *loan* via *deposit* relationship. Note that the timestamps
-  in transfer trace(*edge2*) and *deposit* are in a specific time range between
-  *start_time* and *end_time*. The timestamps of in transfer trace(*edge2*) are
-  in ascending order. Return the sum of *loan* amount and the count of distinct
-  *loans*.
+  transferred from other *Accounts* by at most 3 steps(*edge2*) which connected
+  to *loan* via *deposit* relationship. Note that the timestamps in transfer
+  trace(*edge2*) and *deposit* are in a specific time range between *start_time*
+  and *end_time*. The timestamps of in transfer trace(*edge2*) are in ascending
+  order. Return the sum of *loan* amount and the count of distinct *loans*.
 parameters:
   - name: id
     type: ID

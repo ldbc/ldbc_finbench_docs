@@ -130,6 +130,7 @@
 					{%- if   cat == "aggregated" -%} A
 					{%- elif cat == "calculated" -%} C
 					{%- elif cat == "meta" -%} M
+					{%- elif cat == "structural" -%} S
 					{%- else -%} R
 					{%- endif %} &
 				{{ entry.description }} \\ \hline
@@ -159,10 +160,10 @@
 	} \\ \hline
 	{% endif -%}
 %
-	{% if relevance -%}
-	relevance &
-		\footnotesize {{ relevance }} \\ \hline
-	{%- endif -%}
+	% {% if relevance -%}
+	% relevance &
+	% 	\footnotesize {{ relevance }} \\ \hline
+	% {%- endif -%}
 %
 \end{tabularx}
 \queryCardVSpace

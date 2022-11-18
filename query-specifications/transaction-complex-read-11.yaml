@@ -3,7 +3,8 @@ operation: complex-read
 number: 11
 title: Invest relationship trace
 description: |
-  Given a *Company*, find all the *Companies* and *Persons* the *Company* invests by at most k steps.
+  Given a *Company*, find all the *Companies* and *Persons* the *Company*
+  invests by at most k steps.
 parameters:
   - name: id
     type: ID

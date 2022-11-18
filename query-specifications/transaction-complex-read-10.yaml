@@ -3,8 +3,8 @@ operation: complex-read
 number: 10
 title: Similarity of investor relationship
 description: |
-  Given two *Persons*, find all the *Companies* the two *Persons* invest.
-  Return the jaccard similarity between the two companies set.
+  Given two *Persons*, find all the *Companies* the two *Persons* invest. Return
+  the jaccard similarity between the two companies set.
 parameters:
   - name: id1
     type: ID

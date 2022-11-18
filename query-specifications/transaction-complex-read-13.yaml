@@ -3,9 +3,8 @@ operation: complex-read
 number: 13
 title: Transfer to company amount statistics
 description: |
-  Given a start Person, find all the company accounts
-  that s/he has transferred to, within a specific time
-  period, and return companies and the sum of their
+  Given a start Person, find all the company accounts that s/he has transferred
+  to, within a specific time period, and return companies and the sum of their
   transfer amount.
 parameters:
   - name: id

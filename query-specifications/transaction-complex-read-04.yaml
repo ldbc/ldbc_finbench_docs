@@ -3,10 +3,11 @@ operation: complex-read
 number: 4
 title: Three accounts in a transfer cycle
 description: |
-  Given two accounts(*srcAccount* and *dstAccount*), find the sum and max of transfers
-  (*edge2* and *edge3*) of them via another account(*otherAccount*) in a specific time
-  range between *start_time* and *end_time*. Return the sum and max of the transfer amount
-  (*edge2* and *edge3*) groupby the *otherAccount*'s id.
+  Given two accounts(*srcAccount* and *dstAccount*), find the sum and max of
+  transfers (*edge2* and *edge3*) of them via another account(*otherAccount*) in
+  a specific time range between *start_time* and *end_time*. Return the sum and
+  max of the transfer amount (*edge2* and *edge3*) groupby the *otherAccount*'s
+  id.
 parameters:
   - name: id1
     type: ID

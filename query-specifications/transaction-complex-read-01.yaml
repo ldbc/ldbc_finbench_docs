@@ -3,11 +3,11 @@ operation: complex-read
 number: 1
 title: Blocked medium related accounts
 description: |
-  Given a start *Account*, find *Accounts* *signIn* by a blocked *Medium*
-  by at most 3 steps via the *transfer* relationship(*edge1*). Note that
-  all the timestamps in transfer trace(*edge1*) are in ascending order
-  within a specific time range between *start_time* and *end_time*.
-  Return the count of distinct *Medium*.
+  Given a start *Account* with `$id`, find all the *Account* that is signed in
+  by a blocked *Medium* and has fund transfered via *edge1* by at most 3 steps.
+  Note that all timestamps in the transfer trace are in ascending order within a
+  specific time between `$start_time*` and `$end_time`. Return the fund transfer
+  trace, medium type group.
 parameters:
   - name: id
     type: ID
@@ -18,12 +18,24 @@ parameters:
   - name: end_time
     type: DateTime
     description: end of the time window
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
-  - name: COUNT(DISTINCT meidum)
+  - name: COUNT(DISTINCT medium)
     type: 64-bit Integer
-    description: number of different mediums
-choke_points: []
-relevance: |
-  In AWL, this case is used to find how many accounts signed
-  in by blocked medium a specific account connects with.
-
+    description: number of different media
+    category: aggregated
+  - name: medium.type
+    type: \{String\}
+    description: the types of each medium
+    category: raw
+  - name: medium.id
+    type: \{ID\}
+    description: the ids of each medium
+    category: raw
+choke_points: [3.2, 3.4, 6.2, 7.1, 7.4, 8.7, 8.8]
+relevance: AML

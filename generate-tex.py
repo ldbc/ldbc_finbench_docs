@@ -114,7 +114,7 @@ for filename in glob.glob("query-specifications/*.yaml"):
         sort          = convert_map_list_to_tex(sort),
         limit         = limit,
         choke_points  = choke_points,
-        relevance     = relevance_tex,
+        # relevance     = relevance_tex, # Comment out temporarily
     )
 
     with open("query-cards/%s.tex" % query_id, 'w') as query_card_file:

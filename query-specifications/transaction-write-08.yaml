@@ -3,9 +3,9 @@ operation: write
 number: 8
 title:  Loan Deposit
 description: |
-  Add a deposit edge from a Loan node to an Account node
+  Add a deposit edge from a Loan node to an existed Account node.
 parameters:
-  - name: Account.accountId
+  - name: accountId
     type: ID
   - name: Loan.loanId
     type: ID
