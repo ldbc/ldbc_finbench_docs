@@ -3,15 +3,14 @@ operation: complex-read
 number: 6
 title: Withdrawal after Many-to-One transfer
 description: |
-  Given an account of type card(*c*), find all the connected account(*b*) via
-  withdrawal(*edge2*) satisfying 
-
-  * More than 3 transfer-ins(*edge1*) from other accounts(*a*) whose amount
-  exceeds *threshold1* in a specific time range between *start_time* and
-  *end_time*. * The amount of withdrawal(*edge2*) exceeds *threshold2* in a
-  specific time range between *start_time* and *end_time*.
-  
-  Return all the accounts' id(*b*).
+  Given an *account* of type card and a specified time window between
+  *start_time* and *end_time*, find all the connected *accounts*(*mid*) via
+  withdrawal(*edge2*) satisfying,
+  * More than 3 *transfer-ins*(*edge1*) from other *accounts*(*mid*) whose
+  amount exceeds *threshold1*.
+  * The amount of *withdrawal*(*edge2*) exceeds *threshold2*.
+  Return the sum of transfer amount from *src* to *mid*, the amount from *mid*
+  to *dstCard* groupby *mid*.
 parameters:
   - name: id
     type: ID
@@ -29,12 +28,19 @@ parameters:
     type: DateTime
     description: end of the time window
 result:
-  - name: edge2.amount
+  - name: SUM(edge1.amount)
     type: 64-bit Integer
     description: the amount of withdrawal
-  - name: b.id
-    type: ID
-    description: id of the middle Account
-choke_points: []
+    category: aggregated
+  - name: SUM(edge2.amount)
+    type: 64-bit Integer
+    description: the amount of withdrawal
+    category: aggregated
+groupby: mid
+sort:
+  - name: SUM(edge2.amount)
+    direction: desc
+    description: the amount of withdrawal
+choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |
   This query is a typical fund withdrawal after pooling funds case in risk control.

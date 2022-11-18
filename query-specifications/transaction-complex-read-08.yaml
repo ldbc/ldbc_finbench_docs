@@ -3,7 +3,8 @@ operation: complex-read
 number: 8
 title: Transfer trace after loan applied
 description: |
-  Given a *Loan*, trace the fund *transfer* or *withdraw* by at most 3 steps
+  Given a *Loan* and a specified time window between *start_time* and
+  *end_time*, trace the fund *transfer* or *withdraw* by at most 3 steps
   from the *account* the *Loan* *deposits*. Note that the transfer paths of
   *edge1*, *edge2*, *edge3* and *edge4* are in a specific time range between
   *start_time* and *end_time*. Amount of each transfers or withdrawals between

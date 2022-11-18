@@ -1,24 +1,22 @@
 workload: Transaction
 operation: complex-read
 number: 9
-title: Money laundering via loans
+title: Money laundering with loan involved
 description: |
-  Find all the accounts that match the requirements below:
-
-  * Deposited from a *Loan* where the amount exceeds *threshold* * Repay to the
-  *Loan* in a short time after *loan* deposit. * The amount ratio repaid to
-  *loan* exceeds a *threshold*.
-  
-  Note that the timestamps of *transfer* edges are in order: edge2 < edge4 <
-  edge3 < edge1. Return the paths of *transfer-ins* and *transfer-outs* via the
-  accounts.
+  Given an *account* and a specified time window between *start_time* and *end_time*, find the *despoit* and *repay* edge between the *account*
+  and a *loan*. Then calculate the amount ratio of *deposit* over *repay*, the
+  amount ratio of *transfers-in* over *transfers-out*, the amount ratio of
+  *deposit* over *transfers-out*. Return the ratios.
 parameters:
   - name: threshold
     type: 64-bit Integer
-    description: threshold of deposit amount
-  - name: ratio_threshold
+    description: threshold of amount
+  - name: lowerbound
     type: 32-bit float
-    description: threshold of the ratio of repay over deposit
+    description: lower threshold bound of the ratio of repay over deposit
+  - name: upperbound
+    type: 32-bit float
+    description: upper threshold bound of the ratio of repay over deposit
   - name: start_time
     type: DateTime
     description: begin of the time window
@@ -26,8 +24,15 @@ parameters:
     type: DateTime
     description: end of the time window
 result:
-  - name: path
-    type: Path
+  - name: SUM(edge1)/SUM(edge2)
+    type: 32-bit float
+    category: calculated
+  - name: SUM(edge1)/SUM(edge4)
+    type: 32-bit float
+    category: calculated
+  - name: SUM(edge3)/SUM(edge4)
+    type: 32-bit float
+    category: calculated
 choke_points: []
 relevance: |
   This query is money laundering with loans involved recognition in AWL.

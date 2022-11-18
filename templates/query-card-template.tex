@@ -138,9 +138,13 @@
 		\end{tabularx}}\innerCardVSpace \\ \hline
 	{% endif %}
 %
+	{% if groupby %}
+		groupby 	&	{{ groupby }} \\ \hline
+	{% endif -%}
+%
 	{% if sort %}
 		sort		&
-		\innerCardVSpace{\begin{tabularx}{\attributeCardWidth}{|>{\sortNumberCell}C{\attributeNumberWidth}|>{\varNameCell}M|>{\directionCell}c|Y|} \hline
+		\innerCardVSpace{\begin{tabularx}{\attributeCardWidth}{|>{\sortNumberCell}C{\attributeNumberWidth}|>{\varNameCell}X|>{\directionCell}c|Y|} \hline
 		{% for entry in sort -%}
 			$\mathsf{ {{- loop.index -}} }$ & {{ entry.name }} & $\{{ entry.direction }}$ & {{ entry.description }} \\ \hline
 		{% endfor -%}

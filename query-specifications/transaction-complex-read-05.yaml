@@ -3,11 +3,11 @@ operation: complex-read
 number: 5
 title: Exact Account Transfer Trace
 description: |
-  Given a *Person*, find the transfer trace from the account(*srcAccount*) owned
-  by the *Person* to another account(*dstAccount*) by at most 3 steps in a
-  specific time range between *start_time* and *end_time*. Note that the
-  transfer trace(*edge2*) are in ascending order in terms of timestamp. Return
-  the transfer trace.
+  Given a *Person* and a specified time window between *start_time* and
+  *end_time*, find the transfer trace from the account(*src*) owned by the
+  *Person* to another account(*dst*) by at most 3 steps. Note that the transfer
+  trace(*edge2*) are in ascending order in terms of timestamp. Return all the
+  transfer traces.
 parameters:
   - name: id
     type: ID
@@ -21,6 +21,12 @@ parameters:
 result:
   - name: path
     type: Path
-choke_points: []
+    description: the transfer traces
+    category: structural
+sort:
+  - name: pathLength
+    direction: desc
+limit: 0
+choke_points: [1.1, 3.2, 3.4, 6.2, 7.1, 7.4, 8.7, 8.8]
 relevance: |
   This query is a typical fund transfer trace case in risk control.
