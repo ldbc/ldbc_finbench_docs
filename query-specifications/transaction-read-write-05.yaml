@@ -15,6 +15,6 @@ description: |
   * With Transaction / read / 18, the pattern of a guarantee cycle is detected and all the persons in the cycle is returned.
   * Because of the high risk of guarantee cycle, Transaction / write / 12 is triggered to mark all the person as blocked. 
 parameters:
-choke_points: [6.3]
+choke_points: []
 relevance: |
   It is a typical fraud detection in risk control.

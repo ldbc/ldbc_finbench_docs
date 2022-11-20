@@ -20,6 +20,6 @@ description: |
 parameters:
   - name: threshold of transfer-ins and transfer-outs count.
     type: Float
-choke_points: [6.3]
+choke_points: []
 relevance: |
   It is a typical fraud detection and AWL case in risk control.

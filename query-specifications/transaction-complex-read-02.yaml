@@ -19,6 +19,12 @@ parameters:
   - name: end_time
     type: DateTime
     description: end of the time window
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
   - name: SUM(loans.loanAmount)
     type: 64-bit Integer

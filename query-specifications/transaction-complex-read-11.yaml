@@ -1,19 +1,25 @@
 workload: Transaction
 operation: complex-read
 number: 11
-title: Invest relationship trace
+title: Final share analysis in investor relationship
 description: |
   Given a *Company*, find all the *Companies* and *Persons* the *Company*
-  invests by at most k steps.
+  invests by at most k steps. Then calculate the final share ratio of the
+  investors to the given company groupby the investor in descending order.
 parameters:
   - name: id
     type: ID
     description: id of the Company
   - name: k
     type: 32-bit Integer
+    description: the distance in the investing relationship
 result:
-  - name: COLLECT(dst)
-    type: "[ID]"
-choke_points: []
+  - name: Final share
+    type: 32-bit float
+groupby: investor
+sort:
+  - name: Final share
+    direction: desc
+choke_points: [1.1, 6.2, 7.11]
 relevance: |
   This is a typical company invest relationship analysis.

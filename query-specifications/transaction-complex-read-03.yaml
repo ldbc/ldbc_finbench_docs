@@ -5,11 +5,10 @@ title: Shortest transfer path
 description: |
   Given two *accounts* and a specified time window between *start_time* and
   *end_time*, find the length of shortest path between these two *accounts* by
-  the *transfer* relationships. Note that all the edges in the path should be
-  between the time window and of type *transfer*. If there is no path found,
-  return -1.
+  the *transfer* relationships. Note that all the edges in the path should be in
+  the time window and of type *transfer*. If there is no path found, return -1.
 parameters:
-  - name: id1
+  - name: id1ß
     type: ID
     description: id of src Account
   - name: id2
@@ -21,6 +20,12 @@ parameters:
   - name: end_time
     type: DateTime
     description: end of the time window
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
   - name: shortestPathLength
     type: 64-bit Integer

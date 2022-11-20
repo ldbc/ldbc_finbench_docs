@@ -3,11 +3,21 @@ operation: complex-read
 number: 12
 title: Guarantee Cycle Detection
 description: |
-  Find all the *guarantee* cycle.
+  Given a *Person* and a specified time window between *start_time* and
+  *end_time*, find all the persons in the gurantee chain until end and their
+  loans applied. Return the sum of *loan* amount and the count of distinct
+  *loans*.
 parameters:
+  - name: id
+    type: ID
+    description: id of the Person
 result:
-  - name: person
-    type: "[ID]"
-choke_points: []
+  - name: SUM(loan.loanAmount)
+    type: 64-bit Integer
+    category: aggregated
+  - name: COUNT(loan)
+    type: 32-bit Integer
+    category: aggregated
+choke_points: [3.2, 3.4, 6.2, 7.4, 8.7]
 relevance: |
   This is a typical cycle detection in guarantee.

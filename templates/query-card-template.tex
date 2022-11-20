@@ -124,7 +124,7 @@
 %
 	{% if result %}
 		result &
-		\innerCardVSpace{\begin{tabularx}{\attributeCardWidth}{|>{\resultNumberCell}C{\attributeNumberWidth}|>{\varNameCell}M|>{\typeCell}m{\typeWidth}|>{\resultOriginCell}c|Y|} \hline
+		\innerCardVSpace{\begin{tabularx}{\attributeCardWidth}{|>{\resultNumberCell}C{\attributeNumberWidth}|>{\varNameCell}X|>{\typeCell}m{\typeWidth}|>{\resultOriginCell}c|Y|} \hline
 		{% for entry in result -%}
 			$\mathsf{ {{- loop.index -}} }$ & {{ entry.name|trim() }} & {{ entry.type|trim() }} & {% set cat = entry.category|trim() -%}
 					{%- if   cat == "aggregated" -%} A

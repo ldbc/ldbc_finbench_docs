@@ -3,10 +3,12 @@ operation: complex-read
 number: 9
 title: Money laundering with loan involved
 description: |
-  Given an *account* and a specified time window between *start_time* and *end_time*, find the *despoit* and *repay* edge between the *account*
-  and a *loan*. Then calculate the amount ratio of *deposit* over *repay*, the
-  amount ratio of *transfers-in* over *transfers-out*, the amount ratio of
-  *deposit* over *transfers-out*. Return the ratios.
+  Given an *account* and a specified time window between *start_time* and
+  *end_time*, find the *despoit* and *repay* edge between the *account* and a
+  *loan*, the *transfers-in* and *transfers-out*. Then calculate the amount
+  ratio of *deposit* over *repay*, the amount ratio of *transfers-in* over
+  *transfers-out*, the amount ratio of *deposit* over *transfers-out*. Return
+  the ratios.
 parameters:
   - name: threshold
     type: 64-bit Integer
@@ -23,6 +25,12 @@ parameters:
   - name: end_time
     type: DateTime
     description: end of the time window
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
   - name: SUM(edge1)/SUM(edge2)
     type: 32-bit float
@@ -33,6 +41,6 @@ result:
   - name: SUM(edge3)/SUM(edge4)
     type: 32-bit float
     category: calculated
-choke_points: []
+choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |
   This query is money laundering with loans involved recognition in AWL.

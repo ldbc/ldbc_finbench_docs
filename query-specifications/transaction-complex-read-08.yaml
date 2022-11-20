@@ -24,13 +24,26 @@ parameters:
   - name: end_time
     type: DateTime
     description: end of the time window
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
   - name: ratio1
     type: 32-bit float
+    category: calculated
+    description: the ratio of each transfer-in from the upstream to dst1
   - name: ratio2
     type: 32-bit float
+    category: calculated
+    description: the ratio of each transfer-in from the upstream to dst2
   - name: ratio3
     type: 32-bit float
+    category: calculated
+    description: the ratio of each transfer-in from the upstream to dst3
+groupby: dst
 sort:
   - name: ratio1
     direction: desc
@@ -38,7 +51,7 @@ sort:
     direction: desc
   - name: ratio3
     direction: desc
-choke_points: []
+choke_points: [3.2, 3.4, 6.2, 7.1, 8.7]
 relevance: |
   This query is a typical main fund trace case after loan granted in risk
   control.

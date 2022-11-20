@@ -11,6 +11,5 @@ parameters:
 result:
   - name: properties
     type: TODO
-choke_points: []
 relevance: |
   Property retrieve of a specific account.

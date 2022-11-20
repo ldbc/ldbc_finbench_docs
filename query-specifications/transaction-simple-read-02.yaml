@@ -32,6 +32,5 @@ result:
   - name: MAX(e2.amount)
     type: 64-bit Integer
     description: max of transfers from dst to src
-choke_points: []
 relevance: |
   This query is a typical fund transfer cycle analysis case in AWL.

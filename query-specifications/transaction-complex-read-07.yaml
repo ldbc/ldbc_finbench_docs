@@ -20,6 +20,12 @@ parameters:
   - name: id
     type: ID
     description: id of mid account
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
   - name: COUNT(src)
     type: 32-bit Integer
