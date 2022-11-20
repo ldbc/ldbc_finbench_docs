@@ -34,7 +34,9 @@ result:
     type: 32-bit Integer
     category: aggregated
   - name: SUM(e1.amount)/SUM(e2.amount)
+    type: 32-bit Float
     category: calculated
+    description: the amount ratio of transfers-in over transfers-out
 choke_points: [1.2, 3.2, 3.4, 6.2, 8.7]
 relevance: |
   This query is a typical fast-in and fast-out recognition case in risk control.

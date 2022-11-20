@@ -8,7 +8,7 @@ description: |
   *transferred* from other *Accounts* by at most 3 steps(*edge2*) which has fund
   *deposited* from a *loan*. The timestamps of in transfer trace(*edge2*) are in
   ascending order from the upstream to downstream. Return the sum of *loan*
-  amount and the count of distinct *loans*.
+  amount, the sum of *loan* balance and the count of distinct *loans*.
 parameters:
   - name: id
     type: ID

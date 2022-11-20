@@ -35,7 +35,7 @@ parameters:
 result:
   - name: SUM(edge1.amount)
     type: 64-bit Integer
-    description: the amount of withdrawal
+    description: the amount of transfer
     category: aggregated
   - name: SUM(edge2.amount)
     type: 64-bit Integer
