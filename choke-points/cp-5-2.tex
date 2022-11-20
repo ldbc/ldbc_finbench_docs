@@ -1,14 +1,19 @@
 \tpcCPSection[5.3]{5.2}{QEXE}{Overlap between outer and sub-query}
 
-This choke point tests the ability of the execution engine to reuse results when there is an overlap between the outer query and the sub-query. In some queries, the correlated sub-query and the outer query have the same joins and selections.
-In this case, a non-tree, rather DAG-shaped~\cite{DBLP:conf/btw/NeumannM09} query plan would allow to execute the common parts just once, providing the intermediate result stream to both the outer query and correlated sub-query,
-which higher up in the query plan are joined together (using normal query decorrelation rewrites).
-As such, the benchmark rewards systems where the optimizer can detect this and the execution engine supports an operator that can buffer intermediate results and provide them to multiple parent operators.
+This choke point tests the ability of the execution engine to reuse results when
+there is an overlap between the outer query and the sub-query. In some queries,
+the correlated sub-query and the outer query have the same joins and selections.
+In this case, a non-tree, rather DAG-shaped~\cite{DBLP:conf/btw/NeumannM09}
+query plan would allow to execute the common parts just once, providing the
+intermediate result stream to both the outer query and correlated sub-query,
+which higher up in the query plan are joined together (using normal query
+decorrelation rewrites). As such, the benchmark rewards systems where the
+optimizer can detect this and the execution engine supports an operator that can
+buffer intermediate results and provide them to multiple parent operators.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Queries}
 {\raggedright
     % \queryRefCard{interactive-complex-read-10}{IC}{10}
-
 }

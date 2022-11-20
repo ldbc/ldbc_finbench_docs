@@ -1,13 +1,17 @@
 \snbCPSection{3.3}{QEXE}{Scattered index access patterns}
 
-This choke point tests the performance of indices when scattered accesses are performed. The efficiency of index lookup is very different depending on the locality of keys coming to the indexed access.
-Techniques like vectoring non-local index accesses by simply missing the cache in parallel on multiple lookups vectored on the same thread may have high impact.
-Also detecting absence of locality should turn off any locality dependent optimizations if these are costly when there is no locality. A graph neighbourhood traversal is an example of an operation with random access without predictable locality.
+This choke point tests the performance of indices when scattered accesses are
+performed. The efficiency of index lookup is very different depending on the
+locality of keys coming to the indexed access. Techniques like vectoring
+non-local index accesses by simply missing the cache in parallel on multiple
+lookups vectored on the same thread may have high impact. Also detecting absence
+of locality should turn off any locality dependent optimizations if these are
+costly when there is no locality. A graph neighborhood traversal is an example
+of an operation with random access without predictable locality.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Queries}
 {\raggedright
     % \queryRefCard{interactive-complex-read-14}{IC}{14}
-
 }

@@ -3,29 +3,32 @@ operation: complex-read
 number: 13
 title: Transfer to company amount statistics
 description: |
-  Given a start Person, find all the company accounts
-  that s/he has transferred to, within a specific time
-  period, and return companies and the sum of their
-  transfer amount.
+  Given a *Person* and a specified time window between *start_time* and
+  *end_time*,  find all the company accounts that s/he has transferred
+  to. Return companies and the sum of their transfer amount in descending order.
 parameters:
   - name: id
     type: ID
-    description: id of company
+    description: id of the person
   - name: start_time
     type: DateTime
     description: begin of the time window
   - name: end_time
     type: DateTime
     description: end of the time window
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
-  - name: id
-    type: ID
-    description: id of company
-  - name: totalAmount
+  - name: SUM(edge2.amount)
     type: 64-bit Integer
+    category: aggregated
+groupby: compAcc
 sort:
-  - name: totalAmount 
+  - name: SUM(edge2.amount)
     direction: desc
-limit: 20
-choke_points: []
+choke_points: [3.2, 3.4, 6.2, 7.1, 8.7]
 relevance: 

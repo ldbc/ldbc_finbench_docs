@@ -3,9 +3,10 @@ operation: complex-read
 number: 4
 title: Three accounts in a transfer cycle
 description: |
-  Given two accounts(*srcAccount* and *dstAccount*), find the sum and max of transfers
-  (*edge2* and *edge3*) of them via another account(*otherAccount*) in a specific time
-  range between *start_time* and *end_time*. Return the sum and max of the transfer amount
+  Given two *accounts* and a specified time window between *start_time* and
+  *end_time*, find the sum and max of transfers (*edge2* and *edge3*) of them
+  via another account(*otherAccount*) in a specific time range between
+  *start_time* and *end_time*. Return the sum and max of the transfer amount
   (*edge2* and *edge3*) groupby the *otherAccount*'s id.
 parameters:
   - name: id1
@@ -20,22 +21,43 @@ parameters:
   - name: end_time
     type: DateTime
     description: end of the time window
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
-  - name: SUM(edge2.loanAmount)
+  - name: COUNT(edge2)
     type: 64-bit Integer
-    description: sum of transfers from dstAccount to otherAccount
-  - name: MAX(edge2.loanAmount)
-    type: 64-bit Integer
-    description: max of transfers from dstAccount to otherAccount
-  - name: SUM(edge3.loanAmount)
+    description: transfers' count from otherAccount to srcAccount
+    category: aggregated
+  - name: SUM(edge2.amount)
     type: 64-bit Integer
     description: sum of transfers from otherAccount to srcAccount
-  - name: MAX(edge3.loanAmount)
+    category: aggregated
+  - name: MAX(edge2.amount)
     type: 64-bit Integer
     description: max of transfers from otherAccount to srcAccount
-  - name: otherAccount.id
-    type: ID
-    description: id of the other account
-choke_points: []
+    category: aggregated
+  - name: COUNT(edge3)
+    type: 64-bit Integer
+    description: transfers' count from dstAccount to otherAccount
+    category: aggregated
+  - name: SUM(edge3.amount)
+    type: 64-bit Integer
+    description: sum of transfers from dstAccount to otherAccount
+    category: aggregated
+  - name: MAX(edge3.amount)
+    type: 64-bit Integer
+    description: max of transfers from dstAccount to otherAccount
+    category: aggregated
+groupby: otherAccount
+sort:
+  - name: SUM(edge2.amount)+SUM(edge3.amount)
+    direction: desc
+    description: sum of the transfers' amount
+limit: 0
+choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |
   This query is a typical fund transfer cycle analysis case in AWL.

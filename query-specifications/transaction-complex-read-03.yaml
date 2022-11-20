@@ -1,21 +1,35 @@
 workload: Transaction
 operation: complex-read
-number: 03
+number: 3
 title: Shortest transfer path
 description: |
-  Given two accounts, find the length of shortest path between these
-  two accounts by the transfer relationships. If there is no path
-  found, return -1.
+  Given two *accounts* and a specified time window between *start_time* and
+  *end_time*, find the length of shortest path between these two *accounts* by
+  the *transfer* relationships. Note that all the edges in the path should be in
+  the time window and of type *transfer*. If there is no path found, return -1.
 parameters:
-  - name: id1
+  - name: id1ß
     type: ID
     description: id of src Account
   - name: id2
     type: ID
     description: id of dst Account
+  - name: start_time
+    type: DateTime
+    description: begin of the time window
+  - name: end_time
+    type: DateTime
+    description: end of the time window
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
-  - name: length
+  - name: shortestPathLength
     type: 64-bit Integer
     description: the length of shortest path
-choke_points: []
+    category: calculated
+choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: 

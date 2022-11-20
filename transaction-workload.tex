@@ -20,11 +20,44 @@ consists of four query types:
           in section 4.1 and 4.2. In each operation, the basic reads and writes
           are supposed to launch step by step consecutively. The result may be
           wrong if the previous reads and writes are not be processed accurately
-          in time. This feature of FinBench is a big difference from LDBC SNB.
+          in time. This feature is a big difference between \ldbcfinbench and
+          \ldbcsnb.
 \end{itemize}
 
-To express the pattern better, the pattern diagrams are drawn from the
-perspective of data rather than the matching pattern.
+{\flushleft \textbf{About the truncation:}} Among the queries, a mechanism is
+introduced that helps in the discordance between the tight latency requirements
+and power-law distribution of data in system, where the degree of hub vertex may
+reach to million and even billion scale, especially when traversing on graph.
+The mechanism is to do truncation on the edges when traversing out from the
+current vertex, which is in compliance with the discordance in fact. However, we
+would like to introduce this mechanism because the high degree of hub vertex is
+a common feature not only in financial scenarios but also in other scenarios,
+which is an inevitable challenge that systems face. The mechanism is also called
+\textbf{PER\_NODE\_LIMIT} somewhere. To solve the problem, systems can either
+improve the performance to satisfy the computation or just cut down the
+complexity to meet the latency requirements, where truncation is a common and
+useful mechanism. To maintain the consistency of the results, a sort order has
+to be specified when truncating. Since in financial graphs, users prefer newer
+data in business. It is reasonable that attribute, \textbf{timestamp}, in the
+edges is used as the sort order in truncation. In the following queries, some
+parameters are added to describe the behavior of truncation cutting down the
+complexity including the \textbf{TRUNCATION\_LIMIT} and
+\textbf{TRUNCATION\_ORDER}.
+
+{\flushleft \textbf{About the annotations:}} To express the patterns better, the
+pattern diagrams are drawn from the perspective of data rather than the matching
+pattern in graph. Here are some annotations to each query card in this section.
+\begin{itemize}
+      \item For each row in the result cell, the second column means the data
+      type of returned. If the type is bound with \{\}, it means that the
+      result is a set, e.g. \{String\} means a string set is returned.
+      \item For each row in the result cell, the third column annotates the
+      category of type of result returned, including R short for Raw, A short
+      for Aggregated, C short for Calculated, S short for Structural. Among
+      them, structural type means types like Path while raw type means basic
+      types in contrast.
+\end{itemize}
+
 
 \section{Complex Read Queries}
 \label{sec:complex-read-queries}

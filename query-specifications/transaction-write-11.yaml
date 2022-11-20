@@ -3,8 +3,8 @@ operation: write
 number: 11
 title:  Block a medium of high risk
 description: |
-  Set a medium's isBlocked to True
+  Set an existed medium's isBlocked to True.
 parameters:
-  - name: Medium.accountId
+  - name: accountId
     type: ID
 choke_points: []

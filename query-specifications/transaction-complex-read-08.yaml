@@ -3,13 +3,14 @@ operation: complex-read
 number: 8
 title: Transfer trace after loan applied
 description: |
-  Given a *Loan*, trace the fund *transfer* or *withdraw* by at most 3 steps
+  Given a *Loan* and a specified time window between *start_time* and
+  *end_time*, trace the fund *transfer* or *withdraw* by at most 3 steps
   from the *account* the *Loan* *deposits*. Note that the transfer paths of
   *edge1*, *edge2*, *edge3* and *edge4* are in a specific time range between
   *start_time* and *end_time*. Amount of each transfers or withdrawals between
   the account and the upstream account should exceed a specified *ratio* of the
-  upstream transfer. Return all the amount ratio (*ratio1*, *ratio2*, and *ratio3*)
-  groupby the *accounts*'s id at each step in descending order.
+  upstream transfer. Return all the amount ratio (*ratio1*, *ratio2*, and
+  *ratio3*) groupby the *accounts*'s id at each step in descending order.
 parameters:
   - name: id
     type: ID
@@ -23,13 +24,26 @@ parameters:
   - name: end_time
     type: DateTime
     description: end of the time window
+  - name: truncation_limit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncation_order
+    type: enum
+    description: the sort order before truncation at each step
 result:
   - name: ratio1
     type: 32-bit float
+    category: calculated
+    description: the ratio of each transfer-in from the upstream to dst1
   - name: ratio2
     type: 32-bit float
+    category: calculated
+    description: the ratio of each transfer-in from the upstream to dst2
   - name: ratio3
     type: 32-bit float
+    category: calculated
+    description: the ratio of each transfer-in from the upstream to dst3
+groupby: dst
 sort:
   - name: ratio1
     direction: desc
@@ -37,7 +51,7 @@ sort:
     direction: desc
   - name: ratio3
     direction: desc
-choke_points: []
+choke_points: [3.2, 3.4, 6.2, 7.1, 8.7]
 relevance: |
   This query is a typical main fund trace case after loan granted in risk
   control.

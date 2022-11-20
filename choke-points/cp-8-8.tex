@@ -1,21 +1,25 @@
 \newCPSection{8.8}{LANG}{Recursive path filtering pattern}
 
-Sometimes when tracing a fund flow, such pattern is expected that find a path with recursive filters.
-For example, filters are expected assuming a path A -[${e_1}$]-> B -[${e_2}$]-> ... -> X.
+Sometimes when tracing a fund flow, such pattern is expected that find a path
+with recursive filters. For example, filters are expected assuming a path A
+-[${e_1}$]-> B -[${e_2}$]-> ... -> X.
 
 \begin{itemize}
     \item The timestamp order: ${e_1}$ < ${e_2}$ < … < ${e_i}$
     \item The amount order: ${e_1}$ > ${e_2}$ > … > ${e_i}$
-    \item The time window: ${e_{i-1}}$ < ${e_i}$ < ${e_{i-1}}$ + $\vec{\Delta}$, $\vec{\Delta}$ is a given constant.
+    \item The time window: ${e_{i-1}}$ < ${e_i}$ < ${e_{i-1}}$ + $\vec{\Delta}$,
+    $\vec{\Delta}$ is a given constant.
 \end{itemize}
 
 
-The feature that supporting backward recursive filtering based on edge properties is expected. A possible solution is adding keywords like \emph{SEQUENTIAL} and \emph{DELTA} referring to an extension of \emph{Cypher}\cite{tcypher}.
+The feature that supporting backward recursive filtering based on edge
+properties is expected. A possible solution is adding keywords like
+\emph{SEQUENTIAL} and \emph{DELTA} referring to an extension of
+\emph{Cypher}\cite{tcypher}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Queries}
 {\raggedright
     % \queryRefCard{interactive-complex-read-14}{IC}{14}
-
 }

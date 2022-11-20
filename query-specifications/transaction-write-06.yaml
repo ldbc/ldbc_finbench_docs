@@ -3,7 +3,7 @@ operation: write
 number: 6
 title:  Add Loan applied by Company
 description: |
-  Add a Loan Node and add an apply edge from a company node to it.
+  Add a Loan Node and add an apply edge from an existed company node to it.
 parameters:
   - name: Loan.loanId
     type: ID

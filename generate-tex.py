@@ -86,12 +86,10 @@ for filename in glob.glob("query-specifications/*.yaml"):
     results = doc.get('result')
     sort = doc.get('sort')
     limit = doc.get('limit')
-   
     relevance_markdown = doc.get('relevance')
-    if relevance_markdown is None:
-        relevance_tex = None
-    else:
-        relevance_tex = convert_markdown_to_tex(relevance_markdown)
+    groupby = doc.get('groupby')
+
+    relevance_tex = None if relevance_markdown is None else convert_markdown_to_tex(relevance_markdown)
 
     # parameter_file_text = parameters_template.render(
     #     parameters = parameters,
@@ -114,7 +112,8 @@ for filename in glob.glob("query-specifications/*.yaml"):
         sort          = convert_map_list_to_tex(sort),
         limit         = limit,
         choke_points  = choke_points,
-        relevance     = relevance_tex,
+        groupby       = groupby,
+        # relevance     = relevance_tex, # Comment out temporarily
     )
 
     with open("query-cards/%s.tex" % query_id, 'w') as query_card_file:

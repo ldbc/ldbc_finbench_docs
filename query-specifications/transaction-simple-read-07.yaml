@@ -19,6 +19,5 @@ parameters:
 result:
   - name: COLLECT(DISTINCT dstAccount.id)
     type: "[ID]"
-choke_points: []
 relevance: |
   This query is a typical analysis for gang related accounts in risk control.

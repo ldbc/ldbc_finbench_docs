@@ -7,14 +7,15 @@
 
 \section{Motivation}
 
-Inspired by \ldbcsnb(LDBC's Social Network Benchmark)~\cite{DBLP:journals/corr/abs-2001-02299,
-    ldbc_snb_docs}, a task force proposed by AntGroup~\cite{antgroup} is formed by the principal
-actors in the field of financial graph-like data management with help from LDBC to design a
-new benchmark, \ldbcfinbench(LDBC's Financial Benchmark). The task force intends to define a
-framework which is more applicable to financial scenarios can fairly test and compare different
-graph based technologies where the dataset and workload are carefully designed with their rich
-practical experience of members in financial industry. \ldbcfinbench is distinguished and
-characterized by the special features and patterns in financial industry compared with \ldbcsnb.
+Inspired by \ldbcsnb, a task force proposed by AntGroup~\cite{antgroup} is
+formed by the principal actors in the field of financial graph-like data
+management with help from LDBC to design a new benchmark, \ldbcfinbench(LDBC's
+Financial Benchmark). The task force intends to define a framework which is more
+applicable to financial scenarios can fairly test and compare different graph
+based technologies where the dataset and workload are carefully designed with
+their rich practical experience of members in financial industry. \ldbcfinbench
+is distinguished and characterized by the special features and patterns in
+financial industry.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,11 +41,11 @@ stakeholders:
           areas.
 \end{itemize}
 
-Like \ldbcsnb, the technological scope of \ldbcfinbench comprises all systems that
-one might conceivably use to perform financial data management tasks including
+The technological scope of \ldbcfinbench comprises all systems that one might
+conceivably use to perform financial data management tasks including
 \textbf{Graph database management systems} (\eg Neo4j, TuGraph, etc.), \textbf{
-    Graph processing frameworks} (\eg Giraph, Ligra, etc.), \textbf{RDF database
-    systems} (\eg Virtuoso, AWS Neptune, etc.), \textbf{Relational database systems}
+Graph processing frameworks} (\eg Giraph, Ligra, etc.), \textbf{RDF database
+systems} (\eg Virtuoso, AWS Neptune, etc.), \textbf{Relational database systems}
 (\eg MySQL, Oracle, etc.), \textbf{NoSQL database systems} (\eg key-value stores
 such as HBase, Redis, MongoDB, CouchDB, or even MapReduce systems like Hadoop
 and Pig).
@@ -141,9 +142,9 @@ open-source:
     \item Analytics Workload: future work
 \end{itemize}
 
-Note that the \texttt{main} branch for these repositories is under development by default.
-Please refer to the releases and branch started with \texttt{v} and named \texttt{vX.X.X}
-for stable versions.
+Note that the \texttt{main} branch for these repositories is under development
+by default. Please refer to the releases and branch started with \texttt{v} and
+named \texttt{vX.X.X} for stable versions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -151,14 +152,17 @@ for stable versions.
 
 \section{Related Projects}
 
-Along with \ldbcfinbench, LDBC~\cite{DBLP:journals/sigmod/AnglesBLF0ENMKT14} provides other
-benchmarks as well:
+Along with \ldbcfinbench, LDBC~\cite{DBLP:journals/sigmod/AnglesBLF0ENMKT14}
+provides other benchmarks as well:
 
 \begin{itemize}
-    \item The Social Network Benchmark (SNB)~\cite{DBLP:journals/corr/abs-2001-02299} measures
-          the performance of \emph{all systems relevant to linked data} operating a social network.
-    \item The Semantic Publishing Benchmark (SPB)~\cite{DBLP:conf/semweb/SpasicJP16} measures
-          the performance of \emph{semantic databases} operating on RDF datasets.
-    \item The Graphalytics benchmark~\cite{DBLP:journals/pvldb/IosupHNHPMCCSAT16} measures the
-          performance of \emph{graph analysis} operations (\eg PageRank, local clustering coefficient).
+    \item \ldbcsnb measures the performance of \emph{all systems relevant to
+          linked data} operating a social network.
+    \item The Semantic Publishing Benchmark
+          (SPB)~\cite{DBLP:conf/semweb/SpasicJP16} measures the performance of
+          \emph{semantic databases} operating on RDF datasets.
+    \item The Graphalytics
+          benchmark~\cite{DBLP:journals/pvldb/IosupHNHPMCCSAT16} measures the
+          performance of \emph{graph analysis} operations (\eg PageRank, local
+          clustering coefficient).
 \end{itemize}

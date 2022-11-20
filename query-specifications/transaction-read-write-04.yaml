@@ -20,5 +20,6 @@ description: |
 parameters:
   - name: threshold of the big transfers.
     type: Float
+choke_points: []
 relevance: |
   It is a typical case in risk control.

@@ -19,6 +19,5 @@ result:
     type: "[ID]"
   - name: loans.id
     type: "[ID]"
-choke_points: []
 relevance: |
   This is a company information query case.

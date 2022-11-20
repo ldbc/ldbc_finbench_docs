@@ -1,15 +1,21 @@
 \tpcCPSection[2.4]{2.2}{QOPT}{Late projection}
 
-This choke point tests the ability of the query optimizer to delay the projection of unneeded attributes until late in the execution. Queries where certain columns are only needed late in the query.
-In such a situation, it is better to omit them from initial table scans, as fetching them later by row-id with a separate scan operator, which is joined to the intermediate query result, can save temporal space, and therefore I/O.
-Late projection does have a trade-off involving locality, since late in the plan the tuples may be in a different order, and scattered I/O in terms of tuples/second is much more expensive than sequential I/O.
-Late projection specifically makes sense in queries where the late use of these columns happens at a moment where the amount of tuples involved has been considerably reduced;
-for example after an aggregation with only few unique group-by keys or a top-$k$ operator.
+This choke point tests the ability of the query optimizer to delay the
+projection of unneeded attributes until late in the execution. Queries where
+certain columns are only needed late in the query. In such a situation, it is
+better to omit them from initial table scans, as fetching them later by row-id
+with a separate scan operator, which is joined to the intermediate query result,
+can save temporal space, and therefore I/O. Late projection does have a
+trade-off involving locality, since late in the plan the tuples may be in a
+different order, and scattered I/O in terms of tuples/second is much more
+expensive than sequential I/O. Late projection specifically makes sense in
+queries where the late use of these columns happens at a moment where the amount
+of tuples involved has been considerably reduced; for example after an
+aggregation with only few unique group-by keys or a top-$k$ operator.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Queries}
 {\raggedright
     % \queryRefCard{interactive-complex-read-09}{IC}{9}
-
 }

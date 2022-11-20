@@ -3,9 +3,9 @@ operation: write
 number: 9
 title:  Loan repay
 description: |
-  Add a repay edge from an Account node to a Loan node
+  Add a repay edge from an existed Account node to a Loan node.
 parameters:
-  - name: Account.accountId
+  - name: accountId
     type: ID
   - name: Loan.loanId
     type: ID

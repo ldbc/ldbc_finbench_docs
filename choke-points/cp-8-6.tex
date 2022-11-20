@@ -2,27 +2,31 @@
 
 \paragraph{Description.}
 
-Handling paths as first-class citizens is one of the key distinguishing features of graph database
-systems~\cite{DBLP:conf/sigmod/AnglesABBFGLPPS18}. Hence, additionally to
-reachability-style checks, a language should be able to express
+Handling paths as first-class citizens is one of the key distinguishing features
+of graph database systems~\cite{DBLP:conf/sigmod/AnglesABBFGLPPS18}. Hence,
+additionally to reachability-style checks, a language should be able to express
 queries that operate on elements of a path, \eg calculate a score on each edge
-of the path.
-Also, some use cases specify uniqueness constraints on paths~\cite{DBLP:journals/csur/AnglesABHRV17}:
-\emph{arbitrary path},
-\emph{shortest path},
-\emph{no-repeated-node semantics} (also known as \emph{simple paths}), and
-\emph{no-repeated-edge semantics} (also known as \emph{trails}).
-Other variants are also used in rare cases, such as \emph{maximal} (non-expandable) or \emph{minimal} (non-contractable) paths.
+of the path. Also, some use cases specify uniqueness constraints on
+paths~\cite{DBLP:journals/csur/AnglesABHRV17}: \emph{arbitrary path},
+\emph{shortest path}, \emph{no-repeated-node semantics} (also known as
+\emph{simple paths}), and \emph{no-repeated-edge semantics} (also known as
+\emph{trails}). Other variants are also used in rare cases, such as
+\emph{maximal} (non-expandable) or \emph{minimal} (non-contractable) paths.
 
 \paragraph{Note on terminology.}
 
-The \emph{Glossary of graph theory terms} page of Wikipedia\footnote{\url{https://en.wikipedia.org/wiki/Glossary_of_graph_theory_terms}} defines \emph{paths} as follows: ``A path may either be a walk (a sequence of nodes and edges, with both endpoints of an edge appearing adjacent to it in the sequence) or a simple path (a walk with no repetitions of nodes or edges), depending on the source.''
-In this work, we use the first definition, which is more common in modern graph database systems and is also followed in a recent survey on graph query languages~\cite{DBLP:journals/csur/AnglesABHRV17}.
+The \emph{Glossary of graph theory terms} page of
+Wikipedia\footnote{\url{https://en.wikipedia.org/wiki/Glossary_of_graph_theory_terms}}
+defines \emph{paths} as follows: ``A path may either be a walk (a sequence of
+nodes and edges, with both endpoints of an edge appearing adjacent to it in the
+sequence) or a simple path (a walk with no repetitions of nodes or edges),
+depending on the source.'' In this work, we use the first definition, which is
+more common in modern graph database systems and is also followed in a recent
+survey on graph query languages~\cite{DBLP:journals/csur/AnglesABHRV17}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Queries}
 {\raggedright
     % \queryRefCard{interactive-complex-read-14}{IC}{14}
-
 }

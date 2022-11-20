@@ -1,11 +1,16 @@
 \tpcCPSection[2.2]{2.4}{QOPT}{Sparse foreign key joins}
 
-This choke point tests the performance of join operators when the join is sparse. Sometimes joins involve relations where only a small percentage of rows in one of the tables is required to satisfy a join. When tables are larger, typical join methods can be sub-optimal. Partitioning the sparse table, using Hash Clustered indices or implementing Bloom-filter tests inside the join are techniques to improve the performance in such situations~\cite{DBLP:journals/csur/Graefe93}.
+This choke point tests the performance of join operators when the join is
+sparse. Sometimes joins involve relations where only a small percentage of rows
+in one of the tables is required to satisfy a join. When tables are larger,
+typical join methods can be sub-optimal. Partitioning the sparse table, using
+Hash Clustered indices or implementing Bloom-filter tests inside the join are
+techniques to improve the performance in such
+situations~\cite{DBLP:journals/csur/Graefe93}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Queries}
 {\raggedright
     % \queryRefCard{interactive-complex-read-11}{IC}{11}
-
 }

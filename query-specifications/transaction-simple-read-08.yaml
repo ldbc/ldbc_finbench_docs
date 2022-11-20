@@ -22,6 +22,5 @@ parameters:
 result:
   - name: blockRatio
     type: 32-bit float
-choke_points: []
 relevance: |
   This query is a typical risky account recognition case in risk control.

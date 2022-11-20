@@ -20,5 +20,6 @@ description: |
 parameters:
   - name: threshold of ratio
     type: Float
+choke_points: []
 relevance: |
   It is a typical fraud detection case in risk control.

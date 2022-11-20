@@ -3,8 +3,8 @@ operation: write
 number: 4
 title:  Add withdraw between accounts
 description: |
-  Add a withdraw edge from an account node to another account node whose type is
-  card
+  Add a withdraw edge from an existed account node to another existed account
+  node whose type is card.
 parameters:
   - name: Account.accountSrcId
     type: ID
