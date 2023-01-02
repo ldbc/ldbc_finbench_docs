@@ -9,7 +9,7 @@ description: |
   *edge1*, *edge2*, *edge3* and *edge4* are in a specific time range between
   *start_time* and *end_time*. Amount of each transfers or withdrawals between
   the account and the upstream account should exceed a specified *ratio* of the
-  upstream transfer. Return all the amount ratio (*ratio1*, *ratio2*, and
+  upstream transfer. Return all the amount *ratio* (*ratio1*, *ratio2*, and
   *ratio3*) groupby the *accounts*'s id at each step in descending order.
 parameters:
   - name: id

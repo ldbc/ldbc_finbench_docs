@@ -8,7 +8,7 @@ description: |
   the *transfer* relationships. Note that all the edges in the path should be in
   the time window and of type *transfer*. If there is no path found, return -1.
 parameters:
-  - name: id1ß
+  - name: id1
     type: ID
     description: id of src Account
   - name: id2
