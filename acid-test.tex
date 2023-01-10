@@ -70,6 +70,12 @@ schema given in \autoref{figure:core-schema}.
 
 \section{Atomicity}
 
+\begin{quote}
+  \textit{The main difference between this section and \ldbcsnb\xspace
+          is the schema design.
+  }
+\end{quote}
+
 \emph{Atomicity} ensures that either all of a transaction's actions are 
 performed, or none are. Two atomicity tests have been designed.
 
@@ -96,9 +102,9 @@ its modifications are not visible.
 
 The \textbf{Atomicity-C} transaction (\autoref{fig:ac}) randomly selects an
 \texttt{Account}, creates a new \texttt{Account}, inserts a \texttt{transfer} 
-edge and appends an \texttt{transHistory}. The \textbf{Atomicity-RB} transaction
-(\autoref{fig:arb}) randomly selects an \texttt{Account}, appends a 
-\texttt{transHistory} and attempts to insert an \texttt{Account} only if it does
+edge and appends a \texttt{newTrans} to \texttt{transHistory}. The \textbf{Atomicity-RB} 
+transaction (\autoref{fig:arb}) randomly selects an \texttt{Account}, appends a 
+\texttt{newTrans} and attempts to insert an \texttt{Account} only if it does
 not exist. Note, for \textbf{Atomicity-RB} if the query API does not offer a
 \texttt{ROLLBACK} statement constraints such as node uniqueness can be utilized
 to trigger an abort.
@@ -132,7 +138,7 @@ SET
 \begin{lstlisting}[language=cypher,label=fig:arb,caption=\tx{Atomicity-RB Tx.}]
 <<BEGIN>>
 MATCH (a1:Account {id: $account1Id})
-SET a1.transHistory = a1.transHistory + [$newTransRecord]
+SET a1.transHistory = a1.transHistory + [$newTrans]
 <<IF>> MATCH (a2: Account {id: $account2Id}) exists
 <<THEN>> <<ABORT>> <<ELSE>>
 CREATE (a2:Account {id: $account2Id})
@@ -165,8 +171,9 @@ non-serializable behaviour. As such, isolation levels are defined in terms of
 the anomalies they prevent~\cite{DBLP:conf/ds/GrayLPT76,DBLP:journals/pvldb/BailisDFGHS13}.
 \autoref{figure:isolation} relates isolation levels to the anomalies they proscribe.
 
-FinBench Transaction does not require systems to provide \level{Serializability}.
-However, to allow fair comparison systems must disclose the isolation level used
+% FinBench Transaction does not require systems to provide \level{Serializability}.
+% TODO: add isolation level requirement
+To allow fair comparison systems must disclose the isolation level used
 during benchmark execution. The purpose of these isolation tests is to verify 
 that the claimed isolation level matches the expected behaviour. To this end, 
 tests have been developed for each anomaly presented 
@@ -262,6 +269,12 @@ anomaly. Test descriptions provide
 \subsection{Dirty Write}
 \label{sec:dirty-write}
 
+\begin{quote}
+  \textit{The main difference between this section and \ldbcsnb\xspace
+          is the schema design.
+  }
+\end{quote}
+
 Informally, a \anolong{Dirty Write} (Adya's \anomaly{G0}~\cite{adya1999weak})
 occurs when updates by conflicting transactions are interleaved. For example, 
 say $\tx{T_i}$ and $\tx{T_j}$ both modify items $\{x,y\}$. If version $x_i$ 
@@ -338,6 +351,12 @@ RETURN
 
 \subsection*{Aborted Reads}
 
+\begin{quote}
+  \textit{The main difference between this section and \ldbcsnb\xspace
+          is the schema design.
+  }
+\end{quote}
+
 Informally, an \anolong{Aborted Read} (\anomaly{G1a}) anomaly occurs when a 
 transaction reads the updates of a transaction that later aborts.
 
@@ -402,6 +421,12 @@ RETURN a.balance as aBalance
 
 \subsection*{Intermediate Reads}
 
+\begin{quote}
+  \textit{The main difference between this section and \ldbcsnb\xspace
+          is the schema design.
+  }
+\end{quote}
+
 Informally, an \anolong{Intermediate Read} (Adya's \anomaly{G1b}~\cite{adya1999weak}) 
 anomaly occurs when a transaction reads the intermediate modifications of other 
 transactions.
@@ -433,6 +458,12 @@ The final balance modified by an \tx{G1b $T_\mathrm{W}$} instance is
 to be an even number it must have read an intermediate balance.
 
 \subsection*{Circular Information Flow}
+
+\begin{quote}
+  \textit{The main difference between this section and \ldbcsnb\xspace
+          is the schema design.
+  }
+\end{quote}
 
 Informally, a \anolong{Circular Information Flow} (Adya's \anomaly{G1c}~\cite{adya1999weak})
 anomaly occurs when two transactions affect each other; \ie both transactions
@@ -482,6 +513,12 @@ MATCH (a2:Account {id: $account2Id}) RETURN a2.balance AS account2Balance
 \subsection*{Item-Many-Preceders}
 \label{sec:cut-anomalies}
 
+\begin{quote}
+  \textit{The main difference between this section and \ldbcsnb\xspace
+          is the schema design.
+  }
+\end{quote}
+
 Informally, an \anolong{Item-Many-Preceders} (\anomaly{IMP}) 
 anomaly~\cite{DBLP:journals/pvldb/BailisDFGHS13} occurs if a transaction observes 
 multiple versions of the same item (\eg transaction $\tx{T_i}$ reads versions 
@@ -525,8 +562,8 @@ MATCH (a:Account {id: $accountId})
 SET a.balance = $newBalance
 \end{lstlisting}
 \begin{lstlisting}[language=cypher,label=fig:ic2,caption=\tx{IMP $T_\mathrm{R}$}.]
-MATCH (a:Account {id: $accountId})
-WITH a.balance AS firstRead
+MATCH (a1:Account {id: $accountId})
+WITH a1.balance AS firstRead
 <<SLEEP($sleepTime)>>
 MATCH (a2:Account {id: $accountId})
 RETURN firstRead, 
@@ -551,6 +588,12 @@ RETURN firstRead,
 \end{figure}
 
 \subsection*{Predicate-Many-Preceders}
+
+\begin{quote}
+  \textit{The main difference between this section and \ldbcsnb\xspace
+          is the schema design.
+  }
+\end{quote}
 
 Informally, a \anolong{Predicate-Many-Preceders} (\anomaly{PMP}) 
 anomaly~\cite{DBLP:journals/pvldb/BailisDFGHS13} occurs if a transaction observes 
@@ -592,6 +635,12 @@ change.
 \subsection{Observed Transaction Vanishes}
 \label{sec:observ-trans-vanish}
 
+\begin{quote}
+  \textit{The main difference between this section and \ldbcsnb\xspace
+          is the schema design.
+  }
+\end{quote}
+
 Informally, an \anolong{Observed Transaction Vanishes} (\anomaly{OTV}) 
 anomaly~\cite{DBLP:journals/pvldb/BailisDFGHS13} occurs when a transaction 
 observes part of another transaction's updates but not all of them 
@@ -621,7 +670,7 @@ Additionally, $\tx{T_i}$'s read from $y$ precedes its read from $x$.
 Load a test graph containing a set of cycles of length 4 of \texttt{Accounts} 
 connected by \texttt{transfer} edges. Assign each \texttt{Account} an \texttt{id}, 
 and \texttt{balance} property (initialized to 1). Note, \texttt{id} must be 
-unique across nodes. During execution write clients select a \texttt{id} and 
+unique across nodes. During execution write clients select an \texttt{id} and 
 executes a sequence of \tx{OTV $T_\mathrm{W}$} instances, \autoref{fig:otvfr1}.
 This transaction effectively creates a new version of a given cycle. Concurrently 
 read-clients execute a sequence of \tx{OTV $T_\mathrm{R}$} instances, \autoref{fig:otvfr2}.
@@ -662,10 +711,10 @@ SET a.balance = a.balance + 1
 \quad
 \begin{minipage}{0.60\linewidth}
 \begin{lstlisting}[language=cypher,label=fig:otvfr2,caption=\tx{OTV/FR $T_\mathrm{R}$}.]
-MATCH p1 = (a1:Account {id: $account1Id})-[:transfer*..4]->(a1)
+MATCH p1 = (a1:Account {id: $accountId})-[:transfer*..4]->(a1)
 RETURN extract(a IN nodes(p1) | a.balance) AS firstRead
 <<SLEEP($sleepTime)>>
-MATCH p2 = (a2:Account {id: 1})-[:transfer*..4]->(a2)
+MATCH p2 = (a2:Account {id: $accountId})-[:transfer*..4]->(a2)
 RETURN extract(a IN nodes(p2) | a.balance) AS secondRead
 \end{lstlisting}
 \end{minipage}
@@ -674,6 +723,10 @@ RETURN extract(a IN nodes(p2) | a.balance) AS secondRead
 
 \subsection{Fractured Read}
 \label{sec:fractured-reads}
+
+\begin{quote}
+  \textit{This section is the same as \ldbcsnb, except the schema design.}
+\end{quote}
 
 Informally, a \anolong{Fractured Read} (\anomaly{FR}) 
 anomaly~\cite{DBLP:journals/tods/BailisFGHS16} occurs when a transaction reads 
@@ -708,6 +761,12 @@ a different transaction and has read across transaction boundaries.
 \subsection{Lost Update}
 \label{sec:lost-update}
 
+\begin{quote}
+  \textit{The main difference between this section and \ldbcsnb\xspace
+          is the schema design.
+  }
+\end{quote}
+
 Informally, a \anolong{Lost Update} (\anomaly{LU}) 
 anomaly~\cite{DBLP:journals/tods/BailisFGHS16} occurs when two transactions 
 concurrently attempt to make conditional modifications to the same data item(s).
@@ -724,7 +783,7 @@ During execution write clients execute a sequence of \tx{LU $T_\mathrm{W}$}
 instances, \autoref{fig:lu1}. Choosing a random \texttt{Account} and incrementing 
 its \texttt{numTransferred} property. Clients store local counters 
 (\texttt{expNumTransferred}) for each \texttt{Account}, which is incremented 
-each time a \texttt{Account} is selected \emph{and} the \tx{LU $T_\mathrm{W}$} 
+each time an \texttt{Account} is selected \emph{and} the \tx{LU $T_\mathrm{W}$} 
 instance successfully commits. After the execution period the 
 \texttt{numTransferred} is retrieved for each \texttt{Account} using 
 \tx{LU $T_\mathrm{R}$} in \autoref{fig:lu2} and \texttt{expNumTransferred} are 
@@ -737,7 +796,7 @@ to the (global) \texttt{expNumTransferred} for that \texttt{Account}.
 \paragraph{Why it works.}
 Clients know how many successful \tx{LU $T_\mathrm{W}$} instances were issued 
 for a given \texttt{Account}. The observable \texttt{numTransferred} should 
-reflect this ground truth, otherwise, an \anomaly{LU} anomaly must have occurred.
+reflect this ground truth, otherwise, a \anomaly{LU} anomaly must have occurred.
 
 \begin{figure}[htb]
 \centering
@@ -753,16 +812,22 @@ RETURN a1.numTransferred
 \begin{minipage}{0.52\linewidth}
 \begin{lstlisting}[language=cypher,label=fig:lu2,caption=\tx{Lost Update $T_\mathrm{R}$}.]
 MATCH (a:Account {id: $accountId})
-MATCH (a)-[t:transfer]->()
+OPTIONAL MATCH (a)-[t:transfer]->()
 WITH a, count(t) AS numTransferEdges
 RETURN numTransferEdges,
-a.numTransferred AS numTransProp
+  a.numTransferred AS numTransferred
 \end{lstlisting}
 \end{minipage}
 \end{figure}
 
 \subsection{Write Skew}
 \label{sec:write-skew}
+
+\begin{quote}
+  \textit{This section is similar to \ldbcsnb, except the schema design and 
+          constraint: \texttt{a1.id \% 2 = 1} in \tx{WS $T_\mathrm{R}$}, \autoref{fig:ws2}.
+  }
+\end{quote}
 
 Informally, \anolong{Write Skew} (\anomaly{WS}) occurs when two transactions 
 simultaneously attempted to make \emph{disjoint} conditional modifications to 
@@ -840,8 +905,19 @@ in the performance run. Durability test is executed as follows:
 \begin{enumerate}[label={(\roman*)}]
   \item Execute the LDBC FinBench transaction workload;
   \item After 2 hours of execution, terminate all database processes 
-        ungracefully. This can be done by shutting down the entire machines or
-        killing processes forcefully;
+        \texttt{ungracefully}. This can be done by shutting down the entire 
+        machines or killing processes forcefully. Note, the ungraceful shutdown
+        on difference machines may differ:
+        \begin{enumerate}[label={(\alph*)}]
+          \item \emph{Amazon Web Services}: Using the \texttt{AWS CLI} to force 
+                stop the instance: 
+                \texttt{aws ec2 stop-instances --instance-ids \{ID\} --force};
+          \item \emph{Alibaba Cloud}: Stopping the instance by \texttt{Force Stop}
+                option on the \texttt{ECS Console};
+          \item \emph{Bare Metal}: Force stop the machine by \texttt{poweroff -f}.
+                Note, \texttt{shutdown -h now or shutdown -r now} are graceful;
+          \item \emph{Others}: Depends on discussion.
+        \end{enumerate}
   \item Restart the database system, retrieve the last entities (nodes or edges)
         updated by the last update operations before the crash from the driver 
         logs;
