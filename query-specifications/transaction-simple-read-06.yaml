@@ -7,8 +7,10 @@ description: |
 parameters:
   - name: id
     type: ID
+    description: the given company's id
 result:
-  - name: companies
+  - name: otherComp
     type: "[ID]"
+    description: the companies that invested by the given companies' investors
 relevance: |
   This is a typical query for investor relationship analysis.

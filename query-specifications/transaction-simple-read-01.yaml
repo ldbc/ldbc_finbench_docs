@@ -9,7 +9,11 @@ parameters:
     type: ID
     description: id of the Account
 result:
-  - name: properties
-    type: TODO
+  - name: createTime
+    type: DateTime
+  - name: isBlocked
+    type: Boolean
+  - name: type
+    type: String
 relevance: |
-  Property retrieve of a specific account.
+  Properties retrieval of a specific account.

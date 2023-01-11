@@ -17,7 +17,7 @@ parameters:
     type: DateTime
     description: end of the time window
 result:
-  - name: COLLECT(DISTINCT dstAccount.id)
+  - name: dst.id
     type: "[ID]"
 relevance: |
   This query is a typical analysis for gang related accounts in risk control.

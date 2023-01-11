@@ -11,13 +11,18 @@ parameters:
 result:
   - name: accounts.id
     type: "[ID]"
+    description: all the accounts owned by the company
   - name: invest_persons.id
     type: "[ID]"
+    description: all the persons investing the company
   - name: workers.id
     type: "[ID]"
+    description: all the persons working at the company
   - name: invest_company.id
     type: "[ID]"
+    description: all the companies investing the company
   - name: loans.id
     type: "[ID]"
+    description: all the loans that the company applies
 relevance: |
   This is a company information query case.

@@ -5,6 +5,6 @@ title:  Block a medium of high risk
 description: |
   Set an existed medium's isBlocked to True.
 parameters:
-  - name: accountId
+  - name: mediumId
     type: ID
 choke_points: []

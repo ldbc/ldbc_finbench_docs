@@ -11,6 +11,6 @@ parameters:
     type: ID
   - name: repay.currentTime
     type: DateTime
-  - name: repay.amt
+  - name: repay.amount
     type: 64-bit Integer
 choke_points: []

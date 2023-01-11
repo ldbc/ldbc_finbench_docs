@@ -5,10 +5,10 @@ title:  Add guarantee between persons
 description: |
   Add a guarantee edge from an existed person node to another existed person node.
 parameters:
-  - name: guarantee.timestamp
-    type: DateTime
   - name: pid1
     type: ID
   - name: pid2
     type: ID
+  - name: currentTime
+    type: DateTime
 choke_points: []

@@ -12,6 +12,6 @@ parameters:
     type: ID
   - name: deposit.currentTime
     type: DateTime
-  - name: deposit.amt
+  - name: deposit.amount
     type: 64-bit Integer
 choke_points: []

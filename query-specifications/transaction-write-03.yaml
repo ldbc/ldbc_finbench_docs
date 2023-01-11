@@ -5,8 +5,12 @@ title:  Add transfer between accounts
 description: |
   Add a transfer edge from an existed account node to another existed account node.
 parameters:
+  - name: srcId
+    type: ID
+  - name: dstId
+    type: ID
   - name: transfer.timestamp
     type: DateTime
-  - name: transfer.amount64-bit
-    type: Integer
+  - name: transfer.amount
+    type: 64-bit Integer
 choke_points: []
