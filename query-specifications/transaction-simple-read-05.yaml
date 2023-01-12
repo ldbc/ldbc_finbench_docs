@@ -10,18 +10,18 @@ parameters:
   - name: id
     type: ID
     description: id of the Account
-  - name: start_time
+  - name: startTime
     type: DateTime
     description: begin of the time window
-  - name: end_time
+  - name: endTime
     type: DateTime
     description: end of the time window
 result:
-  - name: SUM(edge.amount)
+  - name: sumEdgeAmount
     type: 64-bit Integer
-  - name: COUNT(edge)
+  - name: numEdge
     type: 32-bit Integer
-  - name: COUNT(DISTINCT otherAccount)
+  - name: numOtherAccount
     type: 32-bit Integer
 relevance: |
   This is a typical query of transfer-in statistic.

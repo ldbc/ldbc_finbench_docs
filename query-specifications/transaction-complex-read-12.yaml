@@ -12,10 +12,10 @@ parameters:
     type: ID
     description: id of the Person
 result:
-  - name: SUM(loan.loanAmount)
+  - name: sumLoanAmount
     type: 64-bit Integer
     category: aggregated
-  - name: COUNT(DISTINCT loan)
+  - name: numLoans
     type: 32-bit Integer
     category: aggregated
 choke_points: [3.2, 3.4, 6.2, 7.4, 8.7]

@@ -10,14 +10,14 @@ parameters:
   - name: id
     type: ID
     description: id of the Account
-  - name: start_time
+  - name: startTime
     type: DateTime
     description: begin of the time window
-  - name: end_time
+  - name: endTime
     type: DateTime
     description: end of the time window
 result:
-  - name: dst.id
+  - name: dstId
     type: "[ID]"
 relevance: |
   This query is a typical analysis for gang related accounts in risk control.

@@ -11,28 +11,28 @@ parameters:
   - name: id
     type: ID
     description: id of the start *Account*
-  - name: start_time
+  - name: startTime
     type: DateTime
     description: begin of the time window
-  - name: end_time
+  - name: endTime
     type: DateTime
     description: end of the time window
-  - name: truncation_limit
+  - name: truncationLimit
     type: 32-bit Integer
     description: maximum edges traversed at each step
-  - name: truncation_order
+  - name: truncationOrder
     type: enum
     description: the sort order before truncation at each step
 result:
-  - name: COUNT(DISTINCT medium)
+  - name: numMedia
     type: 64-bit Integer
     description: number of different media
     category: aggregated
-  - name: medium.type
+  - name: mediumType
     type: \{String\}
     description: the types of each medium
     category: raw
-  - name: medium.id
+  - name: mediumId
     type: \{ID\}
     description: the ids of each medium
     category: raw

@@ -5,7 +5,7 @@ title: Transfers between two accounts
 description: |
   Given two *Accounts*, find the sum and max of fund amount in *transfer*
   between them in a specific time range between *start_time* and *end_time*.
-  Return the sum and max of amount of *e1* and *e2* in seperate.
+  Return the sum and max of amount of *edge1* and *edge2* in seperate.
 parameters:
   - name: id1
     type: ID
@@ -13,23 +13,23 @@ parameters:
   - name: id2
     type: ID
     description: id of the dst Account
-  - name: start_time
+  - name: startTime
     type: DateTime
     description: begin of the time window
-  - name: end_time
+  - name: endTime
     type: DateTime
     description: end of the time window
 result:
-  - name: SUM(e1.amount)
+  - name: sumEdge1Amount
     type: 64-bit Integer
     description: sum of transfers from src to dst
-  - name: MAX(e1.amount)
+  - name: maxEdge1Amount
     type: 64-bit Integer
     description: max of transfers from src to dst
-  - name: SUM(e2.amount)
+  - name: sumEdge2Amount
     type: 64-bit Integer
     description: sum of transfers from dst to src
-  - name: MAX(e2.amount)
+  - name: maxEdge2Amount
     type: 64-bit Integer
     description: max of transfers from dst to src
 relevance: |

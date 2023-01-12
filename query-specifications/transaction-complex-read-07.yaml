@@ -4,14 +4,14 @@ number: 7
 title: Fast-in and Fast-out
 description: | 
   Given an *Account* and a specified time window between *start_time* and
-  *end_time*, find all the *transfer-in*(*e1*) and *transfer-out*(*e2*) whose
+  *end_time*, find all the *transfer-in*(*edge1*) and *transfer-out*(*edge2*) whose
   amount exceeds *threshold*. Return the count of *src* and *dst* accounts and
   the ratio of *transfer-in* amount over *transfer-out* amount.
 parameters:
-  - name: start_time
+  - name: startTime
     type: DateTime
     description: begin of the time window
-  - name: end_time
+  - name: endTime
     type: DateTime
     description: end of the time window
   - name: threshold
@@ -20,20 +20,20 @@ parameters:
   - name: id
     type: ID
     description: id of mid account
-  - name: truncation_limit
+  - name: truncationLimit
     type: 32-bit Integer
     description: maximum edges traversed at each step
-  - name: truncation_order
+  - name: truncationOrder
     type: enum
     description: the sort order before truncation at each step
 result:
-  - name: COUNT(src)
+  - name: numSrc
     type: 32-bit Integer
     category: aggregated
-  - name: COUNT(dst)
+  - name: numDst
     type: 32-bit Integer
     category: aggregated
-  - name: SUM(e1.amount)/SUM(e2.amount)
+  - name: sumEdge1Amount/sumEdge2Amount
     type: 32-bit Float
     category: calculated
     description: the amount ratio of transfers-in over transfers-out

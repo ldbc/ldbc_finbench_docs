@@ -9,19 +9,19 @@ parameters:
     type: ID
     description: id of the Company
 result:
-  - name: accounts.id
+  - name: accId
     type: "[ID]"
     description: all the accounts owned by the company
-  - name: invest_persons.id
+  - name: p1Id
     type: "[ID]"
     description: all the persons investing the company
-  - name: workers.id
+  - name: p2Id
     type: "[ID]"
     description: all the persons working at the company
-  - name: invest_company.id
+  - name: comId
     type: "[ID]"
     description: all the companies investing the company
-  - name: loans.id
+  - name: loanId
     type: "[ID]"
     description: all the loans that the company applies
 relevance: |

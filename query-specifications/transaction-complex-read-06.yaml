@@ -20,30 +20,30 @@ parameters:
   - name: threshold2
     type: 64-bit Integer
     description: threshold of transfer amount
-  - name: start_time
+  - name: startTime
     type: DateTime
     description: begin of the time window
-  - name: end_time
+  - name: endTime
     type: DateTime
     description: end of the time window
-  - name: truncation_limit
+  - name: truncationLimit
     type: 32-bit Integer
     description: maximum edges traversed at each step
-  - name: truncation_order
+  - name: truncationOrder
     type: enum
     description: the sort order before truncation at each step
 result:
-  - name: SUM(edge1.amount)
+  - name: sumEdge1Amount
     type: 64-bit Integer
     description: the amount of transfer
     category: aggregated
-  - name: SUM(edge2.amount)
+  - name: sumEdge2Amount
     type: 64-bit Integer
     description: the amount of withdrawal
     category: aggregated
 groupby: mid
 sort:
-  - name: SUM(edge2.amount)
+  - name: sumEdge2Amount
     direction: desc
     description: the amount of withdrawal
 choke_points: [3.2, 3.4, 6.2, 8.7]

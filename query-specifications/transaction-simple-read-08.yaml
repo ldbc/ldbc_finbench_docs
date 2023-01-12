@@ -13,10 +13,10 @@ parameters:
   - name: threshold
     type: 64-bit Integer
     description: threshold of transfer amount
-  - name: start_time
+  - name: startTime
     type: DateTime
     description: begin of the time window
-  - name: end_time
+  - name: endTime
     type: DateTime
     description: end of the time window
 result:

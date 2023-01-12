@@ -14,7 +14,7 @@ parameters:
     type: ID
     description: id of Person2
 result:
-  - name: Jaccard(r1, r2)
+  - name: jaccardSimilarity
     type: 32-bit float
     category: calculated
     description: jaccard similarity between two sets

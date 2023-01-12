@@ -20,26 +20,26 @@ parameters:
   - name: upperbound
     type: 32-bit float
     description: upper threshold bound of the ratio of repay over deposit
-  - name: start_time
+  - name: startTime
     type: DateTime
     description: begin of the time window
-  - name: end_time
+  - name: endTime
     type: DateTime
     description: end of the time window
-  - name: truncation_limit
+  - name: truncationLimit
     type: 32-bit Integer
     description: maximum edges traversed at each step
-  - name: truncation_order
+  - name: truncationOrder
     type: enum
     description: the sort order before truncation at each step
 result:
-  - name: SUM(edge1.amount)/SUM(edge2.amount)
+  - name: sumEdge1Amount/sumEdge2Amount
     type: 32-bit float
     category: calculated
-  - name: SUM(edge1.amount)/SUM(edge4.amount)
+  - name: sumEdge1Amount/sumEdge4Amount
     type: 32-bit float
     category: calculated
-  - name: SUM(edge3.amount)/SUM(edge4.amount)
+  - name: sumEdge3Amount/sumEdge4Amount
     type: 32-bit float
     category: calculated
 choke_points: [3.2, 3.4, 6.2, 8.7]

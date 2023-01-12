@@ -14,11 +14,11 @@ parameters:
     type: 32-bit Integer
     description: the distance in the investing relationship
 result:
-  - name: Final share
+  - name: finalShare
     type: 32-bit float
 groupby: investor
 sort:
-  - name: Final share
+  - name: finalShare
     direction: desc
 choke_points: [1.1, 6.2, 7.11]
 relevance: |
