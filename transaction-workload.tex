@@ -25,7 +25,7 @@ consists of four query types:
 \end{itemize}
 
 {\flushleft \textbf{About the truncation:}} Among the queries, a mechanism is
-introduced that helps in the discordance between the tight latency requirements
+introduced that helps handling the discordance between the tight latency requirements
 and power-law distribution of data in system, where the degree of hub vertex may
 reach to million and even billion scale, especially when traversing on graph.
 The mechanism is to do truncation on the edges when traversing out from the
@@ -41,8 +41,10 @@ to be specified when truncating. Since in financial graphs, users prefer newer
 data in business. It is reasonable that attribute, \textbf{timestamp}, in the
 edges is used as the sort order in truncation. In the following queries, some
 parameters are added to describe the behavior of truncation cutting down the
-complexity including the \textbf{TRUNCATION\_LIMIT} and
-\textbf{TRUNCATION\_ORDER}.
+complexity including the \textbf{TRUNCATION\_LIMIT} and \textbf{TRUNCATION\_ORDER}.
+\textbf{TRUNCATION\_ORDER} can be \textbf{TIME\_ASCENDING, TIME\_DESCENDING,
+AMOUNT\_ASCENDING, AMOUNT\_DESCENDING}. At most time, \textbf{TRUNCATION\_ORDER}
+is set to \textbf{TIME\_DESCENDING} by default.
 
 {\flushleft \textbf{About the annotations:}} To express the patterns better, the
 pattern diagrams are drawn from the perspective of data rather than the matching
