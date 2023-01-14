@@ -1,0 +1,10 @@
+workload: Transaction
+operation: write
+number: 15
+title:  Remove a loan
+description: |
+  Given an id, remove a loan, and remove the *repay*, *deposit* and *apply* edges.
+parameters:
+  - name: id
+    type: ID
+choke_points: []

@@ -16,12 +16,7 @@ consists of four query types:
     \item Write queries. See \autoref{sec:write-queries}. This section contains
           many basic write queries that are typical in financial scenarios.
     \item Read-write queries. See \autoref{sec:rw-queries}. This section
-          contains many read-write operations composed of basic reads and writes
-          in section 4.1 and 4.2. In each operation, the basic reads and writes
-          are supposed to launch step by step consecutively. The result may be
-          wrong if the previous reads and writes are not be processed accurately
-          in time. This feature is a big difference between \ldbcfinbench and
-          \ldbcsnb.
+          contains many read-write operations composed of basic reads and writes.
 \end{itemize}
 
 {\flushleft \textbf{About the truncation:}} Among the queries, a mechanism is
@@ -90,6 +85,8 @@ pattern in graph. Here are some annotations to each query card in this section.
 
 \section{Read-Write Queries}
 \label{sec:rw-queries}
+
+In financial scenarios, 
 
 \input{transaction-rw-queries}
 

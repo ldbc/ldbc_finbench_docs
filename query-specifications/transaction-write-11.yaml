@@ -1,10 +1,10 @@
 workload: Transaction
 operation: write
 number: 11
-title:  Block a medium of high risk
+title:  Block a person of high risk
 description: |
-  Set an existed medium's isBlocked to True.
+  Set a person's isBlocked to True.
 parameters:
-  - name: mediumId
+  - name: personId
     type: ID
 choke_points: []

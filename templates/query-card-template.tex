@@ -72,6 +72,7 @@
 	\queryRefCard{transaction-write-12}{TW}{12}\\
 	\queryRefCard{transaction-write-13}{TW}{13}\\
 	\queryRefCard{transaction-write-14}{TW}{14}\\
+	\queryRefCard{transaction-write-15}{TW}{15}\\
 }
 {%- endif %}
 
@@ -94,7 +95,7 @@
 %
 	title & {{ title }} \\ \hline
 %
-	{% if operation == "complex-read" or operation == "simple-read" or operation == "write" %}
+	{% if operation == "complex-read" or operation == "simple-read" or operation == "write" or operation == "read-write" %}
 		pattern & \centering \includegraphics[scale=\yedscale,margin=0cm .2cm]{patterns/{{ query_id -}} } \tabularnewline \hline
 	{% endif %}
 %
