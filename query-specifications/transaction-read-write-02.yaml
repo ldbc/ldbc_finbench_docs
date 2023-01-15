@@ -1,7 +1,7 @@
 workload: Transaction
 operation: read-write
 number: 2
-title: High risk account mid-account blocked after fast-in and fast-out detected
+title: Transfer under fast-in and fast-out strategy
 compositions:
   - name: Transaction / Simple Read / 1
     ref: transaction-simple-read-01
@@ -12,15 +12,29 @@ compositions:
   - name: Transaction / Write / 10
     ref: transaction-write-10
 description: |
-  With the reads and writes, this query works as:
+  The workflow of this read write query contains at least one transaction. It works as:
 
-  * With Transaction / Simple Read / 1, read the blocked status of related account.
-  * With Transaction / Write / 3, many transfer edges are inserted. Then enough transfer-out edges from the blocked and unblocked accounts are inserted to the target account.
-  * With Transaction / Complex Read / 7, the pattern of Fast-in and Fast-out is detected and the count of the account transfer-ins and transfer-outs is calculated.
-  * When the count exceeds a threshold, Transaction / Write / 10 is triggered to mark the account as blocked. 
+  * In the very beginning, read the blocked status of related accounts. The transaction aborts if one of them is
+  blocked. Move to the next step if none is blocked.
+  * Add a transfer edge inside the transaction.
+  * Detect if a fast-in and fast-out pattern formed. Transaction aborts if formed, and then mark the related accounts as
+  blocked in another transaction. Otherwise the transaction commits.
 parameters:
-  - name: threshold of transfer-ins and transfer-outs count.
-    type: Float
+  - name: srcId
+    type: ID
+    description: id of the src Account
+  - name: dstId
+    type: ID
+    description: id of the dst Account
+  - name: threshold
+    type: 64-bit Integer
+    description: transfer amount threshold
+  - name: startTime
+    type: DateTime
+    description: begin of the time window
+  - name: endTime
+    type: DateTime
+    description: end of the time window
 choke_points: []
 relevance: |
   It is a typical fraud detection and AWL case in risk control.

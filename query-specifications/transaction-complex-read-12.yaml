@@ -1,7 +1,7 @@
 workload: Transaction
 operation: complex-read
 number: 12
-title: Guarantee Cycle Detection
+title: Guarantee Chain Detection
 description: |
   Given a *Person* and a specified time window between *start_time* and
   *end_time*, find all the persons in the gurantee chain until end and their
@@ -11,6 +11,12 @@ parameters:
   - name: id
     type: ID
     description: id of the Person
+  - name: startTime
+    type: DateTime
+    description: begin of the time window
+  - name: endTime
+    type: DateTime
+    description: end of the time window
 result:
   - name: sumLoanAmount
     type: 64-bit Integer

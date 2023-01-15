@@ -1,24 +1,40 @@
 workload: Transaction
 operation: read-write
 number: 3
-title: High risk person blocked after guarantee cycle detected
+title: Guarantee under guarantee chain detection strategy
 compositions:
   - name: Transaction / Simple Read / 1
     ref: transaction-simple-read-01
-  - name: Transaction / Write / 14
-    ref: transaction-write-14
+  - name: Transaction / Write / 13
+    ref: transaction-write-13
   - name: Transaction / Complex Read / 12
     ref: transaction-complex-read-12
-  - name: Transaction / Write / 12
-    ref: transaction-write-12
+  - name: Transaction / Write / 11
+    ref: transaction-write-11
 description: |
-  With the reads and writes, this query works as:
+  The workflow of this read write query contains at least one transaction. It works as:
 
-  * With Transaction / Simple Read / 1, read the blocked status of related person.
-  * With Transaction / Write / 14, many guarantee edges are inserted. Then enough guarantee edges are inserted to form a guarantee cycle.
-  * With Transaction / Complex Read / 12, the pattern of a guarantee cycle is detected and all the persons in the cycle is returned.
-  * Because of the high risk of guarantee cycle, Transaction / Write / 12 is triggered to mark all the person as blocked. 
+  * In the very beginning, read the blocked status of related persons. The transaction aborts if one of them is
+  blocked. Move to the next step if none is blocked.
+  * Add a guarantee edge between the two persons inside the transaction.
+  * Detect if a guarantee chain pattern formed. Calculate if the amount sum of the related loans in the chain exceeds a
+  given threshold. Transaction aborts if the sum exceeds the threshold, and then mark the related persons as blocked in another transaction. Otherwise the transaction commits.
 parameters:
+  - name: srcId
+    type: ID
+    description: id of the src Person
+  - name: dstId
+    type: ID
+    description: id of the dst Person
+  - name: threshold
+    type: 64-bit Integer
+    description: loan amount threshold in the guarantee chain
+  - name: startTime
+    type: DateTime
+    description: begin of the time window
+  - name: endTime
+    type: DateTime
+    description: end of the time window
 choke_points: []
 relevance: |
   It is a typical fraud detection in risk control.

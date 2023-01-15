@@ -86,7 +86,14 @@ pattern in graph. Here are some annotations to each query card in this section.
 \section{Read-Write Queries}
 \label{sec:rw-queries}
 
-In financial scenarios, 
+In financial scenario, risk control is a kind of hot and significant application.
+Such applications usually detect a specific pattern in form of linked data before
+new records like transfers are written to systems. Read-write query, which can also
+be seen as transaction-wrapped strategies, fits these applications very well since
+users do not need to worry about translating the patterns to prevent malicious records.
+Read-write query is composed of read queries and write queries in the previous sections.
+At most cases, whether to commit write query depends on the detection result of the
+read queries. In the initial version, just 3 read-write queries are presented.
 
 \input{transaction-rw-queries}
 
