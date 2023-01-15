@@ -1,14 +1,10 @@
 workload: Transaction
 operation: write
 number: 12
-title:  Add guarantee between persons
+title:  Block a medium of high risk
 description: |
-  Add a guarantee edge from an existed person node to another existed person node.
+  Set an existed medium's isBlocked to True.
 parameters:
-  - name: pid1
+  - name: mediumId
     type: ID
-  - name: pid2
-    type: ID
-  - name: currentTime
-    type: DateTime
 choke_points: []

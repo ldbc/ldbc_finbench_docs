@@ -1,13 +1,16 @@
 workload: Transaction
 operation: simple-read
 number: 1
-title: Exact Account properties query
+title: Exact Account or Person properties query
 description: |
-  Given an *Account* id, find the properties of the specific *Account*.
+  Given an id of an *Account* or an *Person*, find the properties of the specific *Account*.
 parameters:
   - name: id
     type: ID
     description: id of the Account
+  - name: type
+    type: enum
+    description: the type of vertices to query
 result:
   - name: createTime
     type: DateTime

@@ -1,7 +1,7 @@
 workload: Transaction
 operation: read-write
 number: 1
-title: High risk account blocked after Money-Laundering transfer cycle detected
+title: Transfer under transfer cycle detection strategy
 compositions:
   - name: Transaction / Simple Read / 1
     ref: transaction-simple-read-01
@@ -12,15 +12,26 @@ compositions:
   - name: Transaction / Write / 10
     ref: transaction-write-10
 description: |
-  With the reads and writes, this query works as:
+  The workflow of this read write query contains at least one transaction. It works as:
 
-  * With Transaction / Simple Read / 1, read the blocked status of the account.
-  * With Transaction / Write / 3, many transfer edges are inserted. And with enough transfer edges inserted, a transfer cycle via a third-party is formed.
-  * With Transaction / Complex Read / 4, a three accounts cycle is detected and the sum of transferred fund amount is calculated.
-  * When the amount sum exceeds a threshold, Transaction / Write / 10 is triggered to mark all the account in the cycle as blocked.
+  * In the very beginning, read the blocked status of related accounts. The transaction aborts if one of them is
+  blocked. Move to the next step if none is blocked.
+  * Add a transfer edge inside the transaction.
+  * Detect if a transfer cycle formed. Transaction aborts if formed, and then mark the related accounts as blocked in
+  another transaction. Otherwise the transaction commits.
 parameters:
-  - name: threshold of amount sum
-    type: Float
+  - name: srcId
+    type: ID
+    description: id of the src Account
+  - name: dstId
+    type: ID
+    description: id of the dst Account
+  - name: startTime
+    type: DateTime
+    description: begin of the time window
+  - name: endTime
+    type: DateTime
+    description: end of the time window
 choke_points: []
 relevance: |
   It is a typical AWL case in risk control.
