@@ -13,6 +13,11 @@ parameters:
   - name: id2
     type: ID
     description: id of Person2
+  - name: startTime
+    type: DateTime
+    description: begin of the time window
+  - name: endTime
+    type: DateTime
 result:
   - name: jaccardSimilarity
     type: 32-bit float

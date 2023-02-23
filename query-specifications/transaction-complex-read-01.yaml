@@ -6,7 +6,8 @@ description: |
   Given an *Account* and a specified time window between *start_time* and
   *end_time*, find all the *Account* that is signed in by a blocked *Medium* and
   has fund transfered via *edge1* by at most 3 steps. Note that all timestamps
-  in the transfer trace are in ascending order. Return the mediums.
+  in the transfer trace are in ascending order. Return the ids and types of the 
+  mediums.
 parameters:
   - name: id
     type: ID
@@ -24,16 +25,12 @@ parameters:
     type: enum
     description: the sort order before truncation at each step
 result:
-  - name: numMedia
-    type: 64-bit Integer
-    description: number of different media
-    category: aggregated
   - name: mediumType
-    type: \{String\}
+    type: String
     description: the types of each medium
     category: raw
   - name: mediumId
-    type: \{ID\}
+    type: ID
     description: the ids of each medium
     category: raw
 choke_points: [3.2, 3.4, 6.2, 7.1, 7.4, 8.7, 8.8]

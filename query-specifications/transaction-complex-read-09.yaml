@@ -11,6 +11,9 @@ description: |
   ratio of *deposit* over *transfers-out*(sum of *edge1* over sum of *edge4* ). Return
   the ratios.
 parameters:
+  - name: id
+    type: ID
+    description: id of the Account
   - name: threshold
     type: 64-bit Integer
     description: threshold of amount

@@ -5,7 +5,8 @@ title: Transfer to company amount statistics
 description: |
   Given a *Person* and a specified time window between *start_time* and
   *end_time*,  find all the company accounts that s/he has transferred
-  to. Return companies and the sum of their transfer amount in descending order.
+  to. Return the ids of the companies' accounts and the sum of their
+  transfer amount in descending order.
 parameters:
   - name: id
     type: ID
@@ -23,6 +24,9 @@ parameters:
     type: enum
     description: the sort order before truncation at each step
 result:
+  - name: compAcc.id
+    type: ID
+    description: the id of the company account
   - name: sumEdge2Amount
     type: 64-bit Integer
     category: aggregated

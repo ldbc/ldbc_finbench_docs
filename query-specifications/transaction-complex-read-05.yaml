@@ -5,9 +5,12 @@ title: Exact Account Transfer Trace
 description: |
   Given a *Person* and a specified time window between *start_time* and
   *end_time*, find the transfer trace from the account(*src*) owned by the
-  *Person* to another account(*dst*) by at most 3 steps. Note that the transfer
-  trace(*edge2*) are in ascending order in terms of timestamp. Return all the
-  transfer traces.
+  *Person* to another account(*dst*) by at most 3 steps. Note that the
+  trace(*edge2*) are in ascending order in terms of timestamp. Return all
+  traces.
+  
+  Note: multiple edges of from the same src to the same dst should be seen as 
+  identical path.
 parameters:
   - name: id
     type: ID
@@ -26,7 +29,7 @@ parameters:
     description: the sort order before truncation at each step
 result:
   - name: paths
-    type: \{Path\}
+    type: Path
     description: the transfer traces
     category: structural
 sort:
