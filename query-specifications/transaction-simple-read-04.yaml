@@ -22,5 +22,7 @@ parameters:
 result:
   - name: numEdges
     type: 32-bit Integer
+  - name: sumAmount
+    type: 64-bit Integer
 relevance: |
   This query is a typical frequent transfer-out recognition case in risk control.

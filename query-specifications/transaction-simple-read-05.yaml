@@ -4,8 +4,8 @@ number: 5
 title: Recent transfer-ins statistic
 description: |
   Given an *Account*, find all the *Accounts* the *Account* transfers in. Return
-  the sum of the *transfer-ins'* amount, the count of *transfer-ins*, the count of
-  distinct *Accounts* and the transfer amount per day.
+  the sum of the *transfer-ins'* amount, the count of *transfer-ins* and the count
+  of distinct *Accounts*.
 parameters:
   - name: id
     type: ID
