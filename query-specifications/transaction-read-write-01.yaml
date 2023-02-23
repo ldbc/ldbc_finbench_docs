@@ -17,8 +17,9 @@ description: |
   * In the very beginning, read the blocked status of related accounts. The transaction aborts if one of them is
   blocked. Move to the next step if none is blocked.
   * Add a transfer edge inside the transaction.
-  * Detect if a transfer cycle formed. Transaction aborts if formed, and then mark the related accounts as blocked in
-  another transaction. Otherwise the transaction commits.
+  * Detect if a new transfer cycle formed(which means there is no edges existing between the related accounts before).
+  Transaction aborts if formed, and then mark the related accounts as blocked in another transaction. Otherwise the
+  transaction commits.
 parameters:
   - name: srcId
     type: ID
@@ -26,6 +27,12 @@ parameters:
   - name: dstId
     type: ID
     description: id of the dst Account
+  - name: currentTime
+    type: DateTime
+    description: the timestamp of the transfer
+  - name: amt
+    type: 64-bit Integer
+    description: the amount of the transfer
   - name: startTime
     type: DateTime
     description: begin of the time window

@@ -6,7 +6,8 @@ description: |
   Given an *Account* and a specified time window between *start_time* and
   *end_time*, find all the *transfer-in*(*edge1*) and *transfer-out*(*edge2*) whose
   amount exceeds *threshold*. Return the count of *src* and *dst* accounts and
-  the ratio of *transfer-in* amount over *transfer-out* amount.
+  the ratio of *transfer-in* amount over *transfer-out* amount. The fast-in and
+  fash-out means a tight window between *start_time* and *end_time*.
 parameters:
   - name: startTime
     type: DateTime
