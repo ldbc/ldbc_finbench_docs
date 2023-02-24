@@ -6,6 +6,7 @@ description: |
   Given a *Company*, find all the *Companies* and *Persons* the *Company*
   invests by at most k steps. Then calculate the final share ratio of the
   investors to the given company groupby the investor in descending order.
+  Final share ratio means the final share of each investor in the company
 parameters:
   - name: id
     type: ID
@@ -14,7 +15,7 @@ parameters:
     type: 32-bit Integer
     description: the distance in the investing relationship
 result:
-  - name: finalShare
+  - name: ratio
     type: 32-bit float
 groupby: investor
 sort:

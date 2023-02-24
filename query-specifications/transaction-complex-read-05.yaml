@@ -9,8 +9,8 @@ description: |
   trace(*edge2*) are in ascending order in terms of timestamp. Return all
   traces.
   
-  Note: multiple edges of from the same src to the same dst should be seen as 
-  identical path.
+  Note: Multiple edges of from the same src to the same dst should be seen as 
+  identical path. And the result does not include the recurring account in cycles.
 parameters:
   - name: id
     type: ID

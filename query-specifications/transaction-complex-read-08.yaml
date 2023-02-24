@@ -11,6 +11,8 @@ description: |
   the account and the upstream account should exceed a specified *ratio* of the
   upstream transfer. Return all the amount *ratio* (*ratio1*, *ratio2*, and
   *ratio3*) groupby the *accounts*'s id at each step in descending order.
+
+  Note: Upstream means the last edge in the trace.
 parameters:
   - name: id
     type: ID
