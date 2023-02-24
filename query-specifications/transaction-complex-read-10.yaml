@@ -5,7 +5,8 @@ title: Similarity of investor relationship
 description: |
   Given two *Persons* and a specified time window between *start_time* and
   *end_time*, find all the *Companies* the two *Persons* invest. Return
-  the jaccard similarity between the two companies set.
+  the jaccard similarity between the two companies set. Note that there is
+  no truncation in this case.
 parameters:
   - name: id1
     type: ID
@@ -18,6 +19,7 @@ parameters:
     description: begin of the time window
   - name: endTime
     type: DateTime
+    description: end of the time window
 result:
   - name: jaccardSimilarity
     type: 32-bit float

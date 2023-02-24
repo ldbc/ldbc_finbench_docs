@@ -17,9 +17,10 @@ parameters:
 result:
   - name: ratio
     type: 32-bit float
+    description: the final share ratio
 groupby: investor
 sort:
-  - name: finalShare
+  - name: ratio
     direction: desc
 choke_points: [1.1, 6.2, 7.11]
 relevance: |

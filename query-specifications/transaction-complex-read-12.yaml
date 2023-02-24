@@ -4,7 +4,7 @@ number: 12
 title: Guarantee Chain Detection
 description: |
   Given a *Person* and a specified time window between *start_time* and
-  *end_time*, find all the persons in the gurantee chain until end and their
+  *end_time*, find all the persons in the guarantee chain until end and their
   loans applied. Return the sum of *loan* amount and the count of distinct
   *loan*s.
 parameters:
@@ -17,6 +17,12 @@ parameters:
   - name: endTime
     type: DateTime
     description: end of the time window
+  - name: truncationLimit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncationOrder
+    type: enum
+    description: the sort order before truncation at each step
 result:
   - name: sumLoanAmount
     type: 64-bit Integer
