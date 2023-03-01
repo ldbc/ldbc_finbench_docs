@@ -1,15 +1,18 @@
 workload: Transaction
 operation: simple-read
 number: 5
-title: Recent transfer-ins statistic
+title: Account transfer-ins over threshold
 description: |
-  Given an *Account*, find all the *Accounts* the *Account* transfers in. Return
-  the sum of the *transfer-ins'* amount, the count of *transfer-ins* and the count
-  of distinct *Accounts*.
+  Given an account(*dst*), find all the transfer-ins(*edge*) from the *src* 
+  to a *dst* where the amount exceeds *threshold* in a specific time range between
+  *start_time* and *end_time*. Return the count of *transfer-ins* and the amount sum.
 parameters:
   - name: id
     type: ID
     description: id of the Account
+  - name: threshold
+    type: 64-bit Integer
+    description: threshold of transfer amount
   - name: startTime
     type: DateTime
     description: begin of the time window
@@ -17,11 +20,14 @@ parameters:
     type: DateTime
     description: end of the time window
 result:
-  - name: sumEdgeAmount
+  - name: srcId
+    type: ID
+    description: the id of the src account 
+  - name: numEdges
+    type: 32-bit Integer
+    description: num of the transfers from src to dst
+  - name: sumAmount
     type: 64-bit Integer
-  - name: numEdge
-    type: 32-bit Integer
-  - name: numOtherAccount
-    type: 32-bit Integer
+    description: sum of the transfers from src to dst
 relevance: |
   This is a typical query of transfer-in statistic.

@@ -36,14 +36,17 @@ parameters:
     type: enum
     description: the sort order before truncation at each step
 result:
-  - name: sumEdge1Amount/sumEdge2Amount
+  - name: ratioRepay
     type: 32-bit float
+    description: sumEdge1Amount/sumEdge2Amount
     category: calculated
-  - name: sumEdge1Amount/sumEdge4Amount
+  - name: ratioOut
     type: 32-bit float
+    description: sumEdge1Amount/sumEdge4Amount
     category: calculated
-  - name: sumEdge3Amount/sumEdge4Amount
+  - name: ratioIn
     type: 32-bit float
+    description: sumEdge3Amount/sumEdge4Amount
     category: calculated
 choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |

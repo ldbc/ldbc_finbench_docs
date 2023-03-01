@@ -27,9 +27,11 @@ result:
   - name: sumLoanAmount
     type: 64-bit Integer
     category: aggregated
+    description: sum of the loans' amount
   - name: numLoans
     type: 32-bit Integer
     category: aggregated
+    description: num of the loans
 choke_points: [3.2, 3.4, 6.2, 7.4, 8.7]
 relevance: |
   This is a typical cycle detection in guarantee.

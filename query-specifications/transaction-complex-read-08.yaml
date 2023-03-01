@@ -8,18 +8,18 @@ description: |
   from the *account* the *Loan* *deposits*. Note that the transfer paths of
   *edge1*, *edge2*, *edge3* and *edge4* are in a specific time range between
   *start_time* and *end_time*. Amount of each transfers or withdrawals between
-  the account and the upstream account should exceed a specified *ratio* of the
-  upstream transfer. Return all the amount *ratio* (*ratio1*, *ratio2*, and
-  *ratio3*) groupby the *accounts*'s id at each step in descending order.
-
+  the account and the upstream account should exceed a specified *threshold*
+  of the upstream transfer. Return all the accounts' id in the downstream of
+  loan, their final ratio and their distanceFromLoan.
+ 
   Note: Upstream means the last edge in the trace.
 parameters:
   - name: id
     type: ID
     description: id of the Loan
-  - name: ratio
+  - name: threshold
     type: 32-bit Float
-    description: ratio of the amount over the upstream's
+    description: threshold of the amount over the upstream's
   - name: startTime
     type: DateTime
     description: begin of the time window
@@ -33,25 +33,22 @@ parameters:
     type: enum
     description: the sort order before truncation at each step
 result:
-  - name: ratio1
+  - name: dstId
+    type: ID
+    category: raw
+    description: the id of the inflow account
+  - name: ratio
     type: 32-bit float
     category: calculated
-    description: the ratio of each transfer-in from the upstream to dst1
-  - name: ratio2
-    type: 32-bit float
+    description: the final ratio of the inflow's amount of each account over the loan
+  - name: distanceFromLoan
+    type: 32-bit integer
     category: calculated
-    description: the ratio of each transfer-in from the upstream to dst2
-  - name: ratio3
-    type: 32-bit float
-    category: calculated
-    description: the ratio of each transfer-in from the upstream to dst3
-groupby: dst
+    description: the distance from the account to the loan
 sort:
-  - name: ratio1
+  - name: distanceFromLoan
     direction: desc
-  - name: ratio2
-    direction: desc
-  - name: ratio3
+  - name: ratio
     direction: desc
 choke_points: [3.2, 3.4, 6.2, 7.1, 8.7]
 relevance: |

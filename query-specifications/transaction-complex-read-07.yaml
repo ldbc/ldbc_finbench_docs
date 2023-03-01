@@ -32,10 +32,12 @@ result:
   - name: numSrc
     type: 32-bit Integer
     category: aggregated
+    description: num of the src accounts
   - name: numDst
     type: 32-bit Integer
     category: aggregated
-  - name: sumEdge1Amount/sumEdge2Amount
+    description: num of the dst accounts
+  - name: inOutRatio
     type: 32-bit Float
     category: calculated
     description: the amount ratio of transfers-in over transfers-out

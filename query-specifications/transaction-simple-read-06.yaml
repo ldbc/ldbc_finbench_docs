@@ -1,16 +1,24 @@
 workload: Transaction
 operation: simple-read
 number: 6
-title: Companies with the same investor of exact company
+title: Accounts with the same transfer sources of exact account
 description: |
-  Given a *Company*, find all the *Companies* that the *Persons* invest.
+  Given an *Account*(*account*), find all the blocked *Accounts*(*dstAccounts*) that
+  connect to a common account(*midAccoun*t) with the given *Account*(*account*).
+  Return all the *accounts'* id.
 parameters:
   - name: id
     type: ID
-    description: the given company's id
+    description: id of the Account
+  - name: startTime
+    type: DateTime
+    description: begin of the time window
+  - name: endTime
+    type: DateTime
+    description: end of the time window
 result:
-  - name: otherComp
+  - name: dstId
     type: "[ID]"
-    description: the companies that invested by the given companies' investors
+    description: id of the accounts having same src as the given account
 relevance: |
-  This is a typical query for investor relationship analysis.
+  This query is a typical analysis for gang related accounts in risk control.

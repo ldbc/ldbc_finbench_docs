@@ -1,23 +1,16 @@
 workload: Transaction
 operation: simple-read
 number: 7
-title: Accounts with the same transfer sources of exact account
+title: Companies invested by the person
 description: |
-  Given an *Account*(*account*), find all the blocked *Accounts*(*dstAccounts*) that
-  connect to a common account(*midAccoun*t) with the given *Account*(*account*).
-  Return all the *accounts'* id.
+  Given a *person*, find all the *Companies* that the *person* invest.
 parameters:
   - name: id
     type: ID
-    description: id of the Account
-  - name: startTime
-    type: DateTime
-    description: begin of the time window
-  - name: endTime
-    type: DateTime
-    description: end of the time window
+    description: the id of the person
 result:
-  - name: dstId
+  - name: comp
     type: "[ID]"
+    description: the companies that invested by the given person
 relevance: |
-  This query is a typical analysis for gang related accounts in risk control.
+  This is a typical query for investor relationship analysis.

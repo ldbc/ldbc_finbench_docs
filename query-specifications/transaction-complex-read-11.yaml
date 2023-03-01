@@ -15,10 +15,15 @@ parameters:
     type: 32-bit Integer
     description: the distance in the investing relationship
 result:
+  - name: id
+    type: ID
+    description: the id of the investor
+  - name: type
+    type: enum
+    description: investor type of person or company
   - name: ratio
     type: 32-bit float
     description: the final share ratio
-groupby: investor
 sort:
   - name: ratio
     direction: desc

@@ -1,18 +1,15 @@
 workload: Transaction
 operation: simple-read
 number: 2
-title: Transfers between two accounts
+title: Transfer-ins and transfer-outs
 description: |
-  Given two *Accounts*, find the sum and max of fund amount in *transfer*
-  between them in a specific time range between *start_time* and *end_time*.
-  Return the sum and max of amount of *edge1* and *edge2* in seperate.
+  Given an *account*, find the sum and max of fund amount in *transfer-ins*
+  and *transfer-outs* between them in a specific time range between *start_time*
+  and *end_time*. Return the sum and max of amount.
 parameters:
   - name: id1
     type: ID
-    description: id of the src Account
-  - name: id2
-    type: ID
-    description: id of the dst Account
+    description: id of the account
   - name: startTime
     type: DateTime
     description: begin of the time window
@@ -22,15 +19,15 @@ parameters:
 result:
   - name: sumEdge1Amount
     type: 64-bit Integer
-    description: sum of transfers from src to dst
+    description: sum of transfer-outs
   - name: maxEdge1Amount
     type: 64-bit Integer
-    description: max of transfers from src to dst
+    description: max of transfer-outs
   - name: sumEdge2Amount
     type: 64-bit Integer
-    description: sum of transfers from dst to src
+    description: sum of transfer-ins
   - name: maxEdge2Amount
     type: 64-bit Integer
-    description: max of transfers from dst to src
+    description: max of transfer-ins
 relevance: |
   This query is a typical fund transfer cycle analysis case in AWL.

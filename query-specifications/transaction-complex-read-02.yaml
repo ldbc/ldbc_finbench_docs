@@ -26,18 +26,21 @@ parameters:
     type: enum
     description: the sort order before truncation at each step
 result:
+  - name: otherId
+    type: ID
+    description: id of the account related to loan
+    category: raw
   - name: sumLoanAmount
     type: 64-bit Integer
-    description: sum of all loans' amount. SUM(loans.loanAmount)
+    description: sum of all loans' amount of the account
     category: aggregated
   - name: sumLoanBalance
     type: 64-bit Integer
-    description: sum of all loans' balance
+    description: sum of all loans' balance of the account.
     category: aggregated
-  - name: numLoans
-    type: 64-bit Integer
-    description: number of different loans
-    category: aggregated
+sort:
+  - name: sumLoanAmount
+    direction: desc
 choke_points: [3.2, 3.4, 6.2, 7.1, 7.4, 8.7, 8.8]
 relevance: |
   This query is typical gang analysis case in risk control.

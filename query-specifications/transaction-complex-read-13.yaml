@@ -24,13 +24,13 @@ parameters:
     type: enum
     description: the sort order before truncation at each step
 result:
-  - name: compAcc.id
+  - name: compAccountId
     type: ID
     description: the id of the company account
   - name: sumEdge2Amount
     type: 64-bit Integer
     category: aggregated
-groupby: compAcc
+    description: the amount sum transferrd to company's account
 sort:
   - name: sumEdge2Amount
     direction: desc

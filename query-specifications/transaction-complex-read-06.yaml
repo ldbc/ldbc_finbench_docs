@@ -33,6 +33,10 @@ parameters:
     type: enum
     description: the sort order before truncation at each step
 result:
+  - name: midId
+    type: ID
+    description: the id of the middle account
+    category: raw
   - name: sumEdge1Amount
     type: 64-bit Integer
     description: the amount of transfer
@@ -41,11 +45,9 @@ result:
     type: 64-bit Integer
     description: the amount of withdrawal
     category: aggregated
-groupby: mid
 sort:
   - name: sumEdge2Amount
     direction: desc
-    description: the amount of withdrawal
 choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |
   This query is a typical fund withdrawal after pooling funds case in risk control.

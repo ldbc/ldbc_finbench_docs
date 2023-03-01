@@ -1,28 +1,27 @@
 workload: Transaction
 operation: simple-read
 number: 3
-title: Company-related information
+title: Many-to-one blocked account monitoring
 description: |
-  Given a *Company*, find all the related nodes.
+  Given an *Account*, find the ratio of *transfer-ins* from blocked *Accounts* in all
+  its *transfer-ins* in a specific time range between *start_time* and *end_time*.
+  Return the ratio.
 parameters:
   - name: id
     type: ID
-    description: id of the Company
+    description: id of the dstAccount
+  - name: threshold
+    type: 64-bit Integer
+    description: threshold of transfer amount
+  - name: startTime
+    type: DateTime
+    description: begin of the time window
+  - name: endTime
+    type: DateTime
+    description: end of the time window
 result:
-  - name: accId
-    type: "[ID]"
-    description: all the accounts owned by the company
-  - name: p1Id
-    type: "[ID]"
-    description: all the persons investing the company
-  - name: p2Id
-    type: "[ID]"
-    description: all the persons working at the company
-  - name: comId
-    type: "[ID]"
-    description: all the companies investing the company
-  - name: loanId
-    type: "[ID]"
-    description: all the loans that the company applies
+  - name: blockRatio
+    type: 32-bit float
+    description: count(edge1) over count(edge2)
 relevance: |
-  This is a company information query case.
+  This query is a typical risky account recognition case in risk control.
