@@ -7,7 +7,7 @@ description: |
   and *transfer-outs* between them in a specific time range between *start_time*
   and *end_time*. Return the sum and max of amount.
 parameters:
-  - name: id1
+  - name: id
     type: ID
     description: id of the account
   - name: startTime
@@ -20,14 +20,26 @@ result:
   - name: sumEdge1Amount
     type: 64-bit Integer
     description: sum of transfer-outs
+    category: aggregated
   - name: maxEdge1Amount
     type: 64-bit Integer
     description: max of transfer-outs
+    category: aggregated
+  - name: numEdge1
+    type: 64-bit Integer
+    description: count of transfer-outs
+    category: aggregated
   - name: sumEdge2Amount
     type: 64-bit Integer
     description: sum of transfer-ins
+    category: aggregated
   - name: maxEdge2Amount
     type: 64-bit Integer
     description: max of transfer-ins
+    category: aggregated
+  - name: numEdge2
+    type: 64-bit Integer
+    description: count of transfer-outs
+    category: aggregated
 relevance: |
   This query is a typical fund transfer cycle analysis case in AWL.

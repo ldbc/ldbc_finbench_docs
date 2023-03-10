@@ -18,7 +18,7 @@ parameters:
     description: end of the time window
 result:
   - name: dstId
-    type: "[ID]"
+    type: "ID"
     description: id of the accounts having same src as the given account
 relevance: |
   This query is a typical analysis for gang related accounts in risk control.

@@ -40,7 +40,7 @@ result:
   - name: ratio
     type: 32-bit float
     category: calculated
-    description: the final ratio of the inflow's amount of each account over the loan
+    description: the final ratio of the inflow's amount of each account over the loan rounded to thousandth
   - name: distanceFromLoan
     type: 32-bit integer
     category: calculated

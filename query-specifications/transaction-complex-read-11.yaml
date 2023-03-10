@@ -23,7 +23,7 @@ result:
     description: investor type of person or company
   - name: ratio
     type: 32-bit float
-    description: the final share ratio
+    description: the final share ratio rounded to thousandth
 sort:
   - name: ratio
     direction: desc

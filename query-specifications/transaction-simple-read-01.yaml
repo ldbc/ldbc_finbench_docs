@@ -3,7 +3,7 @@ operation: simple-read
 number: 1
 title: Exact account query
 description: |
-  Given an id of an *Account* or an *Person*, find the properties of the specific *Account*.
+  Given an id of an *Account*, find the properties of the specific *Account*.
 parameters:
   - name: id
     type: ID

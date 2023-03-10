@@ -22,6 +22,6 @@ parameters:
 result:
   - name: blockRatio
     type: 32-bit float
-    description: count(edge1) over count(edge2)
+    description: count(edge1) over count(edge2) rounded to thousandth
 relevance: |
   This query is a typical risky account recognition case in risk control.

@@ -10,19 +10,19 @@ parameters:
     description: id of the Company
 result:
   - name: accId
-    type: "[ID]"
+    type: "ID"
     description: all the accounts owned by the company
   - name: p1Id
-    type: "[ID]"
+    type: "ID"
     description: all the persons investing the company
   - name: p2Id
-    type: "[ID]"
+    type: "ID"
     description: all the persons working at the company
   - name: comId
-    type: "[ID]"
+    type: "ID"
     description: all the companies investing the company
   - name: loanId
-    type: "[ID]"
+    type: "ID"
     description: all the loans that the company applies
 relevance: |
   This is a company information query case.

@@ -22,7 +22,7 @@ parameters:
     type: 32-bit Integer
 result:
   - name: COLLECT(n)
-    type: "[ID]"
+    type: "ID"
 choke_points: []
 relevance: |
   This query is a typical routine review for accounts which has many

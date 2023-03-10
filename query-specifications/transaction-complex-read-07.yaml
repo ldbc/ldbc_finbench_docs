@@ -40,7 +40,7 @@ result:
   - name: inOutRatio
     type: 32-bit Float
     category: calculated
-    description: the amount ratio of transfers-in over transfers-out
+    description: the amount ratio of transfers-in over transfers-out rounded to thousandth
 choke_points: [1.2, 3.2, 3.4, 6.2, 8.7]
 relevance: |
   This query is a typical fast-in and fast-out recognition case in risk control.

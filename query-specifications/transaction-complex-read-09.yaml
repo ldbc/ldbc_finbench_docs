@@ -38,15 +38,15 @@ parameters:
 result:
   - name: ratioRepay
     type: 32-bit float
-    description: sumEdge1Amount/sumEdge2Amount
+    description: sumEdge1Amount/sumEdge2Amount rounded to thousandth
     category: calculated
   - name: ratioOut
     type: 32-bit float
-    description: sumEdge1Amount/sumEdge4Amount
+    description: sumEdge1Amount/sumEdge4Amount rounded to thousandth
     category: calculated
   - name: ratioIn
     type: 32-bit float
-    description: sumEdge3Amount/sumEdge4Amount
+    description: sumEdge3Amount/sumEdge4Amount rounded to thousandth
     category: calculated
 choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |
