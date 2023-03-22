@@ -17,8 +17,9 @@ description: |
   * In the very beginning, read the blocked status of related persons. The transaction aborts if one of them is
   blocked. Move to the next step if none is blocked.
   * Add a guarantee edge between the two persons inside the transaction.
-  * Detect if a guarantee chain pattern formed. Calculate if the amount sum of the related loans in the chain exceeds a
-  given threshold. Transaction aborts if the sum exceeds the threshold, and then mark the related persons as blocked in another transaction. Otherwise the transaction commits.
+  * Detect if a guarantee chain pattern formed, only for the src person. Calculate if the amount sum of the
+  related loans in the chain exceeds a  given threshold. Transaction aborts if the sum exceeds the threshold,
+  and then mark the related persons as blocked in another transaction. Otherwise the transaction commits.
 parameters:
   - name: srcId
     type: ID

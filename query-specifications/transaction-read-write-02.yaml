@@ -14,11 +14,12 @@ compositions:
 description: |
   The workflow of this read write query contains at least one transaction. It works as:
 
-  * In the very beginning, read the blocked status of related accounts. The transaction aborts if one of them is
-  blocked. Move to the next step if none is blocked.
+  * In the very beginning, read the blocked status of related accounts. The transaction
+  aborts if one of them is blocked. Move to the next step if none is blocked.
   * Add a transfer edge inside the transaction.
-  * Detect if a fast-in and fast-out pattern formed. Transaction aborts if formed, and then mark the related accounts as
-  blocked in another transaction. Otherwise the transaction commits.
+  * Detect if a fast-in and fast-out pattern formed, both for the src and dst account.
+  Transaction aborts if formed, and then mark the related accounts as blocked in
+  another transaction. Otherwise the transaction commits.
 parameters:
   - name: srcId
     type: ID

@@ -6,7 +6,8 @@ description: |
   Given a *Company*, find all the *Companies* and *Persons* the *Company*
   invests by at most k steps. Then calculate the final share ratio of the
   investors to the given company groupby the investor in descending order.
-  Final share ratio means the final share of each investor in the company
+  Final share ratio means the final shareholding ratio of each investor in
+  the company.
 parameters:
   - name: id
     type: ID
