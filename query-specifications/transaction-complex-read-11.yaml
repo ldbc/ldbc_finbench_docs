@@ -8,6 +8,10 @@ description: |
   investors to the given company groupby the investor in descending order.
   Final share ratio means the final shareholding ratio of each investor in
   the company.
+
+  Note: The final shareholding ratio means the final ratio calculated recursively.
+  For example, A owns 50% of B and 50% C while B owns 60% of D and C owns 40% of D.
+  Then A owns 50% of D indirectly. 50% is the final shareholding ratio of A in D.
 parameters:
   - name: id
     type: ID
