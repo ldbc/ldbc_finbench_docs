@@ -30,7 +30,7 @@ result:
   - name: sumEdge2Amount
     type: 64-bit Integer
     category: aggregated
-    description: the amount sum transferrd to company's account
+    description: the amount sum transferred to company's account
 sort:
   - name: sumEdge2Amount
     direction: desc

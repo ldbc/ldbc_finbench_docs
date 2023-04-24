@@ -1,7 +1,7 @@
 \newCPSection{6.3}{QEXE}{Write operation contention and conflicts}
 
 Read-write query is expected to execute inside a transaction. The transaction
-like a possible write down to storage(I/O) after a long time read starting with
+like a possible write down to storage (I/O) after a long time read starting with
 a write operation in memory. This means long time write transactions that hold
 write locks longer than expected. This may result in contention and conflicts
 between write operations to the same datum.

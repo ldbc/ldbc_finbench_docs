@@ -26,7 +26,7 @@ about the compromises in data design,
 Compared with \ldbcsnb, there is a new compound type, \textbf{Path}, which is
 widely applied in financial scenarios reflecting traces, e.g. fund transfer
 traces. Note that the 32-bit floats used in \ldbcfinbench all round to 3 decimal
-places(thousandths).
+places (thousandths).
 
 \begin{table}[h]
     \centering
@@ -43,7 +43,7 @@ places(thousandths).
         64-bit Integer          & Integer type with 64-bit precision             \\
         \hline
         32-bit Float            & Floating type with 32-bit precision
-        \textbf{rounded to 3 decimal places(thousandths)}                        \\
+        \textbf{rounded to 3 decimal places (thousandths)}                        \\
         \hline
         String                  & Variable length text of size 40 Unicode
         characters                                                               \\
@@ -130,7 +130,7 @@ shows the attributes.
 \end{table}
 
 {\flushleft \textbf{Company:}} A company of the real world, which persons work
-in and persons invest. \autoref{table:company} shows the attributes.
+in and persons or other companies invest in. \autoref{table:company} shows the attributes.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
@@ -237,7 +237,7 @@ only be owned by a person or a company.
     \hline
     repay                   & Account                  & 1:N                       & Loan                     & N                          & Loan repaid from an account.                                         \\
     \hline
-    invest                  & Person/ \newline Company & N:N                       & Company                  & 1                          & A person or a company invests a company.                             \\
+    invest                  & Person/ \newline Company & N:N                       & Company                  & 1                          & A person or a company invests into a company.                             \\
     \hline
     workIn                  & Person                   & N:N                       & Company                  & 1                          & A person works in a company.                                         \\
     \hline
@@ -322,13 +322,13 @@ only be owned by a person or a company.
     \label{table:signIn}
 \end{table}
 
-{\flushleft \textbf{invest:}} A person or a company invests a company. \autoref{table:invest} shows the attributes.
+{\flushleft \textbf{invest:}} A person or a company invests in a company. \autoref{table:invest} shows the attributes.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
         \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}     \\
         \hline
-        timestamp                    & DateTime           & The time when invest happens. \\
+        timestamp                    & DateTime           & The time when the investment happens. \\
         \hline
         ratio                        & 32-bit Float       & The ratio of the investment.  \\
         \hline

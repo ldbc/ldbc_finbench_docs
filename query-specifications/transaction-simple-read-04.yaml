@@ -3,7 +3,7 @@ operation: simple-read
 number: 4
 title: Account transfer-outs over threshold
 description: |
-  Given an account(*src*), find all the transfer-outs(*edge*) from the *src* 
+  Given an account (*src*), find all the transfer-outs (*edge*) from the *src* 
   to a *dst* where the amount exceeds *threshold* in a specific time range between
   *start_time* and *end_time*. Return the count of *transfer-outs* and the amount sum.
 parameters:
@@ -25,9 +25,11 @@ result:
     description: the id of the dst account
   - name: numEdges
     type: 32-bit Integer
+    category: aggregated
     description: num of the transfers from src to dst
   - name: sumAmount
     type: 64-bit Integer
+    category: aggregated
     description: sum of the transfers from src to dst
 relevance: |
   This query is a typical frequent transfer-out recognition case in risk control.

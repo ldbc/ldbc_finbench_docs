@@ -4,8 +4,8 @@ number: 10
 title: Similarity of investor relationship
 description: |
   Given two *Persons* and a specified time window between *start_time* and
-  *end_time*, find all the *Companies* the two *Persons* invest. Return
-  the jaccard similarity between the two companies set. Note that there is
+  *end_time*, find all the *Companies* the two *Persons* invest in. Return
+  the Jaccard similarity between the two companies set. Note that there is
   no truncation in this case.
 parameters:
   - name: id1
@@ -24,7 +24,7 @@ result:
   - name: jaccardSimilarity
     type: 32-bit float
     category: calculated
-    description: jaccard similarity between two sets rounded to thousandth
+    description: Jaccard similarity between two sets rounded to thousandth
 choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |
   This query is a typical share holding analysis case.

@@ -1,16 +1,17 @@
 workload: Transaction
 operation: simple-read
 number: 7
-title: Companies invested by the person
+title: Companies invested in by the person
 description: |
-  Given a *person*, find all the *Companies* that the *person* invest.
+  Given a *person*, find all the *Companies* that the *person* invests in.
 parameters:
   - name: id
     type: ID
     description: the id of the person
 result:
   - name: comp
-    type: "ID"
-    description: the companies that invested by the given person
+    type: "[ID]"
+    category: aggregated
+    description: the companies that were invested in by the given person
 relevance: |
   This is a typical query for investor relationship analysis.

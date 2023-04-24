@@ -17,7 +17,7 @@ description: |
   * In the very beginning, read the blocked status of related accounts. The transaction aborts if one of them is
   blocked. Move to the next step if none is blocked.
   * Add a transfer edge inside the transaction.
-  * Detect if a new transfer cycle formed(which means there is no edges existing between the related accounts before).
+  * Detect if a new transfer cycle formed (which means there is no edges existing between the related accounts before).
   Transaction aborts if formed, and then mark the related accounts as blocked in another transaction. Otherwise the
   transaction commits.
 parameters:
