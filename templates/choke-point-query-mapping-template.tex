@@ -1,0 +1,17 @@
+\paragraph{Queries}
+{\raggedright
+{% for query in queries -%}
+    \queryRefCard{ {{- query.0 -}} }{
+      {%- if query.1 == "Transaction" and query.2 == "complex-read" -%}
+        TCR
+      {%- elif query.1 == "Transaction" and query.2 == "simple-read" -%}
+        TSR
+      {%- elif query.1 == "Transaction" and query.2 == "write" -%}
+        TW
+      {%- elif query.1 == "Transaction" and query.2 == "read-write" -%}
+        TRW
+      {%- endif -%}
+    }{ {{- query.3 -}} }
+{% endfor -%}
+{# this newline is required by \raggedright to work #}
+}
