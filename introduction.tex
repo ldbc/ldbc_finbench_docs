@@ -71,13 +71,13 @@ and so on.
 
 The data schema for \ldbcfinbench is designed to reflect the real data in financial systems. Frequent
 financial entities in real systems include accounts, medium, persons, companies, loans, etc. The
-entities are vertices in the data schema while the edges reflect financial activities, \eg{fund transferred
-    from one account to another}. In data schema, financial scenarios has these distinguished characteristics
+entities are vertices in the data schema while the edges reflect financial activities, \eg fund transferred
+from one account to another. In data schema, financial scenarios has these distinguished characteristics
 compared with normal social network.
 \begin{itemize}
-    \item Multiple edges can exist between two vertices, \eg{ Many transfer records exist between two accounts}
-    \item Dynamic attribute exists in vertex to mark entities status, \eg{an account is marked as blocked}
-    \item Quantity attribute exists in edge, \eg{ Transfer edge has quantity attribute amount}
+    \item Multiple edges can exist between two vertices, \eg Many transfer records exist between two accounts
+    \item Dynamic attribute exists in vertex to mark entities status, \eg an account is marked as blocked
+    \item Quantity attribute exists in edge, \eg Transfer edge has quantity attribute amount
 \end{itemize}
 
 The designed data schema is specified in \autoref{sec:data-definition}.
@@ -86,12 +86,12 @@ The designed data schema is specified in \autoref{sec:data-definition}.
 
 In workloads and queries, financial scenarios has these distinguished characteristics.
 \begin{itemize}
-    \item More tight latency, \eg{some queries need to return in less than 100ms}.
-    \item Write operations updating attributes, \eg{marking an account as blocked}.
+    \item More tight latency, \eg some queries need to return in less than 100ms.
+    \item Write operations updating attributes, \eg marking an account as blocked.
     \item Recursive Path Filtering. Some queries filter data with backward dependency
-          in variable-length paths, \eg{finding all transfer paths A-[${e_1}$]->..-[${e_k}$]->B
+          in variable-length paths, \eg finding all transfer paths A-[${e_1}$]->..-[${e_k}$]->B
           where the timestamp of each transfer edge ${e_i}$ in the path is larger than that of
-          the previous ${e_{i-1}}$}. In this pattern, the variable length path is qualified by
+          the previous ${e_{i-1}}$. In this pattern, the variable length path is qualified by
           the edge quantity attributes or the aggregation in the path, either along one path
           or a set of paths.
     \item Read-write Query, which is a query sequence with a mix of reads and writes reflecting the
@@ -106,8 +106,8 @@ In \ldbcfinbench, there are two kinds of workloads:
           queries hopping a few steps from a start node. There are complex reads, simple reads, write
           operations, and read-write queries in transaction workload. Transaction workload is specified
           in \autoref{sec:transaction-workload}.
-    \item Analytics Workload. It supposed to include more complicated queries,\eg{triggers and pre-computed
-              values in online systems}. This part is future work which will be designed and discussed in the
+    \item Analytics Workload. It supposed to include more complicated queries, \eg triggers and pre-computed
+              values in online systems. This part is future work which will be designed and discussed in the
           following versions. Analytics workload is specified in \autoref{sec:analytics-workload}.
 \end{itemize}
 
