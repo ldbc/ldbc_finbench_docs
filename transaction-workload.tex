@@ -45,14 +45,15 @@ is set to \textbf{TIME\_DESCENDING} by default.
 pattern diagrams are drawn from the perspective of data rather than the matching
 pattern in graph. Here are some annotations to each query card in this section.
 \begin{itemize}
-      \item For each row in the result cell, the second column means the data
-      type of returned. If the type is bound with \{\}, it means that the
-      result is a set, e.g. \{String\} means a string set is returned.
+      \item Each row in the result cell represents an attribute to be returned.
+      \item The second column means the data type of returned attribute.
+      If the type is surrounded by \type{\{\}}, it means that the result is a
+      set, \eg \type{\{String\}} means a string set is returned.
       \item For each row in the result cell, the third column annotates the
-      category of type of result returned, including R short for Raw, A short
-      for Aggregated, C short for Calculated, S short for Structural. Among
-      them, structural type means types like Path while raw type means basic
-      types in contrast.
+      category of type of result attribute returned, including \texttt{R} short
+      for Raw, \texttt{A} short for Aggregated, \texttt{C} short for Calculated,
+      \texttt{S} short for Structural. Among them, structural type means types
+      such as \type{Path} while raw type means basic types in contrast.
 \end{itemize}
 
 
