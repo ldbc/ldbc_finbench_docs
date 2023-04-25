@@ -7,14 +7,15 @@ schema design and the data generation process. Generally, we design
 about the compromises in data design,
 \begin{itemize}
     \item Although multiple persons/companies may own the same account in
-          reality, an account is owned by a person or a company only in the
-          schema to make it simple.
+          reality, in the schema, an account is owned by only a single person
+          or company for simplicity.
     \item Although rejected transactions may be recorded to support future loan
           decisions, only approved transactions/transfers are recorded in the
           benchmark dataset.
-    \item Considering the DAU of financial systems in reality, There will be
+    \item Considering the number of daily active users (DAU) of financial systems
+          in reality, there will be
           many signIn edges between medium and account vertices. However, we do
-          not generate such many signIn edges aligning to reality with a limit
+          not generate so many signIn edges aligning to reality with a limit
           in the simulation of data generation process since systems usually
           circumvent the problem by adding a medium attribute to edges like
           transfer and withdraw to record the medium users used.
@@ -96,7 +97,7 @@ ascending order of timestamp.
 
 \autoref{figure:schema} shows the data schema in UML. The schema defines the
 structure of the data used in the benchmark in terms of entities and their
-relations. Data represents a snapshot of the activity in several financial
+relations. The data represents a snapshot of the activity in several financial
 scenarios during a period of time. The schema specifies different entities,
 their attributes, and their relations. All of them are described in the
 following sections.
@@ -148,7 +149,7 @@ in and persons or other companies invest in. \autoref{table:company} shows the a
     \label{table:company}
 \end{table}
 
-{\flushleft \textbf{Account:}} An account in real world financial systems, which
+{\flushleft \textbf{Account:}} An account in real-world financial systems, which
 is registered and owned by persons and companies. It includes many types such as
 personalDeposit, personalCredit, etc. It can deal with other accounts.
 \autoref{table:account} shows the attributes.
@@ -192,7 +193,7 @@ world. \autoref{table:loan} shows the attributes.
 \end{table}
 
 {\flushleft \textbf{Medium:}} An abstract standing for things that users use to
-sign in account in real world, such as IP, mac, phone numbers.
+sign in account in the real world, such as IP address, MAC address, phone numbers.
 \autoref{table:medium} shows the attributes.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}

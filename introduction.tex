@@ -11,11 +11,10 @@ Inspired by \ldbcsnb, a task force proposed by AntGroup~\cite{antgroup} is
 formed by the principal actors in the field of financial graph-like data
 management with help from LDBC to design a new benchmark, \ldbcfinbench (LDBC's
 Financial Benchmark). The task force intends to define a framework which is more
-applicable to financial scenarios can fairly test and compare different graph
-based technologies where the dataset and workload are carefully designed with
-their rich practical experience of members in financial industry. \ldbcfinbench
-is distinguished and characterized by the special features and patterns in
-financial industry.
+applicable to financial scenarios to fairly test and compare different graph
+based technologies. To this end, they carefully design the dataset and workload
+using  their rich practical experience as members of the financial industry. \ldbcfinbench is distinguished and characterized by the special features and
+patterns in financial industry.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,7 +36,7 @@ stakeholders:
           positioning and can serve to guide new development.
     \item For \textbf{researchers}, both industrial and academic, the \ldbcfinbench
           dataset and workload provide interesting challenges in multiple choke point
-          areas, and help to compare the efficiency of existing technology in these
+          areas, and help compare the efficiency of existing technology in these
           areas.
 \end{itemize}
 
@@ -65,15 +64,15 @@ and so on.
 
 \subsection{Differences between FinBench and SNB}
 
-\ldbcsnb, one of the earlier LDBC benchmark, is modeled around the operation of a real social network site. It defines the data schema which represents a realistic social network including people and their activities during a period of time and also the workloads mimicking the different usage scenarios found in operating a real social network site. Compared with \ldbcsnb, \ldbcfinbench is characterized by the special features and patterns of the data schema and queries which represents the characteristic of financial scenarios.
+\ldbcsnb, one of the earlier LDBC benchmarks, is modeled around the operation of a real social network site. It defines a data schema which represents a realistic social network including people and their activities during a period of time and also the workloads mimic the different usage scenarios found in operating a real social network site. Compared with \ldbcsnb, \ldbcfinbench is characterized by the special features and patterns of the data schema and queries which represent the characteristic of financial scenarios.
 
 \subsection{Data Schema}
 
-The data schema for \ldbcfinbench is designed to reflect the real data in financial systems. Frequent
+The data schema for \ldbcfinbench is designed to reflect the real data in the financial systems. Frequent
 financial entities in real systems include accounts, medium, persons, companies, loans, etc. The
 entities are vertices in the data schema while the edges reflect financial activities, \eg fund transferred
-from one account to another. In data schema, financial scenarios has these distinguished characteristics
-compared with normal social network.
+from one account to another. In their data schema, financial scenarios have these distinguished characteristics
+compared to regular social networks.
 \begin{itemize}
     \item Multiple edges can exist between two vertices, \eg Many transfer records exist between two accounts
     \item Dynamic attribute exists in vertex to mark entities status, \eg an account is marked as blocked
@@ -102,13 +101,13 @@ In workloads and queries, financial scenarios has these distinguished characteri
 
 In \ldbcfinbench, there are two kinds of workloads:
 \begin{itemize}
-    \item Transaction Workload. It includes queries with tight latency bound, which are usually
+    \item Transaction Workload. It includes queries with a tight latency bound, which are usually
           queries hopping a few steps from a start node. There are complex reads, simple reads, write
-          operations, and read-write queries in transaction workload. Transaction workload is specified
+          operations, and read-write queries in transaction workload. The Transaction Workload is specified
           in \autoref{sec:transaction-workload}.
     \item Analytics Workload. It supposed to include more complicated queries, \eg triggers and pre-computed
               values in online systems. This part is future work which will be designed and discussed in the
-          following versions. Analytics workload is specified in \autoref{sec:analytics-workload}.
+          following versions. The Analytics Workload is specified in \autoref{sec:analytics-workload}.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
