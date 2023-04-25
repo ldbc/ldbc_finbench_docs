@@ -4,7 +4,7 @@ This choke point tests the ability of the query optimizer to properly estimate
 the cardinality of intermediate results when executing transitive paths. A
 transitive path may occur in a ``fact table'' or a ``dimension table'' position.
 A transitive path may cover a tree or a graph, \eg descendants in a geographical
-hierarchy \vs graph neighbourhood or transitive closure in a many-to-many
+hierarchy \vs graph neighborhood or transitive closure in a many-to-many
 connected social network. In order to decide proper join order and type, the
 cardinality of the expansion of the transitive path needs to be correctly
 estimated. This could for example take the form of executing on a sample of the
