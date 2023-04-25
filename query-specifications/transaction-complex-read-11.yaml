@@ -24,7 +24,7 @@ result:
     type: ID
     description: the id of the investor
   - name: type
-    type: enum
+    type: Enum
     description: investor type (Person or Company)
   - name: ratio
     type: 32-bit float

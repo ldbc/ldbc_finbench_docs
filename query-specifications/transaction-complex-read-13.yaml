@@ -21,7 +21,7 @@ parameters:
     type: 32-bit Integer
     description: maximum edges traversed at each step
   - name: truncationOrder
-    type: enum
+    type: Enum
     description: the sort order before truncation at each step
 result:
   - name: compAccountId
