@@ -24,7 +24,7 @@ about the compromises in data design,
 
 \autoref{table:types} describes the different data types used in the benchmark.
 Compared with \ldbcsnb, there is a new compound type, \textbf{Path}, which is
-widely applied in financial scenarios reflecting traces, e.g. fund transfer
+widely applied in financial scenarios reflecting traces, \eg fund transfer
 traces. Note that the 32-bit floats used in \ldbcfinbench all round to 3 decimal
 places (thousandths).
 
@@ -35,8 +35,8 @@ places (thousandths).
         \tableHeaderFirst{Type} & \tableHeader{Description}                      \\
         \hline
         ID                      & Integer type with 64-bit precision. All IDs
-        within a single entity type (e.g. Person) are unique, but different
-        entity types (e.g. a Person and an Account) might have the same ID.      \\
+        within a single entity type (\eg Person) are unique, but different
+        entity types (\eg a Person and an Account) might have the same ID.      \\
         \hline
         32-bit Integer          & Integer type with 32-bit precision             \\
         \hline
@@ -201,7 +201,7 @@ sign in account in real world, such as IP, mac, phone numbers.
         \hline
         id                           & ID                 & The identifier of the medium.                     \\
         \hline
-        type                         & String             & The medium type, e.g. POS, IP.                    \\
+        type                         & String             & The medium type, \eg POS, IP.                    \\
         \hline
         isBlocked                    & Boolean            & If the medium is blocked or concerned in systems. \\
         \hline
