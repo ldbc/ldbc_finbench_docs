@@ -10,7 +10,7 @@ parameters:
     description: the id of the person
 result:
   - name: comp
-    type: "[ID]"
+    type: "{ID}"
     category: aggregated
     description: the companies that were invested in by the given person
 relevance: |
