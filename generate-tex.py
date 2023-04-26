@@ -139,20 +139,20 @@ for filename in glob.glob("query-specifications/*.yaml"):
 
 ##### choke points
 
-# with open('templates/choke-point-template.tex', 'r') as f:
-#     choke_point_template = Template(f.read())
+with open('templates/choke-point-query-mapping-template.tex', 'r') as f:
+    choke_point_template = Template(f.read())
 
-# for choke_point in choke_point_references:
-#     choke_point_filename = choke_point.replace('.', '-')
+for choke_point in choke_point_references:
+    choke_point_filename = choke_point.replace('.', '-')
 
-#     queries = choke_point_references[choke_point]
-#     queries_sorted = sorted(queries, key=lambda tup: tup[0])
-#     choke_point_text = choke_point_template.render(
-#         queries = queries_sorted,
-#     )
+    queries = choke_point_references[choke_point]
+    queries_sorted = sorted(queries, key=lambda tup: tup[0])
+    choke_point_text = choke_point_template.render(
+        queries = queries_sorted,
+    )
 
-#     with open("choke-points/cp-%s.tex" % choke_point_filename, 'w') as choke_point_file:
-#         choke_point_file.write(choke_point_text)
+    with open("choke-point-query-mapping/cp-%s.tex" % choke_point_filename, 'w') as choke_point_file:
+        choke_point_file.write(choke_point_text)
 
 ##### table for choke points and queries
 
