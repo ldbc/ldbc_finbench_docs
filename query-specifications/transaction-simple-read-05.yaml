@@ -3,7 +3,7 @@ operation: simple-read
 number: 5
 title: Account transfer-ins over threshold
 description: |
-  Given an account(*dst*), find all the transfer-ins(*edge*) from the *src* 
+  Given an account (*dst*), find all the transfer-ins (*edge*) from the *src* 
   to a *dst* where the amount exceeds *threshold* in a specific time range between
   *start_time* and *end_time*. Return the count of *transfer-ins* and the amount sum.
 parameters:
@@ -25,9 +25,11 @@ result:
     description: the id of the src account 
   - name: numEdges
     type: 32-bit Integer
+    category: aggregated
     description: num of the transfers from src to dst
   - name: sumAmount
     type: 64-bit Integer
+    category: aggregated
     description: sum of the transfers from src to dst
 relevance: |
   This is a typical query of transfer-in statistic.

@@ -3,10 +3,10 @@ operation: complex-read
 number: 11
 title: Final share analysis in investor relationship
 description: |
-  Given a *Company*, find all the *Companies* and *Persons* the *Company*
-  invests by at most k steps. Then calculate the final share ratio of the
-  investors to the given company groupby the investor in descending order.
-  Final share ratio means the final shareholding ratio of each investor in
+  Given a *Company*, find all the *Companies* and *Persons* investing in
+  the *Company* via at most $k$ steps. Then calculate the final share ratio of the
+  investors to the given company grouped by the investor in descending order.
+  The final share ratio means the final shareholding ratio of each investor in
   the company.
 
   Note: The final shareholding ratio means the final ratio calculated recursively.
@@ -24,8 +24,8 @@ result:
     type: ID
     description: the id of the investor
   - name: type
-    type: enum
-    description: investor type of person or company
+    type: Enum
+    description: investor type (Person or Company)
   - name: ratio
     type: 32-bit float
     description: the final share ratio rounded to thousandth

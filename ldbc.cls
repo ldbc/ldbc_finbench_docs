@@ -243,10 +243,10 @@
     \mainmatter%
 }
 
-\newcommand{\ie}{i.e.\@\xspace}
-\newcommand{\Ie}{I.e.\@\xspace}
-\newcommand{\eg}{e.g.\@\xspace}
-\newcommand{\Eg}{E.g.\@\xspace}
+\newcommand{\ie}{i.e.,\@\xspace}
+\newcommand{\Ie}{I.e.,\@\xspace}
+\newcommand{\eg}{e.g.,\@\xspace}
+\newcommand{\Eg}{E.g.,\@\xspace}
 \newcommand{\etal}{et al.\@\xspace}
 \newcommand{\etc}{etc.\@\xspace}
 \newcommand{\vs}{vs.\@\xspace}

@@ -4,11 +4,11 @@ number: 9
 title: Money laundering with loan involved
 description: |
   Given an *account*, a bound of transfer amount and a specified time window between
-  *start_time* and *end_time*, find the *despoit* and *repay* edge between the *account*
+  *start_time* and *end_time*, find the *deposit* and *repay* edge between the *account*
   and a *loan*, the *transfers-in* and *transfers-out*. Then calculate the amount ratio
-  of *deposit* over *repay*(sum of *edge1* over sum of *edge2*), the amount ratio of 
-  *transfers-in* over *transfers-out*(sum of *edge3* over sum of *edge4*), the amount
-  ratio of *deposit* over *transfers-out*(sum of *edge1* over sum of *edge4* ). Return
+  of *deposit* over *repay* (sum of *edge1* over sum of *edge2*), the amount ratio of 
+  *transfers-in* over *transfers-out* (sum of *edge3* over sum of *edge4*), the amount
+  ratio of *deposit* over *transfers-out* (sum of *edge1* over sum of *edge4*). Return
   the ratios.
 parameters:
   - name: id
@@ -33,7 +33,7 @@ parameters:
     type: 32-bit Integer
     description: maximum edges traversed at each step
   - name: truncationOrder
-    type: enum
+    type: Enum
     description: the sort order before truncation at each step
 result:
   - name: ratioRepay

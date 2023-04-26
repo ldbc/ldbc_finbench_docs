@@ -19,27 +19,27 @@ parameters:
 result:
   - name: sumEdge1Amount
     type: 64-bit Integer
-    description: sum of transfer-outs
     category: aggregated
+    description: sum of transfer-outs
   - name: maxEdge1Amount
     type: 64-bit Integer
-    description: max of transfer-outs
     category: aggregated
+    description: max of transfer-outs
   - name: numEdge1
     type: 64-bit Integer
-    description: count of transfer-outs
     category: aggregated
+    description: count of transfer-outs
   - name: sumEdge2Amount
     type: 64-bit Integer
-    description: sum of transfer-ins
     category: aggregated
+    description: sum of transfer-ins
   - name: maxEdge2Amount
     type: 64-bit Integer
-    description: max of transfer-ins
     category: aggregated
+    description: max of transfer-ins
   - name: numEdge2
     type: 64-bit Integer
-    description: count of transfer-outs
     category: aggregated
+    description: count of transfer-outs
 relevance: |
   This query is a typical fund transfer cycle analysis case in AWL.

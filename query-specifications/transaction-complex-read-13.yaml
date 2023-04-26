@@ -21,7 +21,7 @@ parameters:
     type: 32-bit Integer
     description: maximum edges traversed at each step
   - name: truncationOrder
-    type: enum
+    type: Enum
     description: the sort order before truncation at each step
 result:
   - name: compAccountId
@@ -30,7 +30,7 @@ result:
   - name: sumEdge2Amount
     type: 64-bit Integer
     category: aggregated
-    description: the amount sum transferrd to company's account
+    description: the amount sum transferred to company's account
 sort:
   - name: sumEdge2Amount
     direction: desc
