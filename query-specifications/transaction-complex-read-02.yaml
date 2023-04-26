@@ -3,8 +3,8 @@ operation: complex-read
 number: 2
 title: Fund gathered from the accounts applying loans
 description: |
-  Given a *Person* and a specified time window between *start_time* and
-  *end_time*, find an *Account* *owned* by the *Person* which has fund
+  Given a *Person* and a specified time window between *startTime* and
+  *endTime*, find an *Account* *owned* by the *Person* which has fund
   *transferred* from other *Accounts* by at most 3 steps (*edge2*) which has fund
   *deposited* from a *loan*. The timestamps of in transfer trace (*edge2*) must be in
   ascending order from the upstream to downstream. Return the sum of distinct *loan*

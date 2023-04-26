@@ -5,7 +5,7 @@ title: Account transfer-outs over threshold
 description: |
   Given an account (*src*), find all the transfer-outs (*edge*) from the *src* 
   to a *dst* where the amount exceeds *threshold* in a specific time range between
-  *start_time* and *end_time*. Return the count of *transfer-outs* and the amount sum.
+  *startTime* and *endTime*. Return the count of *transfer-outs* and the amount sum.
 parameters:
   - name: id
     type: ID

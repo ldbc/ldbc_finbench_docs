@@ -3,8 +3,8 @@ operation: complex-read
 number: 5
 title: Exact Account Transfer Trace
 description: |
-  Given a *Person* and a specified time window between *start_time* and
-  *end_time*, find the transfer trace from the account (*src*) owned by the
+  Given a *Person* and a specified time window between *startTime* and
+  *endTime*, find the transfer trace from the account (*src*) owned by the
   *Person* to another account (*dst*) by at most 3 steps. Note that the
   trace (*edge2*) must be ascending order of their timestamps. Return all
   traces.
