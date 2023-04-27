@@ -32,11 +32,11 @@ result:
   - name: numSrc
     type: 32-bit Integer
     category: aggregated
-    description: num of the src accounts
+    description: num of the distinct src accounts
   - name: numDst
     type: 32-bit Integer
     category: aggregated
-    description: num of the dst accounts
+    description: num of the distinct dst accounts
   - name: inOutRatio
     type: 32-bit Float
     category: calculated

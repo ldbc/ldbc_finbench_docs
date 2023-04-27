@@ -10,7 +10,7 @@ description: |
   *startTime* and *endTime*. Amount of each transfers or withdrawals between
   the account and the upstream account should exceed a specified *threshold*
   of the upstream transfer. Return all the accounts' id in the downstream of
-  loan, their final ratio and their distanceFromLoan.
+  loan with the final ratio and distanceFromLoan.
  
   Note: Upstream means the last edge in the trace.
 parameters:
@@ -36,7 +36,7 @@ result:
   - name: dstId
     type: ID
     category: raw
-    description: the id of the inflow account
+    description: the id of the account in transfer traces
   - name: ratio
     type: 32-bit float
     category: calculated

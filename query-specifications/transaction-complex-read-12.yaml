@@ -1,16 +1,16 @@
 workload: Transaction
 operation: complex-read
 number: 12
-title: Guarantee Chain Detection
+title: Transfer to company amount statistics
 description: |
   Given a *Person* and a specified time window between *startTime* and
-  *endTime*, find all the persons in the guarantee chain until end and their
-  loans applied. Return the sum of *loan* amount and the count of distinct
-  *loan*s.
+  *endTime*,  find all the company accounts that s/he has transferred
+  to. Return the ids of the companies' accounts and the sum of their
+  transfer amount in descending order.
 parameters:
   - name: id
     type: ID
-    description: id of the Person
+    description: id of the person
   - name: startTime
     type: DateTime
     description: begin of the time window
@@ -24,14 +24,15 @@ parameters:
     type: Enum
     description: the sort order before truncation at each step
 result:
-  - name: sumLoanAmount
+  - name: compAccountId
+    type: ID
+    description: the id of the company account
+  - name: sumEdge2Amount
     type: 64-bit Integer
     category: aggregated
-    description: sum of the loans' amount
-  - name: numLoans
-    type: 32-bit Integer
-    category: aggregated
-    description: num of the loans
-choke_points: [3.2, 3.4, 6.2, 7.4, 8.7]
-relevance: |
-  This is a typical cycle detection in guarantee.
+    description: the amount sum transferred to company's account
+sort:
+  - name: sumEdge2Amount
+    direction: desc
+choke_points: [3.2, 3.4, 6.2, 7.1, 8.7]
+relevance: 

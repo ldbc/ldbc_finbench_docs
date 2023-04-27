@@ -7,7 +7,7 @@ description: |
   *endTime*, find the transfer trace from the account (*src*) owned by the
   *Person* to another account (*dst*) by at most 3 steps. Note that the
   trace (*edge2*) must be ascending order of their timestamps. Return all
-  traces.
+  the transfer traces.
   
   Note: Multiple edges of from the same src to the same dst should be seen as 
   identical path. And the resulting paths shall not include recurring accounts
@@ -29,9 +29,9 @@ parameters:
     type: Enum
     description: the sort order before truncation at each step
 result:
-  - name: paths
+  - name: path
     type: Path
-    description: the transfer traces
+    description: a transfer trace
     category: structural
 sort:
   - name: pathLength

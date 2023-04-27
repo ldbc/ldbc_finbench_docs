@@ -9,23 +9,23 @@ parameters:
     type: ID
     description: id of the Company
 result:
-  - name: accId
+  - name: accIds
     type: "{ID}"
     description: all the accounts owned by the company
     category: aggregated
-  - name: pid1
+  - name: investorIds
     type: "{ID}"
     description: all the persons investing into the company
     category: aggregated
-  - name: pid2
+  - name: workerIds
     type: "{ID}"
     description: all the persons working at the company
     category: aggregated
-  - name: comId
+  - name: comIds
     type: "{ID}"
     description: all the companies investing into the company
     category: aggregated
-  - name: loanId
+  - name: loanIds
     type: "{ID}"
     description: all the loans that the company applies
     category: aggregated
