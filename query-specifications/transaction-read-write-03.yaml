@@ -7,8 +7,8 @@ compositions:
     ref: transaction-simple-read-01
   - name: Transaction / Write / 13
     ref: transaction-write-13
-  - name: Transaction / Complex Read / 12
-    ref: transaction-complex-read-12
+  - name: Transaction / Complex Read / 11
+    ref: transaction-complex-read-11
   - name: Transaction / Write / 11
     ref: transaction-write-11
 description: |

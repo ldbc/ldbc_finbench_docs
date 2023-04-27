@@ -3,10 +3,11 @@ operation: complex-read
 number: 10
 title: Similarity of investor relationship
 description: |
-  Given two *Persons* and a specified time window between *start_time* and
-  *end_time*, find all the *Companies* the two *Persons* invest in. Return
-  the Jaccard similarity between the two companies set. Note that there is
-  no truncation in this case.
+  Given two *Persons* and a specified time window between *startTime* and
+  *endTime*, find all the *Companies* the two *Persons* invest in. Return
+  the Jaccard similarity between the two companies set. Return 0 if there
+  is no edges found connecting to any of these two persons.
+  Note that there is no truncation in this case.
 parameters:
   - name: id1
     type: ID

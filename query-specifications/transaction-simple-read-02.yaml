@@ -4,8 +4,8 @@ number: 2
 title: Transfer-ins and transfer-outs
 description: |
   Given an *account*, find the sum and max of fund amount in *transfer-ins*
-  and *transfer-outs* between them in a specific time range between *start_time*
-  and *end_time*. Return the sum and max of amount.
+  and *transfer-outs* between them in a specific time range between *startTime*
+  and *endTime*. Return the sum and max of amount.
 parameters:
   - name: id
     type: ID

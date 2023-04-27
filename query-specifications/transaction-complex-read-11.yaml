@@ -1,37 +1,37 @@
 workload: Transaction
 operation: complex-read
 number: 11
-title: Final share analysis in investor relationship
+title: Guarantee Chain Detection
 description: |
-  Given a *Company*, find all the *Companies* and *Persons* investing in
-  the *Company* via at most $k$ steps. Then calculate the final share ratio of the
-  investors to the given company grouped by the investor in descending order.
-  The final share ratio means the final shareholding ratio of each investor in
-  the company.
-
-  Note: The final shareholding ratio means the final ratio calculated recursively.
-  For example, A owns 50% of B and 50% C while B owns 60% of D and C owns 40% of D.
-  Then A owns 50% of D indirectly. 50% is the final shareholding ratio of A in D.
+  Given a *Person* and a specified time window between *startTime* and
+  *endTime*, find all the persons in the guarantee chain until end and their
+  loans applied. Return the sum of *loan* amount and the count of distinct
+  *loan*s.
 parameters:
   - name: id
     type: ID
-    description: id of the Company
-  - name: k
+    description: id of the Person
+  - name: startTime
+    type: DateTime
+    description: begin of the time window
+  - name: endTime
+    type: DateTime
+    description: end of the time window
+  - name: truncationLimit
     type: 32-bit Integer
-    description: the distance in the investing relationship
-result:
-  - name: id
-    type: ID
-    description: the id of the investor
-  - name: type
+    description: maximum edges traversed at each step
+  - name: truncationOrder
     type: Enum
-    description: investor type (Person or Company)
-  - name: ratio
-    type: 32-bit float
-    description: the final share ratio rounded to thousandth
-sort:
-  - name: ratio
-    direction: desc
-choke_points: [1.1, 6.2, 7.11]
+    description: the sort order before truncation at each step
+result:
+  - name: sumLoanAmount
+    type: 64-bit Integer
+    category: aggregated
+    description: sum of the loans' amount
+  - name: numLoans
+    type: 32-bit Integer
+    category: aggregated
+    description: num of the loans
+choke_points: [3.2, 3.4, 6.2, 7.4, 8.7]
 relevance: |
-  This is a typical company invest relationship analysis.
+  This is a typical cycle detection in guarantee.
