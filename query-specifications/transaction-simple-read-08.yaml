@@ -13,11 +13,11 @@ result:
     type: "{ID}"
     description: all the accounts owned by the company
     category: aggregated
-  - name: p1Id
+  - name: pid1
     type: "{ID}"
     description: all the persons investing into the company
     category: aggregated
-  - name: p2Id
+  - name: pid2
     type: "{ID}"
     description: all the persons working at the company
     category: aggregated
