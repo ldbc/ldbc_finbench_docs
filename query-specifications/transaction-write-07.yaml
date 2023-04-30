@@ -5,12 +5,12 @@ title:  Account signed in with Medium
 description: |
   Add an Medium node and add a signIn edge from it to an existed Account node.
 parameters:
-  - name: accountId
+  - name: $accountId
     type: ID
-  - name: Medium.mediumId
+  - name: $mediumId
     type: ID
-  - name: Medium.mediumBlocked
+  - name: $mediumBlocked
     type: Boolean
-  - name: signIn.currentTime
+  - name: $time
     type: DateTime 
 choke_points: []

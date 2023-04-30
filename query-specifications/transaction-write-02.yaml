@@ -6,16 +6,16 @@ description: |
   Add an account node. Add a Company node and an own edge from it to the account
   Node.
 parameters:
-  - name: Company.companyId 
+  - name: $companyId 
     type: ID
-  - name: Company.companyName
+  - name: $companyName
     type: String
-  - name: Account.accountId
+  - name: $accountId
     type: ID
-  - name: Account.currentTime
+  - name: $time
     type: DateTime
-  - name: Account.accountBlocked
+  - name: $accountBlocked
     type: Boolean
-  - name: Account.accountType
+  - name: $accountType
     type: String
 choke_points: []

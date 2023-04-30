@@ -5,12 +5,12 @@ title:  Loan repay
 description: |
   Add a repay edge from an existed Account node to a Loan node.
 parameters:
-  - name: accountId
+  - name: $accountId
     type: ID
-  - name: Loan.loanId
+  - name: $loanId
     type: ID
-  - name: repay.currentTime
+  - name: $time
     type: DateTime
-  - name: repay.amount
+  - name: $amount
     type: 64-bit Integer
 choke_points: []

@@ -5,7 +5,7 @@ title: Three accounts in a transfer cycle
 description: |
   Given two *accounts* and a specified time window between *startTime* and
   *endTime*, find the sum and max of transfers (*edge2* and *edge3*) of them
-  via another account (*otherN*) in a specific time range between startTimee*
+  via another account (*otherN*) in a specific time range between *startTime*
   and *endTime*. Return the id of the other account, the sum and max of the
   transfer amount (*edge2* and *edge3*). Return -1 for all result attributes
   if there are no transfers found.

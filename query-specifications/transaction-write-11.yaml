@@ -5,6 +5,6 @@ title:  Block a person of high risk
 description: |
   Set a person's isBlocked to True.
 parameters:
-  - name: personId
+  - name: $personId
     type: ID
 choke_points: []

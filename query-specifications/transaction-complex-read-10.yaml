@@ -9,10 +9,10 @@ description: |
   is no edges found connecting to any of these two persons.
   Note that there is no truncation in this case.
 parameters:
-  - name: id1
+  - name: pid1
     type: ID
     description: id of Person1
-  - name: id2
+  - name: pid2
     type: ID
     description: id of Person2
   - name: startTime

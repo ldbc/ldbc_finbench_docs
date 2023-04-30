@@ -6,12 +6,12 @@ description: |
   Add a withdraw edge from an existed account node to another existed account
   node whose type is card.
 parameters:
-  - name: Account.accountSrcId
+  - name: $srcId
     type: ID
-  - name: Accout.accountDstId
+  - name: $dstId
     type: ID
-  - name: withdraw.timestamp
+  - name: $time
     type: DateTime
-  - name: withdraw.amount
+  - name: $amount
     type: 64-bit Integer
 choke_points: []

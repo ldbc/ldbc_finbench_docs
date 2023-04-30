@@ -5,12 +5,12 @@ title:  Add Loan applied by Person
 description: |
   Add a Loan Node and add an apply edge from an existed person node to it.
 parameters:
-  - name: personId
+  - name: $personId
     type: ID
-  - name: currentTime
+  - name: $time
     type: DateTime
-  - name: Loan.loanId
+  - name: $loanId
     type: ID
-  - name: Loan.loanAmount
+  - name: $amount
     type: 64-bit Integer
 choke_points: []
