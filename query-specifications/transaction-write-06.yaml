@@ -5,12 +5,12 @@ title:  Add Loan applied by Company
 description: |
   Add a Loan Node and add an apply edge from an existed company node to it.
 parameters:
-  - name: companyId
+  - name: $companyId
     type: ID
-  - name: currentTime
+  - name: $time
     type: DateTime
-  - name: Loan.loanId
+  - name: $loanId
     type: ID
-  - name: Loan.loanAmount
+  - name: $amount
     type: 64-bit Integer
 choke_points: []

@@ -27,7 +27,7 @@ parameters:
   - name: dstId
     type: ID
     description: id of the dst Account
-  - name: currentTime
+  - name: time
     type: DateTime
     description: the timestamp of the transfer
   - name: amt

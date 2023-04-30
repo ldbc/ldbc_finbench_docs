@@ -1,0 +1,10 @@
+workload: Transaction
+operation: write
+number: 12
+title:  Block a medium of high risk
+description: |
+  Set an existed medium's isBlocked to True.
+parameters:
+  - name: mediumId
+    type: ID
+choke_points: []

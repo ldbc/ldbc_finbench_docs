@@ -6,16 +6,16 @@ description: |
   Add an account node. Add a Person node and an own edge from it to the account
   Node.
 parameters:
-  - name: Person.personId
+  - name: $personId
     type: ID
-  - name: Person.personName
+  - name: $personName
     type: String
-  - name: Account.accountId
+  - name: $accountId
     type: ID
-  - name: Account.currentTime
+  - name: $time
     type: DateTime
-  - name: Account.accountBlocked
+  - name: $accountBlocked
     type: Boolean
-  - name: Account.accountType
+  - name: $accountType
     type: String
 choke_points: []

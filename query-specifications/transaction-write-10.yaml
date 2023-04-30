@@ -5,6 +5,6 @@ title:  Block an account of high risk
 description: |
   Set an existed account's isBlocked to True.
 parameters:
-  - name: accountId
+  - name: $accountId
     type: ID
 choke_points: []
