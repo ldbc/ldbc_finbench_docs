@@ -48,6 +48,8 @@ result:
 sort:
   - name: sumEdge2Amount
     direction: desc
+  - name: midId
+    direction: asc
 choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |
   This query is a typical fund withdrawal after pooling funds case in risk control.

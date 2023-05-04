@@ -41,15 +41,17 @@ result:
     type: 32-bit float
     category: calculated
     description: the final ratio of the inflow's amount of each account over the loan rounded to thousandth
-  - name: distanceFromLoan
+  - name: minDistanceFromLoan
     type: 32-bit integer
     category: calculated
-    description: the distance from the account to the loan
+    description: the min distance from the account to the loan
 sort:
   - name: distanceFromLoan
     direction: desc
   - name: ratio
     direction: desc
+  - name: dstId
+    direction: asc
 choke_points: [3.2, 3.4, 6.2, 7.1, 8.7]
 relevance: |
   This query is a typical main fund trace case after loan granted in risk

@@ -41,6 +41,8 @@ result:
 sort:
   - name: sumLoanAmount
     direction: desc
+  - name: otherId
+    direction: asc
 choke_points: [3.2, 3.4, 6.2, 7.1, 7.4, 8.7, 8.8]
 relevance: |
   This query is typical gang analysis case in risk control.

@@ -13,8 +13,7 @@ description: |
   dst (*edge2*) and transferred money to src (*edge3*) in a specific time.
   
   For each of these other accounts, return the id of the account, the sum and
-  max of the transfer amount (*edge2* and *edge3*). Return -1 for all result
-  attributes if there are no matches found for (1) and (2).
+  max of the transfer amount (*edge2* and *edge3*).
 parameters:
   - name: id1
     type: ID
