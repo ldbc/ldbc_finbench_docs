@@ -31,7 +31,7 @@ parameters:
 result:
   - name: path
     type: Path
-    description: a transfer trace
+    description: a transfer trace. See the requirements in \autoref{subsec:returned-values}
     category: structural
 sort:
   - name: pathLength

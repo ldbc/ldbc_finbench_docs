@@ -3,12 +3,18 @@ operation: complex-read
 number: 4
 title: Three accounts in a transfer cycle
 description: |
-  Given two *accounts* and a specified time window between *startTime* and
-  *endTime*, find the sum and max of transfers (*edge2* and *edge3*) of them
-  via another account (*otherN*) in a specific time range between *startTime*
-  and *endTime*. Return the id of the other account, the sum and max of the
-  transfer amount (*edge2* and *edge3*). Return -1 for all result attributes
-  if there are no transfers found.
+  Given two accounts *src* and *dst*, and a specified time window between
+  *startTime* and *endTime*,
+
+  (1) check whether *src* transferred money to *dst* in the given time window
+  (*edge1*)
+
+  (2) find all other accounts (other1, ..., otherN) which received money from
+  dst (*edge2*) and transferred money to src (*edge3*) in a specific time.
+  
+  For each of these other accounts, return the id of the account, the sum and
+  max of the transfer amount (*edge2* and *edge3*). Return -1 for all result
+  attributes if there are no matches found for (1) and (2).
 parameters:
   - name: id1
     type: ID
@@ -62,6 +68,8 @@ sort:
     direction: desc
   - name: sumEdge3Amount
     direction: desc
+  - name: otherId
+    direction: asc
 limit: 0
 choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |

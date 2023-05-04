@@ -19,44 +19,6 @@ consists of four query types:
           contains many read-write operations composed of basic reads and writes.
 \end{itemize}
 
-{\flushleft \textbf{About the truncation:}} Among the queries, a mechanism is
-introduced that helps handling the discordance between the tight latency requirements
-and power-law distribution of data in system, where the degree of hub vertex may
-reach to million and even billion scale, especially when traversing on graph.
-The mechanism is to do truncation on the edges when traversing out from the
-current vertex, which is in compliance with the discordance in fact. However, we
-would like to introduce this mechanism because the high degree of hub vertex is
-a common feature not only in financial scenarios but also in other scenarios,
-which is an inevitable challenge that systems face. The mechanism is also called
-\textbf{PER\_NODE\_LIMIT} somewhere. To solve the problem, systems can either
-improve the performance to satisfy the computation or just reduce the
-complexity to meet the latency requirements, where truncation is a common and
-useful mechanism. To maintain the consistency of the results, a sort order has
-to be specified when truncating. Since in financial graphs, users prefer newer
-data in business. It is reasonable that attribute, \textbf{timestamp}, in the
-edges is used as the sort order in truncation. In the following queries, some
-parameters are added to describe the behavior of truncation reducing the
-complexity including the \textbf{TRUNCATION\_LIMIT} and \textbf{TRUNCATION\_ORDER}.
-\textbf{TRUNCATION\_ORDER} can be \textbf{TIME\_ASCENDING, TIME\_DESCENDING,
-AMOUNT\_ASCENDING, AMOUNT\_DESCENDING}. At most time, \textbf{TRUNCATION\_ORDER}
-is set to \textbf{TIME\_DESCENDING} by default.
-
-{\flushleft \textbf{About the annotations:}} To express the patterns better, the
-pattern diagrams are drawn from the perspective of data rather than the matching
-pattern in graph. Here are some annotations to each query card in this section.
-\begin{itemize}
-      \item Each row in the result cell represents an attribute to be returned.
-      \item The second column means the data type of returned attribute.
-      If the type is surrounded by \type{\{\}}, it means that the result is a
-      set, \eg \type{\{String\}} means a string set is returned.
-      \item For each row in the result cell, the third column annotates the
-      category of type of result attribute returned, including \texttt{R} short
-      for Raw, \texttt{A} short for Aggregated, \texttt{C} short for Calculated,
-      \texttt{S} short for Structural. Among them, structural type means types
-      such as \type{Path} while raw type means basic types in contrast.
-\end{itemize}
-
-
 \section{Complex Read Queries}
 \label{sec:complex-read-queries}
 
@@ -86,15 +48,6 @@ pattern in graph. Here are some annotations to each query card in this section.
 
 \section{Read-Write Queries}
 \label{sec:rw-queries}
-
-In financial scenario, risk control is a kind of hot and significant application.
-Such applications usually detect a specific pattern in form of linked data before
-new records like transfers are written to systems. Read-write query, which can also
-be seen as transaction-wrapped strategies, fits these applications very well since
-users do not need to worry about translating the patterns to prevent malicious records.
-Read-write query is composed of read queries and write queries in the previous sections.
-At most cases, whether to commit write query depends on the detection result of the
-read queries. In the initial version, just 3 read-write queries are presented.
 
 \input{transaction-rw-queries}
 
