@@ -9,9 +9,11 @@ parameters:
     type: ID
     description: the id of the person
 result:
-  - name: compIds
-    type: "{ID}"
-    category: aggregated
+  - name: compId
+    type: "ID"
     description: the companies that were invested in by the given person
+sort:
+  - name: compId
+    direction: asc
 relevance: |
   This is a typical query for investor relationship analysis.

@@ -34,5 +34,7 @@ result:
 sort:
   - name: sumEdge2Amount
     direction: desc
+  - name: compAccountId
+    direction: asc
 choke_points: [3.2, 3.4, 6.2, 7.1, 8.7]
 relevance: 

@@ -17,9 +17,11 @@ parameters:
     type: DateTime
     description: end of the time window
 result:
-  - name: dstIds
-    type: "{ID}"
+  - name: dstId
+    type: "ID"
     description: ids of the accounts having same upstream account as the given account
-    category: aggregated
+sort:
+  - name: dstId
+    direction: asc
 relevance: |
   This query is a typical analysis for gang related accounts in risk control.

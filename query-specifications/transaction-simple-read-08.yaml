@@ -10,24 +10,19 @@ parameters:
     description: id of the Company
 result:
   - name: accIds
-    type: "{ID}"
+    type: "ID"
     description: all the accounts owned by the company
-    category: aggregated
   - name: investorIds
-    type: "{ID}"
-    description: all the persons investing into the company
-    category: aggregated
+    type: "ID"
+    description: all the persons investing into the company    
   - name: workerIds
-    type: "{ID}"
-    description: all the persons working at the company
-    category: aggregated
+    type: "ID"
+    description: all the persons working at the company    
   - name: comIds
-    type: "{ID}"
-    description: all the companies investing into the company
-    category: aggregated
+    type: "ID"
+    description: all the companies investing into the company    
   - name: loanIds
-    type: "{ID}"
-    description: all the loans that the company applies
-    category: aggregated
+    type: "ID"
+    description: all the loans that the company applies    
 relevance: |
   This is a company information query case.
