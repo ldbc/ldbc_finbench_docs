@@ -30,7 +30,7 @@ parameters:
   - name: time
     type: DateTime
     description: the timestamp of the transfer
-  - name: amt
+  - name: amount
     type: 64-bit Integer
     description: the amount of the transfer
   - name: startTime

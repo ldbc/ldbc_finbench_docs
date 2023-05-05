@@ -17,12 +17,6 @@ parameters:
   - name: threshold
     type: 64-bit Integer
     description: threshold of amount
-  - name: lowerbound
-    type: 32-bit float
-    description: lower threshold bound of the ratio of repay over deposit
-  - name: upperbound
-    type: 32-bit float
-    description: upper threshold bound of the ratio of repay over deposit
   - name: startTime
     type: DateTime
     description: begin of the time window
