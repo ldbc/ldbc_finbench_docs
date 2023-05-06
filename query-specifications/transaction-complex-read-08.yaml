@@ -12,7 +12,7 @@ description: |
   of the upstream transfer. Return all the accounts' id in the downstream of
   loan with the final ratio and distanceFromLoan.
  
-  Note: Upstream transfer refers to aggregating the total amounts of all inbound edges that are located within a distance of three hops for every *Account*.
+  Note: Upstream of an edge refers to the aggregated total amounts of all *transfer-in* edges of its source *Account*.
 parameters:
   - name: id
     type: ID
