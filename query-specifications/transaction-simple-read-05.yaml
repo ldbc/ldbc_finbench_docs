@@ -31,5 +31,10 @@ result:
     type: 64-bit Integer
     category: aggregated
     description: sum of the transfers from src to dst
+sort:
+  - name: sumAmount
+    direction: desc
+  - name: dstId
+    direction: asc
 relevance: |
   This is a typical query of transfer-in statistic.
