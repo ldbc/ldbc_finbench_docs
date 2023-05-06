@@ -5,11 +5,11 @@ title: Withdrawal after Many-to-One transfer
 description: |
   Given an *account* of type card and a specified time window between
   *startTime* and *endTime*, find all the connected *accounts* (*mid*) via
-  withdrawal (*edge2*) satisfying, (1) More than 3 *transfer-ins* (*edge1*) from
-  other *accounts* (*src*) whose amount exceeds *threshold1*. (2) The amount of
-  *withdrawal* (*edge2*) from *mid* to *dstCard* whose exceeds *threshold2*. Return the sum of transfer amount
-  from *src* to *mid*, the amount from *mid*
-  to *dstCard* grouped by *mid*.
+  withdrawal (*edge2*) satisfying, (1) More than 3 *transfer-ins* (*edge1*) 
+  from other *accounts* (*src*) whose amount exceeds *threshold1*. (2) The 
+  amount of *withdrawal* (*edge2*) from *mid* to *dstCard* whose exceeds 
+  *threshold2*. Return the sum of transfer amount from *src* to *mid*, the 
+  amount from *mid* to *dstCard* grouped by *mid*.
 parameters:
   - name: id
     type: ID
@@ -39,11 +39,11 @@ result:
     category: raw
   - name: sumEdge1Amount
     type: 64-bit Integer
-    description: the amount of transfer
+    description: the amount of transfer from src to mid
     category: aggregated
   - name: sumEdge2Amount
     type: 64-bit Integer
-    description: the amount of withdrawal
+    description: the amount of withdrawal from mid to dstCard
     category: aggregated
 sort:
   - name: sumEdge2Amount
