@@ -39,7 +39,7 @@ result:
     category: raw
   - name: sumEdge1Amount
     type: 64-bit Integer
-    description: the amount of transfer from src to mid
+    description: the amount of transfer from src accounts to mid
     category: aggregated
   - name: sumEdge2Amount
     type: 64-bit Integer
