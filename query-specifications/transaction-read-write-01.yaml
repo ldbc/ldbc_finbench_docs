@@ -14,12 +14,12 @@ compositions:
 description: |
   The workflow of this read write query contains at least one transaction. It works as:
 
-  * In the very beginning, read the blocked status of related accounts. The transaction aborts if one of them is
-  blocked. Move to the next step if none is blocked.
-  * Add a transfer edge inside the transaction.
-  * Detect if a new transfer cycle formed (which means there are no edges existing between the related accounts before).
-  Transaction aborts if formed, and then mark the related accounts as blocked in another transaction. Otherwise the
-  transaction commits.
+  * In the very beginning, read the blocked status of related accounts with given ids of two *src* and *dst* accounts.
+  The transaction aborts if one of them is blocked. Move to the next step if none is blocked.
+  * Add a transfer edge from *src* to *dst* inside a transaction. Given a specified time window between *startTime* and
+  *endTime*, find the other accounts which received money from *dst* and transferred money to *src* in a specific time.
+  Transaction aborts if a new transfer cycle is formed, otherwise the transaction commits.
+  * If the last transaction aborts, mark the *src* and *dst* accounts as blocked in another transaction. 
 parameters:
   - name: srcId
     type: ID

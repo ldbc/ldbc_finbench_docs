@@ -1,7 +1,7 @@
 workload: Transaction
 operation: complex-read
 number: 7
-title: Fast-in and Fast-out
+title: Transfer in/out ratio
 description: | 
   Given an *Account* and a specified time window between *startTime* and
   *endTime*, find all the *transfer-in* (*edge1*) and *transfer-out* (*edge2*) whose
