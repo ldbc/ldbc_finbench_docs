@@ -14,11 +14,13 @@ compositions:
 description: |
   The workflow of this read write query contains at least one transaction. It works as:
 
-  * In the very beginning, given *src* and *dst* ids of two persons, read the blocked status of related persons. The transaction aborts if one of them is
-  blocked. Move to the next step if none is blocked.
-  * Add a guarantee edge between the *src* and *dst* persons inside the transaction.
-  * Given a specified time window between *startTime* and *endTime*, find all the persons in the guarantee chain of until end and their loans applied. Detect if a guarantee chain pattern formed, only for the *src* person. Calculate if the amount sum of the related loans in the chain exceeds a given threshold. Transaction aborts if the sum exceeds the threshold,
-  and then mark the *src* and *dst* persons as blocked in another transaction. Otherwise the transaction commits.
+  * In the very beginning, read the blocked status of related persons with given ids of two *src* and *dst* persons. The
+  transaction aborts if one of them is blocked. Move to the next step if none is blocked.
+  * Add a guarantee edge between the *src* and *dst* persons inside a transaction. Given a specified time window between
+  *startTime* and *endTime*, find all the persons in the guarantee chain of until end and their loans applied. Detect if
+  a guarantee chain pattern formed, only for the *src* person. Calculate if the amount sum of the related loans in the
+  chain exceeds a given threshold. Transaction aborts if the sum exceeds the threshold. Otherwise the transaction commits.
+  * If the last transaction aborts, mark the *src* and *dst* persons as blocked in another transaction.
 parameters:
   - name: srcId
     type: ID
