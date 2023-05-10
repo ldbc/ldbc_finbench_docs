@@ -34,7 +34,7 @@ result:
 sort:
   - name: sumAmount
     direction: desc
-  - name: dstId
+  - name: srcId
     direction: asc
 relevance: |
   This is a typical query of transfer-in statistic.
