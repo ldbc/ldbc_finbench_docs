@@ -32,10 +32,10 @@ parameters:
     type: DateTime
     description: the timestamp of the transfer
   - name: amount
-    type: 64-bit Integer
+    type: 64-bit Float
     description: the amount of the transfer
   - name: amountThreshold
-    type: 64-bit Integer
+    type: 64-bit Float
     description: transfer amount threshold
   - name: startTime
     type: DateTime
@@ -44,7 +44,7 @@ parameters:
     type: DateTime
     description: end of the time window
   - name: ratioThreshold
-    type: 32-bit float
+    type: 32-bit Float
     description: ratio threshold of transfers-in over transfers-out
 choke_points: []
 relevance: |

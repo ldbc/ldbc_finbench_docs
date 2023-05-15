@@ -11,7 +11,7 @@ parameters:
     type: ID
     description: id of the dstAccount
   - name: threshold
-    type: 64-bit Integer
+    type: 64-bit Float
     description: threshold of transfer amount
   - name: startTime
     type: DateTime
@@ -28,7 +28,7 @@ result:
     category: aggregated
     description: num of the transfers from src to dst
   - name: sumAmount
-    type: 64-bit Integer
+    type: 64-bit Float
     category: aggregated
     description: sum of the transfers from src to dst
 sort:

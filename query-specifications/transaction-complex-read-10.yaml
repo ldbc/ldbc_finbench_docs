@@ -22,7 +22,7 @@ parameters:
     description: end of the time window
 result:
   - name: jaccardSimilarity
-    type: 32-bit float
+    type: 32-bit Float
     category: calculated
     description: Jaccard similarity between two sets rounded to thousandth
 choke_points: [3.2, 3.4, 6.2, 8.7]

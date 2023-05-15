@@ -19,11 +19,11 @@ parameters:
     description: end of the time window
 result:
   - name: sumEdge1Amount
-    type: 64-bit Integer
+    type: 64-bit Float
     category: aggregated
     description: sum of transfer-outs
   - name: maxEdge1Amount
-    type: 64-bit Integer
+    type: 64-bit Float
     category: aggregated
     description: max of transfer-outs
   - name: numEdge1
@@ -31,11 +31,11 @@ result:
     category: aggregated
     description: count of transfer-outs
   - name: sumEdge2Amount
-    type: 64-bit Integer
+    type: 64-bit Float
     category: aggregated
     description: sum of transfer-ins
   - name: maxEdge2Amount
-    type: 64-bit Integer
+    type: 64-bit Float
     category: aggregated
     description: max of transfer-ins
   - name: numEdge2

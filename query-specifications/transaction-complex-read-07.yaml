@@ -14,7 +14,7 @@ parameters:
     type: ID
     description: id of mid account
   - name: threshold
-    type: 64-bit Integer
+    type: 64-bit Float
     description: transfer amount threshold
   - name: startTime
     type: DateTime

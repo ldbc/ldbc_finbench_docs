@@ -12,5 +12,5 @@ parameters:
   - name: $time
     type: DateTime
   - name: $amount
-    type: 64-bit Integer
+    type: 64-bit Float
 choke_points: []
