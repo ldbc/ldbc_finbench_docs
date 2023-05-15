@@ -11,7 +11,7 @@ parameters:
     type: ID
     description: id of the dstAccount
   - name: threshold
-    type: 64-bit Integer
+    type: 64-bit Float
     description: threshold of transfer amount
   - name: startTime
     type: DateTime
@@ -21,7 +21,7 @@ parameters:
     description: end of the time window
 result:
   - name: blockRatio
-    type: 32-bit float
+    type: 32-bit Float
     category: aggregated
     description: count(edge1) over count(edge2) rounded to thousandth
 relevance: |

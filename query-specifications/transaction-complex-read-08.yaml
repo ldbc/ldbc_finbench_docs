@@ -38,11 +38,11 @@ result:
     category: raw
     description: the id of the account in transfer traces
   - name: ratio
-    type: 32-bit float
+    type: 32-bit Float
     category: calculated
     description: the final ratio of the inflow's amount of each account over the loan rounded to thousandth
   - name: minDistanceFromLoan
-    type: 32-bit integer
+    type: 32-bit Integer
     category: calculated
     description: the min distance from the account to the loan
 sort:

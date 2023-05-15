@@ -15,7 +15,7 @@ parameters:
     type: ID
     description: id of the Account
   - name: threshold
-    type: 64-bit Integer
+    type: 64-bit Float
     description: threshold of amount
   - name: startTime
     type: DateTime
@@ -31,15 +31,15 @@ parameters:
     description: the sort order before truncation at each step
 result:
   - name: ratioRepay
-    type: 32-bit float
+    type: 32-bit Float
     description: sumEdge1Amount/sumEdge2Amount rounded to thousandth
     category: calculated
   - name: ratioDeposit
-    type: 32-bit float
+    type: 32-bit Float
     description: sumEdge1Amount/sumEdge4Amount rounded to thousandth
     category: calculated
   - name: ratioTransfer
-    type: 32-bit float
+    type: 32-bit Float
     description: sumEdge3Amount/sumEdge4Amount rounded to thousandth
     category: calculated
 choke_points: [3.2, 3.4, 6.2, 8.7]

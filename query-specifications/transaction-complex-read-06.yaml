@@ -15,10 +15,10 @@ parameters:
     type: ID
     description: id of the card account
   - name: threshold1
-    type: 64-bit Integer
+    type: 64-bit Float
     description: threshold of transfer amount
   - name: threshold2
-    type: 64-bit Integer
+    type: 64-bit Float
     description: threshold of transfer amount
   - name: startTime
     type: DateTime
@@ -38,11 +38,11 @@ result:
     description: the id of the middle account
     category: raw
   - name: sumEdge1Amount
-    type: 64-bit Integer
+    type: 64-bit Float
     description: the amount of transfer from src accounts to mid
     category: aggregated
   - name: sumEdge2Amount
-    type: 64-bit Integer
+    type: 64-bit Float
     description: the amount of withdrawal from mid to dstCard
     category: aggregated
 sort:

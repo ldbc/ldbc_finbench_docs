@@ -46,6 +46,9 @@ places (thousandths).
         32-bit Float            & Floating type with 32-bit precision
         \textbf{rounded to 3 decimal places (thousandths)}                        \\
         \hline
+        64-bit Float            & Floating type with 64-bit precision
+        \textbf{rounded to 3 decimal places (thousandths)}                        \\
+        \hline
         String                  & Variable length text of size 40 Unicode
         characters                                                               \\
         \hline
@@ -183,9 +186,9 @@ world. \autoref{table:loan} shows the attributes.
         \hline
         id                           & ID                 & The identifier of the loan. \\
         \hline
-        loanAmount                   & 64-bit Integer     & The amount of a loan.       \\
+        loanAmount                   & 64-bit Float     & The amount of a loan.       \\
         \hline
-        balance                      & 64-bit Integer     & The balance of a loan.      \\
+        balance                      & 64-bit Float     & The balance of a loan.      \\
         \hline
     \end{tabular}
     \caption{Attributes of Loan entity.}
@@ -256,7 +259,7 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when transfer issues. \\
         \hline
-        amount                       & 64-bit Integer     & The amount of the transfer.    \\
+        amount                       & 64-bit Float     & The amount of the transfer.    \\
         \hline
         type                         & String             & The type of the transfer.      \\
         \hline
@@ -273,7 +276,7 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when withdraw issues. \\
         \hline
-        amount                       & 64-bit Integer     & The amount of the withdraw.    \\
+        amount                       & 64-bit Float     & The amount of the withdraw.    \\
         \hline
     \end{tabular}
     \caption{Attributes of withdraw relation.}
@@ -288,7 +291,7 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when repay issues. \\
         \hline
-        amount                       & 64-bit Integer     & The amount of the repay.    \\
+        amount                       & 64-bit Float     & The amount of the repay.    \\
         \hline
     \end{tabular}
     \caption{Attributes of repay relation.}
@@ -303,7 +306,7 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when deposit issues. \\
         \hline
-        amount                       & 64-bit Integer     & The amount of the deposit.    \\
+        amount                       & 64-bit Float     & The amount of the deposit.    \\
         \hline
     \end{tabular}
     \caption{Attributes of deposit relation.}

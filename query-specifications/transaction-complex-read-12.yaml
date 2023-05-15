@@ -28,7 +28,7 @@ result:
     type: ID
     description: the id of the company account
   - name: sumEdge2Amount
-    type: 64-bit Integer
+    type: 64-bit Float
     category: aggregated
     description: the amount sum transferred to company's account
 sort:

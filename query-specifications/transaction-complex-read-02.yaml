@@ -31,11 +31,11 @@ result:
     description: id of the account related to loan
     category: raw
   - name: sumLoanAmount
-    type: 64-bit Integer
+    type: 64-bit Float
     description: sum of all loans' amount of the account
     category: aggregated
   - name: sumLoanBalance
-    type: 64-bit Integer
+    type: 64-bit Float
     description: sum of all loans' balance of the account.
     category: aggregated
 sort:

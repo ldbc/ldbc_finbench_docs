@@ -31,7 +31,7 @@ parameters:
     type: DateTime
     description: the timestamp of the transfer
   - name: amount
-    type: 64-bit Integer
+    type: 64-bit Float
     description: the amount of the transfer
   - name: startTime
     type: DateTime

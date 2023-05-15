@@ -32,7 +32,7 @@ parameters:
     type: DateTime
     description: the timestamp of the guarantee
   - name: threshold
-    type: 64-bit Integer
+    type: 64-bit Float
     description: loan amount threshold in the guarantee chain
   - name: startTime
     type: DateTime
