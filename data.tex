@@ -236,9 +236,9 @@ only be owned by a person or a company.
     \hline
     apply                   & Person/ \newline Company & 1:N                       & Loan                     & 1                          & A person or a company applies a Loan.                                \\
     \hline
-    deposit                 & Loan                     & N:1                       & Account                  & N                          & Loan fund deposited to an account.                                   \\
+    deposit                 & Loan                     & N:N                       & Account                  & N                          & Loan fund deposited to an account.                                   \\
     \hline
-    repay                   & Account                  & 1:N                       & Loan                     & N                          & Loan repaid from an account.                                         \\
+    repay                   & Account                  & N:N                       & Loan                     & N                          & Loan repaid from an account.                                         \\
     \hline
     invest                  & Person/ \newline Company & N:N                       & Company                  & 1                          & A person or a company invests into a company.                             \\
     \hline
