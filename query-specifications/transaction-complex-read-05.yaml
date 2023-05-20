@@ -11,7 +11,9 @@ description: |
   
   Note: Multiple edges of from the same src to the same dst should be seen as 
   identical path. And the resulting paths shall not include recurring accounts
-  (cycles in the trace are not allowed).
+  (cycles in the trace are not allowed). The results may not be in a deterministic
+  order since they are only sorted by the length of the path. Driver will validate
+  the results after sorting.
 parameters:
   - name: id
     type: ID
