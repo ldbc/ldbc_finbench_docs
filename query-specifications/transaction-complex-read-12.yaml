@@ -6,7 +6,7 @@ description: |
   Given a *Person* and a specified time window between *startTime* and
   *endTime*,  find all the company accounts that s/he has transferred
   to. Return the ids of the companies' accounts and the sum of their
-  transfer amount in descending order.
+  transfer amount.
 parameters:
   - name: id
     type: ID

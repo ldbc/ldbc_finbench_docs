@@ -6,9 +6,11 @@ description: |
   Given an *Account* and a specified time window between *startTime* and
   *endTime*, find all the *Account* that is signed in by a blocked *Medium* and
   has fund transferred via *edge1* by at most 3 steps. Note that all timestamps
-  in the transfer trace must be in ascending order. Return the id of the account,
-  the distance from the account to given one, the id and type of the related
-  medium.
+  in the transfer trace must be in ascending order(only greater than). Return
+  the id of the account, the distance from the account to given one, the id and
+  type of the related medium.
+
+  Note: The returned accounts may exist in different distance from the given one.
 parameters:
   - name: id
     type: ID
@@ -46,6 +48,8 @@ sort:
   - name: accountDistance
     direction: asc
   - name: otherId
+    direction: asc
+  - name: mediumId
     direction: asc
 choke_points: [3.2, 3.4, 6.2, 7.1, 7.4, 8.7, 8.8]
 relevance: AML

@@ -7,8 +7,8 @@ description: |
   *endTime*, find an *Account* *owned* by the *Person* which has fund
   *transferred* from other *Accounts* by at most 3 steps (*edge2*) which has fund
   *deposited* from a *loan*. The timestamps of in transfer trace (*edge2*) must be in
-  ascending order from the upstream to downstream. Return the sum of distinct *loan*
-  amount, the sum of distinct *loan* balance and the count of distinct *loans*.
+  ascending order(only greater than) from the upstream to downstream. Return the sum
+  of distinct *loan* amount, the sum of distinct *loan* balance and the count of distinct *loans*.
 parameters:
   - name: id
     type: ID
