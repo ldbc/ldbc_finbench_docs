@@ -7,7 +7,7 @@ description: |
   *startTime* and *endTime*,
 
   (1) check whether *src* transferred money to *dst* in the given time window
-  (*edge1*). If *edge1* does not exist, the result size is 0.
+  (*edge1*). If *edge1* does not exist, return with empty results (the result size is 0).
 
   (2) find all other accounts (other1, ..., otherN) which received money from
   dst (*edge2*) and transferred money to src (*edge3*) in a specific time.
