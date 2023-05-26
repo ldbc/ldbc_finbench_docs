@@ -46,6 +46,12 @@ parameters:
   - name: ratioThreshold
     type: 32-bit Float
     description: ratio threshold of transfers-in over transfers-out
+  - name: truncationLimit
+    type: 32-bit Integer
+    description: maximum edges traversed at each step
+  - name: truncationOrder
+    type: Enum
+    description: the sort order before truncation at each step
 choke_points: []
 relevance: |
   It is a typical fraud detection and AWL case in risk control.
