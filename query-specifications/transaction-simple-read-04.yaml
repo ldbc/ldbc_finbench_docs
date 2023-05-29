@@ -30,7 +30,7 @@ result:
   - name: sumAmount
     type: 64-bit Float
     category: aggregated
-    description: sum of the transfers from src to dst
+    description: sum of the transfers from src to dst (rounded to 3 decimal places)
 sort:
   - name: sumAmount
     direction: desc

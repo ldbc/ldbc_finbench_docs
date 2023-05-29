@@ -24,7 +24,7 @@ result:
   - name: jaccardSimilarity
     type: 32-bit Float
     category: calculated
-    description: Jaccard similarity between two sets rounded to thousandth
+    description: Jaccard similarity between two sets (rounded to 3 decimal places)
 choke_points: [3.2, 3.4, 6.2, 8.7]
 relevance: |
   This query is a typical share holding analysis case.

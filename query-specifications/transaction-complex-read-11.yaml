@@ -27,7 +27,7 @@ result:
   - name: sumLoanAmount
     type: 64-bit Float
     category: aggregated
-    description: sum of the loans' amount
+    description: sum of the loans' amount (rounded to 3 decimal places)
   - name: numLoans
     type: 32-bit Integer
     category: aggregated

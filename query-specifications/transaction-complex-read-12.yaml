@@ -30,7 +30,7 @@ result:
   - name: sumEdge2Amount
     type: 64-bit Float
     category: aggregated
-    description: the amount sum transferred to company's account
+    description: the amount sum transferred to company's account (rounded to 3 decimal places)
 sort:
   - name: sumEdge2Amount
     direction: desc
