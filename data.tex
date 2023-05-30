@@ -125,6 +125,12 @@ shows the attributes.
         \hline
         isBlocked                    & Boolean            & If the person is blocked or concerned in systems. \\
         \hline
+        gender                       & String             & Gender of the person           \\
+        \hline
+        birthday                     & Date               & Birthday of the person           \\
+        \hline
+        location                     & String             & Location of the person           \\
+        \hline
     \end{tabular}
     \caption{Attributes of Person entity.}
     \label{table:person}
@@ -142,6 +148,12 @@ shows the attributes.
         name                         & String             & The name of the company.       \\
         \hline
         isBlocked                    & Boolean            & If the company is blocked or concerned in systems. \\
+        \hline
+        business                     & String             & The main business of the company \\
+        \hline
+        description                  & Long String        & The description of the company \\
+        \hline
+        url                          & String             & The url of the company's official site \\
         \hline
     \end{tabular}
     \caption{Attributes of Company entity.}
@@ -164,8 +176,19 @@ personalDeposit, personalCredit, etc. It can deal with other accounts.
         \hline
         isBlocked                    & Boolean            & If the account is blocked or concerned in systems. \\
         \hline
-        type                         & String             & The type of Account including personalDeposit,
-        personalCredit, companyDeposit, card.                                                                  \\
+        type                         & String             & The type of the account.                           \\
+        \hline
+        nickname                     & String             & The nickname of the account.                       \\                            
+        \hline
+        phoneNumber                  & String             & The phone number of the account.                   \\
+        \hline
+        email                        & String             & The email of the account.                          \\
+        \hline
+        freqLoginType                & String             & The frequent login type of the account.            \\
+        \hline
+        lastLoginTime                & DateTime           & The last login time of the account.                \\
+        \hline
+        accountLevel                 & String             & The level of the account.                          \\
         \hline
     \end{tabular}
     \caption{Attributes of Account entity.}
@@ -186,6 +209,10 @@ world. \autoref{table:loan} shows the attributes.
         \hline
         balance                      & 64-bit Float     & The balance of a loan.      \\
         \hline
+        usage                        & String             & The usage of a loan.        \\
+        \hline
+        interestRate                 & 32-bit Float       & The interest rate of a loan. \\
+        \hline
     \end{tabular}
     \caption{Attributes of Loan entity.}
     \label{table:loan}
@@ -204,6 +231,10 @@ sign in account in the real world, such as IP address, MAC address, phone number
         type                         & String             & The medium type, \eg POS, IP.                    \\
         \hline
         isBlocked                    & Boolean            & If the medium is blocked or concerned in systems. \\
+        \hline
+        lastLogin                    & DateTime           & The last login time of the medium.                \\
+        \hline
+        riskLevel                    & String             & The risk level of the medium.                     \\
         \hline
     \end{tabular}
     \caption{Attributes of Medium entity.}
