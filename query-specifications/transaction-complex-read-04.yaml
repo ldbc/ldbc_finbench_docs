@@ -44,11 +44,11 @@ result:
     category: aggregated
   - name: sumEdge2Amount
     type: 64-bit Float
-    description: sum of transfers from otherAccount to srcAccount
+    description: sum of transfers from otherAccount to srcAccount (rounded to 3 decimal places)
     category: aggregated
   - name: maxEdge2Amount
     type: 64-bit Float
-    description: max of transfers from otherAccount to srcAccount
+    description: max of transfers from otherAccount to srcAccount (rounded to 3 decimal places)
     category: aggregated
   - name: numEdge3
     type: 64-bit Integer
@@ -56,11 +56,11 @@ result:
     category: aggregated
   - name: sumEdge3Amount
     type: 64-bit Float
-    description: sum of transfers from dstAccount to otherAccount
+    description: sum of transfers from dstAccount to otherAccount (rounded to 3 decimal places)
     category: aggregated
   - name: maxEdge3Amount
     type: 64-bit Float
-    description: max of transfers from dstAccount to otherAccount
+    description: max of transfers from dstAccount to otherAccount (rounded to 3 decimal places)
     category: aggregated
 sort:
   - name: sumEdge2Amount

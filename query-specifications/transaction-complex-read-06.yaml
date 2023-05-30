@@ -39,11 +39,11 @@ result:
     category: raw
   - name: sumEdge1Amount
     type: 64-bit Float
-    description: the amount of transfer from src accounts to mid
+    description: the amount of transfer from src accounts to mid (rounded to 3 decimal places)
     category: aggregated
   - name: sumEdge2Amount
     type: 64-bit Float
-    description: the amount of withdrawal from mid to dstCard
+    description: the amount of withdrawal from mid to dstCard (rounded to 3 decimal places)
     category: aggregated
 sort:
   - name: sumEdge2Amount

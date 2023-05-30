@@ -23,6 +23,6 @@ result:
   - name: blockRatio
     type: 32-bit Float
     category: aggregated
-    description: count(edge1) over count(edge2) rounded to thousandth
+    description: count(edge1) over count(edge2) (rounded to 3 decimal places)
 relevance: |
   This query is a typical risky account recognition case in risk control.
