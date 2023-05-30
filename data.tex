@@ -284,7 +284,21 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when transfer issues. \\
         \hline
-        amount                       & 64-bit Float     & The amount of the transfer.    \\
+        amount                       & 64-bit Float       & The amount of the transfer.    \\
+        \hline
+        ordernumber                  & String             & The order number of the transfer.    \\
+        \hline
+        payer                        & String              & The payer of the transfer.    \\
+        \hline
+        payee                        & String              & The payee of the transfer.    \\
+        \hline
+        remark                       & String              & The remark of the transfer.    \\
+        \hline
+        status                       & String              & The payment status of the transfer.    \\
+        \hline
+        payType                      & String              & The payment type of the transfer.    \\
+        \hline
+        goodsType                    & String              & The goods type of the transfer.    \\
         \hline
     \end{tabular}
     \caption{Attributes of transfer relation.}
@@ -344,6 +358,8 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when signIn happens. \\
         \hline
+        location                     & String             & The location of the signIn.   \\
+        \hline
     \end{tabular}
     \caption{Attributes of signIn relation.}
     \label{table:signIn}
@@ -372,6 +388,8 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when apply happens. \\
         \hline
+        organization                 & String             & The organization for the loan.   \\
+        \hline
     \end{tabular}
     \caption{Attributes of apply relation.}
     \label{table:apply}
@@ -385,12 +403,25 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when guarantee happens. \\
         \hline
+        relationship                 & String             & The relationship between guarantor and applier.   \\
+        \hline
     \end{tabular}
     \caption{Attributes of guarantee relation.}
     \label{table:guarantee}
 \end{table}
 
 {\flushleft \textbf{own:}} A person or a company owns an account. This relation has no attributes.
+\begin{table}[H]
+    \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
+        \hline
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}        \\
+        \hline
+        timestamp                    & DateTime           & The time when guarantee happens. \\
+        \hline
+    \end{tabular}
+    \caption{Attributes of guarantee relation.}
+    \label{table:guarantee}
+\end{table}
 
 \section{Data Generation}
  [TODO. This section will be filled after benchmark software designed and developed.]
