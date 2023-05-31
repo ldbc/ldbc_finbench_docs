@@ -3,7 +3,7 @@ operation: write
 number: 10
 title:  Add guarantee between Persons
 description: |
-  Add a *guarantee* edge from a *Person* node to another *Person* node.
+  Add a *guarantee* edge from a *Person* to another *Person*.
 parameters:
   - name: $personId1
     type: ID

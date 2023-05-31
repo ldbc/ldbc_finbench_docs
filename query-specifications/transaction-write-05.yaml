@@ -3,7 +3,7 @@ operation: write
 number: 5
 title:  Add an Account owned by Company
 description: |
-  Add an *Account* node and an *own* edge from *Company* to the *Account* node.
+  Add an *Account* and an *own* edge from *Company* to the *Account*.
 parameters:
   - name: $companyId
     type: ID

@@ -3,7 +3,7 @@ operation: write
 number: 14
 title:  Add repay between Account and Loan
 description: |
-  Add a *repay* edge from an *Account* node to a *Loan* node.
+  Add a *repay* edge from an *Account* to a *Loan*.
 parameters:
   - name: $accountId
     type: ID

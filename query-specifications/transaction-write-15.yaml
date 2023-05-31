@@ -3,7 +3,7 @@ operation: write
 number: 15
 title:  Add deposit between Loan and Account
 description: |
-  Add a *deposit* edge from a *Loan* node to an *Account* node.
+  Add a *deposit* edge from a *Loan* to an *Account*.
 parameters:
   - name: $loanId
     type: ID

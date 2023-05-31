@@ -3,7 +3,7 @@ operation: write
 number: 1
 title:  Add a Person
 description: |
-  Add a *Person* node. 
+  Add a *Person*. 
 parameters:
   - name: $personId
     type: ID

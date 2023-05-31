@@ -3,7 +3,7 @@ operation: write
 number: 7
 title:  Add Loan applied by Company
 description: |
-  Add a *Loan* node and add an *apply* edge from *Company* node to *Loan*.
+  Add a *Loan* and add an *apply* edge from *Company* to *Loan*.
 parameters:
   - name: $companyId
     type: ID

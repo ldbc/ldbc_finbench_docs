@@ -3,7 +3,7 @@ operation: write
 number: 6
 title:  Add Loan applied by Person
 description: |
-  Add a *Loan* node and add an *apply* edge from *Person* node to *Loan* node.
+  Add a *Loan* and add an *apply* edge from *Person* to *Loan*.
 parameters:
   - name: $personId
     type: ID

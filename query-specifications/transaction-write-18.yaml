@@ -1,10 +1,10 @@
 workload: Transaction
 operation: write
-number: 18
-title:  Block a Person of high risk
+number: 19
+title:  Block a Account of high risk
 description: |
-  Set a *Person*'s isBlocked to True.
+  Set an *Account*'s isBlocked to True.
 parameters:
-  - name: $personId
+  - name: $accountId
     type: ID
 choke_points: []

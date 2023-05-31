@@ -3,7 +3,7 @@ operation: write
 number: 11
 title:  Add guarantee between Companies
 description: |
-  Add a *guarantee* edge from a *Company* node to another *Company* node.
+  Add a *guarantee* edge from a *Company* to another *Company*.
 parameters:
   - name: $companyId1
     type: ID

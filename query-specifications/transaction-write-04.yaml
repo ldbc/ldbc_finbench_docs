@@ -3,7 +3,7 @@ operation: write
 number: 4
 title:  Add an Account owned by Person
 description: |
-  Add an *Account* node and an *own* edge from *Person* to the *Account* node.
+  Add an *Account* and an *own* edge from *Person* to the *Account*.
 parameters:
   - name: $personId
     type: ID

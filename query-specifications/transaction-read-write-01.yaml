@@ -5,12 +5,12 @@ title: Transfer under transfer cycle detection strategy
 compositions:
   - name: Transaction / Simple Read / 1
     ref: transaction-simple-read-01
-  - name: Transaction / Write / 3
-    ref: transaction-write-03
+  - name: Transaction / Write / 12
+    ref: transaction-write-12
   - name: Transaction / Complex Read / 4
     ref: transaction-complex-read-04
-  - name: Transaction / Write / 10
-    ref: transaction-write-10
+  - name: Transaction / Write / 18
+    ref: transaction-write-18
 description: |
   The workflow of this read write query contains at least one transaction. It works as:
 

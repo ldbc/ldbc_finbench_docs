@@ -3,7 +3,7 @@ operation: write
 number: 12
 title:  Add transfer between Accounts
 description: |
-  Add a *transfer* edge from an *Account* node to another *Account* node.
+  Add a *transfer* edge from an *Account* to another *Account*.
 parameters:
   - name: $accountId1
     type: ID

@@ -3,7 +3,7 @@ operation: write
 number: 8
 title:  Add invest between Person and Company
 description: |
-  Add a *invest* edge from a *Person* node to a *Company* node. 
+  Add an *invest* edge from a *Person* to a *Company*. 
 parameters:
   - name: $personId
     type: ID

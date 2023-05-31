@@ -1,9 +1,9 @@
 workload: Transaction
 operation: write
 number: 3
-title:  Add a Medium Node
+title:  Add a Medium
 description: |
-  Add a *Medium* node. 
+  Add a *Medium*. 
 parameters:
   - name: $mediumId
     type: ID

@@ -3,7 +3,7 @@ operation: write
 number: 2
 title:  Add a Company
 description: |
-  Add a *Company* node. 
+  Add a *Company*. 
 parameters:
   - name: $companyId
     type: ID
