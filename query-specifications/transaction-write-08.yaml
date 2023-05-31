@@ -1,17 +1,16 @@
 workload: Transaction
 operation: write
 number: 8
-title:  Loan Deposit
+title:  Add invest between Person and Company
 description: |
-  Add a deposit edge from a Loan node to an existed Account node. Note that the
-  deposit from the loan to the account is one-off.
+  Add an *invest* edge from a *Person* to a *Company*. 
 parameters:
-  - name: $accountId
+  - name: $personId
     type: ID
-  - name: $loanId
+  - name: $companyId
     type: ID
   - name: $time
     type: DateTime
-  - name: $amount
+  - name: $ratio
     type: 64-bit Float
 choke_points: []

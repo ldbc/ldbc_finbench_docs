@@ -1,0 +1,12 @@
+workload: Transaction
+operation: write
+number: 17
+title:  Remove an Account
+description: |
+  Given an id, remove the *Account*, and remove the related edges including
+  *own*, *transfer*, *withdraw*, *repay*, *deposit*, *signIn*. Remove the
+  connected *Loan* vertex in cascade.
+parameters:
+  - name: $accountId
+    type: ID
+choke_points: []
