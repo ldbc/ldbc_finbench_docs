@@ -1,16 +1,14 @@
 workload: Transaction
 operation: write
 number: 3
-title:  Add transfer between accounts
+title:  Add a Medium
 description: |
-  Add a transfer edge from an existed account node to another existed account node.
+  Add a *Medium*. 
 parameters:
-  - name: $srcId
+  - name: $mediumId
     type: ID
-  - name: $dstId
-    type: ID
-  - name: $time
-    type: DateTime
-  - name: $amount
-    type: 64-bit Float
+  - name: $mediumType
+    type: String
+  - name: $isBlocked
+    type: Boolean
 choke_points: []

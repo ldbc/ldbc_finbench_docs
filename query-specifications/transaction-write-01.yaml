@@ -1,21 +1,14 @@
 workload: Transaction
 operation: write
 number: 1
-title:  Add an Account Node owned by Person
+title:  Add a Person
 description: |
-  Add an account node. Add a Person node and an own edge from it to the account
-  Node.
+  Add a *Person*. 
 parameters:
   - name: $personId
     type: ID
   - name: $personName
     type: String
-  - name: $accountId
-    type: ID
-  - name: $time
-    type: DateTime
-  - name: $accountBlocked
+  - name: $isBlocked
     type: Boolean
-  - name: $accountType
-    type: String
 choke_points: []

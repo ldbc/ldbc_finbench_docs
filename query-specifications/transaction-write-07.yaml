@@ -1,16 +1,18 @@
 workload: Transaction
 operation: write
 number: 7
-title:  Account signed in with Medium
+title:  Add Loan applied by Company
 description: |
-  Add an Medium node and add a signIn edge from it to an existed Account node.
+  Add a *Loan* and add an *apply* edge from *Company* to *Loan*.
 parameters:
-  - name: $accountId
+  - name: $companyId
     type: ID
-  - name: $mediumId
+  - name: $loanId
     type: ID
-  - name: $mediumBlocked
-    type: Boolean
+  - name: $loanAmount
+    type: 64-bit Float
+  - name: $balance
+    type: 64-bit Float
   - name: $time
-    type: DateTime 
+    type: DateTime
 choke_points: []

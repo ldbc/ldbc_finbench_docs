@@ -1,13 +1,13 @@
 workload: Transaction
 operation: write
-number: 12
-title:  Add transfer between Accounts
+number: 15
+title:  Add deposit between Loan and Account
 description: |
-  Add a *transfer* edge from an *Account* to another *Account*.
+  Add a *deposit* edge from a *Loan* to an *Account*.
 parameters:
-  - name: $accountId1
+  - name: $loanId
     type: ID
-  - name: $accountId2
+  - name: $accountId
     type: ID
   - name: $time
     type: DateTime

@@ -5,12 +5,12 @@ title: Guarantee under guarantee chain detection strategy
 compositions:
   - name: Transaction / Simple Read / 1
     ref: transaction-simple-read-01
-  - name: Transaction / Write / 13
-    ref: transaction-write-13
+  - name: Transaction / Write / 10
+    ref: transaction-write-10
   - name: Transaction / Complex Read / 11
     ref: transaction-complex-read-11
-  - name: Transaction / Write / 11
-    ref: transaction-write-11
+  - name: Transaction / Write / 19
+    ref: transaction-write-19
 description: |
   The workflow of this read write query contains at least one transaction. It works as:
 

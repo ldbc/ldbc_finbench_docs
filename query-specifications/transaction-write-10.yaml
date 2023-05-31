@@ -1,10 +1,14 @@
 workload: Transaction
 operation: write
 number: 10
-title:  Block an account of high risk
+title:  Add guarantee between Persons
 description: |
-  Set an existed account's isBlocked to True.
+  Add a *guarantee* edge from a *Person* to another *Person*.
 parameters:
-  - name: $accountId
+  - name: $personId1
     type: ID
+  - name: $personId2
+    type: ID
+  - name: $time
+    type: DateTime
 choke_points: []
