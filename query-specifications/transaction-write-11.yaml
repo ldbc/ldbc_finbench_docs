@@ -1,10 +1,14 @@
 workload: Transaction
 operation: write
 number: 11
-title:  Block a person of high risk
+title:  Add Guarantee Between Companies
 description: |
-  Set a person's isBlocked to True.
+  Add a *guarantee* edge from a *Company* node to another *Company* node.
 parameters:
-  - name: $personId
+  - name: $companyId1
     type: ID
+  - name: $companyId2
+    type: ID
+  - name: $time
+    type: DateTime
 choke_points: []

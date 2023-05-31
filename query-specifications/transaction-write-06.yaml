@@ -1,16 +1,18 @@
 workload: Transaction
 operation: write
 number: 6
-title:  Add Loan applied by Company
+title:  Add Loan applied by Person
 description: |
-  Add a Loan Node and add an apply edge from an existed company node to it.
+  Add a *Loan* node and add an *apply* edge from *Person* node to *Loan* node.
 parameters:
-  - name: $companyId
+  - name: $personId
     type: ID
-  - name: $time
-    type: DateTime
   - name: $loanId
     type: ID
-  - name: $amount
+  - name: $loanAmount
     type: 64-bit Float
+  - name: $balance
+    type: 64-bit Float
+  - name: $time
+    type: DateTime
 choke_points: []

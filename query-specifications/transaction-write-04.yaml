@@ -1,17 +1,18 @@
 workload: Transaction
 operation: write
 number: 4
-title:  Add withdraw between accounts
+title:  Add an Account Node owned by Person
 description: |
-  Add a withdraw edge from an existed account node to another existed account
-  node whose type is card.
+  Add an *Account* node and an *own* edge from *Person* to the *Account* node.
 parameters:
-  - name: $srcId
+  - name: $personId
     type: ID
-  - name: $dstId
+  - name: $accountId
     type: ID
   - name: $time
     type: DateTime
-  - name: $amount
-    type: 64-bit Float
+  - name: $accountBlocked
+    type: Boolean
+  - name: $accountType
+    type: String
 choke_points: []

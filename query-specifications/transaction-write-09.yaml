@@ -1,16 +1,16 @@
 workload: Transaction
 operation: write
 number: 9
-title:  Loan repay
+title:  Add Invest Between Company And Company
 description: |
-  Add a repay edge from an existed Account node to a Loan node.
+  Add a *invest* edge from a *Company* node to a *Company* node. 
 parameters:
-  - name: $accountId
+  - name: $companyId1
     type: ID
-  - name: $loanId
+  - name: $companyId2
     type: ID
   - name: $time
     type: DateTime
-  - name: $amount
+  - name: $ratio
     type: 64-bit Float
 choke_points: []

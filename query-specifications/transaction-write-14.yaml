@@ -1,13 +1,13 @@
 workload: Transaction
 operation: write
-number: 12
-title:  Add Transfer Between Accounts
+number: 14
+title:  Add Repay Between Account And Loan
 description: |
-  Add a *transfer* edge from an *Account* node to another *Account* node.
+  Add a *repay* edge from an *Account* node to a *Loan* node.
 parameters:
-  - name: $accountId1
+  - name: $accountId
     type: ID
-  - name: $accountId2
+  - name: $loanId
     type: ID
   - name: $time
     type: DateTime

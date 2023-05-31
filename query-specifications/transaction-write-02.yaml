@@ -1,21 +1,14 @@
 workload: Transaction
 operation: write
 number: 2
-title:  Add an Account Node owned by Company
+title:  Add a Company Node
 description: |
-  Add an account node. Add a Company node and an own edge from it to the account
-  Node.
+  Add an *Company* node. 
 parameters:
-  - name: $companyId 
+  - name: $companyId
     type: ID
   - name: $companyName
     type: String
-  - name: $accountId
-    type: ID
-  - name: $time
-    type: DateTime
-  - name: $accountBlocked
+  - name: $isBlocked
     type: Boolean
-  - name: $accountType
-    type: String
 choke_points: []

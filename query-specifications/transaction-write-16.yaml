@@ -1,0 +1,14 @@
+workload: Transaction
+operation: write
+number: 16
+title:  Account signed in with Medium
+description: |
+  Add a *signIn* edge from medium to an *Account* node.
+parameters:
+  - name: $mediumId
+    type: ID
+  - name: $accountId
+    type: ID
+  - name: $time
+    type: DateTime 
+choke_points: []
