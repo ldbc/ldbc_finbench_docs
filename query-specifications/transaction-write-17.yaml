@@ -1,6 +1,6 @@
 workload: Transaction
 operation: write
-number: 13
+number: 17
 title:  Remove an Account
 description: |
   Given an id, remove the *Account*, and remove the related edges including

@@ -1,7 +1,7 @@
 workload: Transaction
 operation: write
 number: 11
-title:  Add Guarantee Between Companies
+title:  Add guarantee between Companies
 description: |
   Add a *guarantee* edge from a *Company* node to another *Company* node.
 parameters:

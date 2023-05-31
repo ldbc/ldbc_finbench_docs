@@ -1,7 +1,7 @@
 workload: Transaction
 operation: write
 number: 15
-title:  Add Deposit Between Loan And Account
+title:  Add deposit between Loan and Account
 description: |
   Add a *deposit* edge from a *Loan* node to an *Account* node.
 parameters:

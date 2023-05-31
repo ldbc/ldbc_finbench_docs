@@ -1,7 +1,7 @@
 workload: Transaction
 operation: write
 number: 12
-title:  Add Transfer Between Accounts
+title:  Add transfer between Accounts
 description: |
   Add a *transfer* edge from an *Account* node to another *Account* node.
 parameters:

@@ -1,7 +1,7 @@
 workload: Transaction
 operation: write
 number: 14
-title:  Add Repay Between Account And Loan
+title:  Add repay between Account and Loan
 description: |
   Add a *repay* edge from an *Account* node to a *Loan* node.
 parameters:

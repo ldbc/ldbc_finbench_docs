@@ -1,7 +1,7 @@
 workload: Transaction
 operation: write
 number: 8
-title:  Add Invest Between Person And Company
+title:  Add invest between Person and Company
 description: |
   Add a *invest* edge from a *Person* node to a *Company* node. 
 parameters:

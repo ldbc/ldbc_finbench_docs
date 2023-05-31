@@ -1,7 +1,7 @@
 workload: Transaction
 operation: write
 number: 2
-title:  Add a Company Node
+title:  Add a Company
 description: |
   Add a *Company* node. 
 parameters:

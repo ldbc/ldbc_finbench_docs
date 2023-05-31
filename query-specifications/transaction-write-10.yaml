@@ -1,7 +1,7 @@
 workload: Transaction
 operation: write
 number: 10
-title:  Add Guarantee Between Persons
+title:  Add guarantee between Persons
 description: |
   Add a *guarantee* edge from a *Person* node to another *Person* node.
 parameters:

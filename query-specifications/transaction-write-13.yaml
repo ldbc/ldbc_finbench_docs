@@ -1,7 +1,7 @@
 workload: Transaction
 operation: write
 number: 13
-title:  Add Withdraw Between Accounts
+title:  Add withdraw between Accounts
 description: |
   Add a *withdraw* edge from an *Account* node to another *Account* node.
 parameters:
