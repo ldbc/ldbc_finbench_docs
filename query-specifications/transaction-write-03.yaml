@@ -3,8 +3,7 @@ operation: write
 number: 3
 title:  Add a Medium Node
 description: |
-  Add an medium node. 
-  Node.
+  Add a *Medium* node. 
 parameters:
   - name: $mediumId
     type: ID
