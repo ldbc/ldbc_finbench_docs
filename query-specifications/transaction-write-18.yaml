@@ -1,0 +1,10 @@
+workload: Transaction
+operation: write
+number: 18
+title:  Block a Person of high risk
+description: |
+  Set a *Person*'s isBlocked to True.
+parameters:
+  - name: $personId
+    type: ID
+choke_points: []
