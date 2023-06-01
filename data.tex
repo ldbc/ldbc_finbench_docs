@@ -26,7 +26,7 @@ about the compromises in data design,
 \autoref{table:types} describes the different data types used in the benchmark.
 Compared with \ldbcsnb, there is a new compound type, \textbf{Path}, which is
 widely applied in financial scenarios reflecting traces, \eg fund transfer
-traces. 
+traces.
 
 \begin{table}[h]
     \centering
@@ -36,7 +36,7 @@ traces.
         \hline
         ID                      & Integer type with 64-bit precision. All IDs
         within a single entity type (\eg Person) are unique, but different
-        entity types (\eg a Person and an Account) might have the same ID.      \\
+        entity types (\eg a Person and an Account) might have the same ID.       \\
         \hline
         32-bit Integer          & Integer type with 32-bit precision             \\
         \hline
@@ -117,21 +117,21 @@ shows the attributes.
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
         \tableHeaderFirst{Attribute} & \tableHeader{Type} &
-        \tableHeader{Description}                                                         \\
+        \tableHeader{Description}                                                                             \\
         \hline
-        id                           & ID                 & The identifier of the person. \\
+        id                           & ID                 & The identifier of the person.                     \\
         \hline
-        name                         & String             & The name of the person.       \\
+        name                         & String             & The name of the person.                           \\
         \hline
         isBlocked                    & Boolean            & If the person is blocked or concerned in systems. \\
         \hline
-        gender                       & String             & Gender of the person           \\
+        gender                       & String             & Gender of the person                              \\
         \hline
-        birthday                     & Date               & Birthday of the person           \\
+        birthday                     & Date               & Birthday of the person                            \\
         \hline
-        country                      & String             & Country of the person           \\
+        country                      & String             & Country of the person                             \\
         \hline
-        city                         & String             & City of the person           \\
+        city                         & String             & City of the person                                \\
         \hline
     \end{tabular}
     \caption{Attributes of Person entity.}
@@ -143,23 +143,23 @@ shows the attributes.
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
         \tableHeaderFirst{Attribute} & \tableHeader{Type} &
-        \tableHeader{Description}                                                          \\
+        \tableHeader{Description}                                                                              \\
         \hline
-        id                           & ID                 & The identifier of the company. \\
+        id                           & ID                 & The identifier of the company.                     \\
         \hline
-        name                         & String             & The name of the company.       \\
+        name                         & String             & The name of the company.                           \\
         \hline
         isBlocked                    & Boolean            & If the company is blocked or concerned in systems. \\
         \hline
-        country                      & String             & Country of the company           \\
+        country                      & String             & Country of the company                             \\
         \hline
-        city                         & String             & City of the company           \\
+        city                         & String             & City of the company                                \\
         \hline
-        business                     & String             & The main business of the company \\
+        business                     & String             & The main business of the company                   \\
         \hline
-        description                  & Long String        & The description of the company \\
+        description                  & Long String        & The description of the company                     \\
         \hline
-        url                          & String             & The url of the company's official site \\
+        url                          & String             & The url of the company's official site             \\
         \hline
     \end{tabular}
     \caption{Attributes of Company entity.}
@@ -184,7 +184,7 @@ personalDeposit, personalCredit, etc. It can deal with other accounts.
         \hline
         type                         & String             & The type of the account.                           \\
         \hline
-        nickname                     & String             & The nickname of the account.                       \\                            
+        nickname                     & String             & The nickname of the account.                       \\
         \hline
         phoneNumber                  & String             & The phone number of the account.                   \\
         \hline
@@ -207,15 +207,15 @@ world. \autoref{table:loan} shows the attributes.
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
         \tableHeaderFirst{Attribute} & \tableHeader{Type} &
-        \tableHeader{Description}                                                       \\
+        \tableHeader{Description}                                                        \\
         \hline
-        id                           & ID                 & The identifier of the loan. \\
+        id                           & ID                 & The identifier of the loan.  \\
         \hline
-        loanAmount                   & 64-bit Float     & The amount of a loan.       \\
+        loanAmount                   & 64-bit Float       & The amount of a loan.        \\
         \hline
-        balance                      & 64-bit Float     & The balance of a loan.      \\
+        balance                      & 64-bit Float       & The balance of a loan.       \\
         \hline
-        usage                        & String             & The usage of a loan.        \\
+        usage                        & String             & The usage of a loan.         \\
         \hline
         interestRate                 & 32-bit Float       & The interest rate of a loan. \\
         \hline
@@ -234,7 +234,7 @@ sign in account in the real world, such as IP address, MAC address, phone number
         \hline
         id                           & ID                 & The identifier of the medium.                     \\
         \hline
-        type                         & String             & The medium type, \eg POS, IP.                    \\
+        type                         & String             & The medium type, \eg POS, IP.                     \\
         \hline
         isBlocked                    & Boolean            & If the medium is blocked or concerned in systems. \\
         \hline
@@ -274,7 +274,7 @@ only be owned by a person or a company.
     \hline
     repay                   & Account                  & N:N                       & Loan                     & N                          & Loan repaid from an account.                                         \\
     \hline
-    invest                  & Person/ \newline Company & N:N                       & Company                  & 1                          & A person or a company invests into a company.                             \\
+    invest                  & Person/ \newline Company & N:N                       & Company                  & 1                          & A person or a company invests into a company.                        \\
     \hline
     guarantee               & Person/ \newline Company & N:N                       & Person/ \newline Company & 1                          & A person or a company guarantees another for some reason like loans. \\
     \hline
@@ -286,17 +286,17 @@ only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}      \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}         \\
         \hline
-        timestamp                    & DateTime           & The time when transfer issues. \\
+        timestamp                    & DateTime           & The time when transfer issues.    \\
         \hline
-        amount                       & 64-bit Float       & The amount of the transfer.    \\
+        amount                       & 64-bit Float       & The amount of the transfer.       \\
         \hline
-        ordernumber                  & String             & The order number of the transfer.    \\
+        ordernumber                  & String             & The order number of the transfer. \\
         \hline
-        remark                       & String              & The remark of the transfer.    \\
+        comment                      & String             & The comment of the transfer.      \\
         \hline
-        goodsType                    & String              & The goods type of the transfer.    \\
+        goodsType                    & String             & The goods type of the transfer.   \\
         \hline
     \end{tabular}
     \caption{Attributes of transfer relation.}
@@ -311,7 +311,7 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when withdraw issues. \\
         \hline
-        amount                       & 64-bit Float     & The amount of the withdraw.    \\
+        amount                       & 64-bit Float       & The amount of the withdraw.    \\
         \hline
     \end{tabular}
     \caption{Attributes of withdraw relation.}
@@ -326,7 +326,7 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when repay issues. \\
         \hline
-        amount                       & 64-bit Float     & The amount of the repay.    \\
+        amount                       & 64-bit Float       & The amount of the repay.    \\
         \hline
     \end{tabular}
     \caption{Attributes of repay relation.}
@@ -341,7 +341,7 @@ only be owned by a person or a company.
         \hline
         timestamp                    & DateTime           & The time when deposit issues. \\
         \hline
-        amount                       & 64-bit Float     & The amount of the deposit.    \\
+        amount                       & 64-bit Float       & The amount of the deposit.    \\
         \hline
     \end{tabular}
     \caption{Attributes of deposit relation.}
@@ -367,11 +367,11 @@ only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}     \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}             \\
         \hline
         timestamp                    & DateTime           & The time when the investment happens. \\
         \hline
-        ratio                        & 32-bit Float       & The ratio of the investment.  \\
+        ratio                        & 32-bit Float       & The ratio of the investment.          \\
         \hline
     \end{tabular}
     \caption{Attributes of invest relation.}
@@ -382,11 +382,11 @@ only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}    \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}      \\
         \hline
-        timestamp                    & DateTime           & The time when apply happens. \\
+        timestamp                    & DateTime           & The time when apply happens.   \\
         \hline
-        organization                 & String             & The organization for the loan.   \\
+        organization                 & String             & The organization for the loan. \\
         \hline
     \end{tabular}
     \caption{Attributes of apply relation.}
@@ -397,11 +397,11 @@ only be owned by a person or a company.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
-        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}        \\
+        \tableHeaderFirst{Attribute} & \tableHeader{Type} & \tableHeader{Description}                       \\
         \hline
-        timestamp                    & DateTime           & The time when guarantee happens. \\
+        timestamp                    & DateTime           & The time when guarantee happens.                \\
         \hline
-        relationship                 & String             & The relationship between guarantor and applier.   \\
+        relationship                 & String             & The relationship between guarantor and applier. \\
         \hline
     \end{tabular}
     \caption{Attributes of guarantee relation.}
@@ -432,6 +432,6 @@ The datasets are designed and created closely resembling real-world scenarios. {
 financial data having the precision as follows:
 \begin{itemize}
     \item The generated 64-bit Float numbers will have precision up to two decimal places for both
-    the amount and balance values.
+          the amount and balance values.
     \item The timestamps are generated with millisecond precision.
 \end{itemize}
