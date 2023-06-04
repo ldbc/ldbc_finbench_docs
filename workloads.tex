@@ -6,7 +6,49 @@
 This section describes how to read the query cards in the following sections.
 \subsection{Query Description Format}
 \label{subsec:query-description-format}
- [TODO. This section will be filled further after draft is approved.]
+
+Queries are described in natural language using a well-defined structure that consists of three sections:
+\textit{description}, a concise textual description of the query,
+\textit{parameters}, a list of input parameters and their types;
+\textit{results}, a list of expected results and their types.
+Additionally, queries returning multiple results specify \emph{sorting criteria} and a \emph{limit} (to return top-$k$ results).
+
+We use the following notation:
+
+\begin{itemize}
+	\item \textbf{Node type}: node type in the dataset.
+		One word, possibly constructed by appending multiple words together, starting with an uppercase character and following the camel case notation,
+        \eg \textsf{TagClass} represents an entity of type ``TagClass''.
+    \item \textbf{Edge type}: edge type in the dataset.
+        One word, possibly constructed by appending multiple words together, starting with a lowercase character and following the camel case notation
+        \eg \mbox{\textsf{workAt}} represents an edge of type ``workAt''.
+    \item \textbf{Attribute}: attribute of a node or an edge in the dataset.
+        One word, possibly constructed by appending multiple words together, starting with a lowercase character and following the camel case notation,
+        and prefixed by a ``.'' to dereference the node/edge,
+        \eg \textsf{person.firstName} refers to ``firstName'' attribute on the ``person'' entity,
+        and \mbox{\textsf{studyAt.classYear}} refers to ``classYear'' attribute on the ``studyAt'' edge.
+    \item \textbf{Unordered Set}: an unordered collection of distinct elements.
+        Surrounded by \{ and \} braces, with the element type between them,
+        \eg \textsf{\{String\}} refers to a set of strings.
+    \item \textbf{Ordered List}: an ordered collection where duplicate elements are allowed.
+        Surrounded by [ and ] braces, with the element type between them,
+        \eg \textsf{[String]} refers to a list of strings.
+    \item \textbf{Ordered Tuple}: a fixed-length, fixed-order list of elements, where elements at each position of the tuple have predefined, possibly different, types.
+        Surrounded by < and > braces, with the element types between them in a specific order
+        \eg \textsf{<String, Boolean>} refers to a 2-tuple containing a string value in the first element and a boolean value in the second,
+        and \textsf{[<String, Boolean>]} is an ordered list of those 2-tuples.
+\end{itemize}
+
+\paragraph{Categorization of results.}
+
+Results are categorized according to their source of origin:
+
+\begin{itemize}
+	\item \textbf{Raw} (\texttt{R}), if the result attribute is returned with an unmodified value and type.
+	\item \textbf{Calculated} (\texttt{C}), if the result is calculated from attributes using arithmetic operators, functions, boolean conditions, etc.
+	\item \textbf{Aggregated} (\texttt{A}), if the result is an aggregated value, \eg a count or a sum of another value. If a result is both calculated and aggregated (\eg \lstinline{count(x) + count(y)} or \lstinline{avg(x + y)}), it is considered an aggregated result.
+	\item \textbf{Meta} (\texttt{M}), if the result is based on type information, \eg the type of a node.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,14 +104,8 @@ query card in this section.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Load Pattern of Transaction Workload}
- [TODO. This section will be designed further after draft is approved. The design concepts are listed in Section 1.2.2]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Truncation on Hub Vertices}
+\label{sec:truncation-on-hub-vertices}
 [TODO: fix issue 71]
 
 Among the queries, a mechanism is introduced that helps handling the discordance
@@ -99,6 +135,7 @@ is set to \textbf{TIMESTAMP\_DESCENDING} by default.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Read Write Query}
+\label{sec:read-write-query}
 
 In financial scenario, risk control is a kind of hot and significant application.
 Such applications usually detect a specific pattern in form of linked data before
