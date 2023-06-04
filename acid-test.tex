@@ -17,11 +17,10 @@
 
 \begin{quote}
   \textit{This chapter is based on the chapter on "ACID tests" in the 
-          \ldbcsnb(LDBC SNB specification).
-  }
-
-  \textit{The framework and reference implementations of the ACID test suite are
-          available at \url{https://github.com/ldbc/finbench-acid}.
+          \ldbcsnb(LDBC SNB specification).The main difference between
+          this section and \ldbcsnb\xspace is the schema design. The
+          framework and reference implementations of the ACID test suite
+          are available at \url{https://github.com/ldbc/ldbc_finbench_acid}.
   }
 \end{quote}
 
@@ -69,12 +68,6 @@ schema given in \autoref{figure:core-schema}.
 \end{figure}
 
 \section{Atomicity}
-
-\begin{quote}
-  \textit{The main difference between this section and \ldbcsnb\xspace
-          is the schema design.
-  }
-\end{quote}
 
 \emph{Atomicity} ensures that either all of a transaction's actions are 
 performed, or none are. Two atomicity tests have been designed.
@@ -269,12 +262,6 @@ anomaly. Test descriptions provide
 \subsection{Dirty Write}
 \label{sec:dirty-write}
 
-\begin{quote}
-  \textit{The main difference between this section and \ldbcsnb\xspace
-          is the schema design.
-  }
-\end{quote}
-
 Informally, a \anolong{Dirty Write} (Adya's \anomaly{G0}~\cite{adya1999weak})
 occurs when updates by conflicting transactions are interleaved. For example, 
 say $\tx{T_i}$ and $\tx{T_j}$ both modify items $\{x,y\}$. If version $x_i$ 
@@ -347,15 +334,9 @@ RETURN
 \end{figure}
 
 \subsection{Dirty Reads}
-\label{sec:dirty-reads-1}
+\label{sec:dirty-reads}
 
 \subsection*{Aborted Reads}
-
-\begin{quote}
-  \textit{The main difference between this section and \ldbcsnb\xspace
-          is the schema design.
-  }
-\end{quote}
 
 Informally, an \anolong{Aborted Read} (\anomaly{G1a}) anomaly occurs when a 
 transaction reads the updates of a transaction that later aborts.
@@ -421,12 +402,6 @@ RETURN a.balance as aBalance
 
 \subsection*{Intermediate Reads}
 
-\begin{quote}
-  \textit{The main difference between this section and \ldbcsnb\xspace
-          is the schema design.
-  }
-\end{quote}
-
 Informally, an \anolong{Intermediate Read} (Adya's \anomaly{G1b}~\cite{adya1999weak}) 
 anomaly occurs when a transaction reads the intermediate modifications of other 
 transactions.
@@ -458,12 +433,6 @@ The final balance modified by an \tx{G1b $T_\mathrm{W}$} instance is
 to be an even number it must have read an intermediate balance.
 
 \subsection*{Circular Information Flow}
-
-\begin{quote}
-  \textit{The main difference between this section and \ldbcsnb\xspace
-          is the schema design.
-  }
-\end{quote}
 
 Informally, a \anolong{Circular Information Flow} (Adya's \anomaly{G1c}~\cite{adya1999weak})
 anomaly occurs when two transactions affect each other; \ie both transactions
@@ -512,12 +481,6 @@ MATCH (a2:Account {id: $account2Id}) RETURN a2.balance AS account2Balance
 
 \subsection*{Item-Many-Preceders}
 \label{sec:cut-anomalies}
-
-\begin{quote}
-  \textit{The main difference between this section and \ldbcsnb\xspace
-          is the schema design.
-  }
-\end{quote}
 
 Informally, an \anolong{Item-Many-Preceders} (\anomaly{IMP}) 
 anomaly~\cite{DBLP:journals/pvldb/BailisDFGHS13} occurs if a transaction observes 
@@ -589,12 +552,6 @@ RETURN firstRead,
 
 \subsection*{Predicate-Many-Preceders}
 
-\begin{quote}
-  \textit{The main difference between this section and \ldbcsnb\xspace
-          is the schema design.
-  }
-\end{quote}
-
 Informally, a \anolong{Predicate-Many-Preceders} (\anomaly{PMP}) 
 anomaly~\cite{DBLP:journals/pvldb/BailisDFGHS13} occurs if a transaction observes 
 different versions resulting from the same predicate read
@@ -634,12 +591,6 @@ change.
 
 \subsection{Observed Transaction Vanishes}
 \label{sec:observ-trans-vanish}
-
-\begin{quote}
-  \textit{The main difference between this section and \ldbcsnb\xspace
-          is the schema design.
-  }
-\end{quote}
 
 Informally, an \anolong{Observed Transaction Vanishes} (\anomaly{OTV}) 
 anomaly~\cite{DBLP:journals/pvldb/BailisDFGHS13} occurs when a transaction 
@@ -760,12 +711,6 @@ a different transaction and has read across transaction boundaries.
 
 \subsection{Lost Update}
 \label{sec:lost-update}
-
-\begin{quote}
-  \textit{The main difference between this section and \ldbcsnb\xspace
-          is the schema design.
-  }
-\end{quote}
 
 Informally, a \anolong{Lost Update} (\anomaly{LU}) 
 anomaly~\cite{DBLP:journals/tods/BailisFGHS16} occurs when two transactions 
