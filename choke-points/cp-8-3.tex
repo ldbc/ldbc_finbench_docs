@@ -5,7 +5,7 @@
 Along with aggregations, BI workloads often use \emph{window functions}, which
 perform aggregations without grouping input tuples to a single output tuple.  A
 common use case for windowing is \emph{ranking}, \ie selecting the top element
-with additional values in the tuple (nodes, edges or
+with additional values in the tuple (vertices, edges or
 attributes).\footnote{PostgreSQL defines the \lstinline[language=sql]{OVER}
 keyword to use aggregation functions as window functions, and the
 \lstinline[language=sql]{rank()} function to produce numerical ranks, see

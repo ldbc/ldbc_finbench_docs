@@ -3,7 +3,7 @@ operation: simple-read
 number: 8
 title: Company-related information
 description: |
-  Given a *Company*, find all the related nodes.
+  Given a *Company*, find all the related vertices.
 parameters:
   - name: id
     type: ID

@@ -80,9 +80,9 @@ its modifications are not visible.
 
 \paragraph{Test.}
 \begin{enumerate*}[label={(\roman*)}]
-  \item load a graph of \texttt{Account} nodes (\autoref{fig:ainitial}) each
+  \item load a graph of \texttt{Account} vertices (\autoref{fig:ainitial}) each
   with a unique \texttt{id} and a set of \texttt{transHistory};
-  \item a client executes a full graph scan counting the number of nodes, edges
+  \item a client executes a full graph scan counting the number of vertices, edges
   and transHistory (\autoref{fig:acheck}) using the result to initialize a
   counter \texttt{committed};
   \item $N$ transaction instances (\autoref{fig:ac}, \autoref{fig:arb}) of the
@@ -99,7 +99,7 @@ edge and appends a \texttt{newTrans} to \texttt{transHistory}. The \textbf{Atomi
 transaction (\autoref{fig:arb}) randomly selects an \texttt{Account}, appends a
 \texttt{newTrans} and attempts to insert an \texttt{Account} only if it does
 not exist. Note, for \textbf{Atomicity-RB} if the query API does not offer a
-\texttt{ROLLBACK} statement constraints such as node uniqueness can be utilized
+\texttt{ROLLBACK} statement constraints such as vertice uniqueness can be utilized
 to trigger an abort.
 
 \begin{figure}[htb]
@@ -181,7 +181,7 @@ discussed before each test is described.
 Transactions consist of an ordered sequence of read and write operations to an
 arbitrary set of data items, book-ended by a \texttt{BEGIN} operation and a
 \texttt{COMMIT} or an \texttt{ABORT} operation. In a graph database data items
-are nodes, edges and properties. The set of items a transaction reads from and
+are vertices, edges and properties. The set of items a transaction reads from and
 writes to is termed its \emph{item read set} and \emph{item write set}. Each
 write creates a \emph{version} of an item, which is assigned a unique timestamp
 taken from a totally ordered set (\eg natural numbers) version $i$ of item $x$
@@ -219,7 +219,7 @@ Their definitions are as follows:
 
 
 Using these definitions, from a history $H$ a \emph{direct serialization graph}
-$\textit{DSG}(H)$ is constructed. Each node in the $\textit{DSG}$ corresponds to
+$\textit{DSG}(H)$ is constructed. Each vertice in the $\textit{DSG}$ corresponds to
 a committed transaction and edges correspond to the types of direct conflicts
 between transactions. Anomalies can then be defined by stating properties about
 the $\textit{DSG}$.
@@ -274,7 +274,7 @@ A history $H$ exhibits phenomenon \anomaly{G0} if $\textit{DSG}(H)$ contains a
 directed cycle consisting entirely of write-dependency edges.
 
 \paragraph{Test.}
-Load a test graph containing pairs of \texttt{Account} nodes connected by a
+Load a test graph containing pairs of \texttt{Account} vertices connected by a
 \texttt{transfer} edge. Assign each \texttt{Account} a unique \texttt{id} and
 each \texttt{Account} and \texttt{transfer} edge a \texttt{versionHistory}
 property of type list (initially empty). During the execution period, write
@@ -347,7 +347,7 @@ transaction $\tx{T_a}$ and a committed transaction $\tx{T_c}$ such that
 $\tx{T_c}$ reads a version written by $\tx{T_a}$.
 
 \paragraph{Test.}
-Load a test graph containing only \texttt{Account} nodes into the database.
+Load a test graph containing only \texttt{Account} vertices into the database.
 Assign each \texttt{Account} a unique \texttt{id} and \texttt{balance}
 initialized to 99 (or any odd number). During execution, write clients execute
 a sequence of \tx{G1a $T_\mathrm{W}$} instances, \autoref{fig:ar1}. Selecting a
@@ -413,7 +413,7 @@ transaction $\tx{T_j}$, and $\tx{T_j}$ also wrote a version $x_n$ such that
 $m < n$ in $x$'s version order.
 
 \paragraph{Test.}
-Load a test graph containing only \texttt{Account} nodes into the database.
+Load a test graph containing only \texttt{Account} vertices into the database.
 Assign each \texttt{Account} a unique \texttt{id} and \texttt{balance}
 initialized to 99 (or any odd number). During execution, write clients execute a
 sequence of \tx{G1b $T_\mathrm{W}$} instances, \autoref{fig:ir1}. This
@@ -444,11 +444,11 @@ A history $H$ exhibits phenomenon \anomaly{G1c} if $\textit{DSG}(H)$ contains a
 directed cycle that consists entirely of read-dependency and write-dependency edges.
 
 \paragraph{Test.}
-Load a test graph containing only \texttt{Account} nodes into the database.
+Load a test graph containing only \texttt{Account} vertices into the database.
 Assign each \texttt{Account} a unique \texttt{id} and \texttt{balance}
 initialized to 0. Read-write clients are required for this test, executing a
 sequence of \tx{G1c $T_\mathrm{RW}$}, \autoref{fig:cif1}. This transaction
-selects two different \texttt{Account} nodes, setting the \texttt{balance} of
+selects two different \texttt{Account} vertices, setting the \texttt{balance} of
 one \texttt{Account} to the transaction ID and retrieving the \texttt{balance}
 from the other. Note, transaction IDs are assumed to be globally unique.
 Transaction results are stored in format \texttt{(txn.id, balanceRead)} and
@@ -485,7 +485,7 @@ MATCH (a2:Account {id: $account2Id}) RETURN a2.balance AS account2Balance
 Informally, an \anolong{Item-Many-Preceders} (\anomaly{IMP})
 anomaly~\cite{DBLP:journals/pvldb/BailisDFGHS13} occurs if a transaction observes
 multiple versions of the same item (\eg transaction $\tx{T_i}$ reads versions
-$x_1$ and $x_2$). In a graph database, this can be multiple reads of a node, edge,
+$x_1$ and $x_2$). In a graph database, this can be multiple reads of a vertice, edge,
 property or label. Local transactions (involving a single data item) occur
 frequently in graph databases, \eg in \emph{``Find properties of entities''}
 \queryRefCard{transaction-simple-read-01}{TSR}{1}.
@@ -496,7 +496,7 @@ $\tx{T_i}$ such that $\tx{T_i}$ directly \emph{item-read-depends} on $x$ by more
 than one other transaction.
 
 \paragraph{Test.}
-Load a test graph containing \texttt{Account} nodes. Assign each \texttt{Account}
+Load a test graph containing \texttt{Account} vertices. Assign each \texttt{Account}
 a unique \texttt{id} and \texttt{balance} initialized to 1. During execution
 write clients execute a sequence of \tx{IMP $T_\mathrm{W}$} instances, \autoref{fig:ic1}.
 Selecting a random \texttt{id} and setting a new balance (globally unique) of the
@@ -564,7 +564,7 @@ Pattern matching is a common predicate read operation in a graph database.
 A history $H$ exhibits the phenomenon \anomaly{PMP} if, for all predicate-based reads $r_i(P_i : \textit{Vset}(P_i))$ and $r_j(P_j : \textit{Vset}(P_j))$ in $\tx{T_k}$ such that the logical ranges of $P_i$ and $P_j$ overlap (call it $P_o$), the set of transactions that change the matches of $P_o$ for $r_i$ and $r_j$ differ.
 
 \paragraph{Test.}
-Load a test graph containing \texttt{Account} nodes. Assign each \texttt{Account}
+Load a test graph containing \texttt{Account} vertices. Assign each \texttt{Account}
 a unique \texttt{id}. During execution write clients execute a sequence of
 \tx{PMP $T_\mathrm{W}$} instances, inserting a \texttt{transfer} edge between a
 randomly selected pair of \texttt{Accounts}, shown in \autoref{fig:pc1}.
@@ -599,8 +599,8 @@ observes part of another transaction's updates but not all of them
 Before formally defining \anomaly{OTV} the \emph{Unfolded Serialization Graph (USG)}
 must be introduced~\cite{adya1999weak}. The $\textit{USG}$ is specified for an
 individual transaction, $\tx{T_i}$ and a history, $H$ and is denoted by
-$\textit{USG}(H,\tx{T_i})$. In a \emph{USG} the $\tx{T_i}$ node is split into
-multiple nodes, one for each action read $r_i(\cdot)$ or  write $w_i(\cdot)$
+$\textit{USG}(H,\tx{T_i})$. In a \emph{USG} the $\tx{T_i}$ vertice is split into
+multiple vertices, one for each action read $r_i(\cdot)$ or  write $w_i(\cdot)$
 within the transaction. The dependency edges are now incident on the relevant
 event of $\tx{T_i}$. Additionally, actions within $\tx{T_i}$ are connected by
 an \emph{order edge} \eg if $T_i$ reads object $y_j$ then immediately writes on
@@ -621,7 +621,7 @@ Additionally, $\tx{T_i}$'s read from $y$ precedes its read from $x$.
 Load a test graph containing a set of cycles of length 4 of \texttt{Accounts}
 connected by \texttt{transfer} edges. Assign each \texttt{Account} an \texttt{id},
 and \texttt{balance} property (initialized to 1). Note, \texttt{id} must be
-unique across nodes. During execution write clients select an \texttt{id} and
+unique across vertices. During execution write clients select an \texttt{id} and
 executes a sequence of \tx{OTV $T_\mathrm{W}$} instances, \autoref{fig:otvfr1}.
 This transaction effectively creates a new version of a given cycle. Concurrently
 read-clients execute a sequence of \tx{OTV $T_\mathrm{R}$} instances, \autoref{fig:otvfr2}.
@@ -704,7 +704,7 @@ should be equal. Otherwise, an \anomaly{FR} anomaly has occurred.
 \texttt{balance} properties on each \texttt{Account}. When \tx{FR $T_\mathrm{R}$}
 observes a \texttt{balance} every subsequent read in that cycle should read the
 \emph{same} \texttt{balance} as \tx{FR $T_\mathrm{W}$} (\autoref{fig:otvfr1})
-installs the same \texttt{balance} for all \texttt{Account} nodes in the cycle.
+installs the same \texttt{balance} for all \texttt{Account} vertices in the cycle.
 Thus, if it observes a different \texttt{balance} it has observed the effect of
 a different transaction and has read across transaction boundaries.
 
@@ -722,7 +722,7 @@ directed cycle having one or more anti-dependency edges and all edges are induce
 by the same data item $x$.
 
 \paragraph{Test.}
-Load a test graph containing \texttt{Account} nodes. Assign each \texttt{Account}
+Load a test graph containing \texttt{Account} vertices. Assign each \texttt{Account}
 a unique \texttt{id} and a property \texttt{numTransferred} (initialized to 0).
 During execution write clients execute a sequence of \tx{LU $T_\mathrm{W}$}
 instances, \autoref{fig:lu1}. Choosing a random \texttt{Account} and incrementing
@@ -784,7 +784,7 @@ A history $H$ exhibits \anomaly{WS} if $\textit{DSG}(H)$ contains a directed
 cycle having one or more anti-dependency edges.
 
 \paragraph{Test.}
-Load a test graph containing $n$ pairs of \texttt{Account} nodes
+Load a test graph containing $n$ pairs of \texttt{Account} vertices
 \texttt{(a1, a2)} for $k = 0, \ldots, n-1$, where the $k$th pair gets IDs
 \texttt{a1.id = 2*k+1} and \texttt{a2.id = 2*k+2}, and balances
 \texttt{a1.balance = 70} and \texttt{a2.balance = 80}. There is a constraint:
@@ -863,7 +863,7 @@ in the performance run. The durability test is executed as follows:
                 Note, \texttt{shutdown -h now or shutdown -r now} are graceful;
           \item \emph{Others}: Depends on discussion.
         \end{enumerate}
-  \item Restart the database system, retrieve the last entities (nodes or edges)
+  \item Restart the database system, retrieve the last entities (vertices or edges)
         updated by the last update operations before the crash from the driver
         logs;
   \item Issue read queries to get the value of the last entities. If the returned
@@ -893,7 +893,7 @@ LDBC FinBench driver):
         or edge. i.e. add property \emph{balance} for \emph{account}, which
         maintains the balance of the given account according to the associated
         transactions, and at the same time, the update queries need to be modified
-        to maintain the balance. You can also design other constraints(i.e. node
+        to maintain the balance. You can also design other constraints(i.e. vertice
         uniqueness);
   \item Execute the LDBC FinBench transaction workload;
   \item After 1 hour of execution, pause the execution of the workload;
