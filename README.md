@@ -21,7 +21,7 @@ It is a specification **DRAFT** for LDBC Financial Benchmark in LaTeX.
 
 To get consistent formatting, query cards are generated from query specifications defined in [YAML](http://yaml.org/) format. 
 
-This is a necessary step to compile to the document. You need to install,
+This is a necessary step to compile the document. You need to install,
 
 * Pandoc
 * Python3 and related required packages
@@ -29,14 +29,3 @@ This is a necessary step to compile to the document. You need to install,
 ### Building the document
 
 To build the document locally, run `make all` or `make remake`. All actions are defined in Makefile.
-
-## TODO
-
-* Finish Design
-* Add bib
-* Fix warnings when latex compiled to pdf
-* Add dataType for Path
-
-## Main Contributor(so far)
-
-* Shipeng QI @ Ant Group Co., Ltd

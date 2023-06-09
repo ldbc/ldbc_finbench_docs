@@ -98,29 +98,23 @@ query card in this section.
 
 \section{Truncation on Hub Vertices}
 \label{sec:truncation-on-hub-vertices}
-[TODO: fix issue 71]
 
-Among the queries, a mechanism is introduced that helps handle the discordance
-between the tight latency requirements
-and power-law distribution of data in the system, where the degree of hub vertex may
-reach million and even billion scales, especially when traversing on the graph.
-The mechanism is to do truncation on the edges when traversing out from the
-current vertex, which is in compliance with the discordance in fact. However, we
-would like to introduce this mechanism because the high degree of hub vertex is
-a common feature not only in financial scenarios but also in other scenarios,
-which is an inevitable challenge that systems face. The mechanism is also called
-\textbf{PER\_NODE\_LIMIT}. To solve the problem, systems can either
-improve the performance to satisfy the computation or just reduce the
-complexity to meet the latency requirements, where truncation is a common and
-useful mechanism. To maintain the consistency of the results, a sort order has
-to be specified when truncating. Since in financial graphs, users prefer newer
-data in business. It is reasonable that attribute, \textbf{timestamp}, in the
-edges is used as the sort order in truncation. In the following queries, some
-parameters are added to describe the behavior of truncation reducing the
-complexity including the \textbf{TRUNCATION\_LIMIT} and \textbf{TRUNCATION\_ORDER}.
-\textbf{TRUNCATION\_ORDER} can be \textbf{TIMESTAMP\_ASCENDING, TIMESTAMP\_DESCENDING,
-AMOUNT\_ASCENDING, AMOUNT\_DESCENDING}. At most time, \textbf{TRUNCATION\_ORDER}
-is set to \textbf{TIMESTAMP\_DESCENDING} by default.
+The high degree of hub vertex is a common feature not only in financial scenarios but also in other scenarios, which is
+an inevitable challenge that systems face. To solve the problem, systems can either improve the performance to satisfy
+the computation or just reduce the complexity to meet the latency requirements.
+
+The mechanism is to do truncation on the edges when traversing out from the current vertex, which complies with the
+discordance. Truncating less-important edges is a useful and practical mechanism to handle the discordance between the
+tight latency requirements and hub vertices in the system, where the degree of hub vertex may reach a million and even
+billion scales, especially when traversing the graph. To maintain the consistency of the results, a sort order has
+to be specified when truncating. Since in financial graphs, users prefer newer data in business. It is reasonable that
+attribute, \emph{timestamp}, in the edges is used as the sort order in truncation. With the sort order, truncation is
+namely a deterministic sampling in traversing.
+
+In the following queries, some parameters are added to describe the behavior of truncation reducing the complexity
+including the \emph{TRUNCATION\_LIMIT} and \emph{TRUNCATION\_ORDER}. \emph{TRUNCATION\_ORDER} can be
+\emph{TIMESTAMP\_ASCENDING, TIMESTAMP\_DESCENDING, AMOUNT\_ASCENDING, AMOUNT\_DESCENDING}. At most time,
+\emph{TRUNCATION\_ORDER} is set to \emph{TIMESTAMP\_DESCENDING} by default.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
