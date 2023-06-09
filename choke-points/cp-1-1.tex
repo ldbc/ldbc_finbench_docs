@@ -3,7 +3,7 @@
 This choke point tests the ability of the query optimizer to exploit the
 interesting orders induced by some operators. Apart from clustered indices
 providing key order, other operators also preserve or even induce tuple
-orderings. Sort-based operators create new orderings, typically the probe-side
+orderings. Sort-based operators create new orderings, typically on the probe-side
 of a hash join conserves its order, etc.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

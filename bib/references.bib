@@ -244,7 +244,7 @@
                Thomas Neumann and
                Orri Erling},
   title     = {{TPC-H} Analyzed: {H}idden Messages and Lessons Learned from an Influential Benchmark},
-  xxseries    = {Lecture Notes in Computer Science},
+  xxseries  = {Lecture Notes in Computer Science},
   volume    = {8391},
   pages     = {61--76},
   publisher = {Springer},
@@ -264,9 +264,9 @@
                Ion Stoica},
   title     = {Scalable Atomic Visibility with {RAMP} Transactions},
   journal   = {{ACM} Trans. Database Syst.},
-  xxvolume    = {41},
-  xxnumber    = {3},
-  xxpages     = {15:1--15:45},
+  xxvolume  = {41},
+  xxnumber  = {3},
+  xxpages   = {15:1--15:45},
   year      = {2016},
   url       = {https://doi.org/10.1145/2909870},
   doi       = {10.1145/2909870},
@@ -276,24 +276,24 @@
 }
 
 @phdthesis{adya1999weak,
-  title={Weak consistency: {A} generalized theory and optimistic implementations for distributed transactions},
-  author={Adya, Atul},
-  year={1999},
-  xxschool={Massachusetts Institute of Technology},
-  school={MIT},
-  type = {{Ph.D. dissertation}},
-  xxnote = "\url{http://pmg.csail.mit.edu/papers/adya-phd.pdf}",
+  title    = {Weak consistency: {A} generalized theory and optimistic implementations for distributed transactions},
+  author   = {Adya, Atul},
+  year     = {1999},
+  xxschool = {Massachusetts Institute of Technology},
+  school   = {MIT},
+  type     = {{Ph.D. dissertation}},
+  xxnote   = {\url{http://pmg.csail.mit.edu/papers/adya-phd.pdf}}
 }
 
 @incollection{Waudby2020,
-  author = {Waudby, Jack and Ezhilchelvan, Paul and Webber, Jim and Mitrani, Isi},
-  title = {Preserving Reciprocal Consistency in Distributed Graph Databases},
-  year = {2020},
-  xxisbn = {9781450375245},
+  author    = {Waudby, Jack and Ezhilchelvan, Paul and Webber, Jim and Mitrani, Isi},
+  title     = {Preserving Reciprocal Consistency in Distributed Graph Databases},
+  year      = {2020},
+  xxisbn    = {9781450375245},
   publisher = {ACM},
-  url = {https://doi.org/10.1145/3380787.3393675},
-  doi = {10.1145/3380787.3393675},
-  booktitle = {{PaPoC} at {EuroSys}},
+  url       = {https://doi.org/10.1145/3380787.3393675},
+  doi       = {10.1145/3380787.3393675},
+  booktitle = {{PaPoC} at {EuroSys}}
 }
 
 @article{DBLP:journals/tods/FeketeLOOS05,
@@ -317,18 +317,18 @@
 
 @article{DBLP:journals/pvldb/BailisDFGHS13,
   author    = {Peter Bailis and others},
-  xxauthor    = {Peter Bailis and
+  xxauthor  = {Peter Bailis and
                Aaron Davidson and
                Alan Fekete and
                Ali Ghodsi and
                Joseph M. Hellerstein and
                Ion Stoica},
   title     = {Highly Available Transactions: {V}irtues and Limitations},
-  xxjournal   = {Proc. {VLDB} Endow.},
+  xxjournal = {Proc. {VLDB} Endow.},
   journal   = {VLDB},
-  xxvolume    = {7},
-  xxnumber    = {3},
-  xxpages     = {181--192},
+  xxvolume  = {7},
+  xxnumber  = {3},
+  xxpages   = {181--192},
   year      = {2013},
   url       = {http://www.vldb.org/pvldb/vol7/p181-bailis.pdf},
   doi       = {10.14778/2732232.2732237},
@@ -338,15 +338,15 @@
 }
 
 @misc{ldbc_byelaws,
-  title={{Byelaws of the Linked Data Benchmark Council v1.3}},
-  author={LDBC},
-  year={2021},
-  note={\url{https://ldbcouncil.org/docs/LDBC.Byelaws.1.3.ADOPTED.2021-01-14.pdf}}
+  title  = {{Byelaws of the Linked Data Benchmark Council v1.3}},
+  author = {LDBC},
+  year   = {2021},
+  note   = {\url{https://ldbcouncil.org/docs/LDBC.Byelaws.1.3.ADOPTED.2021-01-14.pdf}}
 }
 
 @article{DBLP:journals/sosym/SemerathBHSV17,
   author    = {Oszk{\'{a}}r Semer{\'{a}}th and others},
-  xxauthor    = {Oszk{\'{a}}r Semer{\'{a}}th and
+  xxauthor  = {Oszk{\'{a}}r Semer{\'{a}}th and
                {\'{A}}gnes Barta and
                {\'{A}}kos Horv{\'{a}}th and
                Zolt{\'{a}}n Szatm{\'{a}}ri and
@@ -399,4 +399,22 @@
   timestamp = {Sun, 27 May 2018 19:31:52 +0200},
   biburl    = {https://dblp.org/rec/bib/conf/sigmod/FrancisGGLLMPRS18},
   bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{10.1145/2274576.2274585,
+  author    = {Libkin, Leonid and Vrgo\v{c}, Domagoj},
+  title     = {Regular Path Queries on Graphs with Data},
+  year      = {2012},
+  isbn      = {9781450307918},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/2274576.2274585},
+  doi       = {10.1145/2274576.2274585},
+  abstract  = {Graph data models received much attention lately due to applications in social networks, semantic web, biological databases and other areas. Typical query languages for graph databases retrieve their topology, while actual data stored in them is usually queried using standard relational mechanisms.Our goal is to develop techniques that combine these two modes of querying, and give us query languages that can ask questions about both data and topology. As the basic querying mechanism we consider regular path queries, with the key difference that conditions on paths between nodes now talk not only about labels but also specify how data changes along the path. Paths that combine edge labels with data values are closely related to data words, so for stating conditions in queries, we look at several data-word formalisms developed recently. We show that many of them immediately lead to intractable data complexity for graph queries, with the notable exception of register automata, which can specify many properties of interest, and have NLogspace data and Pspace combined complexity. As register automata themselves are not easy to use in querying, we define two types of extensions of regular expressions that are more user-friendly, and develop query evaluation techniques for them. For one class, regular expressions with memory, we achieve the same bounds as for automata, and for the other class, regular expressions with equality, we also obtain tractable combined complexity of query evaluation. In addition, we show that results extends to analogs of conjunctive regular path queries.},
+  booktitle = {Proceedings of the 15th International Conference on Database Theory},
+  pages     = {74–85},
+  numpages  = {12},
+  keywords  = {regular expressions, register automata, data values, regular path queries, graph databases},
+  location  = {Berlin, Germany},
+  series    = {ICDT '12}
 }
