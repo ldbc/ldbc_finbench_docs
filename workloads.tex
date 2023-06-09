@@ -16,15 +16,15 @@ Additionally, queries returning multiple results specify \emph{sorting criteria}
 We use the following notation:
 
 \begin{itemize}
-	\item \textbf{Node type}: node type in the dataset.
+	\item \textbf{Vertex type}: vertice type in the dataset.
 		One word, possibly constructed by appending multiple words together, starting with an uppercase character and following the camel case notation,
         \eg \textsf{TagClass} represents an entity of type ``TagClass''.
     \item \textbf{Edge type}: edge type in the dataset.
         One word, possibly constructed by appending multiple words together, starting with a lowercase character and following the camel case notation
         \eg \mbox{\textsf{workAt}} represents an edge of type ``workAt''.
-    \item \textbf{Attribute}: attribute of a node or an edge in the dataset.
+    \item \textbf{Attribute}: attribute of a vertice or an edge in the dataset.
         One word, possibly constructed by appending multiple words together, starting with a lowercase character and following the camel case notation,
-        and prefixed by a ``.'' to dereference the node/edge,
+        and prefixed by a ``.'' to dereference the vertice/edge,
         \eg \textsf{person.firstName} refers to ``firstName'' attribute on the ``person'' entity,
         and \mbox{\textsf{studyAt.classYear}} refers to ``classYear'' attribute on the ``studyAt'' edge.
     \item \textbf{Unordered Set}: an unordered collection of distinct elements.
@@ -47,7 +47,7 @@ Results are categorized according to their source of origin:
 	\item \textbf{Raw} (\texttt{R}), if the result attribute is returned with an unmodified value and type.
 	\item \textbf{Calculated} (\texttt{C}), if the result is calculated from attributes using arithmetic operators, functions, boolean conditions, etc.
 	\item \textbf{Aggregated} (\texttt{A}), if the result is an aggregated value, \eg a count or a sum of another value. If a result is both calculated and aggregated (\eg \lstinline{count(x) + count(y)} or \lstinline{avg(x + y)}), it is considered an aggregated result.
-	\item \textbf{Meta} (\texttt{M}), if the result is based on type information, \eg the type of a node.
+	\item \textbf{Meta} (\texttt{M}), if the result is based on type information, \eg the type of a vertice.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
