@@ -34,19 +34,19 @@ compliance within the FinBench Transaction workflow.
 
 This chapter presents the design of an implementation-agnostic ACID-compliance
 test suite for the Transaction workload\footnote{We acknowledge verifying 
-ACID-compliance with a finite set of tests is not possible. However, the goal is
+ACID compliance with a finite set of tests is not possible. However, the goal is
 not an exhaustive quality assurance test of a system's safety properties but 
 rather to demonstrate that ACID guarantees are supported.}. Our guiding design
 principle was to be agnostic of system-level implementation details, relying 
 solely on client observations to determine the occurrence of non-transactional 
-behaviour. Thus all systems can be subjected to the same tests and fair 
+behavior. Thus all systems can be subjected to the same tests and fair 
 comparisons between FinBench Transaction performance results can be drawn. Tests
 are described in the context of a graph database employing the property graph data 
 model~\cite{DBLP:journals/csur/AnglesABHRV17}. Reference implementations are 
 given in Cypher~\cite{DBLP:conf/sigmod/FrancisGGLLMPRS18}, the \emph{de facto} 
 standard graph query language.
 
-Particular emphasis is given to testing isolation, covering 10~known anomalies.
+Particular emphasis is given to testing isolation, covering ~10 known anomalies.
 A conscious decision was made to keep tests relatively lightweight, as to not 
 add significant overhead to the benchmarking process.
 
@@ -156,11 +156,11 @@ CREATE (a2:Account {id: $account2Id})
 The gold standard isolation level is \level{Serializability}, which offers 
 protection against all possible \emph{anomalies} that can occur from the 
 concurrent execution of transactions. Anomalies are occurrences of 
-non-serializable behaviour. Providing \level{Serializability} can be detrimental
+non-serializable behavior. Providing \level{Serializability} can be detrimental
 to performance~\cite{DBLP:conf/ds/GrayLPT76}. Thus systems offer numerous weak
 isolation levels such as \level{Read Committed} and \level{Snapshot Isolation} 
 that allow a higher degree of concurrency at the cost of potential 
-non-serializable behaviour. As such, isolation levels are defined in terms of 
+non-serializable behavior. As such, isolation levels are defined in terms of 
 the anomalies they prevent~\cite{DBLP:conf/ds/GrayLPT76,DBLP:journals/pvldb/BailisDFGHS13}.
 \autoref{figure:isolation} relates isolation levels to the anomalies they proscribe.
 
@@ -168,7 +168,7 @@ the anomalies they prevent~\cite{DBLP:conf/ds/GrayLPT76,DBLP:journals/pvldb/Bail
 % TODO: add isolation level requirement
 To allow fair comparison systems must disclose the isolation level used
 during benchmark execution. The purpose of these isolation tests is to verify 
-that the claimed isolation level matches the expected behaviour. To this end, 
+that the claimed isolation level matches the expected behavior. To this end, 
 tests have been developed for each anomaly presented 
 in~\cite{DBLP:journals/tods/BailisFGHS16}. Formal definitions for each anomaly 
 are reproduced from~\cite{adya1999weak,DBLP:journals/tods/BailisFGHS16} using 
@@ -187,7 +187,7 @@ write creates a \emph{version} of an item, which is assigned a unique timestamp
 taken from a totally ordered set (\eg natural numbers) version $i$ of item $x$ 
 is denoted $x_i$. All data items have an initial \emph{unborn} version $\bot$ 
 produced by an initial transaction $\tx{T_{\bot}}$. The unborn version is 
-located at the start of each item's version order. An execution of transactions
+located at the start of each item's version order. Execution of transactions
 on a database is represented by a \emph{history}, H, consisting of
 \begin{enumerate*}[label={(\roman*)}]
   \item an ordered sequence of read and write operations of each transaction,
@@ -226,7 +226,7 @@ the $\textit{DSG}$.
 
 The above \emph{item-based} model can be extended to handle 
 \emph{predicate-based} operations~\cite{adya1999weak}. Database operations are 
-frequently performed on set of items provided a certain condition called the 
+frequently performed on a set of items provided a certain condition called the 
 \emph{predicate}, $P$ holds. When a transaction executes a read or write based 
 on a predicate $P$, the database selects a version for each item to which $P$ 
 applies, this is called the version set of the predicate-based denoted as 
@@ -241,14 +241,14 @@ Isolation tests begin by loading a \emph{test graph} into the database.
 Configurable numbers of \emph{write clients} and \emph{read clients} then 
 execute a sequence of transactions on the database for some configurable time 
 period. After execution, results from read clients are collected and an 
-\emph{anomaly check} is performed. In some tests an additional full graph scan 
+\emph{anomaly check} is performed. In some tests, an additional full graph scan 
 is performed after the execution period in order to collect information required 
 for the anomaly check.
 
-The guiding principle behind test design was the preservation of data item's 
+The guiding principle behind test design was the preservation of data items 
 version history -- the key ingredient needed in the system model formalization 
 which is often not readily available to clients, if preserved at all. Several 
-anomalies are closely related, tests therefore had to be constructed such that 
+anomalies are closely related, therefore, tests had to be constructed such that 
 other anomalies could not interfere with or mask the detection of the targeted 
 anomaly. Test descriptions provide
 \begin{enumerate*}[label={(\roman*)}]
@@ -292,7 +292,7 @@ For each \texttt{Account} pair in the test graph:
   \item prune each \texttt{versionHistory} list to remove any version numbers 
         that do not appear in all lists; needed to account for interference from
         \anolong{Lost Update} anomalies (\autoref{sec:lost-update}),
-  \item compare the contents of each entities's \texttt{versionHistory} list
+  \item compare the contents of each entities' \texttt{versionHistory} list
         element-wise,
   \item if lists do not agree, a \anomaly{G0} anomaly has occurred.
 
@@ -305,7 +305,7 @@ history of each entity in the \texttt{Account} pair. In a system that prevents
 \anomaly{G0}, each entity of the \texttt{Account} pair should experience the 
 \emph{same} updates, in the \emph{same} order. Hence, each position in the 
 \texttt{versionHistory} lists should be equivalent. The additional pruning step 
-is needed as \anolong{Lost Updates} overwrite a version, effectively erasing it 
+is needed as \anolong{Lost Updates} overwrites a version, effectively erasing it 
 from the history of a data item.
 
 \begin{figure}[htb]
@@ -456,7 +456,7 @@ collected after execution.
 
 \paragraph{Anomaly check.}
 For each result, check the result of the transaction the \texttt{balanceRead} 
-corresponds to, did not read the transaction of that result. Otherwise a 
+corresponds to, did not read the transaction of that result. Otherwise, a 
 \anomaly{G1c} anomaly has occurred.
 
 \paragraph{Why it works.}
@@ -485,7 +485,7 @@ MATCH (a2:Account {id: $account2Id}) RETURN a2.balance AS account2Balance
 Informally, an \anolong{Item-Many-Preceders} (\anomaly{IMP}) 
 anomaly~\cite{DBLP:journals/pvldb/BailisDFGHS13} occurs if a transaction observes 
 multiple versions of the same item (\eg transaction $\tx{T_i}$ reads versions 
-$x_1$ and $x_2$). In a graph database this can be multiple reads of a node, edge, 
+$x_1$ and $x_2$). In a graph database, this can be multiple reads of a node, edge, 
 property or label. Local transactions (involving a single data item) occur 
 frequently in graph databases, \eg in \emph{``Find properties of entities''} 
 \queryRefCard{transaction-simple-read-01}{TSR}{1}.
@@ -502,7 +502,7 @@ write clients execute a sequence of \tx{IMP $T_\mathrm{W}$} instances, \autoref{
 Selecting a random \texttt{id} and setting a new balance (globally unique) of the 
 \texttt{Account}. Concurrently read clients execute a sequence of \tx{IMP $T_\mathrm{R}$} 
 instances, \autoref{fig:ic2}. Performing multiple reads of the same \texttt{Account}; 
-We can injected some wait time between reads to make conditions more favourable 
+We can inject some wait time between reads to make conditions more favorable 
 for detecting an anomaly. Both reads within an \tx{IMP $T_\mathrm{R}$} 
 transaction are returned, stored and collected after execution.
 
@@ -572,8 +572,8 @@ Concurrently read clients execute a sequence of \tx{PMP $T_\mathrm{R}$}
 instances, \autoref{fig:pc2}. Performing multiple reads of the pattern 
 \texttt{(a2:Account)<-[:transfer]-(a1:Account)} and counting the number of 
 \texttt{transfer} edges; successive reads can be separated by some artificially 
-injected wait time to make conditions more favourable for detecting an anomaly.
-Both predicate reads within a \tx{PMP $T_\mathrm{R}$} transaction are returned, 
+injected wait time to make conditions more favorable for detecting an anomaly.
+Both predicates reads within a \tx{PMP $T_\mathrm{R}$} transaction are returned, 
 stored and collected after test execution.
 
 \paragraph{Anomaly check.}
@@ -640,7 +640,7 @@ equal to the minimum \texttt{balance} in the \texttt{secondRead}. Otherwise, an
 cycle once a transaction has observed some \texttt{balance} it should 
 \emph{at least} observe this same balance for every remaining entity in the cycle.
 Unfortunately, this cannot be deduced from a single read of the cycle as results
-from matching cycles often does not preserve the order in which graph entities 
+from matching cycles often do not preserve the order in which graph entities 
 were read. This is solved by making multiple reads of the cycle. The maximum 
 \texttt{balance} of the \texttt{firstRead} determines the minimum 
 \texttt{balance} of \texttt{secondRead}. If this condition is violated then a 
@@ -718,7 +718,7 @@ concurrently attempt to make conditional modifications to the same data item(s).
 
 \paragraph{Definition.}
 A history $H$ exhibits phenomenon \anomaly{LU} if $\textit{DSG}(H)$ contains a 
-directed cycle having one or more antidependency edges and all edges are induced
+directed cycle having one or more anti-dependency edges and all edges are induced
 by the same data item $x$.
 
 \paragraph{Test.}
@@ -729,7 +729,7 @@ instances, \autoref{fig:lu1}. Choosing a random \texttt{Account} and incrementin
 its \texttt{numTransferred} property. Clients store local counters 
 (\texttt{expNumTransferred}) for each \texttt{Account}, which is incremented 
 each time an \texttt{Account} is selected \emph{and} the \tx{LU $T_\mathrm{W}$} 
-instance successfully commits. After the execution period the 
+instance successfully commits. After the execution period, the 
 \texttt{numTransferred} is retrieved for each \texttt{Account} using 
 \tx{LU $T_\mathrm{R}$} in \autoref{fig:lu2} and \texttt{expNumTransferred} are 
 pooled from write clients for each \texttt{Account}.
@@ -781,7 +781,7 @@ in~\cite{adya1999weak,DBLP:journals/tods/FeketeLOOS05}.
 
 \paragraph{Definition.}
 A history $H$ exhibits \anomaly{WS} if $\textit{DSG}(H)$ contains a directed 
-cycle having one or more antidependency edges.
+cycle having one or more anti-dependency edges.
 
 \paragraph{Test.}
 Load a test graph containing $n$ pairs of \texttt{Account} nodes 
@@ -845,14 +845,14 @@ the ACID properties, we provide a short overview of consistency and durability.
 is part of the auditing process. The durability test requires the execution of 
 the LDBC FinBench transaction workload and uses the LDBC FinBench driver. Note, 
 the database and the driver must be configured in the same way as would be used 
-in the performance run. Durability test is executed as follows:
+in the performance run. The durability test is executed as follows:
 
 \begin{enumerate}[label={(\roman*)}]
   \item Execute the LDBC FinBench transaction workload;
   \item After 2 hours of execution, terminate all database processes 
         \texttt{ungracefully}. This can be done by shutting down the entire 
         machines or killing processes forcefully. Note, the ungraceful shutdown
-        on difference machines may differ:
+        on different machines may differ:
         \begin{enumerate}[label={(\alph*)}]
           \item \emph{Amazon Web Services}: Using the \texttt{AWS CLI} to force 
                 stop the instance: 
@@ -866,7 +866,7 @@ in the performance run. Durability test is executed as follows:
   \item Restart the database system, retrieve the last entities (nodes or edges)
         updated by the last update operations before the crash from the driver 
         logs;
-  \item Issue read queries to get the value of last entities, if the returned 
+  \item Issue read queries to get the value of the last entities. If the returned 
         data matches the committed data according to the logs, the system
         passes the durability test.
 \end{enumerate}
@@ -884,15 +884,15 @@ graph-specific constraints, such as (partial) compliance to a schema formulated
 on top of property graphs, rules that guide the presence of labels or structural
 graph constraints such as connectedness of the graph, absence of cycles, or 
 arbitrary well-formedness constraints~\cite{DBLP:journals/sosym/SemerathBHSV17}.
-Here we provide an example of consistency test (the consistency test also 
+Here we provide an example of a consistency test (the consistency test also 
 requires the execution of the LDBC FinBench transaction workload and uses the 
 LDBC FinBench driver):
 
 \begin{enumerate}[label={(\roman*)}]
-  \item Add some precomputed properties (similar to materialized views) for node
+  \item Add some precomputed properties (similar to materialized views) for vertex
         or edge. i.e. add property \emph{balance} for \emph{account}, which 
         maintains the balance of the given account according to the associated 
-        transactions, and at the same time, the update queries needs to be modified
+        transactions, and at the same time, the update queries need to be modified
         to maintain the balance. You can also design other constraints(i.e. node 
         uniqueness);
   \item Execute the LDBC FinBench transaction workload;

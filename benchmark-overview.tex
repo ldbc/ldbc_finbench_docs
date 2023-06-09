@@ -4,7 +4,7 @@
 \section{Practice basis}
 
 The task force members design \ldbcfinbench with their rich practical experience in
-financial industry based on a comprehensive survey on financial scenarios including
+financial industry based on a comprehensive survey of financial scenarios including
 Risk Control, AML (Anti-Money Laundering), KYC (Know Your Customer), Stock Recommendation
 and so on.
 
@@ -21,15 +21,15 @@ It's designed with the following concepts:
       \item \textbf{Based on real systems}. The task force members gathering
             together from industry and academia intend to design \ldbcfinbench
             to express and emphasize the special patterns of data and workload
-            distinguished from other popular benchmarks. In order to do that,
+            distinguished from other popular benchmarks. To do that,
             \ldbcfinbench is designed based on the rich practical experience of
-            member and additional surveys.
+            members and additional surveys.
       \item \textbf{Comprehensive and complete.} \ldbcfinbench is intended to
             cover most demands encountered in the management of complexly
             structured data in financial scenarios.
       \item \textbf{Challenging and instructive.} Benchmarks are known to direct
             product development in certain directions. \ldbcfinbench is informed
-            by the state-of-the-art in database research and industry practice
+            by state-of-the-art in database research and industry practice
             to offer optimization challenges.
       \item \textbf{Easy to use and extendable.} As a benchmark offering value
             to many relevant stakeholders, \ldbcfinbench is designed to be easy
@@ -52,7 +52,7 @@ It's designed with the following concepts:
 
 \section{New features in FinBench}
 
-\ldbcsnb, one of the earlier LDBC benchmarks, is modeled around the operation of a real social network site. It defines a data schema which represents a realistic social network including people and their activities during a period of time and also the workloads mimic the different usage scenarios found in operating a real social network site. Compared with \ldbcsnb, \ldbcfinbench is characterized by the special features and patterns of the data schema and queries which represent the characteristic of financial scenarios.
+\ldbcsnb, one of the earlier LDBC benchmarks, is modeled around the operation of a real social network site. It defines a data schema that represents a realistic social network including people and their activities during a period of time and also the workloads mimic the different usage scenarios found in operating a real social network site. Compared with \ldbcsnb, \ldbcfinbench is characterized by the special features and patterns of the data schema and queries that represent the characteristics of financial scenarios.
 
 \subsection{Data Schema}
 
@@ -71,7 +71,7 @@ The designed data schema is specified in \autoref{sec:data-definition}.
 
 \subsection{Workloads}
 
-In workloads and queries, financial scenarios has these distinguished characteristics.
+In workloads and queries, financial scenarios have these distinguished characteristics.
 \begin{itemize}
       \item More tight latency, \eg some queries need to return in less than 100ms.
       \item Write operations updating attributes, \eg marking an account as blocked.
@@ -85,9 +85,9 @@ In workloads and queries, financial scenarios has these distinguished characteri
             complexity of financial systems. Read-write query describes a desired pattern that risk control
             policies are checked, and corresponding actions are taken before financial activities like
             transfers are actually written down to storage. See \autoref{sec:read-write-query} for details.
-      \item Truncation. In financial scenarios, the degree of hub vertex may reach to million and even
-            billion scale, especially when traversing on graph. To handle the discordance between the tight
-            latency requirements and power-law distribution of data in system, truncation is introduced
+      \item Truncation. In financial scenarios, the degree of hub vertex may reach million and even
+            billion scales, especially when traversing on a graph. To handle the discordance between the tight
+            latency requirements and power-law distribution of data in the system, truncation is introduced
             to reduce the complexity of queries. See \autoref{sec:truncation-on-hub-vertices} for details.
 \end{itemize}
 
@@ -97,8 +97,8 @@ In \ldbcfinbench, there are two kinds of workloads:
             queries hopping a few steps from a start node. There are complex reads, simple reads, write
             operations, and read-write queries in transaction workload. The Transaction Workload is specified
             in \autoref{sec:transaction-workload}.
-      \item Analytics Workload. It supposed to include more complicated queries, \eg triggers and pre-computed
-            values in online systems. This part is future work which will be designed and discussed in the
+      \item Analytics Workload. It is supposed to include more complicated queries, \eg triggers and pre-computed
+            values in online systems. This part is future work that will be designed and discussed in the
             following versions. The Analytics Workload is specified in \autoref{sec:analytics-workload}.
 \end{itemize}
 
