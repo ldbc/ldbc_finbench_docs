@@ -119,13 +119,13 @@ No finite series of tests can prove that the ACID properties are fully supported
 The properties for ACID compliance are defined as follows:
 
 \paragraph{Atomicity}
-Either all of the effects of the transaction are in effect after the transaction or none of the effects
+Either all the effects of the transaction are in effect after the transaction or none of the effects
 is in effect. This is by definition only verifiable after a transaction has finished.
 
 \paragraph{Consistency}
 ADS such as secondary indices will be consistent among themselves as well as with the table or other PDS, if any. Such a consistency (compliance to all constraints, if these are declared in the schema, \eg primary key constraint, foreign key constraints and cardinality constraints) may be verified
 after the commit or rollback of a transaction. If a single thread of control runs within a transaction, then
-subsequent operations are expected to see a consistent state across all data indices pertaining to a table
+subsequent operations are expected to see a consistent state across all data indices of a table
 or similar object. Multiple threads which may share a transaction context are not required to observe a
 consistent state at all times during the execution of the transaction. Consistency will however always be
 verifiable after the commit or rollback of any transaction, regardless of the number of threads that have
@@ -141,18 +141,18 @@ that have participated in the transaction.
 Isolation is defined as the set of phenomena that may (or may not) be observed by operations running within a single transaction context. The levels of isolation are defined as follows:
 
 \begin{description}
-\item[Read uncommitted] No guarantees apply.
-\item[Read committed] A transaction will never read a value that has at no point in time been part of a
-    committed state.
-\item[Repeatable read] If a transaction reads a value several times during its execution, then it will see
-    the original state with its own modifications so far applied to it. If the transaction itself consists of
-    multiple reading and updating threads then the ambiguities that may arise are beyond the scope of transaction isolation.
-\item[Serializable] The transactions see values that correspond to a fully serial execution of
-    all client transactions. This is like a repeatable read except that if the transaction reads something, and
-    repeats the read, it is guaranteed that no new values will appear for the same search condition on a
-    subsequent read in the same transaction context. For example, a row that was seen not to exist when
-    first checked will not be seen by a subsequent read. Likewise, counts of items will not be seen to
-    change.
+    \item[Read uncommitted] No guarantees apply.
+    \item[Read committed] A transaction will never read a value that has at no point in time been part of a
+        committed state.
+    \item[Repeatable read] If a transaction reads a value several times during its execution, then it will see
+        the original state with its modifications so far applied to it. If the transaction itself consists of
+        multiple reading and updating threads then the ambiguities that may arise are beyond the scope of transaction isolation.
+    \item[Serializable] The transactions see values that correspond to a fully serial execution of
+        all client transactions. This is like a repeatable read except that if the transaction reads something, and
+        repeats the read, it is guaranteed that no new values will appear for the same search condition on a
+        subsequent read in the same transaction context. For example, a row that was seen not to exist when
+        first checked will not be seen by a subsequent read. Likewise, counts of items will not be seen to
+        change.
 \end{description}
 
 \paragraph{Durability}
@@ -184,7 +184,7 @@ A typical example of this is the following sequence:
 (1)~create a projected graph,
 (2)~run query,
 (3)~drop projected graph.
-However, it is not allowed to use subqueries in an unrealistic and contrived manner, \ie the goal of overcoming optimization issues, \eg hard-coding a certain join order in a declarative query language.
+However, it is not allowed to use sub-queries in an unrealistic and contrived manner, \ie the goal of overcoming optimization issues, \eg hard-coding a certain join order in a declarative query language.
 It is the responsibility of the auditor to determine whether a sequence of queries can be considered realistic w.r.t.\ how a user would formulate their queries in the language provided by the system.
 
 \subsubsection{Rules for Imperative Implementations Using a General-Purpose Programming Language}
@@ -220,7 +220,7 @@ For each distinct configuration, the FDR shall disclose the number of units of t
     \item For each distinct type of secondary storage device, the number and specification of the device, \eg 4xSeagate Constellation 2TB SATA 6Gbit/s.
     \item Number and type of network controllers, \eg 1x Mellanox QDR InfiniBand HCA, PCIE 2.0, 2x1GbE on motherboard. If the benchmark execution is entirely contained on a single machine, it must be stated, and the description of network controllers can be omitted.
     \item Number and type of network switches. If multiple switches are used, the wiring between the switches should be disclosed.
-    Only the network switches and interfaces that participate in the run need to be reported. If the benchmark execution is entirely contained on a single machine, it must be stated, and the description of network switches can be omitted.
+          Only the network switches and interfaces that participate in the run need to be reported. If the benchmark execution is entirely contained on a single machine, it must be stated, and the description of network switches can be omitted.
     \item Date of availability of the system as a whole, \ie the latest date of availability of any part.
 \end{enumerate}
 
@@ -250,7 +250,7 @@ The configuration of the SUT must be reported to include the following:
     \item Complete source code of driver-side benchmark implementation.
     \item Description of the benchmark environment, including software versions, OS kernel version, DBMS version as well as versions of other major software components used for running the benchmark (Docker, Java Virtual Machine, Python, etc.).
     \item The SUT's highest configurable isolation level and the isolation level used for running the benchmark.
-    %\item Use of partitioning or replication across multiple machines shall be disclosed if used. The specific partitioning keys or replication criteria, as well as the transactional behavior of said partitioning or replication shall be described. This shall not be inconsistent with the ACID behaviors specified in the benchmark.
+          %\item Use of partitioning or replication across multiple machines shall be disclosed if used. The specific partitioning keys or replication criteria, as well as the transactional behavior of said partitioning or replication shall be described. This shall not be inconsistent with the ACID behaviors specified in the benchmark.
 \end{enumerate}
 
 
@@ -262,11 +262,11 @@ The full disclosure shall contain any relevant parameters of the benchmark execu
     \item Complete text of any data loading script or program.
     \item Parameters, switches, configuration files for any test driver. If the test driver is not an LDBC supplied open source package or is a modification of such, then the complete text or diff against a specific LDBC package must be disclosed.
     \item Test driver output files shall be part of the disclosure. In general, these must at least detail the following:
-    \begin{enumerate}[label=\roman*)]
-        \item Time and duration of data load and the timed portion of the benchmark execution.
-        \item Count of each workload item (\eg query, transaction) successfully executed within the measurement window.
-        \item Min/average/max execution time of each workload item, the specific benchmark shall specify additional details.
-    \end{enumerate}
+          \begin{enumerate}[label=\roman*)]
+              \item Time and duration of data load and the timed portion of the benchmark execution.
+              \item Count of each workload item (\eg query, transaction) successfully executed within the measurement window.
+              \item Min/average/max execution time of each workload item, the specific benchmark shall specify additional details.
+          \end{enumerate}
 \end{enumerate}
 
 Given this information, the number of concurrent database sessions at each point in the execution must be clearly stated. In the case of a cluster database, the possible spreading of connections across multiple server processes must be disclosed.
@@ -316,7 +316,7 @@ Audited \emph{benchmark runs} of the Transaction workload shall use SF10. The ra
 
 \subsection{Data Model}
 
-FinBench may be implemented with different data models (\eg relational, RDF, and different graph data models). The reference schema is provided in the specification using a UML-like notation. 
+FinBench may be implemented with different data models (\eg relational, RDF, and different graph data models). The reference schema is provided in the specification using a UML-like notation.
 
 \subsection{Precomputation}
 
@@ -337,7 +337,7 @@ The test driver produces the following artifacts for each execution as a by-prod
 
 \subsubsection{Summary of Benchmark Results}
 \label{sec:performance-metrics}
-A separate test summary tool provided with the test driver analyses the test driver log(s) after a measurement window is completed. 
+A separate test summary tool provided with the test driver analyses the test driver log(s) after a measurement window is completed.
 
 The tool produces for each of the distinct queries and transactions the following summary:
 \begin{itemize}
@@ -418,7 +418,7 @@ If the SUT hardware was powered down, the recovery period does not include the r
 
 
 
-\paragraph{Recovery} 
+\paragraph{Recovery}
 The SUT is to be restarted after the measurement window and the auditor will verify that the SUT contains the entirety of the last update recorded by the test driver(s) as successfully committed. The driver or the implementation has to make this information available. The auditor may also check the \emph{audit log} of the SUT (if available) to confirm that the operations issued by the driver were saved.
 
 Once an official run has been validated, the recovery capabilities of the system must be tested. The system and the driver must be configured in the same way as in during the benchmark execution. After a warm-up period, execution of the benchmark will be performed under the same terms as in the previous measured run.
@@ -437,12 +437,12 @@ A benchmark execution is divided into the following processes (these processes a
     \item[Preprocessing] If needed, the output from the data generator is to preprocess the data set (\autoref{sec:auditing-data-format}).
     \item[Create validation data] Using one of the reference implementations of the benchmark, the reference validation data is obtained in JSON format.
     \item[Data loading] The test sponsor must provide all the necessary documentation and scripts to load the data set into the database to test.
-    This includes defining the database schema, if any, loading the initial database population, making this durably stored and gathering any optimizer statistics.
-    The system under test must support the different data types needed by the benchmark for each of the attributes at their specified precision. No data can be filtered out, everything must be loaded. The test sponsor must provide a tool to perform arbitrary checks of the data or a shell to issue queries in a declarative language if the system supports it.
+        This includes defining the database schema, if any, loading the initial database population, making this durably stored and gathering any optimizer statistics.
+        The system under test must support the different data types needed by the benchmark for each of the attributes at their specified precision. No data can be filtered out, everything must be loaded. The test sponsor must provide a tool to perform arbitrary checks of the data or a shell to issue queries in a declarative language if the system supports it.
     \item[Run cross-validation] This step uses the data loader to populate the database, but the load is not timed. The validation data set is used to verify the correctness of the SUT. The auditor must load the provided data set and run the driver in validation mode, which will test that the queries provide the official results.  The benchmarking workflow will not go beyond this point unless the results match the expected output.
     \item[Warm-up] Benchmark runs are preceded by a warm-up which must be performed using the LDBC driver.
     \item[Run benchmark] The bulk load time is reported and is equal to the amount of elapsed wall clock time between starting the schema definition and receiving the confirmation message of the end of statistics gathering. The workflow runs begin after the bulk load is completed. If the run does not directly follow the bulk load, it must start at a point in the update stream that has not previously been played into the database. In other words, a run may only include update events whose timestamp is later than the latest message creation date in the database before the start of run. The run starts when the first of the test drivers sends its first message to the SUT. If the SUT is running in the same process as the driver, the window starts
-    when the driver starts. Also, make sure that the \verb|-rl/--results_log| is enabled. Make sure that all operations are enabled and the frequencies are those for the selected scale factor (see the exact specification of the frequencies in \autoref{sec:sf-statistics}).
+        when the driver starts. Also, make sure that the \verb|-rl/--results_log| is enabled. Make sure that all operations are enabled, and the frequencies are those for the selected scale factor (see the exact specification of the frequencies in \autoref{sec:sf-statistics}).
 \end{description}
 
 \subsubsection{Query Timing During Benchmark Run}
@@ -451,8 +451,8 @@ A valid benchmark run must last at least 2 hours of wall clock time and at most 
 In order to be valid, a benchmark run needs to meet the ``95\% on-time requirement''.
 The \texttt{results\_log.csv} file contains the $\mathsf{actual\_start\_time}$ and the $\mathsf{scheduled\_start\_time}$ of each of the issued queries. To have a valid run, 95\% of the queries must meet the following condition:
 \begin{equation*}
-\mathsf{actual\_start\_time} - \mathsf{scheduled\_start\_time} < 1\
-\mathrm{second}
+    \mathsf{actual\_start\_time} - \mathsf{scheduled\_start\_time} < 1\
+    \mathrm{second}
 \end{equation*}
 
 If the execution of the benchmark is valid, the auditor must retrieve all the files from the directory specified by \verb|--results_dir| which includes configuration settings used, results log and results summary. All of which must be disclosed.
