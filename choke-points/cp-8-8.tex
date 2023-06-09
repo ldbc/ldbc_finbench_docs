@@ -1,7 +1,7 @@
 \newCPSection{8.8}{LANG}{Recursive path filtering pattern}
 
-Sometimes when tracing a fund flow, such pattern is expected that find a path
-with recursive filters. For example, filters are expected assuming a path A
+Sometimes when tracing a fund flow, such a pattern is expected that find a path
+with recursive filters. For example, filters are expected to assume a path A
 -[${e_1}$]-> B -[${e_2}$]-> ... -> X.
 
 \begin{itemize}
@@ -11,11 +11,10 @@ with recursive filters. For example, filters are expected assuming a path A
     $\vec{\Delta}$ is a given constant.
 \end{itemize}
 
-
-The feature that supporting backward recursive filtering based on edge
-properties is expected. A possible solution is adding keywords like
-\emph{SEQUENTIAL} and \emph{DELTA} referring to an extension of
-\emph{Cypher}~\cite{tcypher}.
+Such queries that require "all timestamps in the transfer trace are in ascending order" or the "upstream" edge are
+difficult to explain in plain Cypher (or GQL or SQL/PGQ) because they require support for the category of queries
+"Regular expression with memory" as described in this paper\cite{10.1145/2274576.2274585}. Another possible solution is
+adding keywords like \emph{SEQUENTIAL} and \emph{DELTA} referring to an extension of \emph{Cypher}~\cite{tcypher}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
