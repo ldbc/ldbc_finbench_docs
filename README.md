@@ -4,7 +4,7 @@
 
 [[Current Draft]](https://ldbcouncil.org/ldbc_finbench_docs/ldbc-finbench-specification.pdf)
 
-It is a specification **DRAFT** for LDBC Financial Benchmark in LaTeX.
+It is a specification **release candidate DRAFT** for LDBC Financial Benchmark v0.1.0 in LaTeX.
 
 ## Related benchmarks
 
