@@ -3,7 +3,7 @@
 
 This chapter describes the dataset used by \ldbcfinbench, including the data
 schema design and the data generation process. Generally, we design
-\ldbcfinbench balancing the reality and abstraction. There are some annotations
+\ldbcfinbench balancing reality and abstraction. There are some annotations
 about the compromises in data design,
 \begin{itemize}
     \item Although multiple persons/companies may own the same account in
@@ -13,12 +13,11 @@ about the compromises in data design,
           decisions, only approved transactions/transfers are recorded in the
           benchmark dataset.
     \item Considering the number of daily active users (DAU) of financial systems
-          in reality, there will be
-          many signIn edges between medium and account vertices. However, we do
-          not generate so many signIn edges aligning to reality with a limit
-          in the simulation of data generation process since systems usually
-          circumvent the problem by adding a medium attribute to edges like
-          transfer and withdraw to record the medium users used.
+          in reality, there will be many signIn edges between medium and account
+          vertices. However, we do not generate so many signIn edges aligning to
+          reality with a limit in the simulation of the data generation process
+          since systems usually circumvent the problem by adding a medium attribute
+          to edges like transfer and withdraw to record the medium users used.
 \end{itemize}
 
 \section{Data Types}
@@ -67,8 +66,8 @@ traces.
         four-digit integer representing the year, the year, \textit{mm} is a
         two-digit integer representing the month and \textit{dd} is a two-digit
         integer representing the day, \textit{HH} is a two-digit integer
-        representing the hour, \textit{MM} is a two digit integer representing
-        the minute and \textit{ss.sss} is a five digit fixed point real number
+        representing the hour, \textit{MM} is a two-digit integer representing
+        the minute and \textit{ss.sss} is a five-digit fixed point real number
         representing the seconds up to millisecond precision. Finally, the
         \textit{+0000} of the end represents the timezone, which in this case is
         always GMT.                                                              \\
@@ -153,7 +152,7 @@ shows the attributes.
         \hline
         isBlocked                    & Boolean            & If the company is blocked or concerned in systems. \\
         \hline
-        createTime                   & DateTime           & The time when the company created.                 \\
+        createTime                   & DateTime           & The time when the company is created.              \\
         \hline
         country                      & String             & Country of the company                             \\
         \hline
@@ -182,7 +181,7 @@ personalDeposit, personalCredit, etc. It can deal with other accounts.
         \hline
         id                           & ID                 & The identifier of the account.                     \\
         \hline
-        createTime                   & DateTime           & The time when the account created.                 \\
+        createTime                   & DateTime           & The time when the account is created.              \\
         \hline
         isBlocked                    & Boolean            & If the account is blocked or concerned in systems. \\
         \hline
@@ -205,7 +204,7 @@ personalDeposit, personalCredit, etc. It can deal with other accounts.
     \label{table:account}
 \end{table}
 
-{\flushleft \textbf{Loan:}} A loan for persons and company to apply in real
+{\flushleft \textbf{Loan:}} A loan for persons and companies to apply in real
 world. \autoref{table:loan} shows the attributes.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
@@ -240,7 +239,7 @@ sign in account in the real world, such as IP address, MAC address, phone number
         \hline
         type                         & String             & The medium type, \eg POS, IP.                     \\
         \hline
-        createTime                   & DateTime           & The time when the medium created.                 \\
+        createTime                   & DateTime           & The time when the medium is created.              \\
         \hline
         isBlocked                    & Boolean            & If the medium is blocked or concerned in systems. \\
         \hline
@@ -256,8 +255,8 @@ sign in account in the real world, such as IP address, MAC address, phone number
 \subsection{Relations}
 Relations connect entities of different types showed in
 \autoref{table:relations}. Except that own has no attributes, the
-attributes of other relations are showed in the following tables. Note that the
-Cardinality means the cardinal relationship from the tail to head of the edge
+attributes of other relations are shown in the following tables. Note that the
+Cardinality means the cardinal relationship from the tail to the head of the edge
 type and the Multiplicity means how many edges exist from the same tail to the
 same head. For example, the 1 : N cardinality of own means an account can
 only be owned by a person or a company.
@@ -311,7 +310,7 @@ only be owned by a person or a company.
     \label{table:transfer}
 \end{table}
 
-{\flushleft \textbf{withdraw:}} Fund is transferred from an account to another of type card. \autoref{table:withdraw} shows the attributes.
+{\flushleft \textbf{withdraw:}} Fund is transferred from one account to another of type card. \autoref{table:withdraw} shows the attributes.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
@@ -386,7 +385,7 @@ only be owned by a person or a company.
     \label{table:invest}
 \end{table}
 
-{\flushleft \textbf{apply:}} A person or a company applies a Loan. \autoref{table:apply} shows the attributes.
+{\flushleft \textbf{apply:}} A person or a company applies for a Loan. \autoref{table:apply} shows the attributes.
 \begin{table}[H]
     \begin{tabular}{|>{\varNameCell}p{\attributeColumnWidth}|>{\typeCell}p{\typeColumnWidth}|p{\descriptionColumnWidth}|}
         \hline
@@ -432,14 +431,14 @@ only be owned by a person or a company.
 \section{Data Generation}
 
 The data generation process is designed to produce a dataset that is as close as possible to the real-world data. The
-data generator stimulates the real-world financial activities in systems and generates the data according to the data
-schema. See the data generator for more details at \url{https://github.com/ldbc/ldbc_finbench_datagen}.
+data generator stimulates real-world financial activities in systems and generates the data according to the data
+schema. See the data generator for more details at \url{https://github.com/ldbc/ldbc_finbench_DataGen}.
 
 \section{Output Data}
 
 \subsection{Data Precision}
 
-The datasets are designed and created closely resembling real-world scenarios. {\datagen} produces
+The datasets are designed and created closely resembling real-world scenarios. {\DataGen} produces
 financial data having the precision as follows:
 \begin{itemize}
     \item The generated 64-bit Float numbers will have precision up to two decimal places for both

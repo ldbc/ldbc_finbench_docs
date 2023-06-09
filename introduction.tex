@@ -10,12 +10,12 @@
 Inspired by \ldbcsnb, a task force proposed by AntGroup~\cite{antgroup} is
 formed by the principal actors in the field of financial graph-like data
 management with help from LDBC to design a new benchmark, \ldbcfinbench (LDBC's
-Financial Benchmark). The task force intends to define a framework which is more
-applicable to financial scenarios to fairly test and compare different graph
-based technologies. To this end, they carefully design the dataset and workload
-using  their rich practical experience as members of the financial industry. \ldbcfinbench
+Financial Benchmark). The task force intends to define a framework that is more
+applicable to financial scenarios to fairly test and compare different graph-based
+technologies. To this end, they carefully design the dataset and workload using
+their rich practical experience as members of the financial industry. \ldbcfinbench
 is distinguished and characterized by the special features and patterns in
-financial industry.
+the financial industry.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,11 +27,11 @@ financial industry.
 stakeholders:
 
 \begin{itemize}
-      \item For \textbf{users} facing graph processing tasks in financial industry,
+      \item For \textbf{users} facing graph processing tasks in the financial industry,
             \ldbcfinbench provides a recognizable scenario against which it is possible
-            to compare merits of different products and technologies. By covering a wide
-            variety of scales and price points, \ldbcfinbench can serve as an aid to
-            technology selection.
+            to compare the merits of different products and technologies. By covering
+            a wide variety of scales and price points, \ldbcfinbench can serve as an
+            aid to technology selection.
       \item For \textbf{vendors} of graph database technology, \ldbcfinbench provides a
             checklist of features and performance characteristics that helps in product
             positioning and can serve to guide new development.
@@ -43,7 +43,7 @@ stakeholders:
 
 The technological scope of \ldbcfinbench comprises all systems that one might
 conceivably use to perform financial data management tasks including
-\textbf{Graph database management systems} (\eg Neo4j, TuGraph, etc.), \textbf{
+\textbf{Graph database management systems} (\eg Neo4j, TuGraph, Galaxybase, etc.), \textbf{
       Graph processing frameworks} (\eg Giraph, Ligra, etc.), \textbf{RDF database
       systems} (\eg Virtuoso, AWS Neptune, etc.), \textbf{Relational database systems}
 (\eg MySQL, Oracle, etc.), \textbf{NoSQL database systems} (\eg key-value stores
@@ -63,16 +63,16 @@ their experience and expertise to make this benchmark a credible effort. The lis
 of participants is as follows.
 
 \begin{itemize}
-  \item AntGroup (entity)
-  \item CreateLink (entity)
-  \item Ultipa (entity)
-  \item StarGraph (entity)
-  \item Vesoft (entity)
-  \item Pometry (entity)
-  \item Katana (entity)
-  \item Intel (entity)
-  \item TigerGraph (entity)
-  \item Koji Annoura (individual)
+      \item AntGroup (entity)
+      \item CreateLink (entity)
+      \item Ultipa (entity)
+      \item StarGraph (entity)
+      \item Vesoft (entity)
+      \item Pometry (entity)
+      \item Katana (entity)
+      \item Intel (entity)
+      \item TigerGraph (entity)
+      \item Koji Annoura (individual)
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,11 +82,11 @@ of participants is as follows.
 \section{Software Components}
 \label{sec:software-components}
 
-The source code of this specification and the benchmark suite are available
+The source code of this specification and the benchmark suite is available
 open-source:
 \begin{itemize}
       \item \ldbcfinbench Specification: \url{https://github.com/ldbc/ldbc_finbench_docs}
-      \item \ldbcfinbench Data Generator: \url{https://github.com/ldbc/ldbc_finbench_datagen}
+      \item \ldbcfinbench Data Generator: \url{https://github.com/ldbc/ldbc_finbench_DataGen}
       \item \ldbcfinbench Driver: \url{https://github.com/ldbc/ldbc_finbench_driver}
       \item Transaction Workload Implementation: \url{https://github.com/ldbc/ldbc_finbench_transaction_impls}
       \item Analytics Workload: future work
