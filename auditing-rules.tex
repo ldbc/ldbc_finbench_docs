@@ -433,16 +433,33 @@ At an arbitrary point close to 2 hours of wall clock time during the run, the ma
 A benchmark execution is divided into the following processes (these processes are also shown in \autoref{fig:audit-workflow}):
 
 \begin{description}
-    \item[Generate data] This includes running the data generator, placing the generated files in a staging area, configuring storage, setting up the SUT configuration and preparing any data partitions in the SUT. This may include preallocating database space but may not include loading any data or defining any schema having to do with the benchmark.
+    \item[Generate data] This includes running the data generator, placing the generated files in a staging area,
+        configuring storage, setting up the SUT configuration and preparing any data partitions in the SUT. This may include
+        preallocating database space but may not include loading any data or defining any schema having to do with the
+        benchmark.
     \item[Preprocessing] If needed, the output from the data generator is to preprocess the data set (\autoref{sec:auditing-data-format}).
     \item[Create validation data] Using one of the reference implementations of the benchmark, the reference validation data is obtained in JSON format.
-    \item[Data loading] The test sponsor must provide all the necessary documentation and scripts to load the data set into the database to test.
-        This includes defining the database schema, if any, loading the initial database population, making this durably stored and gathering any optimizer statistics.
-        The system under test must support the different data types needed by the benchmark for each of the attributes at their specified precision. No data can be filtered out, everything must be loaded. The test sponsor must provide a tool to perform arbitrary checks of the data or a shell to issue queries in a declarative language if the system supports it.
-    \item[Run cross-validation] This step uses the data loader to populate the database, but the load is not timed. The validation data set is used to verify the correctness of the SUT. The auditor must load the provided data set and run the driver in validation mode, which will test that the queries provide the official results.  The benchmarking workflow will not go beyond this point unless the results match the expected output.
+    \item[Data loading] The test sponsor must provide all the necessary documentation and scripts to load the data set
+        into the database to test. This includes defining the database schema, if any, loading the initial database
+        population, making this durably stored and gathering any optimizer statistics. The system under test must support
+        the different data types needed by the benchmark for each of the attributes at their specified precision. No data
+        can be filtered out, everything must be loaded. The test sponsor must provide a tool to perform arbitrary checks of
+        the data or a shell to issue queries in a declarative language if the system supports it.
+    \item[Run cross-validation] This step uses the data loader to populate the database, but the load is not timed. The
+        validation data set is used to verify the correctness of the SUT. The auditor must load the provided data set and run the driver in validation mode, which will test that the queries provide the
+        official results.  The benchmarking workflow will not go beyond this point unless the results match the expected
+        output.
     \item[Warm-up] Benchmark runs are preceded by a warm-up which must be performed using the LDBC driver.
-    \item[Run benchmark] The bulk load time is reported and is equal to the amount of elapsed wall clock time between starting the schema definition and receiving the confirmation message of the end of statistics gathering. The workflow runs begin after the bulk load is completed. If the run does not directly follow the bulk load, it must start at a point in the update stream that has not previously been played into the database. In other words, a run may only include update events whose timestamp is later than the latest message creation date in the database before the start of run. The run starts when the first of the test drivers sends its first message to the SUT. If the SUT is running in the same process as the driver, the window starts
-        when the driver starts. Also, make sure that the \verb|-rl/--results_log| is enabled. Make sure that all operations are enabled, and the frequencies are those for the selected scale factor (see the exact specification of the frequencies in \autoref{sec:sf-statistics}).
+    \item[Run benchmark] The bulk load time is reported and is equal to the amount of elapsed wall clock time between
+        starting the schema definition and receiving the confirmation message of the end of statistics gathering. The
+        workflow runs begin after the bulk load is completed. If the run does not directly follow the bulk load, it must
+        start at a point in the update stream that has not previously been played into the database. In other words, a run
+        may only include update events whose timestamp is later than the latest message creation date in the database before
+        the start of the run. The run starts when the first of the test drivers sends its first message to the SUT. If the
+        SUT is running in the same process as the driver, the window starts when the driver starts. Also, make sure that
+        the \verb|-rl/--results_log| is enabled. Make sure that all operations are enabled, and the frequencies are
+        those for the selected scale factor (see the exact specification of the frequencies in
+        \autoref{sec:sf-statistics}).
 \end{description}
 
 \subsubsection{Query Timing During Benchmark Run}
@@ -455,14 +472,18 @@ The \texttt{results\_log.csv} file contains the $\mathsf{actual\_start\_time}$ a
     \mathrm{second}
 \end{equation*}
 
-If the execution of the benchmark is valid, the auditor must retrieve all the files from the directory specified by \verb|--results_dir| which includes configuration settings used, results log and results summary. All of which must be disclosed.
+If the execution of the benchmark is valid, the auditor must retrieve all the files from the directory specified by
+\verb|--results_dir| which includes configuration settings used, results log and results summary. All of which must be
+disclosed.
 
 \subsubsection{Measurement Window}
 \label{sec:transaction-workload-measurement-window}
 
-Benchmark runs execute the workload on the SUT in two phases (\autoref{fig:measurement-window-selection}).
-First, the SUT must undergo a warm-up period that takes at least 30 minutes and at most 35 minutes. The goal of this is to put the system in a steady state which reflects how it would behave in a normal operating environment. The performance of the operations during warm-up is not considered.
-Next, the SUT is benchmarked during a two-hour measurement window. Operation times are recorded and checked to ensure the ``95\% on-time requirement'' is satisfied.
+Benchmark runs execute the workload on the SUT in two phases (\autoref{fig:measurement-window-selection}). First, the
+SUT must undergo a warm-up period that takes at least 30 minutes and at most 35 minutes. The goal of this is to put the
+system in a steady state which reflects how it would behave in a normal operating environment. The performance of the
+operations during warm-up is not considered. Next, the SUT is benchmarked during a two-hour measurement window.
+Operation times are recorded and checked to ensure the ``95\% on-time requirement'' is satisfied.
 
 \begin{figure}[h]
     \centering
@@ -471,8 +492,13 @@ Next, the SUT is benchmarked during a two-hour measurement window. Operation tim
     \label{fig:measurement-window-selection}
 \end{figure}
 
-The FinBench \DataGen produces 3~years worth data of which 10\% is used for updates (\autoref{sec:transaction-workload-data-sets}), \ie approximately $3 \times 365 \times 0.1 = 109.5~\text{days} = 2628~\text{hours}$.
-To ensure that the 2.5~hours wall clock period has enough input data, the lower bound of TCR is defined as 0.001 (if $2628$ hours of updates are played back at more than $1000\times$ speed, the benchmark framework runs out of updates to execute). A system that can achieve a better compression (\ie lower TCR value) on a given scale factor should use larger SFs for their benchmark runs -- otherwise their total runs will be less than 2.5~hours, making them unsuitable for auditing.
+The FinBench \DataGen produces 3~years worth data of which 3\% is used for updates
+(\autoref{sec:transaction-workload-data-sets}), \ie approximately $3 \times 365 \times 0.03 = 32.85~\text{days} =
+    788.4~\text{hours}$. To ensure that the 2.5~hours wall clock period has enough input data, the lower bound of TCR is
+defined as 0.001 (if $2628$ hours of updates are played back at more than $1000\times$ speed, the benchmark framework
+runs out of updates to execute). A system that can achieve a better compression (\ie lower TCR value) on a given scale
+factor should use larger SFs for their benchmark runs -- otherwise their total runs will be less than 2.5~hours, making
+them unsuitable for auditing.
 
 %The test summary tool may be used for reading the logs created by a test driver.
 
