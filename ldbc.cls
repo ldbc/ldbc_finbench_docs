@@ -137,7 +137,7 @@
 
 % Header setup
 
-\newcommand{\ldbcfinbenchdocversion}{0.1.0-rc}
+\newcommand{\ldbcfinbenchdocversion}{0.1.0}
 \newcommand{\ldbcfinbenchdoctitle}{The LDBC Financial Benchmark -- version \ldbcfinbenchdocversion}
 \delName{The LDBC Financial Benchmark \\ (version \ldbcfinbenchdocversion)}
 
@@ -216,8 +216,10 @@
         \vspace{2cm}
         {
         \begin{center}
-        The specification was built on the source code available at \\
-        \url{https://github.com/ldbc/ldbc_finbench_docs}
+            The specification was built on the source code available at \\
+            % \url{https://github.com/ldbc/ldbc_finbench_docs}
+            % use the following line for stable versions with a Git tag for \ldbcfinbenchdocversion:
+            \url{https://github.com/ldbc/ldbc_snb_docs/releases/tag/v\ldbcfinbenchdocversion}
         \end{center}
         }
 
