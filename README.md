@@ -2,11 +2,11 @@
 
 # LDBC FinBench Documentation
 
-[[Latest Specification]](https://ldbcouncil.org/ldbc_finbench_docs/ldbc-finbench-specification.pdf)
+[Latest Specification](https://ldbcouncil.org/ldbc_finbench_docs/ldbc-finbench-specification.pdf)
 
 It is a specification for LDBC Financial Benchmark in LaTeX.
 
-## How to build the this document
+## How to build this document
 
 This repository contains the LaTeX source for the specification of the LDBC FinBench. This README discusses how to build the [specification [PDF](https://ldbcouncil.org/ldbc_finbench_docs/ldbc-finbench-specification.pdf) from the source.
 
