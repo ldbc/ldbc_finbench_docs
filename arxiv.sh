@@ -10,18 +10,19 @@ set -o pipefail
 #    - Set a stable version number for `\ldbcfinbenchdocversion`
 #    - Under "The specification was built on the source code available at", uncomment the GitHub URL with the tag
 #
-# 2. Edit README.md
+# 2. Edit ldbc-finbench-specification.tex
+#    - Set \bibliography{bib/references} to \bibliography{ms}
+#
+# 3. Edit README.md
 #    - Adjust the version number in the PDF links
 #
-# 3. Commit and push to GitHub
+# 4. Commit and push to GitHub
 #
-# 4. On GitHub, create a new release with a tag of the same name, following the pattern `v1.2.3`.
+# 5. On GitHub, create a new release with a tag of the same name, following the pattern `v1.2.3`.
 #
-# 5. Locally, run `./arxiv.sh`
+# 6. Locally, run `./arxiv.sh`
 #
-# 6. Go to arXiv, log in, replace submission, and upload the new ms.zip file.
-#
-# 7. Check the output and submit it.
+# 7. Go to arXiv, log in, replace submission, and upload the new ms.zip file. Check the output and submit it.
 #
 # 8. Edit ldbc.cls
 #    - Set a snapshot version number for `\ldbcfinbenchdocversion`
@@ -37,7 +38,7 @@ set -o pipefail
 # compile a single bib file
 cat bib/*.bib > ms.bib
 mv ldbc-finbench-specification.tex ms.tex
-sed -i 's/\\bibliography{.*}/\\bibliography{ms}/' ms.tex
+# sed -i 's/\\bibliography{.*}/\\bibliography{ms}/' ms.tex
 
 # Even though the file exists, arXiv still states the following:
 # "We do not run bibtex in the auto-TeXing procedure. If you use bibtex, you must compile the .bbl file on your computer then include that in your uploaded source files. See using bibtex.
@@ -48,14 +49,14 @@ sed -i 's/\\bibliography{.*}/\\bibliography{ms}/' ms.tex
 ./generate-tex.py
 latexmk -pdf --interaction=batchmode ms
 
-# cleanup 
+# cleanup
+rm -f query-specifications/\[deprecated\]*.yaml
 rm -f *.aux *.dvi *.thm *.lof *.log *.lot *.fls *.out *.toc *.blg *.fdb_latexmk *.pdf
 rm -f ms.zip
 # standalone documents
-# rm -f standalone-query-cards/*
+# rm -f query-cards/*
 # rm -f workload-*.tex
-# binary docs
-# rm -f *.docx
+find . | grep pptx | xargs rm -f # binary docs
 
 # create archive
 zip -r ms.zip *

@@ -224,6 +224,14 @@
         }
 
         \vspace{1cm}%
+        
+        \begin{center}
+            \Large
+            \href{https://creativecommons.org/licenses/by/4.0/}{\includegraphics[width=4cm]{figures/cc-by.pdf}}
+            \\
+            This work is licensed under a Creative Commons Attribution 4.0 License.
+        \end{center}
+        
         \normalsize%
         \newpage%
         \normalLayout%
