@@ -219,7 +219,7 @@
             The specification was built on the source code available at \\
             % \url{https://github.com/ldbc/ldbc_finbench_docs}
             % use the following line for stable versions with a Git tag for \ldbcfinbenchdocversion:
-            \url{https://github.com/ldbc/ldbc_snb_docs/releases/tag/v\ldbcfinbenchdocversion}
+            \url{https://github.com/ldbc/ldbc_finbench_docs/releases/tag/v\ldbcfinbenchdocversion}
         \end{center}
         }
 
