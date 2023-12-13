@@ -137,7 +137,7 @@
 
 % Header setup
 
-\newcommand{\ldbcfinbenchdocversion}{0.1.0}
+\newcommand{\ldbcfinbenchdocversion}{0.2.0-alpha}
 \newcommand{\ldbcfinbenchdoctitle}{The LDBC Financial Benchmark -- version \ldbcfinbenchdocversion}
 \delName{The LDBC Financial Benchmark \\ (version \ldbcfinbenchdocversion)}
 
