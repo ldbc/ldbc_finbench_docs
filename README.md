@@ -6,6 +6,8 @@
 
 It is a specification for LDBC Financial Benchmark in LaTeX.
 
+**Note**: The main branch is a work-in-progress for upcoming `v0.2` release. For the stable version, please refer to `v0.1` on `0.1.0` branch.
+
 ## How to build this document
 
 This repository contains the LaTeX source for the specification of the LDBC FinBench. This README discusses how to build the [specification [PDF](https://ldbcouncil.org/ldbc_finbench_docs/ldbc-finbench-specification.pdf) from the source.
